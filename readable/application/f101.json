@@ -1,0 +1,122 @@
+{
+  "id":"101"
+ ,"Identification":{
+    "Name":"Test App"
+   ,"Alias":"A10120220630044202363"
+   ,"Version":"Release 1.0"
+  }
+ ,"Row Search":{
+    "Tokenize":false
+  }
+ ,"Availability":{
+    "Status":"Available with Developer Toolbar"
+   ,"Build Status":"Run and Build Application"
+  }
+ ,"Error Handling":{
+    "Default Display Location":"Inline with Field and in Notification"
+  }
+ ,"Report Printing":{
+    "Type":"Use Instance Settings"
+  }
+ ,"Advanced":{
+    "Friendly URLs":false
+   ,"Allow Feedback":true
+   ,"Logging":true
+   ,"Debugging":true
+   ,"Compatibility Mode":"19.1"
+  }
+ ,"Authentication":{
+    "Public User":"APEX_PUBLIC_USER"
+   ,"Authentication Scheme":"db (24513109188028399)"
+  }
+ ,"Authorization":{
+    "Source for Role or Group Schemes":"Access Control User Role Assignments"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Disabled"
+  }
+ ,"Session State Protection":{
+    "Enabled":true
+  }
+ ,"Security":{
+    "Deep Linking":"Disabled"
+   ,"Browser Cache":"Disabled"
+   ,"Embed in Frames":"Deny"
+   ,"Referrer Policy":"strict-origin-when-cross-origin"
+   ,"HTML Escaping Mode":"Extended"
+  }
+ ,"Advanced":{
+    "Pass ECID":"N"
+  }
+ ,"Database Session":{
+    "Parsing Schema":"DB_01"
+  }
+ ,"Globalization":{
+    "Primary Language":"English (en)"
+   ,"Document Direction":"Left-To-Right"
+   ,"Language Derived From":"Application Primary Language"
+   ,"Automatic Time Zone":false
+   ,"Automatic CSV Encoding":true
+  }
+ ,"Character Value Comparison":{
+    "Behavior":"Database session NLS setting (default)"
+  }
+ ,"Logo":{
+    "Type":"Text"
+   ,"Text":"Test App"
+  }
+ ,"Progressive Web App":{
+    "Enable":false
+  }
+ ,"Navigation":{
+    "Home URL":{
+      "url":"f?p=\u0026APP_ID.:1:\u0026SESSION."
+     ,"Page":"1"
+    }
+   ,"Login URL":{
+      "url":"f?p=\u0026APP_ID.:LOGIN_DESKTOP:\u0026SESSION."
+     ,"Page":"LOGIN_DESKTOP"
+    }
+  }
+ ,"Navigation Menu":{
+    "List Template":"Top Navigation Menu (13896076289228586)"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+   ,"List Position":"Top"
+   ,"List":"Desktop Navigation Menu (13800156677228482)"
+  }
+ ,"Navigation Bar":{
+    "Implementation":"List"
+   ,"List":"Desktop Navigation Bar (13928283596228667)"
+   ,"List Template":"Navigation Bar (13894827067228585)"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"JavaScript":{
+    "Include jQuery Migrate":false
+  }
+ ,"CSS":{
+    "File URLs":[
+      "#APP_IMAGES#app-icon.css?version=#APP_VERSION#"
+    ]
+  }
+ ,"Attributes":{
+    "Theme":"Universal Theme (42)"
+   ,"Global Page":"0"
+   ,"Enable End Users to choose Theme Style":false
+   ,"Add \"Built with APEX\" to Footer":false
+  }
+ ,"Substitutions":[
+    {
+      "id":"1"
+     ,"Identification":{
+        "Name":"APP_NAME"
+      }
+     ,"Value":{
+        "Static Value":"Test App"
+      }
+    }
+  ]
+}

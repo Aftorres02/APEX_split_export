@@ -1,0 +1,38 @@
+[
+  {
+    "id":"13799305768228477"
+   ,"Identification":{
+      "Name":"Application Express Authentication"
+    }
+   ,"Settings":{
+      "Type":"Oracle APEX Accounts"
+    }
+   ,"Session Not Valid":{
+      "Redirect to":"Login Page"
+    }
+   ,"Login Processing":{
+      "Switch in Session":false
+    }
+   ,"Real Application Security":{
+      "RAS Mode":"Disabled"
+    }
+  }
+ ,{
+    "id":"24513109188028399"
+   ,"Identification":{
+      "Name":"db"
+    }
+   ,"Settings":{
+      "Type":"Database Accounts"
+    }
+   ,"Session Not Valid":{
+      "Redirect to":"Login Page"
+    }
+   ,"Login Processing":{
+      "Switch in Session":false
+    }
+   ,"Real Application Security":{
+      "RAS Mode":"Disabled"
+    }
+  }
+]

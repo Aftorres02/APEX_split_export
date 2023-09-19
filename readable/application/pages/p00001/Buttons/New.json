@@ -1,0 +1,30 @@
+{
+    "id": "12781803861529350",
+    "Identification": {
+        "Button Name": "New",
+        "Label": "New"
+    },
+    "Layout": {
+        "Sequence": 40,
+        "Region": "Test App (13939399185228742)",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Alignment": "Left center"
+    },
+    "Appearance": {
+        "Button Template": "Text (13906049434228598)",
+        "Hot": false,
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Behavior": {
+        "Action": "Submit Page",
+        "Execute Validations": true,
+        "Warn on Unsaved Changes": "Do Not Check"
+    }
+}

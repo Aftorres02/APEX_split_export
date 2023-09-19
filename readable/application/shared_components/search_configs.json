@@ -1,0 +1,93 @@
+[
+  {
+    "id":"18187952078662209"
+   ,"Identification":{
+      "Name":"Emp"
+    }
+   ,"Source":{
+      "Search Type":"Simple (APEX Data Source)"
+     ,"Location":"Local Database"
+     ,"Type":"Table \/ View"
+     ,"Table Owner":"Parsing Schema"
+     ,"Table Name":"EMP"
+     ,"Searchable Columns":"ENAME:JOB:SAL:COMM"
+    }
+   ,"Column Mapping":{
+      "Primary Key 1 Column Name":"EMPNO"
+     ,"Title Column Name":"ENAME"
+    }
+   ,"Icon and Badge":{
+      "Icon Source":"Icon Class"
+    }
+   ,"Advanced":{
+      "Static ID":"emp"
+    }
+  }
+ ,{
+    "id":"18188550092668996"
+   ,"Identification":{
+      "Name":"Dept"
+    }
+   ,"Source":{
+      "Search Type":"Simple (APEX Data Source)"
+     ,"Location":"Local Database"
+     ,"Type":"Table \/ View"
+     ,"Table Owner":"Parsing Schema"
+     ,"Table Name":"DEPT"
+     ,"Searchable Columns":"DNAME:LOC"
+    }
+   ,"Column Mapping":{
+      "Primary Key 1 Column Name":"DEPTNO"
+     ,"Title Column Name":"DNAME"
+    }
+   ,"Icon and Badge":{
+      "Icon Source":"Icon Class"
+    }
+   ,"Advanced":{
+      "Static ID":"dept"
+    }
+  }
+ ,{
+    "id":"18188879142673158"
+   ,"Identification":{
+      "Name":"Men"
+    }
+   ,"Source":{
+      "Search Type":"APEX List"
+     ,"List":"Desktop Navigation Menu (13800156677228482)"
+    }
+   ,"Column Mapping":{
+      "Primary Key 1 Column Name":"1"
+     ,"Title Column Name":"2"
+    }
+   ,"Icon and Badge":{
+      "Icon Source":"Icon Class"
+    }
+   ,"Advanced":{
+      "Static ID":"men"
+    }
+  }
+ ,{
+    "id":"18189375803678349"
+   ,"Identification":{
+      "Name":"Otext"
+    }
+   ,"Source":{
+      "Search Type":"Oracle Text (Manual)"
+     ,"Type":"Table \/ View"
+     ,"Table Owner":"Parsing Schema"
+     ,"Table Name":"EMP"
+     ,"Oracle Text Index Column":"ENAME"
+    }
+   ,"Column Mapping":{
+      "Primary Key 1 Column Name":"EMPNO"
+     ,"Title Column Name":"ENAME"
+    }
+   ,"Icon and Badge":{
+      "Icon Source":"Initials"
+    }
+   ,"Advanced":{
+      "Static ID":"otext"
+    }
+  }
+]

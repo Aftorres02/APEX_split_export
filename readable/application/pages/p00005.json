@@ -1,0 +1,1100 @@
+{
+  "id":"5"
+ ,"Identification":{
+    "Name":"MD 1"
+   ,"Alias":"MD-1"
+   ,"Title":"MD 1"
+  }
+ ,"Appearance":{
+    "Page Mode":"Normal"
+   ,"Page Template":"Theme Default"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"Do not focus cursor"
+   ,"Warn on Unsaved Changes":true
+  }
+ ,"Security":{
+    "Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"Off"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Only for Success"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Regions":[
+    {
+      "id":"18096735519524216"
+     ,"Identification":{
+        "Title":"Breadcrumb"
+       ,"Type":"Breadcrumb"
+      }
+     ,"Source":{
+        "Breadcrumb":"Breadcrumb (13799618844228479)"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_01"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Title Bar (13859311033228553)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-BreadcrumbRegion--useBreadcrumbTitle"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "Breadcrumb Template":"Breadcrumb (13907436204228599)"
+         ,"Template Options":[
+            "#DEFAULT#"
+          ]
+        }
+      }
+    }
+   ,{
+      "id":"18097389647524217"
+     ,"Identification":{
+        "Title":"Buttons"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Buttons Container (13825796555228531)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-ButtonRegion--noPadding"
+         ,"t-ButtonRegion--noUI"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"18098107325524217"
+     ,"Identification":{
+        "Title":"MD 1"
+       ,"Type":"Interactive Grid"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"Table \/ View"
+       ,"Table Owner":"Parsing Schema"
+       ,"Table Name":"DEPT"
+       ,"Include ROWID Column":false
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Interactive Report (13848872653228545)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "id":"18098660861524218"
+       ,"Edit":{
+          "Enabled":true
+         ,"Allowed Operations":[
+            "Add Row"
+           ,"Update Row"
+           ,"Delete Row"
+          ]
+         ,"Lost Update Type":"Row Values"
+         ,"Add Row If Empty":true
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+        }
+       ,"Appearance":{
+          "Select First Row":true
+         ,"Fixed Row Height":true
+        }
+       ,"Pagination":{
+          "Type":"Scroll"
+         ,"Show Total Count":true
+        }
+       ,"Toolbar":{
+          "Show":true
+         ,"Controls":[
+            "Search Column Selection"
+           ,"Search Field"
+           ,"Actions Menu"
+           ,"Reset Button"
+          ]
+        }
+       ,"Enable Users To":{
+          "Save Public Report":false
+         ,"Flashback":true
+         ,"Define Chart View":true
+         ,"Download":true
+        }
+       ,"Download":{
+          "Formats":[
+            "CSV"
+           ,"HTML"
+           ,"PDF"
+           ,"Excel"
+          ]
+         ,"Send as Email":true
+        }
+       ,"Heading":{
+          "Fixed To":"Page"
+        }
+       ,"Icon View":{
+          "Show":false
+        }
+       ,"Detail View":{
+          "Show":false
+        }
+       ,"Saved Reports":[
+          {
+            "id":"18099094862524219"
+           ,"Identification":{
+              "Name":"Primary Report"
+             ,"Alias":"180991"
+            }
+          }
+        ]
+      }
+     ,"Columns":[
+        {
+          "id":"18099414125524221"
+         ,"Identification":{
+            "Column Name":"APEX$ROW_SELECTOR"
+           ,"Type":"Row Selector"
+          }
+         ,"Settings":{
+            "Enable Multi Select":true
+           ,"Show Select All":true
+           ,"Hide Control":false
+          }
+         ,"Layout":{
+            "Sequence":10
+          }
+        }
+       ,{
+          "id":"18099933384524222"
+         ,"Identification":{
+            "Column Name":"APEX$ROW_ACTION"
+           ,"Type":"Actions Menu"
+          }
+         ,"Layout":{
+            "Sequence":20
+          }
+        }
+       ,{
+          "id":"18100973330524224"
+         ,"Identification":{
+            "Column Name":"DEPTNO"
+           ,"Type":"Hidden"
+          }
+         ,"Settings":{
+            "Value Protected":true
+          }
+         ,"Layout":{
+            "Sequence":30
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Source":{
+            "Type":"Database Column"
+           ,"Database Column":"DEPTNO"
+           ,"Data Type":"NUMBER"
+           ,"Query Only":false
+           ,"Primary Key":true
+          }
+         ,"Default":{
+            "Duplicate Copies Existing Value":true
+          }
+         ,"Session State":{
+            "Data Type":"VARCHAR2"
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":false
+          }
+         ,"Enable Users To":{
+            "Sort":true
+           ,"Control Break\/Aggregate":true
+          }
+        }
+       ,{
+          "id":"18101943092524225"
+         ,"Identification":{
+            "Column Name":"DNAME"
+           ,"Type":"Text Field"
+          }
+         ,"Heading":{
+            "Heading":"Dname"
+           ,"Alignment":"start"
+          }
+         ,"Settings":{
+            "Trim Spaces":"Leading and Trailing"
+           ,"Text Case":"NO CHANGE"
+          }
+         ,"Layout":{
+            "Sequence":40
+           ,"Column Alignment":"start"
+           ,"Stretch":"Use Report Setting"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Validation":{
+            "Value Required":false
+           ,"Maximum Length":14
+          }
+         ,"Source":{
+            "Type":"Database Column"
+           ,"Database Column":"DNAME"
+           ,"Data Type":"VARCHAR2"
+           ,"Query Only":false
+           ,"Primary Key":false
+          }
+         ,"Default":{
+            "Duplicate Copies Existing Value":true
+          }
+         ,"Column Filter":{
+            "Enabled":true
+           ,"Performance Impacting Operators":[
+              "Contains"
+             ,"Starts With"
+             ,"Case Insensitive"
+             ,"Regular Expression"
+            ]
+           ,"Text Case":"Mixed"
+           ,"LOV Type":"Distinct Column"
+           ,"Exact Match":true
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Enable Users To":{
+            "Sort":true
+           ,"Control Break\/Aggregate":true
+           ,"Hide":true
+          }
+        }
+       ,{
+          "id":"18102902340524225"
+         ,"Identification":{
+            "Column Name":"LOC"
+           ,"Type":"Text Field"
+          }
+         ,"Heading":{
+            "Heading":"Loc"
+           ,"Alignment":"start"
+          }
+         ,"Settings":{
+            "Trim Spaces":"Leading and Trailing"
+           ,"Text Case":"NO CHANGE"
+          }
+         ,"Layout":{
+            "Sequence":50
+           ,"Column Alignment":"start"
+           ,"Stretch":"Use Report Setting"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Validation":{
+            "Value Required":false
+           ,"Maximum Length":13
+          }
+         ,"Source":{
+            "Type":"Database Column"
+           ,"Database Column":"LOC"
+           ,"Data Type":"VARCHAR2"
+           ,"Query Only":false
+           ,"Primary Key":false
+          }
+         ,"Default":{
+            "Duplicate Copies Existing Value":true
+          }
+         ,"Column Filter":{
+            "Enabled":true
+           ,"Performance Impacting Operators":[
+              "Contains"
+             ,"Starts With"
+             ,"Case Insensitive"
+             ,"Regular Expression"
+            ]
+           ,"Text Case":"Mixed"
+           ,"LOV Type":"Distinct Column"
+           ,"Exact Match":true
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Enable Users To":{
+            "Sort":true
+           ,"Control Break\/Aggregate":true
+           ,"Hide":true
+          }
+        }
+      ]
+     ,"Printing":{
+        "Page":{
+          "Size":"Letter"
+         ,"Orientation":"Landscape"
+         ,"Units":"Inches"
+         ,"Width":11
+         ,"Height":8.5
+         ,"Border Width":0.5
+         ,"Border Color":"#666666"
+        }
+       ,"Page Header":{
+          "Font":"Helvetica"
+         ,"Font Weight":"Normal"
+         ,"Font Size":12
+         ,"Font Color":"#000000"
+         ,"Alignment":"center"
+         ,"Page Header Text":"MD 1"
+        }
+       ,"Column Headings":{
+          "Font":"Helvetica"
+         ,"Font Weight":"Bold"
+         ,"Font Size":10
+         ,"Font Color":"#000000"
+         ,"Background Color":"#EEEEEE"
+        }
+       ,"Columns":{
+          "Font":"Helvetica"
+         ,"Font Weight":"Normal"
+         ,"Font Size":10
+         ,"Font Color":"#000000"
+         ,"Background Color":"#FFFFFF"
+        }
+       ,"Page Footer":{
+          "Font":"Helvetica"
+         ,"Font Weight":"Normal"
+         ,"Font Size":12
+         ,"Font Color":"#000000"
+         ,"Alignment":"center"
+        }
+      }
+    }
+   ,{
+      "id":"18104257069524508"
+     ,"Identification":{
+        "Title":"Employees"
+       ,"Type":"Interactive Grid"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"Table \/ View"
+       ,"Table Owner":"Parsing Schema"
+       ,"Table Name":"EMP"
+       ,"Include ROWID Column":false
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Interactive Report (13848872653228545)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Master Detail":{
+        "Master Region":"MD 1 (18098107325524217)"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "id":"18104639361524509"
+       ,"Edit":{
+          "Enabled":true
+         ,"Allowed Operations":[
+            "Add Row"
+           ,"Update Row"
+           ,"Delete Row"
+          ]
+         ,"Lost Update Type":"Row Values"
+         ,"Add Row If Empty":true
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+        }
+       ,"Appearance":{
+          "Select First Row":true
+         ,"Fixed Row Height":true
+        }
+       ,"Pagination":{
+          "Type":"Scroll"
+         ,"Show Total Count":true
+        }
+       ,"Toolbar":{
+          "Show":true
+         ,"Controls":[
+            "Search Column Selection"
+           ,"Search Field"
+           ,"Actions Menu"
+           ,"Reset Button"
+          ]
+        }
+       ,"Enable Users To":{
+          "Save Public Report":false
+         ,"Flashback":true
+         ,"Define Chart View":true
+         ,"Download":true
+        }
+       ,"Download":{
+          "Formats":[
+            "CSV"
+           ,"HTML"
+           ,"PDF"
+           ,"Excel"
+          ]
+         ,"Send as Email":true
+        }
+       ,"Heading":{
+          "Fixed To":"Page"
+        }
+       ,"Icon View":{
+          "Show":false
+        }
+       ,"Detail View":{
+          "Show":false
+        }
+       ,"Saved Reports":[
+          {
+            "id":"18105022464524509"
+           ,"Identification":{
+              "Name":"Primary Report"
+             ,"Alias":"181051"
+            }
+          }
+        ]
+      }
+     ,"Columns":[
+        {
+          "id":"18105429053524509"
+         ,"Identification":{
+            "Column Name":"APEX$ROW_SELECTOR"
+           ,"Type":"Row Selector"
+          }
+         ,"Settings":{
+            "Enable Multi Select":true
+           ,"Show Select All":true
+           ,"Hide Control":false
+          }
+         ,"Layout":{
+            "Sequence":10
+          }
+        }
+       ,{
+          "id":"18105925836524510"
+         ,"Identification":{
+            "Column Name":"APEX$ROW_ACTION"
+           ,"Type":"Actions Menu"
+          }
+         ,"Layout":{
+            "Sequence":20
+          }
+        }
+       ,{
+          "id":"18106985179524510"
+         ,"Identification":{
+            "Column Name":"EMPNO"
+           ,"Type":"Hidden"
+          }
+         ,"Settings":{
+            "Value Protected":true
+          }
+         ,"Layout":{
+            "Sequence":30
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Source":{
+            "Type":"Database Column"
+           ,"Database Column":"EMPNO"
+           ,"Data Type":"NUMBER"
+           ,"Query Only":false
+           ,"Primary Key":true
+          }
+         ,"Default":{
+            "Duplicate Copies Existing Value":true
+          }
+         ,"Session State":{
+            "Data Type":"VARCHAR2"
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":false
+          }
+         ,"Enable Users To":{
+            "Sort":true
+           ,"Control Break\/Aggregate":true
+          }
+        }
+       ,{
+          "id":"18107965902524511"
+         ,"Identification":{
+            "Column Name":"ENAME"
+           ,"Type":"Text Field"
+          }
+         ,"Heading":{
+            "Heading":"Ename"
+           ,"Alignment":"start"
+          }
+         ,"Settings":{
+            "Trim Spaces":"Leading and Trailing"
+           ,"Text Case":"NO CHANGE"
+          }
+         ,"Layout":{
+            "Sequence":40
+           ,"Column Alignment":"start"
+           ,"Stretch":"Use Report Setting"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Validation":{
+            "Value Required":false
+           ,"Maximum Length":10
+          }
+         ,"Source":{
+            "Type":"Database Column"
+           ,"Database Column":"ENAME"
+           ,"Data Type":"VARCHAR2"
+           ,"Query Only":false
+           ,"Primary Key":false
+          }
+         ,"Default":{
+            "Duplicate Copies Existing Value":true
+          }
+         ,"Column Filter":{
+            "Enabled":true
+           ,"Performance Impacting Operators":[
+              "Contains"
+             ,"Starts With"
+             ,"Case Insensitive"
+             ,"Regular Expression"
+            ]
+           ,"Text Case":"Mixed"
+           ,"LOV Type":"Distinct Column"
+           ,"Exact Match":true
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Enable Users To":{
+            "Sort":true
+           ,"Control Break\/Aggregate":true
+           ,"Hide":true
+          }
+        }
+       ,{
+          "id":"18108915927524512"
+         ,"Identification":{
+            "Column Name":"JOB"
+           ,"Type":"Text Field"
+          }
+         ,"Heading":{
+            "Heading":"Job"
+           ,"Alignment":"start"
+          }
+         ,"Settings":{
+            "Trim Spaces":"Leading and Trailing"
+           ,"Text Case":"NO CHANGE"
+          }
+         ,"Layout":{
+            "Sequence":50
+           ,"Column Alignment":"start"
+           ,"Stretch":"Use Report Setting"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Validation":{
+            "Value Required":false
+           ,"Maximum Length":9
+          }
+         ,"Source":{
+            "Type":"Database Column"
+           ,"Database Column":"JOB"
+           ,"Data Type":"VARCHAR2"
+           ,"Query Only":false
+           ,"Primary Key":false
+          }
+         ,"Default":{
+            "Duplicate Copies Existing Value":true
+          }
+         ,"Column Filter":{
+            "Enabled":true
+           ,"Performance Impacting Operators":[
+              "Contains"
+             ,"Starts With"
+             ,"Case Insensitive"
+             ,"Regular Expression"
+            ]
+           ,"Text Case":"Mixed"
+           ,"LOV Type":"Distinct Column"
+           ,"Exact Match":true
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Enable Users To":{
+            "Sort":true
+           ,"Control Break\/Aggregate":true
+           ,"Hide":true
+          }
+        }
+       ,{
+          "id":"18109980457524512"
+         ,"Identification":{
+            "Column Name":"MGR"
+           ,"Type":"Number Field"
+          }
+         ,"Heading":{
+            "Heading":"Mgr"
+           ,"Alignment":"end"
+          }
+         ,"Settings":{
+            "Number Alignment":"Start"
+           ,"Virtual Keyboard":"Decimal"
+          }
+         ,"Layout":{
+            "Sequence":60
+           ,"Column Alignment":"end"
+           ,"Stretch":"Use Report Setting"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Validation":{
+            "Value Required":false
+          }
+         ,"Source":{
+            "Type":"Database Column"
+           ,"Database Column":"MGR"
+           ,"Data Type":"NUMBER"
+           ,"Query Only":false
+           ,"Primary Key":false
+          }
+         ,"Default":{
+            "Duplicate Copies Existing Value":true
+          }
+         ,"Column Filter":{
+            "Enabled":true
+           ,"LOV Type":"None"
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Enable Users To":{
+            "Sort":true
+           ,"Control Break\/Aggregate":true
+           ,"Hide":true
+          }
+        }
+       ,{
+          "id":"18110940098524513"
+         ,"Identification":{
+            "Column Name":"HIREDATE"
+           ,"Type":"Date Picker"
+          }
+         ,"Heading":{
+            "Heading":"Hiredate"
+           ,"Alignment":"start"
+          }
+         ,"Settings":{
+            "Show Time":false
+           ,"Display As":"Popup"
+           ,"Minimum Date":"None"
+           ,"Maximum Date":"None"
+           ,"Multiple Months":"No"
+           ,"Use Defaults":true
+          }
+         ,"Layout":{
+            "Sequence":70
+           ,"Column Alignment":"start"
+           ,"Stretch":"Use Report Setting"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Validation":{
+            "Value Required":false
+          }
+         ,"Source":{
+            "Type":"Database Column"
+           ,"Database Column":"HIREDATE"
+           ,"Data Type":"DATE"
+           ,"Query Only":false
+           ,"Primary Key":false
+          }
+         ,"Default":{
+            "Duplicate Copies Existing Value":true
+          }
+         ,"Column Filter":{
+            "Enabled":true
+           ,"LOV Type":"Distinct Column"
+           ,"Date Ranges":"All"
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Enable Users To":{
+            "Sort":true
+           ,"Control Break\/Aggregate":true
+           ,"Hide":true
+          }
+        }
+       ,{
+          "id":"18111953306524514"
+         ,"Identification":{
+            "Column Name":"SAL"
+           ,"Type":"Number Field"
+          }
+         ,"Heading":{
+            "Heading":"Sal"
+           ,"Alignment":"end"
+          }
+         ,"Settings":{
+            "Number Alignment":"Start"
+           ,"Virtual Keyboard":"Decimal"
+          }
+         ,"Layout":{
+            "Sequence":80
+           ,"Column Alignment":"end"
+           ,"Stretch":"Use Report Setting"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Validation":{
+            "Value Required":false
+          }
+         ,"Source":{
+            "Type":"Database Column"
+           ,"Database Column":"SAL"
+           ,"Data Type":"NUMBER"
+           ,"Query Only":false
+           ,"Primary Key":false
+          }
+         ,"Default":{
+            "Duplicate Copies Existing Value":true
+          }
+         ,"Column Filter":{
+            "Enabled":true
+           ,"LOV Type":"None"
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Enable Users To":{
+            "Sort":true
+           ,"Control Break\/Aggregate":true
+           ,"Hide":true
+          }
+        }
+       ,{
+          "id":"18112926218524515"
+         ,"Identification":{
+            "Column Name":"COMM"
+           ,"Type":"Number Field"
+          }
+         ,"Heading":{
+            "Heading":"Comm"
+           ,"Alignment":"end"
+          }
+         ,"Settings":{
+            "Number Alignment":"Start"
+           ,"Virtual Keyboard":"Decimal"
+          }
+         ,"Layout":{
+            "Sequence":90
+           ,"Column Alignment":"end"
+           ,"Stretch":"Use Report Setting"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Validation":{
+            "Value Required":false
+          }
+         ,"Source":{
+            "Type":"Database Column"
+           ,"Database Column":"COMM"
+           ,"Data Type":"NUMBER"
+           ,"Query Only":false
+           ,"Primary Key":false
+          }
+         ,"Default":{
+            "Duplicate Copies Existing Value":true
+          }
+         ,"Column Filter":{
+            "Enabled":true
+           ,"LOV Type":"None"
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Enable Users To":{
+            "Sort":true
+           ,"Control Break\/Aggregate":true
+           ,"Hide":true
+          }
+        }
+       ,{
+          "id":"18113933082524515"
+         ,"Identification":{
+            "Column Name":"DEPTNO"
+           ,"Type":"Hidden"
+          }
+         ,"Settings":{
+            "Value Protected":true
+          }
+         ,"Layout":{
+            "Sequence":100
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Source":{
+            "Type":"Database Column"
+           ,"Database Column":"DEPTNO"
+           ,"Data Type":"NUMBER"
+           ,"Query Only":false
+           ,"Primary Key":false
+          }
+         ,"Master Detail":{
+            "Master Column":"DEPTNO (18100973330524224)"
+          }
+         ,"Session State":{
+            "Data Type":"VARCHAR2"
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":false
+          }
+         ,"Enable Users To":{
+            "Sort":true
+           ,"Control Break\/Aggregate":true
+          }
+        }
+      ]
+     ,"Printing":{
+        "Page":{
+          "Size":"Letter"
+         ,"Orientation":"Landscape"
+         ,"Units":"Inches"
+         ,"Width":11
+         ,"Height":8.5
+         ,"Border Width":0.5
+         ,"Border Color":"#666666"
+        }
+       ,"Page Header":{
+          "Font":"Helvetica"
+         ,"Font Weight":"Normal"
+         ,"Font Size":12
+         ,"Font Color":"#000000"
+         ,"Alignment":"center"
+         ,"Page Header Text":"Employees"
+        }
+       ,"Column Headings":{
+          "Font":"Helvetica"
+         ,"Font Weight":"Bold"
+         ,"Font Size":10
+         ,"Font Color":"#000000"
+         ,"Background Color":"#EEEEEE"
+        }
+       ,"Columns":{
+          "Font":"Helvetica"
+         ,"Font Weight":"Normal"
+         ,"Font Size":10
+         ,"Font Color":"#000000"
+         ,"Background Color":"#FFFFFF"
+        }
+       ,"Page Footer":{
+          "Font":"Helvetica"
+         ,"Font Weight":"Normal"
+         ,"Font Size":12
+         ,"Font Color":"#000000"
+         ,"Alignment":"center"
+        }
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"18097735605524217"
+     ,"Identification":{
+        "Button Name":"SAVE"
+       ,"Label":"Save"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Buttons (18097389647524217)"
+       ,"Position":"EDIT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (13906049434228598)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Submit Page"
+       ,"Execute Validations":true
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+  ]
+ ,"Processes":[
+    {
+      "id":"18103925716524226"
+     ,"Identification":{
+        "Name":"MD 1 - Save Interactive Grid Data"
+       ,"Type":"Interactive Grid - Automatic Row Processing (DML)"
+       ,"Execution Chain":"None"
+       ,"Editable Region":"MD 1 (18098107325524217)"
+      }
+     ,"Settings":{
+        "Target Type":"Region Source"
+       ,"Prevent Lost Updates":true
+       ,"Lock Row":"Yes"
+       ,"Return Primary Key(s) after Insert":true
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Display Location":"Inline in Notification"
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"SAVE (18097735605524217)"
+       ,"Execution Scope":"For Created and Modified Rows"
+      }
+    }
+   ,{
+      "id":"18114903759524516"
+     ,"Identification":{
+        "Name":"Employees - Save Interactive Grid Data"
+       ,"Type":"Interactive Grid - Automatic Row Processing (DML)"
+       ,"Execution Chain":"None"
+       ,"Editable Region":"Employees (18104257069524508)"
+      }
+     ,"Settings":{
+        "Target Type":"Region Source"
+       ,"Prevent Lost Updates":true
+       ,"Lock Row":"Yes"
+       ,"Return Primary Key(s) after Insert":true
+      }
+     ,"Execution":{
+        "Sequence":20
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Display Location":"Inline in Notification"
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"SAVE (18097735605524217)"
+       ,"Execution Scope":"For Created and Modified Rows"
+      }
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+[
+  {
+    "id":"13933639297228717"
+   ,"Identification":{
+      "Name":"LOGIN_REMEMBER_USERNAME"
+    }
+   ,"Source":{
+      "Location":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"13934048680228719"
+       ,"Entry":{
+          "Sequence":10
+         ,"Display":"Remember username"
+         ,"Return":"Y"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"18147970188544675"
+   ,"Identification":{
+      "Name":"EMP.ENAME"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Table \/ View"
+     ,"Table Owner":"Parsing Schema"
+     ,"Table Name":"EMP"
+    }
+   ,"Column Mapping":{
+      "Return":"EMPNO"
+     ,"Display":"ENAME"
+     ,"Default Sort":"ENAME"
+     ,"Sort Direction":"Ascending (Nulls Last)"
+    }
+  }
+ ,{
+    "id":"18149827435544678"
+   ,"Identification":{
+      "Name":"DEPT.DNAME"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Table \/ View"
+     ,"Table Owner":"Parsing Schema"
+     ,"Table Name":"DEPT"
+    }
+   ,"Column Mapping":{
+      "Return":"DEPTNO"
+     ,"Display":"DNAME"
+     ,"Default Sort":"DNAME"
+     ,"Sort Direction":"Ascending (Nulls Last)"
+    }
+  }
+]
