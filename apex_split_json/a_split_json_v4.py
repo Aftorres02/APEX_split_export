@@ -1,5 +1,15 @@
 import json
 import os
+import shutil
+
+# Función para borrar carpetas creadas por el código anterior
+def delete_existing_folders(input_path):
+    root_folder = os.path.splitext(os.path.basename(input_path))[0]
+    base_folder = os.path.join(os.path.dirname(input_path), root_folder)
+
+    if os.path.exists(base_folder):
+        shutil.rmtree(base_folder)
+
 
 # Función para crear carpetas y archivos
 def create_folders_and_files(input_path):
@@ -70,20 +80,15 @@ def create_folders_and_files(input_path):
 
 #C:\MyPc\1_Git\APEX_split_export\f192\readable\application\pages\p00020.json
 
-""" # Ruta del archivo JSON de entrada
-input_path = '../f192/readable/application/pages/p00020.json'
-
-# Llamar a la función para crear carpetas y archivos
-create_folders_and_files(input_path)
-
-print(f'Carpetas y archivos creados en: {input_path}')
- """
-
 # Ruta del directorio que contiene los archivos JSON a procesar
 input_dir = '../f192/readable/application/pages'
 
 # Obtener la lista de archivos JSON en el directorio
 json_files = [f for f in os.listdir(input_dir) if f.endswith('.json')]
+
+# Eliminar todas las carpetas creadas por el código anterior
+for json_file in json_files:
+    delete_existing_folders(os.path.join(input_dir, json_file))
 
 contador = 0
 # Procesar cada archivo JSON en el directorio
