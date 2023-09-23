@@ -1,0 +1,4190 @@
+{
+  "id":"1"
+ ,"Identification":{
+    "Name":"Dashboard"
+   ,"Alias":"DASHBOARD"
+   ,"Title":"Dashboard"
+   ,"Page Group":"Customers (14749179822908293214)"
+  }
+ ,"Appearance":{
+    "Page Mode":"Normal"
+   ,"Page Template":"Left Side Column (14888224114215691787)"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"First item on page"
+   ,"Warn on Unsaved Changes":false
+  }
+ ,"Security":{
+    "Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Enabled"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"Off"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Always"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Help":{
+    "Help Text":"No help is available for this page."
+  }
+ ,"Regions":[
+    {
+      "id":"1085913010767423278"
+     ,"Identification":{
+        "Title":"Customers by Category"
+       ,"Type":"Chart"
+      }
+     ,"Source":{
+        "Page Items to Submit":[
+          "P1_TYPE"
+         ,"P1_SEARCH"
+         ,"P1_USE_CASE"
+         ,"P1_MARQUEE_CUST"
+         ,"P1_PRODUCT"
+         ,"P1_IMP_PARTNER"
+         ,"P1_GEO"
+         ,"P1_COMPETITOR"
+         ,"P1_REFERENCEABLE"
+         ,"P1_SCP_CUST"
+         ,"P1_REFERENCE_TYPES"
+         ,"P1_COUNTRY"
+         ,"P1_STATUS"
+         ,"P1_INDUSTRY"
+         ,"P1_CATEGORY"
+        ]
+      }
+     ,"Layout":{
+        "Sequence":56
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"js-showMaximizeButton"
+         ,"i-h320"
+         ,"t-Region--scrollBody"
+        ]
+       ,"CSS Classes":[
+          "scrollable-region"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Static ID":"CUST_BY_CATS"
+       ,"Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Security":{
+        "Escape special characters":true
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Customizable and Shown By Default"
+      }
+     ,"Attributes":{
+        "id":"1085913181528423280"
+       ,"Chart":{
+          "Type":"Bar"
+        }
+       ,"Appearance":{
+          "Orientation":"Vertical"
+         ,"Stack":false
+        }
+       ,"Data Cursor":{
+          "Cursor":"Automatic"
+         ,"Behavior":"Automatic"
+         ,"Dim On Hover":false
+        }
+       ,"Multi-Series Chart Data":{
+          "Fill Gaps in Chart Data":true
+         ,"Sort Order":"Label - Ascending"
+         ,"Render Gap as Zero":true
+        }
+       ,"Settings":{
+          "Zoom and Scroll":"No"
+        }
+       ,"Animation":{
+          "On Display":"None"
+         ,"On Data Change":"None"
+        }
+       ,"Tooltip":{
+          "Show":true
+         ,"Show Series Name":false
+         ,"Show Group Name":true
+         ,"Show Value":true
+        }
+       ,"Legend":{
+          "Show":false
+        }
+       ,"Series":[
+          {
+            "id":"1085913268366423281"
+           ,"Identification":{
+              "Name":"Category"
+            }
+           ,"Execution":{
+              "Sequence":10
+            }
+           ,"Source":{
+              "Location":"Local Database"
+             ,"Type":"SQL Query"
+             ,"SQL Query":"select  \n    b.id,\n    b.category,\n    count(*) cnt\nfrom   \n    eba_cust_customers a, \n    eba_cust_categories b,\n    eba_cust_status c,\n    eba_cust_geographies d,\n    eba_cust_type e,\n    eba_cust_use_case f\nwhere a.category_id = b.id\n    and a.status_id = c.id(+)\n    and a.geography_id = d.id(+)\n    and a.type_id = e.id(+)\n    and a.use_case_id = f.id(+)\n    and a.category_id is not null\n    and (:P1_SEARCH is null or\n            instr(upper(a.customer_name),upper(:P1_SEARCH)) \u003E 0 or\n                       instr(upper(a.summary),upper(:P1_SEARCH)) \u003E 0 )\n    and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n    and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n    and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n    and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n    and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n    and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n    and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n    and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n    and (:P1_IMP_PARTNER is null\n        or exists ( select null\n                    from eba_cust_cust_partner_ref rf\n                    where rf.customer_id = a.id\n                        and rf.partner_id = :P1_IMP_PARTNER ))\n    and (:P1_COMPETITOR is null\n        or exists ( select null\n                    from eba_cust_cust_competitor_ref rf\n                    where rf.customer_id = a.id\n                        and rf.competitor_id = :P1_COMPETITOR ))\n    and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n    and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n    and (\n        exists (select 1 from eba_cust_customer_reftype_ref r\n        where r.customer_id = a.id and\n              instr(\u0027:\u0027||:P1_REFERENCE_TYPES||\u0027:\u0027,\u0027:\u0027||reference_type_id||\u0027:\u0027) \u003E 0)\n        or \n        :P1_REFERENCE_TYPES is null\n        )\n    and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P1_PRODUCT))\ngroup by b.id, b.category\norder by 2"
+            }
+           ,"Column Mapping":{
+              "Label":"CATEGORY"
+             ,"Value":"CNT"
+            }
+           ,"Appearance":{
+              "Assigned To Y2 Axis":false
+            }
+           ,"Link":{
+              "Type":"Redirect to Page in this Application"
+             ,"Target":{
+                "url":"f?p=\u0026APP_ID.:59:\u0026SESSION.::\u0026DEBUG.:RP,59,RIR:IR_CATEGORY,P59_CATEGORY,P59_COMPETITOR,P59_COUNTRY,P59_GEO,P59_IMP_PARTNER,P59_INDUSTRY,P59_MARQUEE_CUST,P59_MAX_ROWS,P59_PRODUCT,P59_REFERENCE_TYPES,P59_REFERENCEABLE,P59_SCP_CUST,P59_STATUS,P59_TYPE,P59_USE_CASE,P59_SEARCH:\u0026CATEGORY.,\u0026ID.,\u0026P1_COMPETITOR.,\u0026P1_COUNTRY.,\u0026P1_GEO.,\u0026P1_IMP_PARTNER.,\u0026P1_INDUSTRY.,\u0026P1_MARQUEE_CUST.,\u0026P1_MAX_ROWS.,\u0026P1_PRODUCT.,\u005C\u0026P1_REFERENCE_TYPES.\u005C,\u0026P1_REFERENCEABLE.,\u0026P1_SCP_CUST.,\u0026P1_STATUS.,\u0026P1_TYPE.,\u0026P1_USE_CASE.,\u0026P1_SEARCH."
+               ,"Page":"59"
+               ,"Clear Cache":"RP,59,RIR"
+               ,"Values":{
+                  "IR_CATEGORY":"\u0026CATEGORY."
+                 ,"P59_CATEGORY":"\u0026ID."
+                 ,"P59_COMPETITOR":"\u0026P1_COMPETITOR."
+                 ,"P59_COUNTRY":"\u0026P1_COUNTRY."
+                 ,"P59_GEO":"\u0026P1_GEO."
+                 ,"P59_IMP_PARTNER":"\u0026P1_IMP_PARTNER."
+                 ,"P59_INDUSTRY":"\u0026P1_INDUSTRY."
+                 ,"P59_MARQUEE_CUST":"\u0026P1_MARQUEE_CUST."
+                 ,"P59_MAX_ROWS":"\u0026P1_MAX_ROWS."
+                 ,"P59_PRODUCT":"\u0026P1_PRODUCT."
+                 ,"P59_REFERENCE_TYPES":"\u0026P1_REFERENCE_TYPES."
+                 ,"P59_REFERENCEABLE":"\u0026P1_REFERENCEABLE."
+                 ,"P59_SCP_CUST":"\u0026P1_SCP_CUST."
+                 ,"P59_STATUS":"\u0026P1_STATUS."
+                 ,"P59_TYPE":"\u0026P1_TYPE."
+                 ,"P59_USE_CASE":"\u0026P1_USE_CASE."
+                 ,"P59_SEARCH":"\u0026P1_SEARCH."
+                }
+              }
+            }
+           ,"Label":{
+              "Show":false
+            }
+          }
+        ]
+       ,"Axes":[
+          {
+            "id":"1134985742359235232"
+           ,"Identification":{
+              "Name":"x"
+             ,"Show Axis":true
+            }
+           ,"Value":{
+              "Format Scaling":"Automatic"
+             ,"Baseline Scaling":"Zero"
+             ,"Scale":"Linear"
+            }
+           ,"Major Ticks":{
+              "Show":"Automatic"
+            }
+           ,"Minor Ticks":{
+              "Show":true
+            }
+           ,"Tick Label":{
+              "Show":true
+             ,"Rotation":true
+             ,"Position":"Outside"
+            }
+          }
+         ,{
+            "id":"1134985836418235233"
+           ,"Identification":{
+              "Name":"y"
+             ,"Show Axis":true
+            }
+           ,"Value":{
+              "Format Scaling":"None"
+             ,"Baseline Scaling":"Zero"
+             ,"Scale":"Linear"
+            }
+           ,"Appearance":{
+              "Position":"Automatic"
+            }
+           ,"Major Ticks":{
+              "Show":"Yes"
+            }
+           ,"Minor Ticks":{
+              "Show":false
+            }
+           ,"Tick Label":{
+              "Show":true
+            }
+          }
+        ]
+      }
+    }
+   ,{
+      "id":"1134985930100235234"
+     ,"Identification":{
+        "Title":"Customers by Geography"
+       ,"Type":"Chart"
+      }
+     ,"Source":{
+        "Page Items to Submit":[
+          "P1_TYPE"
+         ,"P1_SEARCH"
+         ,"P1_USE_CASE"
+         ,"P1_MARQUEE_CUST"
+         ,"P1_PRODUCT"
+         ,"P1_IMP_PARTNER"
+         ,"P1_GEO"
+         ,"P1_COMPETITOR"
+         ,"P1_REFERENCEABLE"
+         ,"P1_SCP_CUST"
+         ,"P1_REFERENCE_TYPES"
+         ,"P1_COUNTRY"
+         ,"P1_STATUS"
+         ,"P1_INDUSTRY"
+         ,"P1_CATEGORY"
+        ]
+      }
+     ,"Layout":{
+        "Sequence":86
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":false
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"js-showMaximizeButton"
+         ,"i-h320"
+         ,"t-Region--scrollBody"
+        ]
+       ,"CSS Classes":[
+          "scrollable-region"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Static ID":"CUST_BY_GEO"
+       ,"Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Security":{
+        "Escape special characters":true
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Configuration":{
+        "Build Option":"Geography (14985171647776348081)"
+      }
+     ,"Attributes":{
+        "id":"1134986190824235236"
+       ,"Chart":{
+          "Type":"Bar"
+        }
+       ,"Appearance":{
+          "Orientation":"Vertical"
+         ,"Stack":false
+        }
+       ,"Data Cursor":{
+          "Cursor":"Automatic"
+         ,"Behavior":"Automatic"
+         ,"Dim On Hover":false
+        }
+       ,"Multi-Series Chart Data":{
+          "Fill Gaps in Chart Data":true
+         ,"Sort Order":"Label - Ascending"
+         ,"Render Gap as Zero":true
+        }
+       ,"Settings":{
+          "Zoom and Scroll":"No"
+        }
+       ,"Animation":{
+          "On Display":"None"
+         ,"On Data Change":"None"
+        }
+       ,"Tooltip":{
+          "Show":true
+         ,"Show Series Name":false
+         ,"Show Group Name":true
+         ,"Show Value":true
+        }
+       ,"Legend":{
+          "Show":false
+        }
+       ,"Series":[
+          {
+            "id":"1134986225151235237"
+           ,"Identification":{
+              "Name":"Geography"
+            }
+           ,"Execution":{
+              "Sequence":10
+            }
+           ,"Source":{
+              "Location":"Local Database"
+             ,"Type":"SQL Query"
+             ,"SQL Query":"select\n   d.id as geo_id,\n   nvl(d.geography_name, \u0027Not Defined\u0027) group_name,\n   count(*) cnt\nfrom eba_cust_customers a,\n    eba_cust_categories b,\n    eba_cust_status c,\n    eba_cust_geographies d,\n    eba_cust_type e,\n    eba_cust_use_case f\nwhere a.category_id = b.id(+)\n    and a.status_id = c.id(+)\n    and a.geography_id = d.id\n    and a.type_id = e.id(+)\n    and a.use_case_id = f.id(+)\n    and (:P1_SEARCH is null or\n            instr(upper(a.customer_name),upper(:P1_SEARCH)) \u003E 0 or\n                       instr(upper(a.summary),upper(:P1_SEARCH)) \u003E 0 )\n    and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n    and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n    and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n    and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n    and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n    and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n    and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n    and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n    and (:P1_IMP_PARTNER is null\n        or exists ( select null\n                    from eba_cust_cust_partner_ref rf\n                    where rf.customer_id = a.id\n                        and rf.partner_id = :P1_IMP_PARTNER ))\n    and (:P1_COMPETITOR is null\n        or exists ( select null\n                    from eba_cust_cust_competitor_ref rf\n                    where rf.customer_id = a.id\n                        and rf.competitor_id = :P1_COMPETITOR ))\n    and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n    and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n    and (\n        exists (select 1 from eba_cust_customer_reftype_ref r\n        where r.customer_id = a.id and\n              instr(\u0027:\u0027||:P1_REFERENCE_TYPES||\u0027:\u0027,\u0027:\u0027||reference_type_id||\u0027:\u0027) \u003E 0)\n        or \n        :P1_REFERENCE_TYPES is null\n        )\n    and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P1_PRODUCT))\ngroup by d.id, nvl(d.geography_name, \u0027Not Defined\u0027)\norder by 2 desc"
+            }
+           ,"Column Mapping":{
+              "Label":"GROUP_NAME"
+             ,"Value":"CNT"
+            }
+           ,"Appearance":{
+              "Assigned To Y2 Axis":false
+            }
+           ,"Link":{
+              "Type":"Redirect to Page in this Application"
+             ,"Target":{
+                "url":"f?p=\u0026APP_ID.:59:\u0026SESSION.::\u0026DEBUG.:RP,RIR,59:IR_GEOGRAPHY_NAME,P59_GEO,P59_CATEGORY,P59_COMPETITOR,P59_COUNTRY,P59_IMP_PARTNER,P59_INDUSTRY,P59_MARQUEE_CUST,P59_MAX_ROWS,P59_PRODUCT,P59_REFERENCE_TYPES,P59_REFERENCEABLE,P59_SCP_CUST,P59_SEARCH,P59_STATUS,P59_TYPE,P59_USE_CASE:\u0026GROUP_NAME.,\u0026GEO_ID.,\u0026P1_CATEGORY.,\u0026P1_COMPETITOR.,\u0026P1_COUNTRY.,\u0026P1_IMP_PARTNER.,\u0026P1_INDUSTRY.,\u0026P1_MARQUEE_CUST.,\u0026P1_MAX_ROWS.,\u0026P1_PRODUCT.,\u005C\u0026P1_REFERENCE_TYPES.\u005C,\u0026P1_REFERENCEABLE.,\u0026P1_SCP_CUST.,\u0026P1_SEARCH.,\u0026P1_STATUS.,\u0026P1_TYPE.,\u0026P1_USE_CASE."
+               ,"Page":"59"
+               ,"Clear Cache":"RP,RIR,59"
+               ,"Values":{
+                  "IR_GEOGRAPHY_NAME":"\u0026GROUP_NAME."
+                 ,"P59_GEO":"\u0026GEO_ID."
+                 ,"P59_CATEGORY":"\u0026P1_CATEGORY."
+                 ,"P59_COMPETITOR":"\u0026P1_COMPETITOR."
+                 ,"P59_COUNTRY":"\u0026P1_COUNTRY."
+                 ,"P59_IMP_PARTNER":"\u0026P1_IMP_PARTNER."
+                 ,"P59_INDUSTRY":"\u0026P1_INDUSTRY."
+                 ,"P59_MARQUEE_CUST":"\u0026P1_MARQUEE_CUST."
+                 ,"P59_MAX_ROWS":"\u0026P1_MAX_ROWS."
+                 ,"P59_PRODUCT":"\u0026P1_PRODUCT."
+                 ,"P59_REFERENCE_TYPES":"\u0026P1_REFERENCE_TYPES."
+                 ,"P59_REFERENCEABLE":"\u0026P1_REFERENCEABLE."
+                 ,"P59_SCP_CUST":"\u0026P1_SCP_CUST."
+                 ,"P59_SEARCH":"\u0026P1_SEARCH."
+                 ,"P59_STATUS":"\u0026P1_STATUS."
+                 ,"P59_TYPE":"\u0026P1_TYPE."
+                 ,"P59_USE_CASE":"\u0026P1_USE_CASE."
+                }
+              }
+            }
+           ,"Label":{
+              "Show":false
+            }
+          }
+        ]
+       ,"Axes":[
+          {
+            "id":"1134986349695235238"
+           ,"Identification":{
+              "Name":"x"
+             ,"Show Axis":true
+            }
+           ,"Value":{
+              "Format Scaling":"Automatic"
+             ,"Baseline Scaling":"Zero"
+             ,"Scale":"Linear"
+            }
+           ,"Major Ticks":{
+              "Show":"No"
+            }
+           ,"Minor Ticks":{
+              "Show":false
+            }
+           ,"Tick Label":{
+              "Show":true
+             ,"Rotation":true
+             ,"Position":"Outside"
+            }
+          }
+         ,{
+            "id":"1134986412952235239"
+           ,"Identification":{
+              "Name":"y"
+             ,"Show Axis":true
+            }
+           ,"Value":{
+              "Format Scaling":"None"
+             ,"Baseline Scaling":"Zero"
+             ,"Scale":"Linear"
+            }
+           ,"Appearance":{
+              "Position":"Automatic"
+            }
+           ,"Major Ticks":{
+              "Show":"Yes"
+            }
+           ,"Minor Ticks":{
+              "Show":false
+            }
+           ,"Tick Label":{
+              "Show":true
+            }
+          }
+        ]
+      }
+    }
+   ,{
+      "id":"1134986571730235240"
+     ,"Identification":{
+        "Title":"Customers by Industry"
+       ,"Type":"Chart"
+      }
+     ,"Source":{
+        "Page Items to Submit":[
+          "P1_TYPE"
+         ,"P1_SEARCH"
+         ,"P1_USE_CASE"
+         ,"P1_MARQUEE_CUST"
+         ,"P1_PRODUCT"
+         ,"P1_IMP_PARTNER"
+         ,"P1_GEO"
+         ,"P1_COMPETITOR"
+         ,"P1_REFERENCEABLE"
+         ,"P1_SCP_CUST"
+         ,"P1_REFERENCE_TYPES"
+         ,"P1_COUNTRY"
+         ,"P1_STATUS"
+         ,"P1_INDUSTRY"
+         ,"P1_CATEGORY"
+        ]
+      }
+     ,"Layout":{
+        "Sequence":76
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"js-showMaximizeButton"
+         ,"i-h320"
+         ,"t-Region--hiddenOverflow"
+        ]
+       ,"CSS Classes":[
+          "scrollable-region"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Static ID":"CUST_BY_IND"
+       ,"Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Security":{
+        "Escape special characters":true
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "id":"1134986679859235241"
+       ,"Chart":{
+          "Type":"Bar"
+        }
+       ,"Appearance":{
+          "Orientation":"Horizontal"
+         ,"Stack":false
+        }
+       ,"Data Cursor":{
+          "Cursor":"Automatic"
+         ,"Behavior":"Automatic"
+         ,"Dim On Hover":false
+        }
+       ,"Multi-Series Chart Data":{
+          "Fill Gaps in Chart Data":true
+         ,"Sort Order":"Label - Ascending"
+         ,"Render Gap as Zero":true
+        }
+       ,"Settings":{
+          "Zoom and Scroll":"No"
+        }
+       ,"Animation":{
+          "On Display":"None"
+         ,"On Data Change":"None"
+        }
+       ,"Tooltip":{
+          "Show":true
+         ,"Show Series Name":false
+         ,"Show Group Name":true
+         ,"Show Value":true
+        }
+       ,"Legend":{
+          "Show":false
+        }
+       ,"Series":[
+          {
+            "id":"1134986802260235242"
+           ,"Identification":{
+              "Name":"Industry"
+            }
+           ,"Execution":{
+              "Sequence":10
+            }
+           ,"Source":{
+              "Location":"Local Database"
+             ,"Type":"SQL Query"
+             ,"SQL Query":"select  \n   i.id industry_id,\n   nvl(i.industry_name, \u0027Not Defined\u0027) industry,\n   count(*) cnt\nfrom eba_cust_customers a,\n    eba_cust_categories b,\n    eba_cust_status c,\n    eba_cust_geographies d,\n    eba_cust_type e,\n    eba_cust_use_case f,\n    eba_cust_industries i\nwhere a.category_id = b.id(+)\n    and a.status_id = c.id(+)\n    and a.geography_id = d.id(+)\n    and a.type_id = e.id(+)\n    and a.use_case_id = f.id(+)\n    and a.industry_id = i.id (+)\n    and (:P1_SEARCH is null or\n            instr(upper(a.customer_name),upper(:P1_SEARCH)) \u003E 0 or\n                       instr(upper(a.summary),upper(:P1_SEARCH)) \u003E 0 )\n    and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n    and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n    and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n    and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n    and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n    and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n    and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n    and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n    and (:P1_IMP_PARTNER is null\n        or exists ( select null\n                    from eba_cust_cust_partner_ref rf\n                    where rf.customer_id = a.id\n                        and rf.partner_id = :P1_IMP_PARTNER ))\n    and (:P1_COMPETITOR is null\n        or exists ( select null\n                    from eba_cust_cust_competitor_ref rf\n                    where rf.customer_id = a.id\n                        and rf.competitor_id = :P1_COMPETITOR ))\n    and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n    and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n    and (\n        exists (select 1 from eba_cust_customer_reftype_ref r\n        where r.customer_id = a.id and\n              instr(\u0027:\u0027||:P1_REFERENCE_TYPES||\u0027:\u0027,\u0027:\u0027||reference_type_id||\u0027:\u0027) \u003E 0)\n        or \n        :P1_REFERENCE_TYPES is null\n        )\n    and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P1_PRODUCT))\ngroup by i.id, nvl(i.industry_name, \u0027Not Defined\u0027)\norder by 2 desc"
+            }
+           ,"Column Mapping":{
+              "Label":"INDUSTRY"
+             ,"Value":"CNT"
+            }
+           ,"Appearance":{
+              "Assigned To Y2 Axis":false
+            }
+           ,"Link":{
+              "Type":"Redirect to Page in this Application"
+             ,"Target":{
+                "url":"f?p=\u0026APP_ID.:59:\u0026SESSION.::\u0026DEBUG.:RP,RIR,59:IR_INDUSTRY_ID,P59_INDUSTRY,P59_CATEGORY,P59_COMPETITOR,P59_COUNTRY,P59_GEO,P59_IMP_PARTNER,P59_INDUSTRY,P59_MARQUEE_CUST,P59_MAX_ROWS,P59_PRODUCT,P59_REFERENCE_TYPES,P59_REFERENCEABLE,P59_SCP_CUST,P59_SEARCH,P59_STATUS,P59_TYPE,P59_USE_CASE:\u0026INDUSTRY_ID.,\u0026INDUSTRY_ID.,\u0026P1_CATEGORY.,\u0026P1_COMPETITOR.,\u0026P1_COUNTRY.,\u0026P1_GEO.,\u0026P1_IMP_PARTNER.,\u0026P1_INDUSTRY.,\u0026P1_MARQUEE_CUST.,\u0026P1_MAX_ROWS.,\u0026P1_PRODUCT.,\u005C\u0026P1_REFERENCE_TYPES.\u005C,\u0026P1_REFERENCEABLE.,\u0026P1_SCP_CUST.,\u0026P1_SEARCH.,\u0026P1_STATUS.,\u0026P1_TYPE.,\u0026P1_USE_CASE."
+               ,"Page":"59"
+               ,"Clear Cache":"RP,RIR,59"
+               ,"Values":{
+                  "IR_INDUSTRY_ID":"\u0026INDUSTRY_ID."
+                 ,"P59_INDUSTRY":"\u0026INDUSTRY_ID."
+                 ,"P59_CATEGORY":"\u0026P1_CATEGORY."
+                 ,"P59_COMPETITOR":"\u0026P1_COMPETITOR."
+                 ,"P59_COUNTRY":"\u0026P1_COUNTRY."
+                 ,"P59_GEO":"\u0026P1_GEO."
+                 ,"P59_IMP_PARTNER":"\u0026P1_IMP_PARTNER."
+                 ,"P59_INDUSTRY":"\u0026P1_INDUSTRY."
+                 ,"P59_MARQUEE_CUST":"\u0026P1_MARQUEE_CUST."
+                 ,"P59_MAX_ROWS":"\u0026P1_MAX_ROWS."
+                 ,"P59_PRODUCT":"\u0026P1_PRODUCT."
+                 ,"P59_REFERENCE_TYPES":"\u0026P1_REFERENCE_TYPES."
+                 ,"P59_REFERENCEABLE":"\u0026P1_REFERENCEABLE."
+                 ,"P59_SCP_CUST":"\u0026P1_SCP_CUST."
+                 ,"P59_SEARCH":"\u0026P1_SEARCH."
+                 ,"P59_STATUS":"\u0026P1_STATUS."
+                 ,"P59_TYPE":"\u0026P1_TYPE."
+                 ,"P59_USE_CASE":"\u0026P1_USE_CASE."
+                }
+              }
+            }
+           ,"Label":{
+              "Show":false
+            }
+          }
+        ]
+       ,"Axes":[
+          {
+            "id":"1134986846381235243"
+           ,"Identification":{
+              "Name":"x"
+             ,"Show Axis":true
+            }
+           ,"Value":{
+              "Format Scaling":"Automatic"
+             ,"Baseline Scaling":"Zero"
+             ,"Scale":"Linear"
+            }
+           ,"Major Ticks":{
+              "Show":"No"
+            }
+           ,"Minor Ticks":{
+              "Show":false
+            }
+           ,"Tick Label":{
+              "Show":true
+             ,"Rotation":true
+             ,"Position":"Outside"
+            }
+          }
+         ,{
+            "id":"1134986959746235244"
+           ,"Identification":{
+              "Name":"y"
+             ,"Show Axis":true
+            }
+           ,"Value":{
+              "Format":"Decimal"
+             ,"Format Scaling":"Automatic"
+             ,"Baseline Scaling":"Zero"
+             ,"Scale":"Linear"
+            }
+           ,"Appearance":{
+              "Position":"Automatic"
+            }
+           ,"Major Ticks":{
+              "Show":"Yes"
+            }
+           ,"Minor Ticks":{
+              "Show":false
+            }
+           ,"Tick Label":{
+              "Show":true
+            }
+          }
+        ]
+      }
+    }
+   ,{
+      "id":"2044148791703901765"
+     ,"Identification":{
+        "Title":"Customer Summary (with References \u0026 No Products)"
+       ,"Type":"Badge List"
+      }
+     ,"Source":{
+        "SQL Query":"select label, to_number(nvl(value,0),\u0027999G999G990\u0027) value, url from (\nwith data as (\n    select count(*) total,\n        sum(decode(marquee_customer_yn,\u0027Y\u0027,1,0)) marquee,\n        sum(decode(referencable,\u0027Yes\u0027,1,0)) ref\n    from eba_cust_customers a,\n        eba_cust_categories b,\n        eba_cust_status c,\n        eba_cust_geographies d,\n        eba_cust_type e,\n        eba_cust_use_case f\n    where a.category_id = b.id(+)\n        and a.status_id = c.id(+)\n        and a.geography_id = d.id(+)\n        and a.type_id = e.id(+)\n        and a.use_case_id = f.id(+)\n        and (:P1_SEARCH is null or\n                instr(upper(a.customer_name),upper(:P1_SEARCH)) \u003E 0 or\n                           instr(upper(a.summary),upper(:P1_SEARCH)) \u003E 0 )\n        and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n        and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n        and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n        and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n        and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n        and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n        and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n        and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n        and (:P1_IMP_PARTNER is null\n            or exists ( select null\n                        from eba_cust_cust_partner_ref rf\n                        where rf.customer_id = a.id\n                            and rf.partner_id = :P1_IMP_PARTNER ))\n        and (:P1_COMPETITOR is null\n            or exists ( select null\n                        from eba_cust_cust_competitor_ref rf\n                        where rf.customer_id = a.id\n                            and rf.competitor_id = :P1_COMPETITOR ))\n        and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n        and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n        and (\n            exists (select 1 from eba_cust_customer_reftype_ref r\n            where r.customer_id = a.id and\n                  instr(\u0027:\u0027||:P1_REFERENCE_TYPES||\u0027:\u0027,\u0027:\u0027||reference_type_id||\u0027:\u0027) \u003E 0)\n            or \n            :P1_REFERENCE_TYPES is null\n            )\n        and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P1_PRODUCT))\n), rws as (\n    select level r from dual connect by level \u003C 4\n)\nselect rws.r display_order,\n    decode(rws.r, 1, \u0027Total\u0027,    2, \u0027Marquee\u0027,   3, \u0027Referenceable\u0027)  label,\n    decode(rws.r, 1, data.total, 2, data.marquee, 3, data.ref) value,\n    decode(rws.r, 1, apex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:59:\u0027||:APP_SESSION||\u0027:::59,RIR:P59_MARQUEE_CUST,P59_INDUSTRY,P59_PRODUCT,P59_GEO,P59_REFERENCEABLE,P59_STATUS,P59_CATEGORY,P59_TYPE,P59_IMP_PARTNER,P59_COMPETITOR,P59_REFERENCE_TYPES:\u0027||:P1_MARQUEE_CUST||\u0027,\u0027||:P1_INDUSTRY||\u0027,\u0027||:P1_PRODUCT||\u0027,\u0027||:P1_GEO||\u0027,\u0027||:P1_REFERENCEABLE||\u0027,\u0027||:P1_STATUS||\u0027,\u0027||:P1_CATEGORY||\u0027,\u0027||:P1_TYPE||\u0027,\u0027||:P1_IMP_PARTNER||\u0027,\u0027||:P1_COMPETITOR) || \u0027,\u005C\u0027 || :P1_REFERENCE_TYPES || \u0027\u005C:\u0027,\n                  2, apex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:59:\u0027||:APP_SESSION||\u0027:::59,RIR:IR_MARQUEE_CUSTOMER,P59_MARQUEE_CUST,P59_INDUSTRY,P59_PRODUCT,P59_GEO,P59_REFERENCEABLE,P59_STATUS,P59_CATEGORY,P59_TYPE,P59_IMP_PARTNER,P59_COMPETITOR,P59_REFERENCE_TYPES:Yes,Y,\u0027||:P1_INDUSTRY||\u0027,\u0027||:P1_PRODUCT||\u0027,\u0027||:P1_GEO||\u0027,\u0027||:P1_REFERENCEABLE||\u0027,\u0027||:P1_STATUS||\u0027,\u0027||:P1_CATEGORY||\u0027,\u0027||:P1_TYPE||\u0027,\u0027||:P1_IMP_PARTNER||\u0027,\u0027||:P1_COMPETITOR) || \u0027,\u005C\u0027 || :P1_REFERENCE_TYPES || \u0027\u005C:\u0027,\n                  3, apex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:59:\u0027||:APP_SESSION||\u0027:::59,RIR:IR_REFERENCABLE,P59_INDUSTRY,P59_PRODUCT,P59_GEO,P59_REFERENCEABLE,P59_STATUS,P59_CATEGORY,P59_TYPE,P59_IMP_PARTNER,P59_COMPETITOR,P59_REFERENCE_TYPES:Yes,\u0027||:P1_INDUSTRY||\u0027,\u0027||:P1_PRODUCT||\u0027,\u0027||:P1_GEO||\u0027,Yes,\u0027||:P1_STATUS||\u0027,\u0027||:P1_CATEGORY||\u0027,\u0027||:P1_TYPE||\u0027,\u0027||:P1_IMP_PARTNER||\u0027,\u0027||:P1_COMPETITOR) || \u0027,\u005C\u0027 || :P1_REFERENCE_TYPES || \u0027\u005C:\u0027 ) url\nfrom data, rws\n)\norder by display_order"
+       ,"Page Items to Submit":[
+          "P1_TYPE"
+         ,"P1_SEARCH"
+         ,"P1_USE_CASE"
+         ,"P1_MARQUEE_CUST"
+         ,"P1_PRODUCT"
+         ,"P1_IMP_PARTNER"
+         ,"P1_GEO"
+         ,"P1_COMPETITOR"
+         ,"P1_REFERENCEABLE"
+         ,"P1_SCP_CUST"
+         ,"P1_REFERENCE_TYPES"
+         ,"P1_COUNTRY"
+         ,"P1_STATUS"
+         ,"P1_INDUSTRY"
+         ,"P1_CATEGORY"
+        ]
+      }
+     ,"Layout":{
+        "Sequence":36
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--noPadding"
+         ,"js-showMaximizeButton"
+         ,"t-Region--hideHeader"
+         ,"t-Region--hiddenOverflow"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Static ID":"CUST_SUM_W_REFS_NO_PRODS"
+       ,"Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server-side Condition":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"apex_util.get_build_option_status(\n                      p_application_id    =\u003E :APP_ID,\n                      p_build_option_name =\u003E \u0027Products and Services\u0027\n                  ) = \u0027EXCLUDE\u0027"
+      }
+     ,"Security":{
+        "Escape special characters":true
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Configuration":{
+        "Build Option":"Customer Referencability (14317354550591202996)"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Badge Style":"Default"
+         ,"Value":"VALUE"
+         ,"Bottom Label":"LABEL"
+         ,"Link Target":"\u0026URL."
+         ,"Layout":"3 columns"
+         ,"Color":"No"
+        }
+      }
+    }
+   ,{
+      "id":"2595176700866390155"
+     ,"Identification":{
+        "Title":"Customer Summary (with References, Products, But No Issues)"
+       ,"Type":"Badge List"
+      }
+     ,"Source":{
+        "SQL Query":"select label, to_number(nvl(value,0),\u0027999G999G990\u0027) value, url from (\nwith data as (\n    select count(*) total,\n        sum(decode(marquee_customer_yn,\u0027Y\u0027,1,0)) marquee,\n        sum(decode(referencable,\u0027Yes\u0027,1,0)) ref\n    from eba_cust_customers a,\n        eba_cust_categories b,\n        eba_cust_status c,\n        eba_cust_geographies d,\n        eba_cust_type e,\n        eba_cust_use_case f\n    where a.category_id = b.id(+)\n        and a.status_id = c.id(+)\n        and a.geography_id = d.id(+)\n        and a.type_id = e.id(+)\n        and a.use_case_id = f.id(+)\n        and (:P1_SEARCH is null or\n                instr(upper(a.customer_name),upper(:P1_SEARCH)) \u003E 0 or\n                           instr(upper(a.summary),upper(:P1_SEARCH)) \u003E 0 )\n        and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n        and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n        and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n        and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n        and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n        and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n        and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n        and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n        and (:P1_IMP_PARTNER is null\n            or exists ( select null\n                        from eba_cust_cust_partner_ref rf\n                        where rf.customer_id = a.id\n                            and rf.partner_id = :P1_IMP_PARTNER ))\n        and (:P1_COMPETITOR is null\n            or exists ( select null\n                        from eba_cust_cust_competitor_ref rf\n                        where rf.customer_id = a.id\n                            and rf.competitor_id = :P1_COMPETITOR ))\n        and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n        and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n        and (\n            exists (select 1 from eba_cust_customer_reftype_ref r\n            where r.customer_id = a.id and\n                  instr(\u0027:\u0027||:P1_REFERENCE_TYPES||\u0027:\u0027,\u0027:\u0027||reference_type_id||\u0027:\u0027) \u003E 0)\n            or \n            :P1_REFERENCE_TYPES is null\n            )\n        and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P1_PRODUCT))\n), rws as (\n    select level r from dual connect by level \u003C 4\n)\nselect rws.r display_order,\n    decode(rws.r, 1, \u0027Total\u0027,    2, \u0027Marquee\u0027,   3, \u0027Referenceable\u0027)  label,\n    decode(rws.r, 1, data.total, 2, data.marquee, 3, data.ref) value,\n    decode(rws.r, 1, apex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:59:\u0027||:APP_SESSION||\u0027:::59,RIR:P59_MARQUEE_CUST,P59_INDUSTRY,P59_PRODUCT,P59_GEO,P59_REFERENCEABLE,P59_STATUS,P59_CATEGORY,P59_TYPE,P59_IMP_PARTNER,P59_COMPETITOR,P59_REFERENCE_TYPES:\u0027||:P1_MARQUEE_CUST||\u0027,\u0027||:P1_INDUSTRY||\u0027,\u0027||:P1_PRODUCT||\u0027,\u0027||:P1_GEO||\u0027,\u0027||:P1_REFERENCEABLE||\u0027,\u0027||:P1_STATUS||\u0027,\u0027||:P1_CATEGORY||\u0027,\u0027||:P1_TYPE||\u0027,\u0027||:P1_IMP_PARTNER||\u0027,\u0027||:P1_COMPETITOR) || \u0027,\u005C\u0027 || :P1_REFERENCE_TYPES || \u0027\u005C:\u0027,\n                  2, apex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:59:\u0027||:APP_SESSION||\u0027:::59,RIR:IR_MARQUEE_CUSTOMER,P59_MARQUEE_CUST,P59_INDUSTRY,P59_PRODUCT,P59_GEO,P59_REFERENCEABLE,P59_STATUS,P59_CATEGORY,P59_TYPE,P59_IMP_PARTNER,P59_COMPETITOR,P59_REFERENCE_TYPES:Yes,Y,\u0027||:P1_INDUSTRY||\u0027,\u0027||:P1_PRODUCT||\u0027,\u0027||:P1_GEO||\u0027,\u0027||:P1_REFERENCEABLE||\u0027,\u0027||:P1_STATUS||\u0027,\u0027||:P1_CATEGORY||\u0027,\u0027||:P1_TYPE||\u0027,\u0027||:P1_IMP_PARTNER||\u0027,\u0027||:P1_COMPETITOR) || \u0027,\u005C\u0027 || :P1_REFERENCE_TYPES || \u0027\u005C:\u0027,\n                  3, apex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:59:\u0027||:APP_SESSION||\u0027:::59,RIR:IR_REFERENCABLE,P59_INDUSTRY,P59_PRODUCT,P59_GEO,P59_REFERENCEABLE,P59_STATUS,P59_CATEGORY,P59_TYPE,P59_IMP_PARTNER,P59_COMPETITOR,P59_REFERENCE_TYPES:Yes,\u0027||:P1_INDUSTRY||\u0027,\u0027||:P1_PRODUCT||\u0027,\u0027||:P1_GEO||\u0027,Yes,\u0027||:P1_STATUS||\u0027,\u0027||:P1_CATEGORY||\u0027,\u0027||:P1_TYPE||\u0027,\u0027||:P1_IMP_PARTNER||\u0027,\u0027||:P1_COMPETITOR) || \u0027,\u005C\u0027 || :P1_REFERENCE_TYPES || \u0027\u005C:\u0027 ) url\nfrom data, rws\nunion all\nselect 4 as display_order,\n    \u0027Products Referenced\u0027 label,\n    count(*) value,\n    apex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:44:\u0027||:APP_SESSION||\u0027:::44,RIR:\u0027) url\nfrom eba_cust_products p\nwhere exists (   select 1\n    from eba_cust_product_uses u\n    where u.product_id = p.id\n)\n)\norder by display_order"
+       ,"Page Items to Submit":[
+          "P1_TYPE"
+         ,"P1_SEARCH"
+         ,"P1_USE_CASE"
+         ,"P1_MARQUEE_CUST"
+         ,"P1_PRODUCT"
+         ,"P1_IMP_PARTNER"
+         ,"P1_GEO"
+         ,"P1_COMPETITOR"
+         ,"P1_REFERENCEABLE"
+         ,"P1_SCP_CUST"
+         ,"P1_REFERENCE_TYPES"
+         ,"P1_COUNTRY"
+         ,"P1_STATUS"
+         ,"P1_INDUSTRY"
+         ,"P1_CATEGORY"
+        ]
+      }
+     ,"Layout":{
+        "Sequence":26
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--noPadding"
+         ,"js-showMaximizeButton"
+         ,"t-Region--hideHeader"
+         ,"t-Region--hiddenOverflow"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Static ID":"CUST_SUM_W_REFS"
+       ,"Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server-side Condition":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"apex_util.get_build_option_status(\n                      p_application_id    =\u003E :APP_ID,\n                      p_build_option_name =\u003E \u0027Products and Services\u0027\n                  ) = \u0027INCLUDE\u0027\nand\napex_util.get_build_option_status(\n                      p_application_id    =\u003E :APP_ID,\n                      p_build_option_name =\u003E \u0027Issues\u0027\n                  ) = \u0027EXCLUDE\u0027"
+      }
+     ,"Security":{
+        "Escape special characters":true
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Configuration":{
+        "Build Option":"Customer Referencability (14317354550591202996)"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Badge Style":"Default"
+         ,"Value":"VALUE"
+         ,"Bottom Label":"LABEL"
+         ,"Link Target":"\u0026URL."
+         ,"Layout":"4 columns"
+         ,"Color":"No"
+        }
+      }
+    }
+   ,{
+      "id":"13571849116761193798"
+     ,"Identification":{
+        "Title":"Customer Summary (without References)"
+       ,"Type":"Badge List"
+      }
+     ,"Source":{
+        "SQL Query":"select label, to_number(nvl(value,0),\u0027999G999G990\u0027) value, url from (\nwith data as (\n    select count(*) total,\n        sum(decode(marquee_customer_yn,\u0027Y\u0027,1,0)) marquee\n    from eba_cust_customers a,\n        eba_cust_categories b,\n        eba_cust_status c,\n        eba_cust_geographies d,\n        eba_cust_type e,\n        eba_cust_use_case f\n    where a.category_id = b.id(+)\n        and a.status_id = c.id(+)\n        and a.geography_id = d.id(+)\n        and a.type_id = e.id(+)\n        and a.use_case_id = f.id(+)\n        and (:P1_SEARCH is null or\n                instr(upper(a.customer_name),upper(:P1_SEARCH)) \u003E 0 or\n                           instr(upper(a.summary),upper(:P1_SEARCH)) \u003E 0 )\n        and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n        and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n        and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n        and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n        and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n        and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n        and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n        and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n        and (:P1_IMP_PARTNER is null\n            or exists ( select null\n                        from eba_cust_cust_partner_ref rf\n                        where rf.customer_id = a.id\n                            and rf.partner_id = :P1_IMP_PARTNER ))\n        and (:P1_COMPETITOR is null\n            or exists ( select null\n                        from eba_cust_cust_competitor_ref rf\n                        where rf.customer_id = a.id\n                            and rf.competitor_id = :P1_COMPETITOR ))\n        and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n        and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n        and (\n            exists (select 1 from eba_cust_customer_reftype_ref r\n            where r.customer_id = a.id and\n                  instr(\u0027:\u0027||:P1_REFERENCE_TYPES||\u0027:\u0027,\u0027:\u0027||reference_type_id||\u0027:\u0027) \u003E 0)\n            or \n            :P1_REFERENCE_TYPES is null\n            )\n        and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P1_PRODUCT))\n), rws as (\n    select level r from dual connect by level \u003C 3\n)\nselect rws.r display_order,\n    decode(rws.r, 1, \u0027Total\u0027,    2, \u0027Marquee\u0027)  label,\n    decode(rws.r, 1, data.total, 2, data.marquee) value,\n    decode(rws.r, 1, apex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:59:\u0027||:APP_SESSION||\u0027:::59,RIR:P59_MARQUEE_CUST,P59_INDUSTRY,P59_PRODUCT,P59_GEO,P59_REFERENCEABLE,P59_STATUS,P59_CATEGORY,P59_TYPE,P59_IMP_PARTNER,P59_COMPETITOR,P59_REFERENCE_TYPES:\u0027||:P1_MARQUEE_CUST||\u0027,\u0027||:P1_INDUSTRY||\u0027,\u0027||:P1_PRODUCT||\u0027,\u0027||:P1_GEO||\u0027,\u0027||:P1_REFERENCEABLE||\u0027,\u0027||:P1_STATUS||\u0027,\u0027||:P1_CATEGORY||\u0027,\u0027||:P1_TYPE||\u0027,\u0027||:P1_IMP_PARTNER||\u0027,\u0027||:P1_COMPETITOR) || \u0027,\u005C\u0027 || :P1_REFERENCE_TYPES || \u0027\u005C:\u0027,\n                  2, apex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:59:\u0027||:APP_SESSION||\u0027:::59,RIR:IR_MARQUEE_CUSTOMER,P59_MARQUEE_CUST,P59_INDUSTRY,P59_PRODUCT,P59_GEO,P59_REFERENCEABLE,P59_STATUS,P59_CATEGORY,P59_TYPE,P59_IMP_PARTNER,P59_COMPETITOR,P59_REFERENCE_TYPES:Yes,Y,\u0027||:P1_INDUSTRY||\u0027,\u0027||:P1_PRODUCT||\u0027,\u0027||:P1_GEO||\u0027,\u0027||:P1_REFERENCEABLE||\u0027,\u0027||:P1_STATUS||\u0027,\u0027||:P1_CATEGORY||\u0027,\u0027||:P1_TYPE||\u0027,\u0027||:P1_IMP_PARTNER||\u0027,\u0027||:P1_COMPETITOR) || \u0027,\u005C\u0027 || :P1_REFERENCE_TYPES || \u0027\u005C:\u0027 ) url\nfrom data, rws\nunion all\nselect 4 display_order,\n    \u0027Products Referenced\u0027 label,\n    count(*) value,\n    apex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:44:\u0027||:APP_SESSION||\u0027:::44,RIR:\u0027) url\nfrom eba_cust_products p\nwhere exists (   select 1\n    from eba_cust_product_uses u\n    where u.product_id = p.id ) \n)\norder by display_order"
+       ,"Page Items to Submit":[
+          "P1_TYPE"
+         ,"P1_SEARCH"
+         ,"P1_USE_CASE"
+         ,"P1_MARQUEE_CUST"
+         ,"P1_PRODUCT"
+         ,"P1_IMP_PARTNER"
+         ,"P1_GEO"
+         ,"P1_COMPETITOR"
+         ,"P1_REFERENCEABLE"
+         ,"P1_SCP_CUST"
+         ,"P1_REFERENCE_TYPES"
+         ,"P1_COUNTRY"
+         ,"P1_STATUS"
+         ,"P1_INDUSTRY"
+         ,"P1_CATEGORY"
+        ]
+      }
+     ,"Layout":{
+        "Sequence":6
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--noPadding"
+         ,"js-showMaximizeButton"
+         ,"t-Region--hideHeader"
+         ,"t-Region--hiddenOverflow"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Static ID":"CUST_SUM_NO_REFS"
+       ,"Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Security":{
+        "Escape special characters":true
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Configuration":{
+        "Build Option":"{Not Customer Referencability} (14317354550591202996)"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Badge Style":"Default"
+         ,"Value":"VALUE"
+         ,"Bottom Label":"LABEL"
+         ,"Link Target":"\u0026URL."
+         ,"Layout":"3 columns"
+         ,"Color":"No"
+        }
+      }
+    }
+   ,{
+      "id":"13571861757080201500"
+     ,"Identification":{
+        "Title":"Customers by Product"
+       ,"Type":"HTML 5 Bar Chart"
+      }
+     ,"Source":{
+        "SQL Query":"select\n    distinct p.product_name,\n    p.id,\n    p.description,\n    x.customer_users\nfrom\n    eba_cust_customers a,\n    eba_cust_categories b,\n    eba_cust_status c,\n    eba_cust_geographies d,\n    eba_cust_type e,\n    eba_cust_use_case f,\n    eba_cust_product_uses u,\n    eba_cust_products p,\n    (\n        select id,\n               (\n                   select\n                       count(*) as customer_users\n                   from\n                       eba_cust_customers a1,\n                       eba_cust_categories b1,\n                       eba_cust_status c1,\n                       eba_cust_geographies d1,\n                       eba_cust_type e1,\n                       eba_cust_use_case f1,\n                       eba_cust_product_uses u1\n                 where u1.product_id = p1.id\n                   and u1.customer_id = a1.id\n                   and a1.category_id = b1.id(+)\n                   and a1.status_id = c1.id(+)\n                   and a1.geography_id = d1.id(+)\n                   and a1.type_id = e1.id(+)\n                   and a1.use_case_id = f1.id(+)\n                   and u1.customer_id = a1.id\n                   and (:P1_SEARCH is null or\n                           instr(upper(a1.customer_name),upper(:P1_SEARCH)) \u003E 0 or\n                                      instr(upper(a1.summary),upper(:P1_SEARCH)) \u003E 0 )\n                   and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a1.geography_id)\n                   and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a1.country_id)\n                   and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a1.industry_id)\n                   and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a1.category_id)\n                   and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a1.status_id)\n                   and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a1.type_id)\n                   and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a1.use_case_id)\n                   and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a1.marquee_customer_yn)\n                   and (:P1_IMP_PARTNER is null\n                       or exists ( select null\n                                   from eba_cust_cust_partner_ref rf\n                                   where rf.customer_id = a1.id\n                                       and rf.partner_id = :P1_IMP_PARTNER ))\n                   and (:P1_COMPETITOR is null\n                       or exists ( select null\n                                   from eba_cust_cust_competitor_ref rf\n                                   where rf.customer_id = a1.id\n                                       and rf.competitor_id = :P1_COMPETITOR ))\n                   and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a1.referencable)\n                   and (:P1_SCP_CUST is null or :P1_SCP_CUST = a1.strategic_customer_program_yn)\n                   and (\n                       exists (select 1 from eba_cust_customer_reftype_ref r\n                       where r.customer_id = a1.id and\n                             instr(\u0027:\u0027||:P1_REFERENCE_TYPES||\u0027:\u0027,\u0027:\u0027||r.reference_type_id||\u0027:\u0027) \u003E 0)\n                       or \n                       :P1_REFERENCE_TYPES is null\n                       )\n                   and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.customer_id = a1.id and u1.product_id = :P1_PRODUCT))\n               ) customer_users\n          from eba_cust_products p1\n    ) x\nwhere a.category_id = b.id(+)\n    and a.status_id = c.id(+)\n    and a.geography_id = d.id(+)\n    and a.type_id = e.id(+)\n    and a.use_case_id = f.id(+)\n    and u.customer_id = a.id\n    and u.product_id = p.id\n    and x.id = p.id\n    and x.customer_users \u003E 0\n    and (:P1_SEARCH is null or\n            instr(upper(a.customer_name),upper(:P1_SEARCH)) \u003E 0 or\n                       instr(upper(a.summary),upper(:P1_SEARCH)) \u003E 0 )\n    and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n    and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n    and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n    and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n    and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n    and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n    and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n    and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n    and (:P1_IMP_PARTNER is null\n        or exists ( select null\n                    from eba_cust_cust_partner_ref rf\n                    where rf.customer_id = a.id\n                        and rf.partner_id = :P1_IMP_PARTNER ))\n    and (:P1_COMPETITOR is null\n        or exists ( select null\n                    from eba_cust_cust_competitor_ref rf\n                    where rf.customer_id = a.id\n                        and rf.competitor_id = :P1_COMPETITOR ))\n    and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n    and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n    and (\n        exists (select 1 from eba_cust_customer_reftype_ref r\n        where r.customer_id = a.id and\n              instr(\u0027:\u0027||:P1_REFERENCE_TYPES||\u0027:\u0027,\u0027:\u0027||reference_type_id||\u0027:\u0027) \u003E 0)\n        or \n        :P1_REFERENCE_TYPES is null\n        )\n    and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P1_PRODUCT))\norder by x.customer_users desc"
+       ,"Page Items to Submit":[
+          "P1_TYPE"
+         ,"P1_SEARCH"
+         ,"P1_USE_CASE"
+         ,"P1_MARQUEE_CUST"
+         ,"P1_PRODUCT"
+         ,"P1_IMP_PARTNER"
+         ,"P1_GEO"
+         ,"P1_COMPETITOR"
+         ,"P1_REFERENCEABLE"
+         ,"P1_SCP_CUST"
+         ,"P1_REFERENCE_TYPES"
+         ,"P1_COUNTRY"
+         ,"P1_STATUS"
+         ,"P1_INDUSTRY"
+         ,"P1_CATEGORY"
+        ]
+      }
+     ,"Layout":{
+        "Sequence":46
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--noPadding"
+         ,"js-showMaximizeButton"
+         ,"i-h320"
+         ,"t-Region--hiddenOverflow"
+        ]
+       ,"CSS Classes":[
+          "scrollable-region"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Static ID":"CUST_BY_PRODS"
+       ,"Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Security":{
+        "Escape special characters":true
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Customizable and Shown By Default"
+      }
+     ,"Configuration":{
+        "Build Option":"Products and Services (14985194932254613518)"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Label Column":"PRODUCT_NAME"
+         ,"Value Column":"CUSTOMER_USERS"
+         ,"Label Link Target":{
+            "url":"f?p=\u0026APP_ID.:19:\u0026SESSION.::\u0026DEBUG.:RP,19,RIR:IR_PRODUCT_NAME:\u0026PRODUCT_NAME."
+           ,"Page":"19"
+           ,"Clear Cache":"RP,19,RIR"
+           ,"Values":{
+              "IR_PRODUCT_NAME":"\u0026PRODUCT_NAME."
+            }
+          }
+         ,"Value Link Target":{
+            "url":"f?p=\u0026APP_ID.:19:\u0026SESSION.::\u0026DEBUG.:RP,19,RIR:IR_PRODUCT_NAME:\u0026PRODUCT_NAME."
+           ,"Page":"19"
+           ,"Clear Cache":"RP,19,RIR"
+           ,"Values":{
+              "IR_PRODUCT_NAME":"\u0026PRODUCT_NAME."
+            }
+          }
+         ,"Value Display":"Value"
+         ,"Bar Width Calculation":"Absolute"
+         ,"Display Type":"Text Chart"
+         ,"Text Position":"Above"
+         ,"Color Scheme":"Theme Colors"
+         ,"Maximum Rows":15
+         ,"Message When No Data Found":"No data found."
+        }
+      }
+    }
+   ,{
+      "id":"13571862438541203236"
+     ,"Identification":{
+        "Title":"Recently Updated Customers"
+       ,"Type":"Classic Report"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select \n    \"CUSTOMER_NAME\",\n    nvl(a.updated,a.created) updated_on,\n    a.id\nfrom eba_cust_customers a,\n    eba_cust_categories b,\n    eba_cust_status c,\n    eba_cust_geographies d,\n    eba_cust_type e,\n    eba_cust_use_case f\nwhere a.category_id = b.id(+)\n    and a.status_id = c.id(+)\n    and a.geography_id = d.id(+)\n    and a.type_id = e.id(+)\n    and a.use_case_id = f.id(+)\n    and (:P1_SEARCH is null or\n            instr(upper(a.customer_name),upper(:P1_SEARCH)) \u003E 0 or\n                       instr(upper(a.summary),upper(:P1_SEARCH)) \u003E 0 )\n    and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n    and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n    and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n    and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n    and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n    and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n    and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n    and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n    and (:P1_IMP_PARTNER is null\n        or exists ( select null\n                    from eba_cust_cust_partner_ref rf\n                    where rf.customer_id = a.id\n                        and rf.partner_id = :P1_IMP_PARTNER ))\n    and (:P1_COMPETITOR is null\n        or exists ( select null\n                    from eba_cust_cust_competitor_ref rf\n                    where rf.customer_id = a.id\n                        and rf.competitor_id = :P1_COMPETITOR ))\n    and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n    and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n    and (\n        exists (select 1 from eba_cust_customer_reftype_ref r\n        where r.customer_id = a.id and\n              instr(\u0027:\u0027||:P1_REFERENCE_TYPES||\u0027:\u0027,\u0027:\u0027||reference_type_id||\u0027:\u0027) \u003E 0)\n        or \n        :P1_REFERENCE_TYPES is null\n        )\n    and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P1_PRODUCT))\norder by nvl(a.updated,a.created) desc"
+       ,"Page Items to Submit":[
+          "P1_TYPE"
+         ,"P1_SEARCH"
+         ,"P1_USE_CASE"
+         ,"P1_MARQUEE_CUST"
+         ,"P1_PRODUCT"
+         ,"P1_IMP_PARTNER"
+         ,"P1_GEO"
+         ,"P1_COMPETITOR"
+         ,"P1_REFERENCEABLE"
+         ,"P1_SCP_CUST"
+         ,"P1_REFERENCE_TYPES"
+         ,"P1_COUNTRY"
+         ,"P1_STATUS"
+         ,"P1_INDUSTRY"
+         ,"P1_CATEGORY"
+        ]
+      }
+     ,"Layout":{
+        "Sequence":66
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":false
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--noPadding"
+         ,"js-showMaximizeButton"
+         ,"i-h320"
+         ,"t-Region--hiddenOverflow"
+        ]
+       ,"CSS Classes":[
+          "scrollable-region"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Static ID":"CUST_RCNT_UPD"
+       ,"Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Layout":{
+          "Number of Rows Type":"Static Value"
+         ,"Number of Rows":50
+        }
+       ,"Appearance":{
+          "Template Type":"Theme"
+         ,"Template":"Value Attribute Pairs - Row (14888273059962691863)"
+         ,"Template Options":[
+            "#DEFAULT#"
+           ,"t-AVPList--rightAligned"
+          ]
+         ,"Show Null Values as":" - "
+        }
+       ,"Pagination":{
+          "Type":"No Pagination (Show All Rows)"
+         ,"Partial Page Refresh":true
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+         ,"Maximum Rows to Process":50
+        }
+       ,"Messages":{
+          "When No Data Found":"No customers found"
+        }
+       ,"Break Formatting":{
+          "Break Columns":"No Break"
+        }
+       ,"Advanced":{
+          "Strip HTML":true
+         ,"Sort Nulls":"Last"
+        }
+       ,"Heading":{
+          "Type":"None"
+        }
+       ,"Download":{
+          "CSV Export Enabled":false
+        }
+       ,"Printing":{
+          "Enabled":false
+        }
+      }
+     ,"Columns":[
+        {
+          "id":"13571862748865203237"
+         ,"Identification":{
+            "Column Name":"CUSTOMER_NAME"
+           ,"Type":"Link"
+          }
+         ,"Heading":{
+            "Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":1
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Link":{
+            "Target":{
+              "url":"f?p=\u0026APP_ID.:50:\u0026SESSION.::\u0026DEBUG.:50:P50_ID:#ID#"
+             ,"Page":"50"
+             ,"Clear Cache":"50"
+             ,"Values":{
+                "P50_ID":"#ID#"
+              }
+            }
+           ,"Link Text":"#CUSTOMER_NAME#"
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"13571863186418203238"
+         ,"Identification":{
+            "Column Name":"UPDATED_ON"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":2
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Appearance":{
+            "Format Mask":"SINCE"
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"13571863587900203239"
+         ,"Identification":{
+            "Column Name":"ID"
+           ,"Type":"Hidden Column"
+          }
+         ,"Layout":{
+            "Sequence":3
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"13571865733552209656"
+     ,"Identification":{
+        "Title":"Summary"
+       ,"Type":"Classic Report"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select \n   x.number_of_customers,\n   x.added_1w,\n   x.REFERENCABLE,\n   x.Potentially_REFERENCABLE,\n   x.Not_REFERENCABLE,\n   x.referencability_unknown,\n   x.with_tags,\n   y.customer_products,\n   z.contacts,\n   z.customers_with_contacts,\n   x.marquee_customers\nfrom\n(\n    select\n        trim(to_char(count(*),\u0027999G999G999G990\u0027))                                                  number_of_customers,\n        trim(to_char(sum(decode(greatest(a.CREATED,sysdate-7), a.CREATED,1,0)),\u0027999G999G999G990\u0027)) added_1w,\n        trim(to_char(sum(decode(a.REFERENCABLE , \u0027Yes\u0027,1,0)),\u0027999G999G999G990\u0027))                   REFERENCABLE,\n        trim(to_char(sum(decode(a.REFERENCABLE , \u0027Potentially\u0027,1,0)),\u0027999G999G999G990\u0027))           Potentially_REFERENCABLE,\n        trim(to_char(sum(decode(a.REFERENCABLE , \u0027No\u0027,1,0)),\u0027999G999G999G990\u0027))                    Not_REFERENCABLE,\n        trim(to_char(sum(decode(a.REFERENCABLE , null,1,0)),\u0027999G999G999G990\u0027))                    referencability_unknown,\n        trim(to_char(sum(decode(a.tags , null,0,1)),\u0027999G999G999G990\u0027))                            with_tags,\n        trim(to_char(sum(decode(nvl(a.MARQUEE_CUSTOMER_YN,\u0027N\u0027) , \u0027Y\u0027,1,0)),\u0027999G999G999G990\u0027))     marquee_customers\n    from eba_cust_customers a,\n        eba_cust_categories b,\n        eba_cust_status c,\n        eba_cust_geographies d,\n        eba_cust_type e,\n        eba_cust_use_case f\n    where a.category_id = b.id(+)\n        and a.status_id = c.id(+)\n        and a.geography_id = d.id(+)\n        and a.type_id = e.id(+)\n        and a.use_case_id = f.id(+)\n        and (:P1_SEARCH is null or\n                instr(upper(a.customer_name),upper(:P1_SEARCH)) \u003E 0 or\n                           instr(upper(a.summary),upper(:P1_SEARCH)) \u003E 0 )\n        and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n        and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n        and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n        and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n        and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n        and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n        and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n        and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n        and (:P1_IMP_PARTNER is null\n            or exists ( select null\n                        from eba_cust_cust_partner_ref rf\n                        where rf.customer_id = a.id\n                            and rf.partner_id = :P1_IMP_PARTNER ))\n        and (:P1_COMPETITOR is null\n            or exists ( select null\n                        from eba_cust_cust_competitor_ref rf\n                        where rf.customer_id = a.id\n                            and rf.competitor_id = :P1_COMPETITOR ))\n        and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n        and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n        and (\n            exists (select 1 from eba_cust_customer_reftype_ref r\n            where r.customer_id = a.id and\n                  instr(\u0027:\u0027||:P1_REFERENCE_TYPES||\u0027:\u0027,\u0027:\u0027||reference_type_id||\u0027:\u0027) \u003E 0)\n            or \n            :P1_REFERENCE_TYPES is null\n            )\n        and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P1_PRODUCT))\n) x,\n(\n    select\n        trim(to_char(count(distinct u.product_id),\u0027999G999G999G990\u0027)) customer_products\n    from eba_cust_customers a,\n        eba_cust_categories b,\n        eba_cust_status c,\n        eba_cust_geographies d,\n        eba_cust_type e,\n        eba_cust_use_case f,\n        eba_cust_product_uses u\n    where a.category_id = b.id(+)\n        and a.status_id = c.id(+)\n        and a.geography_id = d.id(+)\n        and a.type_id = e.id(+)\n        and a.use_case_id = f.id(+)\n        and a.id = u.customer_id\n        and (:P1_SEARCH is null or\n                instr(upper(a.customer_name),upper(:P1_SEARCH)) \u003E 0 or\n                           instr(upper(a.summary),upper(:P1_SEARCH)) \u003E 0 )\n        and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n        and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n        and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n        and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n        and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n        and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n        and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n        and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n        and (:P1_IMP_PARTNER is null\n            or exists ( select null\n                        from eba_cust_cust_partner_ref rf\n                        where rf.customer_id = a.id\n                            and rf.partner_id = :P1_IMP_PARTNER ))\n        and (:P1_COMPETITOR is null\n            or exists ( select null\n                        from eba_cust_cust_competitor_ref rf\n                        where rf.customer_id = a.id\n                            and rf.competitor_id = :P1_COMPETITOR ))\n        and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n        and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n        and (\n            exists (select 1 from eba_cust_customer_reftype_ref r\n            where r.customer_id = a.id and\n                  instr(\u0027:\u0027||:P1_REFERENCE_TYPES||\u0027:\u0027,\u0027:\u0027||reference_type_id||\u0027:\u0027) \u003E 0)\n            or \n            :P1_REFERENCE_TYPES is null\n            )\n        and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P1_PRODUCT))\n) y,\n(\n    select\n        trim(to_char(count(*),\u0027999G999G999G990\u0027))                    contacts,\n        trim(to_char(count(distinct customer_id),\u0027999G999G999G990\u0027)) customers_with_contacts\n    from eba_cust_customers a,\n        eba_cust_categories b,\n        eba_cust_status c,\n        eba_cust_geographies d,\n        eba_cust_type e,\n        eba_cust_use_case f,\n        eba_cust_contacts x\n    where a.category_id = b.id(+)\n        and a.status_id = c.id(+)\n        and a.geography_id = d.id(+)\n        and a.type_id = e.id(+)\n        and a.use_case_id = f.id(+)\n        and a.id = x.customer_id\n        and (:P1_SEARCH is null or\n                instr(upper(a.customer_name),upper(:P1_SEARCH)) \u003E 0 or\n                           instr(upper(a.summary),upper(:P1_SEARCH)) \u003E 0 )\n        and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n        and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n        and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n        and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n        and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n        and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n        and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n        and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n        and (:P1_IMP_PARTNER is null\n            or exists ( select null\n                        from eba_cust_cust_partner_ref rf\n                        where rf.customer_id = a.id\n                            and rf.partner_id = :P1_IMP_PARTNER ))\n        and (:P1_COMPETITOR is null\n            or exists ( select null\n                        from eba_cust_cust_competitor_ref rf\n                        where rf.customer_id = a.id\n                            and rf.competitor_id = :P1_COMPETITOR ))\n        and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n        and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n        and (\n            exists (select 1 from eba_cust_customer_reftype_ref r\n            where r.customer_id = a.id and\n                  instr(\u0027:\u0027||:P1_REFERENCE_TYPES||\u0027:\u0027,\u0027:\u0027||reference_type_id||\u0027:\u0027) \u003E 0)\n            or \n            :P1_REFERENCE_TYPES is null\n            )\n        and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P1_PRODUCT))\n) z"
+       ,"Page Items to Submit":[
+          "P1_TYPE"
+         ,"P1_SEARCH"
+         ,"P1_USE_CASE"
+         ,"P1_MARQUEE_CUST"
+         ,"P1_PRODUCT"
+         ,"P1_IMP_PARTNER"
+         ,"P1_GEO"
+         ,"P1_COMPETITOR"
+         ,"P1_REFERENCEABLE"
+         ,"P1_SCP_CUST"
+         ,"P1_REFERENCE_TYPES"
+         ,"P1_COUNTRY"
+         ,"P1_STATUS"
+         ,"P1_INDUSTRY"
+         ,"P1_CATEGORY"
+        ]
+      }
+     ,"Layout":{
+        "Sequence":96
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--noPadding"
+         ,"js-showMaximizeButton"
+         ,"i-h320"
+         ,"t-Region--hiddenOverflow"
+        ]
+       ,"CSS Classes":[
+          "scrollable-region"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Static ID":"CUST_SUMMARY"
+       ,"Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Customizable and Shown By Default"
+      }
+     ,"Attributes":{
+        "Layout":{
+          "Number of Rows Type":"Static Value"
+         ,"Number of Rows":15
+        }
+       ,"Appearance":{
+          "Template Type":"Theme"
+         ,"Template":"Value Attribute Pairs - Column (14888273239684691865)"
+         ,"Template Options":[
+            "#DEFAULT#"
+           ,"t-AVPList--rightAligned"
+          ]
+         ,"Show Null Values as":" - "
+        }
+       ,"Pagination":{
+          "Type":"No Pagination (Show All Rows)"
+         ,"Partial Page Refresh":true
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+         ,"Maximum Rows to Process":500
+        }
+       ,"Messages":{
+          "When No Data Found":"no data found"
+        }
+       ,"Break Formatting":{
+          "Break Columns":"No Break"
+        }
+       ,"Advanced":{
+          "Strip HTML":true
+         ,"Sort Nulls":"Last"
+        }
+       ,"Heading":{
+          "Type":"Custom Headings"
+        }
+       ,"Download":{
+          "CSV Export Enabled":false
+        }
+       ,"Printing":{
+          "Enabled":false
+        }
+      }
+     ,"Columns":[
+        {
+          "id":"13571866032260209657"
+         ,"Identification":{
+            "Column Name":"NUMBER_OF_CUSTOMERS"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Number of Customers"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":1
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Default Sequence":"1"
+           ,"Direction":"Descending"
+           ,"Sortable":true
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"13571866483784209658"
+         ,"Identification":{
+            "Column Name":"ADDED_1W"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"New last 7 days"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":2
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"13571866901204209658"
+         ,"Identification":{
+            "Column Name":"REFERENCABLE"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Publicly Referenceable"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":3
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Server-side Condition":{
+            "Type":"Expression"
+           ,"Language":"PL\/SQL"
+           ,"PL\/SQL Expression":"APEX_UTIL.GET_BUILD_OPTION_STATUS(\n    P_APPLICATION_ID =\u003E :APP_ID,\n    P_BUILD_OPTION_NAME =\u003E \u0027Customer Referencability\u0027) = \u0027INCLUDE\u0027"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"13571867212189209658"
+         ,"Identification":{
+            "Column Name":"POTENTIALLY_REFERENCABLE"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Potentially Referenceable"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":4
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Server-side Condition":{
+            "Type":"Expression"
+           ,"Language":"PL\/SQL"
+           ,"PL\/SQL Expression":"APEX_UTIL.GET_BUILD_OPTION_STATUS(\n    P_APPLICATION_ID =\u003E :APP_ID,\n    P_BUILD_OPTION_NAME =\u003E \u0027Customer Referencability\u0027) = \u0027INCLUDE\u0027"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"13571867609673209659"
+         ,"Identification":{
+            "Column Name":"NOT_REFERENCABLE"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Not Referenceable"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":5
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Server-side Condition":{
+            "Type":"Expression"
+           ,"Language":"PL\/SQL"
+           ,"PL\/SQL Expression":"APEX_UTIL.GET_BUILD_OPTION_STATUS(\n    P_APPLICATION_ID =\u003E :APP_ID,\n    P_BUILD_OPTION_NAME =\u003E \u0027Customer Referencability\u0027) = \u0027INCLUDE\u0027"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"13571868106749209659"
+         ,"Identification":{
+            "Column Name":"REFERENCABILITY_UNKNOWN"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Referenceability Unknown"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":6
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Server-side Condition":{
+            "Type":"Expression"
+           ,"Language":"PL\/SQL"
+           ,"PL\/SQL Expression":"APEX_UTIL.GET_BUILD_OPTION_STATUS(\n    P_APPLICATION_ID =\u003E :APP_ID,\n    P_BUILD_OPTION_NAME =\u003E \u0027Customer Referencability\u0027) = \u0027INCLUDE\u0027"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"13571868492310209660"
+         ,"Identification":{
+            "Column Name":"WITH_TAGS"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"With Tags"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":7
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"13571868861396209660"
+         ,"Identification":{
+            "Column Name":"CUSTOMER_PRODUCTS"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Customer Products"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":8
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"13571869248788209660"
+         ,"Identification":{
+            "Column Name":"CONTACTS"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Contacts"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":9
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"13571869621069209661"
+         ,"Identification":{
+            "Column Name":"CUSTOMERS_WITH_CONTACTS"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Customers With Contacts"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":10
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"13571870091941209661"
+         ,"Identification":{
+            "Column Name":"MARQUEE_CUSTOMERS"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Marquee Customers"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":11
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"13571870816771211098"
+     ,"Identification":{
+        "Title":"Customer Updates"
+       ,"Type":"Classic Report"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select \n   \u0027Note \u0027 || dbms_lob.substr(n.note,100,1) || decode(greatest(length(n.note),100),100,null,\u0027...\u0027) || \u0027 Added - \u0027 || a.customer_name detail,\n   n.created updated,\n   a.id customer_id\nfrom eba_cust_customers a,\n    eba_cust_categories b,\n    eba_cust_status c,\n    eba_cust_geographies d,\n    eba_cust_type e,\n    eba_cust_use_case f,\n    eba_cust_notes n\nwhere a.category_id = b.id(+)\n    and a.status_id = c.id(+)\n    and a.geography_id = d.id(+)\n    and a.type_id = e.id(+)\n    and a.use_case_id = f.id(+)\n    and a.id = n.customer_id\n    and (:P1_SEARCH is null or\n            instr(upper(a.customer_name),upper(:P1_SEARCH)) \u003E 0 or\n                       instr(upper(a.summary),upper(:P1_SEARCH)) \u003E 0 )\n    and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n    and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n    and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n    and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n    and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n    and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n    and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n    and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n    and (:P1_IMP_PARTNER is null\n        or exists ( select null\n                    from eba_cust_cust_partner_ref rf\n                    where rf.customer_id = a.id\n                        and rf.partner_id = :P1_IMP_PARTNER ))\n    and (:P1_COMPETITOR is null\n        or exists ( select null\n                    from eba_cust_cust_competitor_ref rf\n                    where rf.customer_id = a.id\n                        and rf.competitor_id = :P1_COMPETITOR ))\n    and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n    and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n    and (\n        exists (select 1 from eba_cust_customer_reftype_ref r\n        where r.customer_id = a.id and\n              instr(\u0027:\u0027||:P1_REFERENCE_TYPES||\u0027:\u0027,\u0027:\u0027||reference_type_id||\u0027:\u0027) \u003E 0)\n        or \n        :P1_REFERENCE_TYPES is null\n        )\n    and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P1_PRODUCT))\nunion all\nselect \n   \u0027Contact \u0027 || t.name || \u0027 Added - \u0027 || a.customer_name detail,\n   t.created updated,\n   a.id customer_id\nfrom eba_cust_customers a,\n    eba_cust_categories b,\n    eba_cust_status c,\n    eba_cust_geographies d,\n    eba_cust_type e,\n    eba_cust_use_case f,\n    eba_cust_contacts t\nwhere a.category_id = b.id(+)\n    and a.status_id = c.id(+)\n    and a.geography_id = d.id(+)\n    and a.type_id = e.id(+)\n    and a.use_case_id = f.id(+)\n    and a.id = t.customer_id\n    and (:P1_SEARCH is null or\n            instr(upper(a.customer_name),upper(:P1_SEARCH)) \u003E 0 or\n                       instr(upper(a.summary),upper(:P1_SEARCH)) \u003E 0 )\n    and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n    and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n    and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n    and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n    and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n    and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n    and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n    and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n    and (:P1_IMP_PARTNER is null\n        or exists ( select null\n                    from eba_cust_cust_partner_ref rf\n                    where rf.customer_id = a.id\n                        and rf.partner_id = :P1_IMP_PARTNER ))\n    and (:P1_COMPETITOR is null\n        or exists ( select null\n                    from eba_cust_cust_competitor_ref rf\n                    where rf.customer_id = a.id\n                        and rf.competitor_id = :P1_COMPETITOR ))\n    and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n    and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n    and (\n        exists (select 1 from eba_cust_customer_reftype_ref r\n        where r.customer_id = a.id and\n              instr(\u0027:\u0027||:P1_REFERENCE_TYPES||\u0027:\u0027,\u0027:\u0027||reference_type_id||\u0027:\u0027) \u003E 0)\n        or \n        :P1_REFERENCE_TYPES is null\n        )\n    and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P1_PRODUCT))\nunion all\nselect \n   \u0027Attachment \u0027 || f.file_name || \u0027 Added - \u0027 || a.customer_name detail,\n   f.created updated,\n   a.id customer_id\nfrom eba_cust_customers a,\n    eba_cust_categories b,\n    eba_cust_status c,\n    eba_cust_geographies d,\n    eba_cust_type e,\n    eba_cust_use_case u,\n    eba_cust_files f\nwhere a.category_id = b.id(+)\n    and a.status_id = c.id(+)\n    and a.geography_id = d.id(+)\n    and a.type_id = e.id(+)\n    and a.use_case_id = u.id(+)\n    and a.id = f.customer_id\n    and (:P1_SEARCH is null or\n            instr(upper(a.customer_name),upper(:P1_SEARCH)) \u003E 0 or\n                       instr(upper(a.summary),upper(:P1_SEARCH)) \u003E 0 )\n    and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n    and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n    and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n    and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n    and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n    and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n    and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n    and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n    and (:P1_IMP_PARTNER is null\n        or exists ( select null\n                    from eba_cust_cust_partner_ref rf\n                    where rf.customer_id = a.id\n                        and rf.partner_id = :P1_IMP_PARTNER ))\n    and (:P1_COMPETITOR is null\n        or exists ( select null\n                    from eba_cust_cust_competitor_ref rf\n                    where rf.customer_id = a.id\n                        and rf.competitor_id = :P1_COMPETITOR ))\n    and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n    and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n    and (\n        exists (select 1 from eba_cust_customer_reftype_ref r\n        where r.customer_id = a.id and\n              instr(\u0027:\u0027||:P1_REFERENCE_TYPES||\u0027:\u0027,\u0027:\u0027||reference_type_id||\u0027:\u0027) \u003E 0)\n        or \n        :P1_REFERENCE_TYPES is null\n        )\n    and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P1_PRODUCT))\nunion all\nselect \n   \u0027Link to \"\u0027 || nvl(l.link_desc, l.link) || \u0027\" Added - \u0027|| a.customer_name detail,\n   l.created updated,\n   a.id customer_id\nfrom eba_cust_customers a,\n    eba_cust_categories b,\n    eba_cust_status c,\n    eba_cust_geographies d,\n    eba_cust_type e,\n    eba_cust_use_case f,\n    eba_cust_links l\nwhere a.category_id = b.id(+)\n    and a.status_id = c.id(+)\n    and a.geography_id = d.id(+)\n    and a.type_id = e.id(+)\n    and a.use_case_id = f.id(+)\n    and a.id = l.customer_id\n    and (:P1_SEARCH is null or\n            instr(upper(a.customer_name),upper(:P1_SEARCH)) \u003E 0 or\n                       instr(upper(a.summary),upper(:P1_SEARCH)) \u003E 0 )\n    and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n    and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n    and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n    and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n    and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n    and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n    and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n    and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n    and (:P1_IMP_PARTNER is null\n        or exists ( select null\n                    from eba_cust_cust_partner_ref rf\n                    where rf.customer_id = a.id\n                        and rf.partner_id = :P1_IMP_PARTNER ))\n    and (:P1_COMPETITOR is null\n        or exists ( select null\n                    from eba_cust_cust_competitor_ref rf\n                    where rf.customer_id = a.id\n                        and rf.competitor_id = :P1_COMPETITOR ))\n    and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n    and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n    and (\n        exists (select 1 from eba_cust_customer_reftype_ref r\n        where r.customer_id = a.id and\n              instr(\u0027:\u0027||:P1_REFERENCE_TYPES||\u0027:\u0027,\u0027:\u0027||reference_type_id||\u0027:\u0027) \u003E 0)\n        or \n        :P1_REFERENCE_TYPES is null\n        )\n    and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P1_PRODUCT))\nunion all\nselect x.detail || \u0027 - \u0027 || x.customer_name detail,\n       x.updated,\n       x.customer_id\nfrom (\n    select h.component_id customer_id,\n           a.customer_name,\n           initcap(replace(replace(h.COLUMN_NAME,\u0027_ID\u0027,null),\u0027_\u0027,\u0027 \u0027))||\u0027 changed from \"\u0027||h.OLD_VALUE||\u0027\" to \"\u0027||h.new_value||\u0027\"\u0027 detail,\n           lower(h.CHANGED_BY) updated_by,\n           h.CHANGE_DATE updated\n    from eba_cust_customers a,\n        eba_cust_categories b,\n        eba_cust_status c,\n        eba_cust_geographies d,\n        eba_cust_type e,\n        eba_cust_use_case f,\n        eba_cust_history h\n    where a.category_id = b.id(+)\n        and a.status_id = c.id(+)\n        and a.geography_id = d.id(+)\n        and a.type_id = e.id(+)\n        and a.use_case_id = f.id(+)\n        and h.component_id = c.id\n        and (:P1_SEARCH is null or\n                instr(upper(a.customer_name),upper(:P1_SEARCH)) \u003E 0 or\n                           instr(upper(a.summary),upper(:P1_SEARCH)) \u003E 0 )\n        and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n        and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n        and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n        and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n        and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n        and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n        and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n        and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n        and (:P1_IMP_PARTNER is null\n            or exists ( select null\n                        from eba_cust_cust_partner_ref rf\n                        where rf.customer_id = a.id\n                            and rf.partner_id = :P1_IMP_PARTNER ))\n        and (:P1_COMPETITOR is null\n            or exists ( select null\n                        from eba_cust_cust_competitor_ref rf\n                        where rf.customer_id = a.id\n                            and rf.competitor_id = :P1_COMPETITOR ))\n        and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n        and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n        and (\n            exists (select 1 from eba_cust_customer_reftype_ref r\n            where r.customer_id = a.id and\n                  instr(\u0027:\u0027||:P1_REFERENCE_TYPES||\u0027:\u0027,\u0027:\u0027||reference_type_id||\u0027:\u0027) \u003E 0)\n            or \n            :P1_REFERENCE_TYPES is null\n            )\n        and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P1_PRODUCT))\n) x\norder by 2 desc"
+       ,"Page Items to Submit":[
+          "P1_TYPE"
+         ,"P1_SEARCH"
+         ,"P1_USE_CASE"
+         ,"P1_MARQUEE_CUST"
+         ,"P1_PRODUCT"
+         ,"P1_IMP_PARTNER"
+         ,"P1_GEO"
+         ,"P1_COMPETITOR"
+         ,"P1_REFERENCEABLE"
+         ,"P1_SCP_CUST"
+         ,"P1_REFERENCE_TYPES"
+         ,"P1_COUNTRY"
+         ,"P1_STATUS"
+         ,"P1_INDUSTRY"
+         ,"P1_CATEGORY"
+        ]
+      }
+     ,"Layout":{
+        "Sequence":106
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":false
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--noPadding"
+         ,"js-showMaximizeButton"
+         ,"i-h320"
+         ,"t-Region--hiddenOverflow"
+        ]
+       ,"CSS Classes":[
+          "scrollable-region"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Static ID":"CUST_UPDATES"
+       ,"Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Customizable and Shown By Default"
+      }
+     ,"Attributes":{
+        "Layout":{
+          "Number of Rows Type":"Static Value"
+         ,"Number of Rows":20
+        }
+       ,"Appearance":{
+          "Template Type":"Theme"
+         ,"Template":"Value Attribute Pairs - Row (14888273059962691863)"
+         ,"Template Options":[
+            "#DEFAULT#"
+           ,"t-AVPList--rightAligned"
+          ]
+         ,"Show Null Values as":" - "
+        }
+       ,"Pagination":{
+          "Type":"No Pagination (Show All Rows)"
+         ,"Partial Page Refresh":true
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+         ,"Maximum Rows to Process":20
+        }
+       ,"Messages":{
+          "When No Data Found":"no data found"
+        }
+       ,"Break Formatting":{
+          "Break Columns":"No Break"
+        }
+       ,"Advanced":{
+          "Strip HTML":true
+         ,"Sort Nulls":"Last"
+        }
+       ,"Heading":{
+          "Type":"None"
+        }
+       ,"Download":{
+          "CSV Export Enabled":false
+        }
+       ,"Printing":{
+          "Enabled":false
+        }
+      }
+     ,"Columns":[
+        {
+          "id":"13571871131014211099"
+         ,"Identification":{
+            "Column Name":"DETAIL"
+           ,"Type":"Link"
+          }
+         ,"Heading":{
+            "Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":2
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Link":{
+            "Target":{
+              "url":"f?p=\u0026APP_ID.:50:\u0026SESSION.::\u0026DEBUG.:50:P50_ID:#CUSTOMER_ID#"
+             ,"Page":"50"
+             ,"Clear Cache":"50"
+             ,"Values":{
+                "P50_ID":"#CUSTOMER_ID#"
+              }
+            }
+           ,"Link Text":"#DETAIL#"
+           ,"Link Attributes":"title=\"#DETAIL#\""
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"13571871539089211100"
+         ,"Identification":{
+            "Column Name":"UPDATED"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":3
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Appearance":{
+            "Format Mask":"SINCE"
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"13571871967552211100"
+         ,"Identification":{
+            "Column Name":"CUSTOMER_ID"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":1
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"13571873041366212727"
+     ,"Identification":{
+        "Title":"Tags"
+       ,"Type":"Tag Cloud"
+      }
+     ,"Source":{
+        "SQL Query":"select t.tag, t.tag_count\n  from eba_cust_tags_type_sum t\n where t.content_type = \u0027CUSTOMER\u0027\n   and t.tag_count \u003E 0\n   and exists (\n                   select null\n                     from eba_cust_customers a,\n                          eba_cust_categories b,\n                          eba_cust_status c,\n                          eba_cust_geographies d,\n                          eba_cust_type e,\n                          eba_cust_use_case f\n                    where a.category_id = b.id(+)\n                      and a.status_id = c.id(+)\n                      and a.geography_id = d.id(+)\n                      and a.type_id = e.id(+)\n                      and a.use_case_id = f.id(+)\n                      and instr(a.tags, t.tag) \u003E 0\n                      and (:P1_SEARCH is null or\n                              instr(upper(a.customer_name),upper(:P1_SEARCH)) \u003E 0 or\n                                         instr(upper(a.summary),upper(:P1_SEARCH)) \u003E 0 )\n                      and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n                      and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n                      and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n                      and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n                      and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n                      and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n                      and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n                      and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n                      and (:P1_IMP_PARTNER is null\n                          or exists ( select null\n                                      from eba_cust_cust_partner_ref rf\n                                      where rf.customer_id = a.id\n                                          and rf.partner_id = :P1_IMP_PARTNER ))\n                      and (:P1_COMPETITOR is null\n                          or exists ( select null\n                                      from eba_cust_cust_competitor_ref rf\n                                      where rf.customer_id = a.id\n                                          and rf.competitor_id = :P1_COMPETITOR ))\n                      and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n                      and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n                      and (\n                          exists (select 1 from eba_cust_customer_reftype_ref r\n                          where r.customer_id = a.id and\n                                instr(\u0027:\u0027||:P1_REFERENCE_TYPES||\u0027:\u0027,\u0027:\u0027||reference_type_id||\u0027:\u0027) \u003E 0)\n                          or \n                          :P1_REFERENCE_TYPES is null\n                          )\n                      and (NVL(:P1_PRODUCT,0) = 0 or exists (select null\n                                                               from eba_cust_product_uses u\n                                                              where u.CUSTOMER_ID = a.id\n                                                                and u.PRODUCT_ID = :P1_PRODUCT)\n                          )\n              )\norder by t.tag_count desc"
+      }
+     ,"Layout":{
+        "Sequence":116
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"js-showMaximizeButton"
+         ,"t-Region--hiddenOverflow"
+        ]
+       ,"CSS Classes":[
+          "scrollable-region"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Static ID":"CUST_TAGS"
+       ,"Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server-side Condition":{
+        "Type":"Rows returned"
+       ,"SQL Query":"select null\n  from eba_cust_tags_type_sum\n where content_type = \u0027CUSTOMER\u0027\n   and tag_count \u003E 0"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Link Target":{
+            "url":"f?p=\u0026APP_ID.:59:\u0026SESSION.::\u0026DEBUG.:59,RIR:IRC_TAGS,P59_DISPLAY_AS:#TAG#,REPORT"
+           ,"Page":"59"
+           ,"Clear Cache":"59,RIR"
+           ,"Values":{
+              "IRC_TAGS":"#TAG#"
+             ,"P59_DISPLAY_AS":"REPORT"
+            }
+          }
+         ,"Maximum Tags":35
+         ,"Show Count":true
+        }
+       ,"Messages":{
+          "When No Data Found":"No tags found."
+        }
+      }
+    }
+   ,{
+      "id":"14306876320599591504"
+     ,"Identification":{
+        "Title":"Customer Summary (with References, Products, \u0026 Issues)"
+       ,"Type":"Badge List"
+      }
+     ,"Source":{
+        "SQL Query":"select label, to_number(nvl(value,0),\u0027999G999G990\u0027) value, url from (\nwith data as (\n    select count(*) total,\n        sum(decode(marquee_customer_yn,\u0027Y\u0027,1,0)) marquee,\n        sum(decode(referencable,\u0027Yes\u0027,1,0)) ref\n    from eba_cust_customers a,\n        eba_cust_categories b,\n        eba_cust_status c,\n        eba_cust_geographies d,\n        eba_cust_type e,\n        eba_cust_use_case f\n    where a.category_id = b.id(+)\n        and a.status_id = c.id(+)\n        and a.geography_id = d.id(+)\n        and a.type_id = e.id(+)\n        and a.use_case_id = f.id(+)\n        and (:P1_SEARCH is null or\n                instr(upper(a.customer_name),upper(:P1_SEARCH)) \u003E 0 or\n                           instr(upper(a.summary),upper(:P1_SEARCH)) \u003E 0 )\n        and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n        and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n        and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n        and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n        and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n        and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n        and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n        and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n        and (:P1_IMP_PARTNER is null\n            or exists ( select null\n                        from eba_cust_cust_partner_ref rf\n                        where rf.customer_id = a.id\n                            and rf.partner_id = :P1_IMP_PARTNER ))\n        and (:P1_COMPETITOR is null\n            or exists ( select null\n                        from eba_cust_cust_competitor_ref rf\n                        where rf.customer_id = a.id\n                            and rf.competitor_id = :P1_COMPETITOR ))\n        and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n        and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n        and (\n            exists (select 1 from eba_cust_customer_reftype_ref r\n            where r.customer_id = a.id and\n                  instr(\u0027:\u0027||:P1_REFERENCE_TYPES||\u0027:\u0027,\u0027:\u0027||reference_type_id||\u0027:\u0027) \u003E 0)\n            or \n            :P1_REFERENCE_TYPES is null\n            )\n        and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P1_PRODUCT))\n), rws as (\n    select level r from dual connect by level \u003C 4\n)\nselect rws.r display_order,\n    decode(rws.r, 1, \u0027Total\u0027,    2, \u0027Marquee\u0027,   3, \u0027Referenceable\u0027)  label,\n    decode(rws.r, 1, data.total, 2, data.marquee, 3, data.ref) value,\n    decode(rws.r, 1, apex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:59:\u0027||:APP_SESSION||\u0027:::59,RIR:P59_MARQUEE_CUST,P59_INDUSTRY,P59_PRODUCT,P59_GEO,P59_REFERENCEABLE,P59_STATUS,P59_CATEGORY,P59_TYPE,P59_IMP_PARTNER,P59_COMPETITOR,P59_REFERENCE_TYPES:\u0027||:P1_MARQUEE_CUST||\u0027,\u0027||:P1_INDUSTRY||\u0027,\u0027||:P1_PRODUCT||\u0027,\u0027||:P1_GEO||\u0027,\u0027||:P1_REFERENCEABLE||\u0027,\u0027||:P1_STATUS||\u0027,\u0027||:P1_CATEGORY||\u0027,\u0027||:P1_TYPE||\u0027,\u0027||:P1_IMP_PARTNER||\u0027,\u0027||:P1_COMPETITOR || \u0027,\u005C\u0027 || :P1_REFERENCE_TYPES || \u0027\u005C:\u0027),\n                  2, apex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:59:\u0027||:APP_SESSION||\u0027:::59,RIR:IR_MARQUEE_CUSTOMER,P59_MARQUEE_CUST,P59_INDUSTRY,P59_PRODUCT,P59_GEO,P59_REFERENCEABLE,P59_STATUS,P59_CATEGORY,P59_TYPE,P59_IMP_PARTNER,P59_COMPETITOR,P59_REFERENCE_TYPES:Yes,Y,\u0027||:P1_INDUSTRY||\u0027,\u0027||:P1_PRODUCT||\u0027,\u0027||:P1_GEO||\u0027,\u0027||:P1_REFERENCEABLE||\u0027,\u0027||:P1_STATUS||\u0027,\u0027||:P1_CATEGORY||\u0027,\u0027||:P1_TYPE||\u0027,\u0027||:P1_IMP_PARTNER||\u0027,\u0027||:P1_COMPETITOR || \u0027,\u005C\u0027 || :P1_REFERENCE_TYPES || \u0027\u005C:\u0027),\n                  3, apex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:59:\u0027||:APP_SESSION||\u0027:::59,RIR:IR_REFERENCABLE,P59_INDUSTRY,P59_PRODUCT,P59_GEO,P59_REFERENCEABLE,P59_STATUS,P59_CATEGORY,P59_TYPE,P59_IMP_PARTNER,P59_COMPETITOR,P59_REFERENCE_TYPES:Yes,\u0027||:P1_INDUSTRY||\u0027,\u0027||:P1_PRODUCT||\u0027,\u0027||:P1_GEO||\u0027,Yes,\u0027||:P1_STATUS||\u0027,\u0027||:P1_CATEGORY||\u0027,\u0027||:P1_TYPE||\u0027,\u0027||:P1_IMP_PARTNER||\u0027,\u0027||:P1_COMPETITOR || \u0027,\u005C\u0027 || :P1_REFERENCE_TYPES || \u0027\u005C:\u0027 )) url\nfrom data, rws\nunion all\nselect 4 as display_order,\n    \u0027Products Referenced\u0027 label,\n    count(*) value,\n    apex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:44:\u0027||:APP_SESSION||\u0027:::44,RIR:\u0027) url\nfrom eba_cust_products p\nwhere exists (   select 1\n    from eba_cust_product_uses u\n    where u.product_id = p.id\n)\nunion all\nselect 5 as display_order,\n    \u0027Open Issues\u0027 label,\n    count(*) value,\n    apex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:134:\u0027||:APP_SESSION||\u0027:::134,RIR:IR_STATUS_ID:Open\u0027) url\nfrom eba_cust_issues i\nwhere exists (   select null\n    from eba_cust_issue_statuses u\n    where u.id = i.status_id\n      and u.open_yn = \u0027Y\u0027)\n)\norder by display_order"
+       ,"Page Items to Submit":[
+          "P1_TYPE"
+         ,"P1_SEARCH"
+         ,"P1_USE_CASE"
+         ,"P1_MARQUEE_CUST"
+         ,"P1_PRODUCT"
+         ,"P1_IMP_PARTNER"
+         ,"P1_GEO"
+         ,"P1_COMPETITOR"
+         ,"P1_REFERENCEABLE"
+         ,"P1_SCP_CUST"
+         ,"P1_REFERENCE_TYPES"
+         ,"P1_COUNTRY"
+         ,"P1_STATUS"
+         ,"P1_INDUSTRY"
+         ,"P1_CATEGORY"
+        ]
+      }
+     ,"Layout":{
+        "Sequence":16
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--noPadding"
+         ,"js-showMaximizeButton"
+         ,"t-Region--hideHeader"
+         ,"t-Region--hiddenOverflow"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Static ID":"CUST_SUM_W_REFS"
+       ,"Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server-side Condition":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"apex_util.get_build_option_status(\n                      p_application_id    =\u003E :APP_ID,\n                      p_build_option_name =\u003E \u0027Products and Services\u0027\n                  ) = \u0027INCLUDE\u0027\nand\napex_util.get_build_option_status(\n                      p_application_id    =\u003E :APP_ID,\n                      p_build_option_name =\u003E \u0027Issues\u0027\n                  ) = \u0027INCLUDE\u0027"
+      }
+     ,"Security":{
+        "Escape special characters":true
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Configuration":{
+        "Build Option":"Customer Referencability (14317354550591202996)"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Badge Style":"Default"
+         ,"Value":"VALUE"
+         ,"Bottom Label":"LABEL"
+         ,"Link Target":"\u0026URL."
+         ,"Layout":"5 columns"
+         ,"Color":"No"
+        }
+      }
+    }
+   ,{
+      "id":"16640404427638188097"
+     ,"Identification":{
+        "Title":"timezone"
+       ,"Type":"Static Content"
+      }
+     ,"Source":{
+        "HTML Code":"\"TIMEZONE\" \n "
+      }
+     ,"Layout":{
+        "Sequence":126
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Blank with Attributes (14888250988334691823)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":true
+        }
+      }
+    }
+   ,{
+      "id":"16935250319303139248"
+     ,"Identification":{
+        "Title":"Filters"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":116
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_02"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--removeHeader js-removeLandmark"
+         ,"t-Region--scrollBody"
+         ,"t-Form--stretchInputs"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"17829324306849140179"
+     ,"Identification":{
+        "Title":"Breadcrumbs"
+       ,"Type":"Breadcrumb"
+      }
+     ,"Source":{
+        "Breadcrumb":"Breadcrumb (17869143586620226407)"
+      }
+     ,"Layout":{
+        "Sequence":40
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_01"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Title Bar (14888267217215691848)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-BreadcrumbRegion--useBreadcrumbTitle"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "Breadcrumb Template":"Breadcrumb (14888282717314691893)"
+         ,"Template Options":[
+            "#DEFAULT#"
+          ]
+        }
+      }
+    }
+   ,{
+      "id":"20006072089876467610"
+     ,"Identification":{
+        "Title":"More Filters"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":126
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_02"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Collapsible (14888261571832691840)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"is-collapsed"
+         ,"t-Region--scrollBody"
+         ,"t-Form--stretchInputs"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":true
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+  ]
+ ,"Page Items":[
+    {
+      "id":"2074506349855780749"
+     ,"Identification":{
+        "Name":"P1_SEARCH"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"Search"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Subtype":"Text"
+       ,"Trim Spaces":"Leading and Trailing"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Filters (16935250319303139248)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Hidden (14888281412990691885)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Form-fieldContainer--large"
+        ]
+       ,"Icon":"fa-search"
+       ,"Width":64
+       ,"Value Placeholder":"Search Customers"
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":4000
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"2074506700900780753"
+     ,"Identification":{
+        "Name":"P1_PRODUCT"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Product"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":40
+       ,"Region":"Filters (16935250319303139248)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"PRODUCTS (16960032275999277784)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All -"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"2074507064780780754"
+     ,"Identification":{
+        "Name":"P1_GEO"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Geography"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":50
+       ,"Region":"Filters (16935250319303139248)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"GEOGRAPHY (14893785263994968434)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All - "
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"0"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"2074507481811780754"
+     ,"Identification":{
+        "Name":"P1_REFERENCEABLE"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Publicly Referenceable"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":60
+       ,"Region":"Filters (16935250319303139248)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"REFERENCABLE (14787832928789100513)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All -"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"2074507902815780754"
+     ,"Identification":{
+        "Name":"P1_REFERENCE_TYPES"
+       ,"Type":"Checkbox Group"
+      }
+     ,"Label":{
+        "Label":"Reference Types (any)"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Number of Columns":1
+      }
+     ,"Layout":{
+        "Sequence":70
+       ,"Region":"Filters (16935250319303139248)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"CSS Classes":[
+          "reference_types_checkbox"
+        ]
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"REFERENCE_TYPES (15670880632026549329)"
+       ,"Display Extra Values":false
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Escape special characters":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Inline Help Text":"\u003Cbutton class=\"t-Button t-Button--small\" id=\"reference_check_box\" type=\"button\"\u003ECheck All\u003C\/button\u003E"
+       ,"Help Text":"Check all the boxes you would like to see.  If any customers have any of the reference types selected you will see the customer."
+      }
+    }
+   ,{
+      "id":"2074508731973780758"
+     ,"Identification":{
+        "Name":"P1_STATUS"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Status"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":80
+       ,"Region":"Filters (16935250319303139248)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"STATUS  (14893834441176237959)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All -"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Configuration":{
+        "Build Option":"Customer Status (17168530605040612062)"
+      }
+    }
+   ,{
+      "id":"2074510390433783456"
+     ,"Identification":{
+        "Name":"P1_TYPE"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Type"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"More Filters (20006072089876467610)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"TYPE (17070263972513584655)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All -"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"2074510779993783456"
+     ,"Identification":{
+        "Name":"P1_USE_CASE"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Use Case"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"More Filters (20006072089876467610)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"USE_CASE (17156523483716946751)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All -"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Configuration":{
+        "Build Option":"Customer Use Case (17146729199024533840)"
+      }
+    }
+   ,{
+      "id":"2074511190920783456"
+     ,"Identification":{
+        "Name":"P1_MARQUEE_CUST"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Marquee Customer"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Region":"More Filters (20006072089876467610)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"MARQUEE (14787835144719105135)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All -"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"2074511514264783457"
+     ,"Identification":{
+        "Name":"P1_IMP_PARTNER"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Partner"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":40
+       ,"Region":"More Filters (20006072089876467610)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"SQL Query"
+       ,"SQL Query":"select name d, id r\nfrom eba_cust_impl_partners\norder by lower(name)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All -"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"2074511976317783457"
+     ,"Identification":{
+        "Name":"P1_COMPETITOR"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Competitor"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":50
+       ,"Region":"More Filters (20006072089876467610)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"SQL Query"
+       ,"SQL Query":"select name d, id r\nfrom eba_cust_competitors\norder by lower(name)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All -"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"2074512409708783461"
+     ,"Identification":{
+        "Name":"P1_SCP_CUST"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"SCP Customer"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":60
+       ,"Region":"More Filters (20006072089876467610)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"Y_OR_N (17831456739552151139)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All -"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Configuration":{
+        "Build Option":"Strategic Customer Program (16917422310656199607)"
+      }
+    }
+   ,{
+      "id":"2074512724774783461"
+     ,"Identification":{
+        "Name":"P1_COUNTRY"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Country"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":70
+       ,"Region":"More Filters (20006072089876467610)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"COUNTRIES_P59 (17422725866108985090)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All -"
+       ,"Null Return Value":"0"
+      }
+     ,"Cascading List of Values":{
+        "Parent Item(s)":[
+          "P1_GEO"
+        ]
+       ,"Parent Required":false
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Configuration":{
+        "Build Option":"Countries (16956786967740861701)"
+      }
+    }
+   ,{
+      "id":"2074513111924783462"
+     ,"Identification":{
+        "Name":"P1_INDUSTRY"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Industry"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":90
+       ,"Region":"Filters (16935250319303139248)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"P2_INDUSTRY_ID LOOKUP (14852869838645090511)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All - "
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"0"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"2074513589558783462"
+     ,"Identification":{
+        "Name":"P1_CATEGORY"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Category"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":100
+       ,"Region":"Filters (16935250319303139248)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"CAT (14893788503901989125)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All - "
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"0"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"2074505964940780739"
+     ,"Identification":{
+        "Button Name":"RESET_REPORT"
+       ,"Label":"Reset"
+      }
+     ,"Layout":{
+        "Sequence":50
+       ,"Region":"Filters (16935250319303139248)"
+       ,"Position":"CREATE"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text with Icon (14888281958145691891)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--iconLeft"
+        ]
+       ,"Icon":"fa-undo-alt"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:\u0026APP_PAGE_ID.:\u0026SESSION.::\u0026DEBUG.:RP,\u0026APP_PAGE_ID.::"
+         ,"Page":"\u0026APP_PAGE_ID."
+         ,"Clear Cache":"RP,\u0026APP_PAGE_ID."
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+     ,"Advanced":{
+        "Static ID":"reset_button"
+      }
+    }
+   ,{
+      "id":"13571850900331197252"
+     ,"Identification":{
+        "Button Name":"VIEW_CATS"
+       ,"Label":"View Categories"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Customers by Category (1085913010767423278)"
+       ,"Position":"EDIT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Icon (14888281684153691889)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--noUI"
+        ]
+       ,"Icon":"fa-chevron-right"
+      }
+     ,"Behavior":{
+        "Action":"Submit Page"
+       ,"Execute Validations":true
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+   ,{
+      "id":"13571862079600201500"
+     ,"Identification":{
+        "Button Name":"VIEW_CUSTOMERS"
+       ,"Label":"View Customers"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Customers by Product (13571861757080201500)"
+       ,"Position":"EDIT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Icon (14888281684153691889)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"#DEFAULT#"
+         ,"t-Button--noUI"
+        ]
+       ,"Icon":"fa-chevron-right"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:44:\u0026SESSION.::\u0026DEBUG.:RP,44,RIR::"
+         ,"Page":"44"
+         ,"Clear Cache":"RP,44,RIR"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+   ,{
+      "id":"13571863964071203240"
+     ,"Identification":{
+        "Button Name":"CREATE_CUSTOMER"
+       ,"Label":"Create Customer"
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Region":"Recently Updated Customers (13571862438541203236)"
+       ,"Position":"EDIT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Icon (14888281684153691889)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"#DEFAULT#"
+         ,"t-Button--noUI"
+        ]
+       ,"Icon":"fa-plus"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:2:\u0026SESSION.::\u0026DEBUG.:2::"
+         ,"Page":"2"
+         ,"Clear Cache":"2"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+     ,"Security":{
+        "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+      }
+    }
+   ,{
+      "id":"13571864310638203240"
+     ,"Identification":{
+        "Button Name":"VIEW_CUSTOMER"
+       ,"Label":"View Customer"
+      }
+     ,"Layout":{
+        "Sequence":40
+       ,"Region":"Recently Updated Customers (13571862438541203236)"
+       ,"Position":"EDIT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Icon (14888281684153691889)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"#DEFAULT#"
+         ,"t-Button--noUI"
+        ]
+       ,"Icon":"fa-chevron-right"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:59:\u0026SESSION.:IR_20424235:\u0026DEBUG.:RP,59,RIR:P59_SORT:NEWFIRST"
+         ,"Page":"59"
+         ,"Request":"IR_20424235"
+         ,"Clear Cache":"RP,59,RIR"
+         ,"Values":{
+            "P59_SORT":"NEWFIRST"
+          }
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+   ,{
+      "id":"13571865375286207233"
+     ,"Identification":{
+        "Button Name":"VIEW_GEO"
+       ,"Label":"View Geographies"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Customers by Geography (1134985930100235234)"
+       ,"Position":"EDIT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Icon (14888281684153691889)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--noUI"
+        ]
+       ,"Icon":"fa-chevron-right"
+      }
+     ,"Behavior":{
+        "Action":"Submit Page"
+       ,"Execute Validations":true
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+   ,{
+      "id":"13571872400006211100"
+     ,"Identification":{
+        "Button Name":"VIEW_UPDATES"
+       ,"Label":"View Updates"
+      }
+     ,"Layout":{
+        "Sequence":60
+       ,"Region":"Customer Updates (13571870816771211098)"
+       ,"Position":"EDIT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Icon (14888281684153691889)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"#DEFAULT#"
+         ,"t-Button--noUI"
+        ]
+       ,"Icon":"fa-chevron-right"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:124:\u0026SESSION.::\u0026DEBUG.:RP,RIR::"
+         ,"Page":"124"
+         ,"Clear Cache":"RP,RIR"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+   ,{
+      "id":"13571873387672212729"
+     ,"Identification":{
+        "Button Name":"VIEW_TAGS"
+       ,"Label":"View All"
+      }
+     ,"Layout":{
+        "Sequence":70
+       ,"Region":"Tags (13571873041366212727)"
+       ,"Position":"EDIT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Icon (14888281684153691889)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"#DEFAULT#"
+         ,"t-Button--noUI"
+        ]
+       ,"Icon":"fa-chevron-right"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:40:\u0026SESSION.::\u0026DEBUG.:RP,40,RIR::"
+         ,"Page":"40"
+         ,"Clear Cache":"RP,40,RIR"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+  ]
+ ,"Dynamic Actions":[
+    {
+      "id":"2044147462400901752"
+     ,"Identification":{
+        "Name":"Refresh Regions on Change"
+      }
+     ,"Execution":{
+        "Sequence":40
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CHANGE"
+       ,"Selection Type":"Item(s)"
+       ,"Item(s)":[
+          "P1_CATEGORY"
+         ,"P1_TYPE"
+         ,"P1_SEARCH"
+         ,"P1_USE_CASE"
+         ,"P1_MARQUEE_CUST"
+         ,"P1_PRODUCT"
+         ,"P1_IMP_PARTNER"
+         ,"P1_GEO"
+         ,"P1_COMPETITOR"
+         ,"P1_REFERENCEABLE"
+         ,"P1_SCP_CUST"
+         ,"P1_REFERENCE_TYPES"
+         ,"P1_COUNTRY"
+         ,"P1_STATUS"
+         ,"P1_INDUSTRY"
+        ]
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"2044147595421901753"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Customer Summary (with References, Products, \u0026 Issues) (14306876320599591504)"
+          }
+         ,"Execution":{
+            "Sequence":20
+           ,"Event":"Refresh Regions on Change (2044147462400901752)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"2044147646970901754"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Customer Summary (without References) (13571849116761193798)"
+          }
+         ,"Execution":{
+            "Sequence":30
+           ,"Event":"Refresh Regions on Change (2044147462400901752)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"2044147799834901755"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Customer Updates (13571870816771211098)"
+          }
+         ,"Execution":{
+            "Sequence":40
+           ,"Event":"Refresh Regions on Change (2044147462400901752)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"2044147816959901756"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Customers by Category (1085913010767423278)"
+          }
+         ,"Execution":{
+            "Sequence":50
+           ,"Event":"Refresh Regions on Change (2044147462400901752)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"2044147986286901757"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Customers by Geography (1134985930100235234)"
+          }
+         ,"Execution":{
+            "Sequence":60
+           ,"Event":"Refresh Regions on Change (2044147462400901752)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"2044148067362901758"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Customers by Industry (1134986571730235240)"
+          }
+         ,"Execution":{
+            "Sequence":70
+           ,"Event":"Refresh Regions on Change (2044147462400901752)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"2044148152197901759"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Customers by Product (13571861757080201500)"
+          }
+         ,"Execution":{
+            "Sequence":80
+           ,"Event":"Refresh Regions on Change (2044147462400901752)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"2044148225989901760"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Recently Updated Customers (13571862438541203236)"
+          }
+         ,"Execution":{
+            "Sequence":90
+           ,"Event":"Refresh Regions on Change (2044147462400901752)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"2044148377832901761"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Summary (13571865733552209656)"
+          }
+         ,"Execution":{
+            "Sequence":100
+           ,"Event":"Refresh Regions on Change (2044147462400901752)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"2044148456850901762"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Tags (13571873041366212727)"
+          }
+         ,"Execution":{
+            "Sequence":110
+           ,"Event":"Refresh Regions on Change (2044147462400901752)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"2044149355040901771"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Customer Summary (with References \u0026 No Products) (2044148791703901765)"
+          }
+         ,"Execution":{
+            "Sequence":30
+           ,"Event":"Refresh Regions on Change (2044147462400901752)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"2074718773405039833"
+     ,"Identification":{
+        "Name":"Perform Search on Enter"
+      }
+     ,"Execution":{
+        "Sequence":20
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.KEYDOWN"
+       ,"Selection Type":"Item(s)"
+       ,"Item(s)":[
+          "P1_SEARCH"
+        ]
+      }
+     ,"Client-side Condition":{
+        "Type":"JavaScript expression"
+       ,"JavaScript Expression":"this.browserEvent.which === 13"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Server-side Condition":{
+        "Type":"Never"
+      }
+     ,"Actions":[
+        {
+          "id":"2044146729607901745"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Customer Updates (13571870816771211098)"
+          }
+         ,"Execution":{
+            "Sequence":40
+           ,"Event":"Perform Search on Enter (2074718773405039833)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"2044146899467901746"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Customers by Geography (1134985930100235234)"
+          }
+         ,"Execution":{
+            "Sequence":60
+           ,"Event":"Perform Search on Enter (2074718773405039833)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"2044146939687901747"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Customer Summary (without References) (13571849116761193798)"
+          }
+         ,"Execution":{
+            "Sequence":30
+           ,"Event":"Perform Search on Enter (2074718773405039833)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"2044147026510901748"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Customers by Category (1085913010767423278)"
+          }
+         ,"Execution":{
+            "Sequence":50
+           ,"Event":"Perform Search on Enter (2074718773405039833)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"2044147201482901749"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Customers by Industry (1134986571730235240)"
+          }
+         ,"Execution":{
+            "Sequence":70
+           ,"Event":"Perform Search on Enter (2074718773405039833)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"2044147304920901750"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Recently Updated Customers (13571862438541203236)"
+          }
+         ,"Execution":{
+            "Sequence":90
+           ,"Event":"Perform Search on Enter (2074718773405039833)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"2044147348822901751"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Tags (13571873041366212727)"
+          }
+         ,"Execution":{
+            "Sequence":110
+           ,"Event":"Perform Search on Enter (2074718773405039833)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"2074719116271039840"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Customer Summary (with References, Products, \u0026 Issues) (14306876320599591504)"
+          }
+         ,"Execution":{
+            "Sequence":20
+           ,"Event":"Perform Search on Enter (2074718773405039833)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"2074719701820039842"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Customers by Product (13571861757080201500)"
+          }
+         ,"Execution":{
+            "Sequence":80
+           ,"Event":"Perform Search on Enter (2074718773405039833)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"2074720183855039842"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Summary (13571865733552209656)"
+          }
+         ,"Execution":{
+            "Sequence":100
+           ,"Event":"Perform Search on Enter (2074718773405039833)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"2074720700019039842"
+         ,"Identification":{
+            "Action":"Cancel Event"
+          }
+         ,"Execution":{
+            "Sequence":120
+           ,"Event":"Perform Search on Enter (2074718773405039833)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"2074722102812069351"
+     ,"Identification":{
+        "Name":"Toggle Reference Type Checkboxes"
+      }
+     ,"Execution":{
+        "Sequence":30
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CLICK"
+       ,"Selection Type":"jQuery Selector"
+       ,"jQuery Selector":"#reference_check_box"
+      }
+     ,"Client-side Condition":{
+        "Type":"JavaScript expression"
+       ,"JavaScript Expression":"$(this.triggeringElement).text() === \"Check All\""
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"2074722474162069351"
+         ,"Identification":{
+            "Action":"Execute JavaScript Code"
+          }
+         ,"Settings":{
+            "Code":"$(\".reference_types_checkbox input[type=checkbox]\").prop(\u0027checked\u0027,true);\n$(this.triggeringElement).text(\u0027Uncheck All\u0027);"
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Toggle Reference Type Checkboxes (2074722102812069351)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"2074722995127069352"
+         ,"Identification":{
+            "Action":"Execute JavaScript Code"
+          }
+         ,"Settings":{
+            "Code":"$(\".reference_types_checkbox input[type=checkbox]\").prop(\u0027checked\u0027,false);\n$(this.triggeringElement).text(\u0027Check All\u0027);"
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Toggle Reference Type Checkboxes (2074722102812069351)"
+           ,"Fire When Event Result Is":"False"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"2074723425534069352"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"jQuery Selector"
+           ,"jQuery Selector":"#CARDS, #LOGOS, #CUSTOMERS"
+          }
+         ,"Execution":{
+            "Sequence":20
+           ,"Event":"Toggle Reference Type Checkboxes (2074722102812069351)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"2074724010546069353"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"jQuery Selector"
+           ,"jQuery Selector":"#CARDS, #LOGOS, #CUSTOMERS"
+          }
+         ,"Execution":{
+            "Sequence":30
+           ,"Event":"Toggle Reference Type Checkboxes (2074722102812069351)"
+           ,"Fire When Event Result Is":"False"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+  ]
+ ,"Computations":[
+    {
+      "id":"17841413665784013886"
+     ,"Identification":{
+        "Item Name":"LAST_VIEW"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"Before Header"
+      }
+     ,"Computation":{
+        "Type":"Static Value"
+       ,"Static Value":"1"
+      }
+    }
+  ]
+ ,"Processes":[
+    {
+      "id":"2044149429199901772"
+     ,"Identification":{
+        "Name":"Set Filters for Redirect"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":":P1_CATEGORY := :P1_CATEGORY;\n:P1_GEO := :P1_GEO;"
+      }
+     ,"Execution":{
+        "Sequence":20
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Display Location":"Inline in Notification"
+      }
+    }
+   ,{
+      "id":"17829323901990140123"
+     ,"Identification":{
+        "Name":"Reset Pagination"
+       ,"Type":"Reset Pagination"
+       ,"Execution Chain":"None"
+      }
+     ,"Settings":{
+        "Target":"This Page"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Error Message":"Unable to reset pagination."
+       ,"Display Location":"On Error Page"
+      }
+     ,"Server-side Condition":{
+        "Type":"Request is contained in Value"
+       ,"Value":"Go,P1_REPORT_SEARCH,RESET"
+      }
+    }
+   ,{
+      "id":"17849813297874893311"
+     ,"Identification":{
+        "Name":"Load Data"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":"if :REQUEST = \u0027REPORTS\u0027 then \n    :LAST_VIEW := 20;\nelse\n    :LAST_VIEW := 30 ;\nend if;"
+      }
+     ,"Execution":{
+        "Sequence":20
+       ,"Point":"Before Header"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Server-side Condition":{
+        "Type":"Never"
+      }
+    }
+  ]
+ ,"Branches":[
+    {
+      "id":"2044149527226901773"
+     ,"Identification":{
+        "Name":"Go To Geographies"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"After Processing"
+      }
+     ,"Behavior":{
+        "Type":"Page or URL (Redirect)"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:85:\u0026SESSION.::\u0026DEBUG.:RP:P85_CATEGORY:\u0026P1_CATEGORY.\u0026success_msg=#SUCCESS_MSG#"
+         ,"Page":"85"
+         ,"Clear Cache":"RP"
+         ,"Values":{
+            "P85_CATEGORY":"\u0026P1_CATEGORY."
+          }
+        }
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"VIEW_GEO (13571865375286207233)"
+      }
+    }
+   ,{
+      "id":"2044149649657901774"
+     ,"Identification":{
+        "Name":"Go to Categories"
+      }
+     ,"Execution":{
+        "Sequence":20
+       ,"Point":"After Processing"
+      }
+     ,"Behavior":{
+        "Type":"Page or URL (Redirect)"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:32:\u0026SESSION.::\u0026DEBUG.:RP:P32_CATEGORY,P32_GEO:\u0026P1_CATEGORY.,\u0026P1_GEO.\u0026success_msg=#SUCCESS_MSG#"
+         ,"Page":"32"
+         ,"Clear Cache":"RP"
+         ,"Values":{
+            "P32_CATEGORY":"\u0026P1_CATEGORY."
+           ,"P32_GEO":"\u0026P1_GEO."
+          }
+        }
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"VIEW_CATS (13571850900331197252)"
+      }
+    }
+   ,{
+      "id":"17829324119731140129"
+     ,"Identification":{
+        "Name":"Go To Page 1"
+      }
+     ,"Execution":{
+        "Sequence":30
+       ,"Point":"After Processing"
+      }
+     ,"Behavior":{
+        "Type":"Page or URL (Redirect)"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:1:\u0026SESSION."
+         ,"Page":"1"
+        }
+       ,"Save State before Branching":true
+      }
+    }
+  ]
+}

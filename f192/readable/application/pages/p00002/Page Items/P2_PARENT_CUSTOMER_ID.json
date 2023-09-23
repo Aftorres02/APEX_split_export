@@ -1,0 +1,66 @@
+{
+    "id": "18489426838969201608",
+    "Identification": {
+        "Name": "P2_PARENT_CUSTOMER_ID",
+        "Type": "Popup LOV"
+    },
+    "Label": {
+        "Label": "Parent",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Display As": "Modal Dialog",
+        "Initial Fetch": "Automatic",
+        "Multiple Values": false,
+        "Manual Entry": false,
+        "Search as You Type": false
+    },
+    "Layout": {
+        "Sequence": 40,
+        "Region": "Customer Details (17829324616828140228)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Optional (14888281543517691887)",
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "Width": 30
+    },
+    "Validation": {
+        "Value Required": false
+    },
+    "List of Values": {
+        "Type": "Shared Component",
+        "List of Values": "CUSTOMERS (16619949327825859798)",
+        "Display Extra Values": false,
+        "Display Null Value": true,
+        "Null Display Value": "- No Parent -"
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Database Column",
+        "Database Column": "PARENT_CUSTOMER_ID",
+        "Used": "Always, replacing any existing value in session state"
+    },
+    "Session State": {
+        "Storage": "Per Session (Persistent)"
+    },
+    "Quick Picks": {
+        "Show Quick Picks": false
+    },
+    "Security": {
+        "Session State Protection": "Unrestricted",
+        "Store value encrypted in session state": false,
+        "Restricted Characters": "All characters can be saved."
+    }
+}

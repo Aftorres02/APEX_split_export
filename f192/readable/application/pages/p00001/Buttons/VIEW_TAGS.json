@@ -1,0 +1,36 @@
+{
+    "id": "13571873387672212729",
+    "Identification": {
+        "Button Name": "VIEW_TAGS",
+        "Label": "View All"
+    },
+    "Layout": {
+        "Sequence": 70,
+        "Region": "Tags (13571873041366212727)",
+        "Position": "EDIT",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Button Template": "Icon (14888281684153691889)",
+        "Hot": false,
+        "Template Options": [
+            "#DEFAULT#",
+            "#DEFAULT#",
+            "t-Button--noUI"
+        ],
+        "Icon": "fa-chevron-right"
+    },
+    "Behavior": {
+        "Action": "Redirect to Page in this Application",
+        "Target": {
+            "url": "f?p=&APP_ID.:40:&SESSION.::&DEBUG.:RP,40,RIR::",
+            "Page": "40",
+            "Clear Cache": "RP,40,RIR"
+        },
+        "Warn on Unsaved Changes": "Do Not Check"
+    }
+}

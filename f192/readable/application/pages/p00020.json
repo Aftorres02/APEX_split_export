@@ -1,0 +1,2007 @@
+{
+  "id":"20"
+ ,"Identification":{
+    "Name":"Contact Details"
+   ,"Alias":"CONTACT-DETAILS"
+   ,"Title":"Contact Details"
+   ,"Page Group":"Contacts (14749179925332293830)"
+  }
+ ,"Appearance":{
+    "Page Mode":"Normal"
+   ,"Page Template":"Standard (14888221571271691783)"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"First item on page"
+   ,"Warn on Unsaved Changes":false
+  }
+ ,"HTML Header":{
+    "HTML Header":"\u003Cscript language=\"JavaScript\" type=\"text\/javascript\"\u003E\n\u003C!--\n\n htmldb_delete_message=\u0027\"DELETE_CONFIRM_MSG\"\u0027;\n\n\/\/--\u003E\n\u003C\/script\u003E"
+  }
+ ,"Security":{
+    "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+   ,"Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"Off"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Always"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Help":{
+    "Help Text":"No help is available for this page."
+  }
+ ,"Configuration":{
+    "Build Option":"Contacts (14985202220127679969)"
+  }
+ ,"Regions":[
+    {
+      "id":"14878641045386589621"
+     ,"Identification":{
+        "Title":"Social"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Parent Region":"Contact Details (17834833891433288552)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":false
+       ,"Column":"Automatic"
+       ,"New Column":false
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Collapsible (14888261571832691840)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"is-collapsed"
+         ,"t-Region--noBorder"
+         ,"t-Region--scrollBody"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"14878644231711623512"
+     ,"Identification":{
+        "Title":"Address \/ Country"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"Contact Details (17834833891433288552)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":false
+       ,"Column":"Automatic"
+       ,"New Column":false
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Collapsible (14888261571832691840)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"is-collapsed"
+         ,"t-Region--noBorder"
+         ,"t-Region--scrollBody"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"17834833891433288552"
+     ,"Identification":{
+        "Title":"Contact Details"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--scrollBody"
+         ,"t-Form--stretchInputs"
+         ,"t-Region--hideHeader"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Static ID":"CONTACTS"
+       ,"Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"17834834490843288555"
+     ,"Identification":{
+        "Title":"Contact Details"
+       ,"Type":"Breadcrumb"
+      }
+     ,"Source":{
+        "Breadcrumb":"Breadcrumb (17869143586620226407)"
+      }
+     ,"Layout":{
+        "Sequence":40
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_01"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Title Bar (14888267217215691848)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-BreadcrumbRegion--useBreadcrumbTitle"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "Breadcrumb Template":"Breadcrumb (14888282717314691893)"
+         ,"Template Options":[
+            "#DEFAULT#"
+          ]
+        }
+      }
+    }
+  ]
+ ,"Page Items":[
+    {
+      "id":"14878640227731583238"
+     ,"Identification":{
+        "Name":"P20_FACEBOOK"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"Facebook"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Subtype":"URL"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":310
+       ,"Region":"Social (14878641045386589621)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":64
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":250
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Database Column"
+       ,"Database Column":"FACEBOOK"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Enter Email Address."
+      }
+    }
+   ,{
+      "id":"14878642031384596669"
+     ,"Identification":{
+        "Name":"P20_LINKEDIN"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"LinkedIn"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Subtype":"URL"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":320
+       ,"Region":"Social (14878641045386589621)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":64
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":250
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Database Column"
+       ,"Database Column":"LINKEDIN"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Enter Email Address."
+      }
+    }
+   ,{
+      "id":"14878642524915599718"
+     ,"Identification":{
+        "Name":"P20_TWITTER"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"Twitter"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Subtype":"URL"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":330
+       ,"Region":"Social (14878641045386589621)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":64
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":250
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Database Column"
+       ,"Database Column":"TWITTER"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Enter Email Address."
+      }
+    }
+   ,{
+      "id":"17834052553547866605"
+     ,"Identification":{
+        "Name":"P20_CUSTOMER_ID"
+       ,"Type":"Popup LOV"
+      }
+     ,"Label":{
+        "Label":"Customer"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Display As":"Modal Dialog"
+       ,"Initial Fetch":"Automatic"
+       ,"Multiple Values":false
+       ,"Manual Entry":false
+       ,"Search as You Type":false
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Contact Details (17834833891433288552)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"9"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Required (14888281618892691888)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":64
+      }
+     ,"Validation":{
+        "Value Required":true
+       ,"Maximum Length":4000
+      }
+     ,"List of Values":{
+        "Type":"SQL Query"
+       ,"SQL Query":"select customer_name d, id r\nfrom   eba_cust_customers\norder by 1"
+       ,"Display Extra Values":true
+       ,"Display Null Value":false
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Database Column"
+       ,"Database Column":"CUSTOMER_ID"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"The customer name"
+      }
+    }
+   ,{
+      "id":"17834835987673288557"
+     ,"Identification":{
+        "Name":"P20_CONTACT_ID"
+       ,"Type":"Hidden"
+      }
+     ,"Settings":{
+        "Value Protected":true
+      }
+     ,"Layout":{
+        "Sequence":5
+       ,"Region":"Contact Details (17834833891433288552)"
+       ,"Position":"BODY"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"17834838194724288560"
+     ,"Identification":{
+        "Name":"P20_ID"
+       ,"Type":"Hidden"
+      }
+     ,"Settings":{
+        "Value Protected":true
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Contact Details (17834833891433288552)"
+       ,"Position":"BODY"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Database Column"
+       ,"Database Column":"ID"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"17834838399474288560"
+     ,"Identification":{
+        "Name":"P20_NAME"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"Name"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Subtype":"Text"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":40
+       ,"Region":"Contact Details (17834833891433288552)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"9"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Required (14888281618892691888)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":64
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":255
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Database Column"
+       ,"Database Column":"NAME"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Enter Contact Name."
+      }
+    }
+   ,{
+      "id":"17834838899481288561"
+     ,"Identification":{
+        "Name":"P20_TITLE"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"Title"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Subtype":"Text"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":60
+       ,"Region":"Contact Details (17834833891433288552)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"9"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":64
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":100
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Database Column"
+       ,"Database Column":"TITLE"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Enter Title of Contact."
+      }
+    }
+   ,{
+      "id":"17834839400512288561"
+     ,"Identification":{
+        "Name":"P20_COMPANY"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"Company"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Subtype":"Text"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":70
+       ,"Region":"Contact Details (17834833891433288552)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"9"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":64
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":100
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Database Column"
+       ,"Database Column":"COMPANY"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Enter Company name."
+      }
+    }
+   ,{
+      "id":"17834839900339288562"
+     ,"Identification":{
+        "Name":"P20_ADDRESS_LINE1"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"Address "
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Subtype":"Text"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":80
+       ,"Region":"Address \/ Country (14878644231711623512)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":64
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":255
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Database Column"
+       ,"Database Column":"ADDRESS_LINE1"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Enter Address."
+      }
+    }
+   ,{
+      "id":"17834840379499288562"
+     ,"Identification":{
+        "Name":"P20_ADDRESS_LINE2"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"Address Line 2"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Subtype":"Text"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":90
+       ,"Region":"Address \/ Country (14878644231711623512)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Hidden (14888281412990691885)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":64
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":255
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Database Column"
+       ,"Database Column":"ADDRESS_LINE2"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Enter Address."
+      }
+    }
+   ,{
+      "id":"17834840901508288563"
+     ,"Identification":{
+        "Name":"P20_CITY"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"City"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Subtype":"Text"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":100
+       ,"Region":"Address \/ Country (14878644231711623512)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":64
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":100
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Database Column"
+       ,"Database Column":"CITY"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Enter City."
+      }
+    }
+   ,{
+      "id":"17834841398145288563"
+     ,"Identification":{
+        "Name":"P20_STATE"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"State"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Subtype":"Text"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":110
+       ,"Region":"Address \/ Country (14878644231711623512)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":64
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":100
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Database Column"
+       ,"Database Column":"STATE"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Enter State."
+      }
+    }
+   ,{
+      "id":"17834841886505288564"
+     ,"Identification":{
+        "Name":"P20_COUNTRY"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"Country"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Subtype":"Text"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":120
+       ,"Region":"Address \/ Country (14878644231711623512)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":64
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":100
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Database Column"
+       ,"Database Column":"COUNTRY"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Enter Country."
+      }
+    }
+   ,{
+      "id":"17834842406680288564"
+     ,"Identification":{
+        "Name":"P20_ZIP"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"Zip"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Subtype":"Text"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":130
+       ,"Region":"Address \/ Country (14878644231711623512)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":10
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":10
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Database Column"
+       ,"Database Column":"ZIP"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Enter Zip Code."
+      }
+    }
+   ,{
+      "id":"17834842884189288565"
+     ,"Identification":{
+        "Name":"P20_EMAIL"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"Email"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Subtype":"Text"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":140
+       ,"Region":"Contact Details (17834833891433288552)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"9"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":64
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":250
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Database Column"
+       ,"Database Column":"EMAIL"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Enter Email Address."
+      }
+    }
+   ,{
+      "id":"17834843382723288565"
+     ,"Identification":{
+        "Name":"P20_PHONE"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"Phone"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Subtype":"Text"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":150
+       ,"Region":"Contact Details (17834833891433288552)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"9"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":64
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":100
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Database Column"
+       ,"Database Column":"PHONE"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Enter Phone Number."
+      }
+    }
+   ,{
+      "id":"17834843890574288566"
+     ,"Identification":{
+        "Name":"P20_CELL_PHONE"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"Cell Phone"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Subtype":"Text"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":160
+       ,"Region":"Contact Details (17834833891433288552)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"9"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":64
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":100
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Database Column"
+       ,"Database Column":"CELL_PHONE"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Enter Mobile Phone Number."
+      }
+    }
+   ,{
+      "id":"17834844388053288566"
+     ,"Identification":{
+        "Name":"P20_FAX"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"Fax"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Subtype":"Text"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":170
+       ,"Region":"Contact Details (17834833891433288552)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"9"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":64
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":100
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Database Column"
+       ,"Database Column":"FAX"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Enter Fax Number."
+      }
+    }
+   ,{
+      "id":"17834844890305288567"
+     ,"Identification":{
+        "Name":"P20_CONTACT_TYPE_ID"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"\u0026nbsp;\u0026nbsp;\u0026nbsp;Contact Type"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":50
+       ,"Region":"Contact Details (17834833891433288552)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"9"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"ACTIVE_CONTACT_TYPES_P20 (17857011963707988621)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- Select -"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Database Column"
+       ,"Database Column":"CONTACT_TYPE_ID"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Select Contact Type."
+      }
+    }
+   ,{
+      "id":"17834845402969288567"
+     ,"Identification":{
+        "Name":"P20_NOTES"
+       ,"Type":"Textarea"
+      }
+     ,"Label":{
+        "Label":"Notes"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Resizable":false
+       ,"Auto-Height":false
+       ,"Character Counter":false
+       ,"Trim Spaces":"None"
+      }
+     ,"Layout":{
+        "Sequence":190
+       ,"Region":"Contact Details (17834833891433288552)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"9"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":64
+       ,"Height":4
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":4000
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Database Column"
+       ,"Database Column":"NOTES"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Enter short note about the Contact."
+      }
+    }
+   ,{
+      "id":"17837958754475413169"
+     ,"Identification":{
+        "Name":"P20_TAGS"
+       ,"Type":"Popup LOV"
+      }
+     ,"Label":{
+        "Label":"Tags"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Display As":"Inline Popup"
+       ,"Initial Fetch":"Automatic"
+       ,"Multiple Values":true
+       ,"Separator":","
+       ,"Manual Entry":true
+       ,"Search as You Type":true
+       ,"Minimum Characters":"No minimum (0)"
+      }
+     ,"Layout":{
+        "Sequence":192
+       ,"Region":"Contact Details (17834833891433288552)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"9"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":64
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":4000
+      }
+     ,"List of Values":{
+        "Type":"SQL Query"
+       ,"SQL Query":"select tag\n  from eba_cust_tags_type_sum\n where content_type = \u0027CONTACT\u0027\n order by 1\n"
+       ,"Display Extra Values":true
+       ,"Display Null Value":true
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Database Column"
+       ,"Database Column":"TAGS"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"List of tags"
+      }
+    }
+   ,{
+      "id":"17857501504640511810"
+     ,"Identification":{
+        "Name":"P20_REQUEST"
+       ,"Type":"Hidden"
+      }
+     ,"Settings":{
+        "Value Protected":true
+      }
+     ,"Layout":{
+        "Sequence":300
+       ,"Region":"Contact Details (17834834490843288555)"
+       ,"Position":"BODY"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Item"
+       ,"Item":"P20_REQUEST"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"17834835192319288556"
+     ,"Identification":{
+        "Button Name":"CANCEL"
+       ,"Label":"Cancel"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Contact Details (17834834490843288555)"
+       ,"Position":"CLOSE"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:18:\u0026SESSION.::\u0026DEBUG.:::"
+         ,"Page":"18"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+   ,{
+      "id":"17834835383556288557"
+     ,"Identification":{
+        "Button Name":"DELETE"
+       ,"Label":"Delete"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Contact Details (17834834490843288555)"
+       ,"Position":"DELETE"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--danger"
+         ,"t-Button--simple"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Redirect to URL"
+       ,"Target":"javascript:apex.confirm(htmldb_delete_message,\u0027DELETE\u0027);"
+       ,"Execute Validations":true
+       ,"Warn on Unsaved Changes":"Do Not Check"
+       ,"Database Action":"SQL DELETE action"
+      }
+     ,"Server-side Condition":{
+        "Type":"Item is NOT NULL"
+       ,"Item":"P20_ID"
+      }
+     ,"Security":{
+        "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+      }
+    }
+   ,{
+      "id":"17834835581831288557"
+     ,"Identification":{
+        "Button Name":"SAVE"
+       ,"Label":"Apply Changes"
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Region":"Contact Details (17834834490843288555)"
+       ,"Position":"CREATE"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Submit Page"
+       ,"Execute Validations":true
+       ,"Warn on Unsaved Changes":"Do Not Check"
+       ,"Database Action":"SQL UPDATE action"
+      }
+     ,"Server-side Condition":{
+        "Type":"Item is NOT NULL"
+       ,"Item":"P20_ID"
+      }
+     ,"Security":{
+        "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+      }
+    }
+   ,{
+      "id":"17834835780974288557"
+     ,"Identification":{
+        "Button Name":"CREATE"
+       ,"Label":"Add Customer Contact"
+      }
+     ,"Layout":{
+        "Sequence":40
+       ,"Region":"Contact Details (17834834490843288555)"
+       ,"Position":"CREATE"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Submit Page"
+       ,"Execute Validations":true
+       ,"Warn on Unsaved Changes":"Do Not Check"
+       ,"Database Action":"SQL INSERT action"
+      }
+     ,"Server-side Condition":{
+        "Type":"Item is NULL"
+       ,"Item":"P20_ID"
+      }
+     ,"Security":{
+        "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+      }
+    }
+  ]
+ ,"Validations":[
+    {
+      "id":"304375178763440198"
+     ,"Identification":{
+        "Name":"Valid Characters in Tags"
+      }
+     ,"Execution":{
+        "Sequence":20
+      }
+     ,"Validation":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"not regexp_like( :P20_TAGS, \u0027[:;#\u005C\/\u005C\u005C\u005C?\u005C\u0026]\u0027 )"
+       ,"Always Execute":false
+      }
+     ,"Error":{
+        "Error Message":"Tags may not contain the following characters: : ; \u005C \/ ? \u0026"
+       ,"Display Location":"Inline with Field and in Notification"
+       ,"Associated Item":"P20_TAGS (17837958754475413169)"
+      }
+     ,"Server-side Condition":{
+        "Type":"Request is contained in Value"
+       ,"Value":"CREATE,SAVE"
+      }
+    }
+   ,{
+      "id":"495593599569554218"
+     ,"Identification":{
+        "Name":"FB URL must start with http"
+      }
+     ,"Execution":{
+        "Sequence":30
+      }
+     ,"Validation":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"substr(:P20_FACEBOOK, 1, 4) = \u0027http\u0027"
+       ,"Always Execute":false
+      }
+     ,"Error":{
+        "Error Message":"Please provide a URL that begins with, \"http\"."
+       ,"Display Location":"Inline with Field and in Notification"
+       ,"Associated Item":"P20_FACEBOOK (14878640227731583238)"
+      }
+     ,"Server-side Condition":{
+        "Type":"Item is NOT NULL"
+       ,"Item":"P20_FACEBOOK"
+      }
+    }
+   ,{
+      "id":"495593702071554219"
+     ,"Identification":{
+        "Name":"LINKEDIN URL must start with http"
+      }
+     ,"Execution":{
+        "Sequence":40
+      }
+     ,"Validation":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"substr(:P20_LINKEDIN, 1, 4) = \u0027http\u0027"
+       ,"Always Execute":false
+      }
+     ,"Error":{
+        "Error Message":"Please provide a URL that begins with, \"http\"."
+       ,"Display Location":"Inline with Field and in Notification"
+       ,"Associated Item":"P20_LINKEDIN (14878642031384596669)"
+      }
+     ,"Server-side Condition":{
+        "Type":"Item is NOT NULL"
+       ,"Item":"P20_LINKEDIN"
+      }
+    }
+   ,{
+      "id":"495593796805554220"
+     ,"Identification":{
+        "Name":"Twitter URL must start with http"
+      }
+     ,"Execution":{
+        "Sequence":50
+      }
+     ,"Validation":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"substr(:P20_TWITTER, 1, 4) = \u0027http\u0027"
+       ,"Always Execute":false
+      }
+     ,"Error":{
+        "Error Message":"Please provide a URL that begins with, \"http\"."
+       ,"Display Location":"Inline with Field and in Notification"
+       ,"Associated Item":"P20_TWITTER (14878642524915599718)"
+      }
+     ,"Server-side Condition":{
+        "Type":"Item is NOT NULL"
+       ,"Item":"P20_TWITTER"
+      }
+    }
+   ,{
+      "id":"14954264924728979258"
+     ,"Identification":{
+        "Name":"P20_NAME Not Null"
+      }
+     ,"Execution":{
+        "Sequence":10
+      }
+     ,"Validation":{
+        "Type":"Function Body (returning Boolean)"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Function Body":"return trim(:P20_NAME) is not null"
+       ,"Always Execute":false
+      }
+     ,"Error":{
+        "Error Message":"#LABEL# must have some value."
+       ,"Display Location":"Inline with Field and in Notification"
+       ,"Associated Item":"P20_NAME (17834838399474288560)"
+      }
+     ,"Server-side Condition":{
+        "Type":"Request is contained in Value"
+       ,"Value":"CREATE,SAVE"
+      }
+    }
+  ]
+ ,"Processes":[
+    {
+      "id":"17834847082063288570"
+     ,"Identification":{
+        "Name":"Fetch Row from EBA_CUST_CONTACTS"
+       ,"Type":"Automatic Row Fetch [Legacy]"
+       ,"Execution Chain":"None"
+      }
+     ,"Settings":{
+        "Table Owner":"PARSING SCHEMA"
+       ,"Table Name":"EBA_CUST_CONTACTS"
+       ,"Primary Key Column ":"ID"
+       ,"Primary Key Item":"P20_ID"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"After Header"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Error Message":"Unable to fetch row."
+      }
+    }
+   ,{
+      "id":"17834847295902288570"
+     ,"Identification":{
+        "Name":"Process Row of EBA_CUST_CONTACTS"
+       ,"Type":"Automatic Row Processing (DML) [Legacy]"
+       ,"Execution Chain":"None"
+      }
+     ,"Settings":{
+        "Table Owner":"PARSING SCHEMA"
+       ,"Table Name":"EBA_CUST_CONTACTS"
+       ,"Primary Key Column ":"ID"
+       ,"Primary Key Item":"P20_ID"
+       ,"Lock Row":true
+       ,"Supported Operations":"I:U:D"
+      }
+     ,"Execution":{
+        "Sequence":20
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Success Message":{
+        "Success Message":"Action Processed."
+      }
+     ,"Error":{
+        "Error Message":"Unable to process row of table EBA_CUST_CONTACTS."
+       ,"Display Location":"On Error Page"
+      }
+     ,"Security":{
+        "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+      }
+    }
+   ,{
+      "id":"17834847495089288570"
+     ,"Identification":{
+        "Name":"reset page"
+       ,"Type":"Clear Session State"
+       ,"Execution Chain":"None"
+      }
+     ,"Settings":{
+        "Type":"Clear all Items on the Current Page"
+      }
+     ,"Execution":{
+        "Sequence":30
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Display Location":"On Error Page"
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"DELETE (17834835383556288557)"
+      }
+     ,"Security":{
+        "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+      }
+    }
+   ,{
+      "id":"17856441295898900713"
+     ,"Identification":{
+        "Name":"Load Data"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":"if :REQUEST = \u0027CONTACTS\u0027 then\n   eba_cust.eba_cust_add_views_log(\u0027CON\u0027,:P20_ID);\nend if ;"
+      }
+     ,"Execution":{
+        "Sequence":40
+       ,"Point":"Before Header"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+    }
+  ]
+ ,"Branches":[
+    {
+      "id":"17834848002834288574"
+     ,"Identification":{
+        "Name":"Go To Page 18"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"After Processing"
+      }
+     ,"Behavior":{
+        "Type":"Page or URL (Redirect)"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:18:\u0026SESSION.::\u0026DEBUG.:::\u0026success_msg=#SUCCESS_MSG#"
+         ,"Page":"18"
+        }
+       ,"Save State before Branching":true
+      }
+    }
+  ]
+}

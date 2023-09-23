@@ -1,0 +1,24 @@
+{
+    "id": "304350641939852096",
+    "Identification": {
+        "Name": "Valid Characters in Tags"
+    },
+    "Execution": {
+        "Sequence": 50
+    },
+    "Validation": {
+        "Type": "Expression",
+        "Language": "PL/SQL",
+        "PL/SQL Expression": "not regexp_like( :P2_TAGS, '[:;#\\/\\\\\\?\\&]' )",
+        "Always Execute": false
+    },
+    "Error": {
+        "Error Message": "Tags may not contain the following characters: : ; \\ / ? &",
+        "Display Location": "Inline with Field and in Notification",
+        "Associated Item": "P2_TAGS (17825052557758425598)"
+    },
+    "Server-side Condition": {
+        "Type": "Request is contained in Value",
+        "Value": "CREATE,SAVE"
+    }
+}

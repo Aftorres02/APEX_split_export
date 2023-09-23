@@ -1,0 +1,63 @@
+{
+    "id": "17829327006598140270",
+    "Identification": {
+        "Name": "P2_SIC",
+        "Type": "Text Field"
+    },
+    "Label": {
+        "Label": "SIC",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Subtype": "Text",
+        "Trim Spaces": "Leading and Trailing",
+        "Text Case": "NO CHANGE",
+        "Submit when Enter pressed": false,
+        "Disabled": false
+    },
+    "Layout": {
+        "Sequence": 200,
+        "Region": "Classification (17822844052638468996)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Optional (14888281543517691887)",
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "Width": 16
+    },
+    "Validation": {
+        "Value Required": false,
+        "Maximum Length": 30
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Database Column",
+        "Database Column": "SIC",
+        "Used": "Always, replacing any existing value in session state"
+    },
+    "Session State": {
+        "Storage": "Per Session (Persistent)"
+    },
+    "Quick Picks": {
+        "Show Quick Picks": false
+    },
+    "Security": {
+        "Session State Protection": "Checksum Required - Session Level",
+        "Store value encrypted in session state": false,
+        "Restricted Characters": "All characters can be saved."
+    },
+    "Help": {
+        "Help Text": "Enter Standard Industry Code of the Customer."
+    }
+}

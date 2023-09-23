@@ -1,0 +1,37 @@
+{
+    "id": "17829407108058640504",
+    "Identification": {
+        "Button Name": "DELETE",
+        "Label": "Delete"
+    },
+    "Layout": {
+        "Sequence": 20,
+        "Region": "Buttons (1642226973991195263)",
+        "Position": "PREVIOUS",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Button Template": "Text (14888282487315691892)",
+        "Hot": false,
+        "Template Options": [
+            "#DEFAULT#",
+            "t-Button--danger",
+            "t-Button--simple"
+        ]
+    },
+    "Behavior": {
+        "Action": "Redirect to URL",
+        "Target": "javascript:apex.confirm(htmldb_delete_message,'DELETE');",
+        "Execute Validations": true,
+        "Warn on Unsaved Changes": "Do Not Check",
+        "Database Action": "SQL DELETE action"
+    },
+    "Server-side Condition": {
+        "Type": "Item is NOT NULL",
+        "Item": "P9_ID"
+    }
+}

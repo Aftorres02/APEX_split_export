@@ -1,0 +1,24 @@
+{
+    "id": "495590971730554192",
+    "Identification": {
+        "Name": "Website Must Be a URL starting with http"
+    },
+    "Execution": {
+        "Sequence": 60
+    },
+    "Validation": {
+        "Type": "Expression",
+        "Language": "PL/SQL",
+        "PL/SQL Expression": "substr(:P2_WEB_SITE, 1, 4) = 'http'",
+        "Always Execute": false
+    },
+    "Error": {
+        "Error Message": "Please provide a URL that begins with, \"http\".",
+        "Display Location": "Inline with Field and in Notification",
+        "Associated Item": "P2_WEB_SITE (17829326596884140268)"
+    },
+    "Server-side Condition": {
+        "Type": "Item is NOT NULL",
+        "Item": "P2_WEB_SITE"
+    }
+}

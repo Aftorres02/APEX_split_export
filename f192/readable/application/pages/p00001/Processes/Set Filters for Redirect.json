@@ -1,0 +1,21 @@
+{
+    "id": "2044149429199901772",
+    "Identification": {
+        "Name": "Set Filters for Redirect",
+        "Type": "Execute Code",
+        "Execution Chain": "None"
+    },
+    "Source": {
+        "Location": "Local Database",
+        "Language": "PL/SQL",
+        "PL/SQL Code": ":P1_CATEGORY := :P1_CATEGORY;\n:P1_GEO := :P1_GEO;"
+    },
+    "Execution": {
+        "Sequence": 20,
+        "Point": "Processing",
+        "Run Process": "Once Per Page Visit (default)"
+    },
+    "Error": {
+        "Display Location": "Inline in Notification"
+    }
+}

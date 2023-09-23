@@ -1,0 +1,19 @@
+{
+    "id": "18489427112445201611",
+    "Identification": {
+        "Name": "No Customer Cycles"
+    },
+    "Execution": {
+        "Sequence": 40
+    },
+    "Validation": {
+        "Type": "No Rows returned",
+        "SQL Query": "select null\nfrom (  select c.id\n        from eba_cust_customers c\n        start with c.id = :P2_PARENT_CUSTOMER_ID\n        connect by prior parent_customer_id = id\n    ) x\nwhere x.id = :P2_ID",
+        "Always Execute": false
+    },
+    "Error": {
+        "Error Message": "#LABEL# cannot be circular",
+        "Display Location": "Inline with Field and in Notification",
+        "Associated Item": "P2_PARENT_CUSTOMER_ID (18489426838969201608)"
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "id": "17829329411929140296",
+    "Identification": {
+        "Name": "Fetch Row from EBA_CUST_CUSTOMERS",
+        "Type": "Automatic Row Fetch [Legacy]",
+        "Execution Chain": "None"
+    },
+    "Settings": {
+        "Table Owner": "PARSING SCHEMA",
+        "Table Name": "EBA_CUST_CUSTOMERS",
+        "Primary Key Column ": "ID",
+        "Primary Key Item": "P2_ID"
+    },
+    "Execution": {
+        "Sequence": 10,
+        "Point": "After Header",
+        "Run Process": "Once Per Page Visit (default)"
+    },
+    "Error": {
+        "Error Message": "Unable to fetch row."
+    }
+}

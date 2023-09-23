@@ -1,0 +1,20 @@
+{
+    "id": "14938844844359855979",
+    "Identification": {
+        "Name": "Go To CUSTOMERS after delete"
+    },
+    "Execution": {
+        "Sequence": 10,
+        "Point": "After Processing"
+    },
+    "Behavior": {
+        "Type": "Page or URL (Redirect)",
+        "Target": {
+            "url": "f?p=&APP_ID.:CUSTOMERS:&SESSION.::&DEBUG.:::",
+            "Page": "CUSTOMERS"
+        }
+    },
+    "Server-side Condition": {
+        "When Button Pressed": "DELETE (17829324819498140229)"
+    }
+}

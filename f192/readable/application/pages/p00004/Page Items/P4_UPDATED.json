@@ -1,0 +1,56 @@
+{
+    "id": "17831020183329538249",
+    "Identification": {
+        "Name": "P4_UPDATED",
+        "Type": "Display Only"
+    },
+    "Label": {
+        "Label": "<b>Updated On:</b>",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Format": "Plain Text",
+        "Based On": "Item Value",
+        "Show Line Breaks": false,
+        "Send On Page Submit": false
+    },
+    "Layout": {
+        "Sequence": 60,
+        "Region": "Audit Information (17831011999212514450)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Optional (14888281543517691887)",
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "Format Mask": "&APP_DATE_FORMAT."
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Database Column",
+        "Database Column": "UPDATED",
+        "Used": "Always, replacing any existing value in session state"
+    },
+    "Session State": {
+        "Data Type": "VARCHAR2",
+        "Storage": "Per Session (Persistent)"
+    },
+    "Security": {
+        "Session State Protection": "Checksum Required - Session Level",
+        "Store value encrypted in session state": false,
+        "Restricted Characters": "All characters can be saved."
+    },
+    "Help": {
+        "Help Text": "The date on which the Category details was last Updated."
+    }
+}

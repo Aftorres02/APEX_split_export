@@ -1,0 +1,60 @@
+{
+    "id": "17829325405952140245",
+    "Identification": {
+        "Name": "P2_CUSTOMER_NAME",
+        "Type": "Text Field"
+    },
+    "Label": {
+        "Label": "Customer Name",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Subtype": "Text",
+        "Trim Spaces": "Leading and Trailing",
+        "Text Case": "NO CHANGE",
+        "Submit when Enter pressed": false,
+        "Disabled": false
+    },
+    "Layout": {
+        "Sequence": 30,
+        "Region": "Customer Details (17829324616828140228)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Required (14888281618892691888)",
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "Width": 64
+    },
+    "Validation": {
+        "Value Required": true,
+        "Maximum Length": 4000
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Database Column",
+        "Database Column": "CUSTOMER_NAME",
+        "Used": "Always, replacing any existing value in session state"
+    },
+    "Session State": {
+        "Storage": "Per Session (Persistent)"
+    },
+    "Quick Picks": {
+        "Show Quick Picks": false
+    },
+    "Security": {
+        "Session State Protection": "Checksum Required - Session Level",
+        "Store value encrypted in session state": true,
+        "Restricted Characters": "Blocklist HTML command characters (<>\")"
+    }
+}

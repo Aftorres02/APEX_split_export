@@ -1,0 +1,22 @@
+{
+    "id": "17829325823014140262",
+    "Identification": {
+        "Name": "P2_CATEGORY_ID must be number"
+    },
+    "Execution": {
+        "Sequence": 10
+    },
+    "Validation": {
+        "Type": "Item is numeric",
+        "Item": "P2_CATEGORY_ID",
+        "Always Execute": false
+    },
+    "Error": {
+        "Error Message": "Category Id must be number.",
+        "Display Location": "Inline with Field and in Notification",
+        "Associated Item": "P2_CATEGORY_ID (17829325606661140259)"
+    },
+    "Server-side Condition": {
+        "When Button Pressed": "SAVE (17829324905367140229)"
+    }
+}

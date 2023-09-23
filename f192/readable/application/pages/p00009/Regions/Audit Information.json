@@ -1,0 +1,51 @@
+{
+    "id": "17831503901730948500",
+    "Identification": {
+        "Title": "Audit Information",
+        "Type": "Static Content"
+    },
+    "Layout": {
+        "Sequence": 20,
+        "Parent Region": "Contact Type Details (17829406703193640495)",
+        "Position": "SUB_REGIONS",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Collapsible (14888261571832691840)",
+        "Template Options": [
+            "#DEFAULT#",
+            "is-collapsed",
+            "t-Region--noBorder",
+            "t-Region--scrollBody"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Server-side Condition": {
+        "Type": "Item is NOT NULL",
+        "Item": "P9_ID"
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Not Customizable By End Users"
+    },
+    "Attributes": {
+        "Settings": {
+            "Output As": "HTML",
+            "Expand Shortcuts": false
+        }
+    }
+}

@@ -1,0 +1,101 @@
+{
+    "id": "13571861757080201500",
+    "Identification": {
+        "Title": "Customers by Product",
+        "Type": "HTML 5 Bar Chart"
+    },
+    "Source": {
+        "SQL Query": "select\n    distinct p.product_name,\n    p.id,\n    p.description,\n    x.customer_users\nfrom\n    eba_cust_customers a,\n    eba_cust_categories b,\n    eba_cust_status c,\n    eba_cust_geographies d,\n    eba_cust_type e,\n    eba_cust_use_case f,\n    eba_cust_product_uses u,\n    eba_cust_products p,\n    (\n        select id,\n               (\n                   select\n                       count(*) as customer_users\n                   from\n                       eba_cust_customers a1,\n                       eba_cust_categories b1,\n                       eba_cust_status c1,\n                       eba_cust_geographies d1,\n                       eba_cust_type e1,\n                       eba_cust_use_case f1,\n                       eba_cust_product_uses u1\n                 where u1.product_id = p1.id\n                   and u1.customer_id = a1.id\n                   and a1.category_id = b1.id(+)\n                   and a1.status_id = c1.id(+)\n                   and a1.geography_id = d1.id(+)\n                   and a1.type_id = e1.id(+)\n                   and a1.use_case_id = f1.id(+)\n                   and u1.customer_id = a1.id\n                   and (:P1_SEARCH is null or\n                           instr(upper(a1.customer_name),upper(:P1_SEARCH)) > 0 or\n                                      instr(upper(a1.summary),upper(:P1_SEARCH)) > 0 )\n                   and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a1.geography_id)\n                   and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a1.country_id)\n                   and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a1.industry_id)\n                   and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a1.category_id)\n                   and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a1.status_id)\n                   and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a1.type_id)\n                   and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a1.use_case_id)\n                   and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a1.marquee_customer_yn)\n                   and (:P1_IMP_PARTNER is null\n                       or exists ( select null\n                                   from eba_cust_cust_partner_ref rf\n                                   where rf.customer_id = a1.id\n                                       and rf.partner_id = :P1_IMP_PARTNER ))\n                   and (:P1_COMPETITOR is null\n                       or exists ( select null\n                                   from eba_cust_cust_competitor_ref rf\n                                   where rf.customer_id = a1.id\n                                       and rf.competitor_id = :P1_COMPETITOR ))\n                   and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a1.referencable)\n                   and (:P1_SCP_CUST is null or :P1_SCP_CUST = a1.strategic_customer_program_yn)\n                   and (\n                       exists (select 1 from eba_cust_customer_reftype_ref r\n                       where r.customer_id = a1.id and\n                             instr(':'||:P1_REFERENCE_TYPES||':',':'||r.reference_type_id||':') > 0)\n                       or \n                       :P1_REFERENCE_TYPES is null\n                       )\n                   and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.customer_id = a1.id and u1.product_id = :P1_PRODUCT))\n               ) customer_users\n          from eba_cust_products p1\n    ) x\nwhere a.category_id = b.id(+)\n    and a.status_id = c.id(+)\n    and a.geography_id = d.id(+)\n    and a.type_id = e.id(+)\n    and a.use_case_id = f.id(+)\n    and u.customer_id = a.id\n    and u.product_id = p.id\n    and x.id = p.id\n    and x.customer_users > 0\n    and (:P1_SEARCH is null or\n            instr(upper(a.customer_name),upper(:P1_SEARCH)) > 0 or\n                       instr(upper(a.summary),upper(:P1_SEARCH)) > 0 )\n    and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n    and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n    and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n    and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n    and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n    and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n    and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n    and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n    and (:P1_IMP_PARTNER is null\n        or exists ( select null\n                    from eba_cust_cust_partner_ref rf\n                    where rf.customer_id = a.id\n                        and rf.partner_id = :P1_IMP_PARTNER ))\n    and (:P1_COMPETITOR is null\n        or exists ( select null\n                    from eba_cust_cust_competitor_ref rf\n                    where rf.customer_id = a.id\n                        and rf.competitor_id = :P1_COMPETITOR ))\n    and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n    and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n    and (\n        exists (select 1 from eba_cust_customer_reftype_ref r\n        where r.customer_id = a.id and\n              instr(':'||:P1_REFERENCE_TYPES||':',':'||reference_type_id||':') > 0)\n        or \n        :P1_REFERENCE_TYPES is null\n        )\n    and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P1_PRODUCT))\norder by x.customer_users desc",
+        "Page Items to Submit": [
+            "P1_TYPE",
+            "P1_SEARCH",
+            "P1_USE_CASE",
+            "P1_MARQUEE_CUST",
+            "P1_PRODUCT",
+            "P1_IMP_PARTNER",
+            "P1_GEO",
+            "P1_COMPETITOR",
+            "P1_REFERENCEABLE",
+            "P1_SCP_CUST",
+            "P1_REFERENCE_TYPES",
+            "P1_COUNTRY",
+            "P1_STATUS",
+            "P1_INDUSTRY",
+            "P1_CATEGORY"
+        ]
+    },
+    "Layout": {
+        "Sequence": 46,
+        "Parent Region": "No Parent",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Standard (14888264683728691846)",
+        "Template Options": [
+            "#DEFAULT#",
+            "t-Region--noPadding",
+            "js-showMaximizeButton",
+            "i-h320",
+            "t-Region--hiddenOverflow"
+        ],
+        "CSS Classes": [
+            "scrollable-region"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Static ID": "CUST_BY_PRODS",
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Security": {
+        "Escape special characters": true
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Customizable and Shown By Default"
+    },
+    "Configuration": {
+        "Build Option": "Products and Services (14985194932254613518)"
+    },
+    "Attributes": {
+        "Settings": {
+            "Label Column": "PRODUCT_NAME",
+            "Value Column": "CUSTOMER_USERS",
+            "Label Link Target": {
+                "url": "f?p=&APP_ID.:19:&SESSION.::&DEBUG.:RP,19,RIR:IR_PRODUCT_NAME:&PRODUCT_NAME.",
+                "Page": "19",
+                "Clear Cache": "RP,19,RIR",
+                "Values": {
+                    "IR_PRODUCT_NAME": "&PRODUCT_NAME."
+                }
+            },
+            "Value Link Target": {
+                "url": "f?p=&APP_ID.:19:&SESSION.::&DEBUG.:RP,19,RIR:IR_PRODUCT_NAME:&PRODUCT_NAME.",
+                "Page": "19",
+                "Clear Cache": "RP,19,RIR",
+                "Values": {
+                    "IR_PRODUCT_NAME": "&PRODUCT_NAME."
+                }
+            },
+            "Value Display": "Value",
+            "Bar Width Calculation": "Absolute",
+            "Display Type": "Text Chart",
+            "Text Position": "Above",
+            "Color Scheme": "Theme Colors",
+            "Maximum Rows": 15,
+            "Message When No Data Found": "No data found."
+        }
+    }
+}

@@ -1,0 +1,957 @@
+{
+  "id":"126"
+ ,"Identification":{
+    "Name":"Data \/ Table Mapping"
+   ,"Alias":"DATA-TABLE-MAPPING2"
+   ,"Title":"Data \/ Table Mapping"
+   ,"Page Group":"Administration (14749179244941290086)"
+  }
+ ,"Appearance":{
+    "Page Mode":"Normal"
+   ,"Page Template":"Theme Default"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"Do not focus cursor"
+   ,"Warn on Unsaved Changes":false
+  }
+ ,"HTML Header":{
+    "HTML Header":"\u003Cstyle\u003E\n  .rc-content-main {height: 400px; overflow: auto !important;}\n\u003C\/style\u003E "
+  }
+ ,"Security":{
+    "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+   ,"Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"On"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Always"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Help":{
+    "Help Text":"\u003Cp\u003EMap this applications customer column names with your data to be uploaded.  The \u003Cstrong\u003ECustomer Name\u003C\/strong\u003E column is required.  For \u003Cstrong\u003ECategory\u003C\/strong\u003E columns choose \"CATEGORY_ID\" (a numeric column) but load data that is a valid (character string) category name (case-sensitivity matters). For \u003Cstrong\u003EType\u003C\/strong\u003E columns choose \"TYPE_ID\" (a numeric column) but load data that is a valid (character string) type name (case-sensitivity matters).  For \u003Cstrong\u003EStatus\u003C\/strong\u003E columns choose \"STATUS_ID\" (a numeric column) but load data that is a valid (character string) status name (case-sensitivity matters).  Expand the valid categories, types, and statuses below to verify your values.  Select \u003Cstrong\u003EDo Not Load\u003C\/strong\u003E column mapping for columns you do not wish to load.\u003C\/p\u003E"
+  }
+ ,"Regions":[
+    {
+      "id":"18164049410865700378"
+     ,"Identification":{
+        "Title":"Breadcrumb"
+       ,"Type":"Breadcrumb"
+      }
+     ,"Source":{
+        "Breadcrumb":"Breadcrumb (17869143586620226407)"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_01"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Title Bar (14888267217215691848)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-BreadcrumbRegion--useBreadcrumbTitle"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "Breadcrumb Template":"Breadcrumb (14888282717314691893)"
+         ,"Template Options":[
+            "#DEFAULT#"
+          ]
+        }
+      }
+    }
+   ,{
+      "id":"18164050196174700379"
+     ,"Identification":{
+        "Title":"Data Load Process Train"
+       ,"Type":"List"
+      }
+     ,"Source":{
+        "List":"Data Load Process Train - Customers (18164014268707697567)"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Wizard Container (14888267911512691851)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Wizard--hideStepsXSmall"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":true
+       ,"Exclude Title from Translation":true
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "List Template":"Wizard Progress (14888280721200691884)"
+        }
+      }
+    }
+   ,{
+      "id":"18164050484923700379"
+     ,"Identification":{
+        "Title":"Data \/ Table Mapping"
+       ,"Type":"Data Upload Column Mapping [Legacy]"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"Data Load Process Train (18164050196174700379)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--scrollBody"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Custom Attributes":[
+          "style=\"width:100%;max-width:none;\""
+        ]
+       ,"Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Data Load Definition":"Customers (18164010502528697558)"
+        }
+      }
+    }
+   ,{
+      "id":"18164340883067760150"
+     ,"Identification":{
+        "Title":"Valid Customer Statuses "
+       ,"Type":"Classic Report"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select status customer_status,\n    description,\n    decode(is_active,\u0027Y\u0027,:ACTIVE_MSG,:INACTIVE_MSG) status\nfrom eba_cust_status\norder by upper(status)"
+      }
+     ,"Layout":{
+        "Sequence":40
+       ,"Parent Region":"Data Load Process Train (18164050196174700379)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Collapsible (14888261571832691840)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"is-collapsed"
+         ,"t-Region--noBorder"
+         ,"t-Region--scrollBody"
+        ]
+       ,"CSS Classes":[
+          "infoTextRegion"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Header and Footer":{
+        "Header Text":"\u003Cp\u003ECustomer status values must be one of the valid status values listed below.  Administrators of this application can extend and modify customer status values from application administration.\u003C\/p\u003E"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Layout":{
+          "Number of Rows Type":"Static Value"
+         ,"Number of Rows":15
+        }
+       ,"Appearance":{
+          "Template Type":"Theme"
+         ,"Template":"Standard (14888271344395691859)"
+         ,"Template Options":[
+            "#DEFAULT#"
+           ,"t-Report--stretch"
+           ,"t-Report--altRowsDefault"
+           ,"t-Report--rowHighlight"
+          ]
+         ,"Show Null Values as":" - "
+        }
+       ,"Pagination":{
+          "Type":"No Pagination (Show All Rows)"
+         ,"Partial Page Refresh":true
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+         ,"Maximum Rows to Process":1500
+        }
+       ,"Messages":{
+          "When No Data Found":"no data found"
+        }
+       ,"Break Formatting":{
+          "Break Columns":"No Break"
+        }
+       ,"Advanced":{
+          "Strip HTML":true
+         ,"Sort Nulls":"Last"
+        }
+       ,"Heading":{
+          "Type":"Custom Headings"
+        }
+       ,"Download":{
+          "CSV Export Enabled":false
+        }
+       ,"Printing":{
+          "Enabled":false
+        }
+      }
+     ,"Columns":[
+        {
+          "id":"18164341126025760152"
+         ,"Identification":{
+            "Column Name":"CUSTOMER_STATUS"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Customer Status"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":1
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164351581430760153"
+         ,"Identification":{
+            "Column Name":"DESCRIPTION"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Description"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":2
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164351933834760154"
+         ,"Identification":{
+            "Column Name":"STATUS"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Status"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":3
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"18164353531216761113"
+     ,"Identification":{
+        "Title":"Valid Customer Types "
+       ,"Type":"Classic Report"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select type,\n    description,\n    decode(is_active,\u0027Y\u0027,:ACTIVE_MSG,:INACTIVE_MSG) status\nfrom eba_cust_type\norder by upper(type)"
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Parent Region":"Data Load Process Train (18164050196174700379)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Collapsible (14888261571832691840)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"is-collapsed"
+         ,"t-Region--noBorder"
+         ,"t-Region--scrollBody"
+        ]
+       ,"CSS Classes":[
+          "infoTextRegion"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Header and Footer":{
+        "Header Text":"\u003Cp\u003ECustomer status values must be one of the valid status values listed below.  Administrators of this application can extend and modify customer status values from application administration.\u003C\/p\u003E"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Layout":{
+          "Number of Rows Type":"Static Value"
+         ,"Number of Rows":15
+        }
+       ,"Appearance":{
+          "Template Type":"Theme"
+         ,"Template":"Standard (14888271344395691859)"
+         ,"Template Options":[
+            "#DEFAULT#"
+           ,"t-Report--stretch"
+           ,"t-Report--altRowsDefault"
+           ,"t-Report--rowHighlight"
+          ]
+         ,"Show Null Values as":" - "
+        }
+       ,"Pagination":{
+          "Type":"No Pagination (Show All Rows)"
+         ,"Partial Page Refresh":true
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+         ,"Maximum Rows to Process":1500
+        }
+       ,"Messages":{
+          "When No Data Found":"no data found"
+        }
+       ,"Break Formatting":{
+          "Break Columns":"No Break"
+        }
+       ,"Advanced":{
+          "Strip HTML":true
+         ,"Sort Nulls":"Last"
+        }
+       ,"Heading":{
+          "Type":"Custom Headings"
+        }
+       ,"Download":{
+          "CSV Export Enabled":false
+        }
+       ,"Printing":{
+          "Enabled":false
+        }
+      }
+     ,"Columns":[
+        {
+          "id":"18164353819982761115"
+         ,"Identification":{
+            "Column Name":"DESCRIPTION"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Description"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":2
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164354246146761117"
+         ,"Identification":{
+            "Column Name":"STATUS"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Status"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":3
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164354655766761117"
+         ,"Identification":{
+            "Column Name":"TYPE"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Type"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":1
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"18164356901435762030"
+     ,"Identification":{
+        "Title":"Valid Customer Categories"
+       ,"Type":"Classic Report"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select category,\n    description,\n    decode(is_active,\u0027Y\u0027,:ACTIVE_MSG,:INACTIVE_MSG) status\nfrom eba_cust_categories\norder by upper(category)"
+      }
+     ,"Layout":{
+        "Sequence":50
+       ,"Parent Region":"Data Load Process Train (18164050196174700379)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Collapsible (14888261571832691840)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"is-collapsed"
+         ,"t-Region--noBorder"
+         ,"t-Region--scrollBody"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Header and Footer":{
+        "Header Text":"\u003Cp\u003ECustomer categories must be one of the valid values from the list below.  Application administrators can extend this list of values from the administrative console.\u003C\/p\u003E"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Layout":{
+          "Number of Rows Type":"Static Value"
+         ,"Number of Rows":1500
+        }
+       ,"Appearance":{
+          "Template Type":"Theme"
+         ,"Template":"Standard (14888271344395691859)"
+         ,"Template Options":[
+            "#DEFAULT#"
+           ,"t-Report--stretch"
+           ,"t-Report--altRowsDefault"
+           ,"t-Report--rowHighlight"
+          ]
+         ,"Show Null Values as":" - "
+        }
+       ,"Pagination":{
+          "Type":"No Pagination (Show All Rows)"
+         ,"Partial Page Refresh":true
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+        }
+       ,"Messages":{
+          "When No Data Found":"no data found"
+        }
+       ,"Break Formatting":{
+          "Break Columns":"No Break"
+        }
+       ,"Advanced":{
+          "Strip HTML":true
+         ,"Sort Nulls":"Last"
+        }
+       ,"Heading":{
+          "Type":"Custom Headings"
+        }
+       ,"Download":{
+          "CSV Export Enabled":false
+        }
+       ,"Printing":{
+          "Enabled":false
+        }
+      }
+     ,"Columns":[
+        {
+          "id":"18164357169740762030"
+         ,"Identification":{
+            "Column Name":"CATEGORY"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Category"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":1
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164357512066762031"
+         ,"Identification":{
+            "Column Name":"DESCRIPTION"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Description"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":2
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164357958067762032"
+         ,"Identification":{
+            "Column Name":"STATUS"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Status"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":3
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+      ]
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"18164050834182700379"
+     ,"Identification":{
+        "Button Name":"CANCEL"
+       ,"Label":"Cancel"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Data Load Process Train (18164050196174700379)"
+       ,"Position":"CLOSE"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--large"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:12:\u0026SESSION.::\u0026DEBUG."
+         ,"Page":"12"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+   ,{
+      "id":"18164051370409700380"
+     ,"Identification":{
+        "Button Name":"PREVIOUS"
+       ,"Label":"Previous"
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Region":"Data Load Process Train (18164050196174700379)"
+       ,"Position":"PREVIOUS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Icon (14888281684153691889)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--large"
+        ]
+       ,"Icon":"fa-chevron-left"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:125:\u0026SESSION.::\u0026DEBUG."
+         ,"Page":"125"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+   ,{
+      "id":"18164051694172700380"
+     ,"Identification":{
+        "Button Name":"NEXT"
+       ,"Label":"Next"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Data Load Process Train (18164050196174700379)"
+       ,"Position":"NEXT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text with Icon (14888281958145691891)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--large"
+         ,"t-Button--iconRight"
+        ]
+       ,"Icon":"fa-chevron-right"
+      }
+     ,"Behavior":{
+        "Action":"Submit Page"
+       ,"Execute Validations":true
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+  ]
+ ,"Processes":[
+    {
+      "id":"18164052188851700380"
+     ,"Identification":{
+        "Name":"Prepare Uploaded Data"
+       ,"Type":"Prepare Uploaded Data [Legacy]"
+       ,"Execution Chain":"None"
+      }
+     ,"Settings":{
+        "Data Load Definition":"Customers (18164010502528697558)"
+       ,"Insert Count Item":"P128_INSERT_COUNT"
+       ,"Update Count Item":"P128_UPDATE_COUNT"
+       ,"Error Count Item":"P128_ERROR_COUNT"
+       ,"Review Count Item":"P128_REVIEW_COUNT"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Display Location":"Inline in Notification"
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"NEXT (18164051694172700380)"
+      }
+    }
+  ]
+ ,"Branches":[
+    {
+      "id":"18164052537602700381"
+     ,"Identification":{
+        "Name":"Go To Page 127"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"After Processing"
+      }
+     ,"Behavior":{
+        "Type":"Page or URL (Redirect)"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:127:\u0026SESSION.\u0026success_msg=#SUCCESS_MSG#"
+         ,"Page":"127"
+        }
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"NEXT (18164051694172700380)"
+       ,"Type":"Function Body"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Function Body":"                   begin\n                            for c1 in (select skip_validation\n                                      from apex_appl_load_tables\n                                      where name = \u0027Customers\u0027 and application_id = apex_application.g_flow_id )\n                            loop\n                                if c1.skip_validation = \u0027N\u0027 then return true;\n                                else return false;\n                                end if;\n                            end loop;\n                        end;"
+      }
+    }
+   ,{
+      "id":"18164052909314700381"
+     ,"Identification":{
+        "Name":"Go To Page 128"
+      }
+     ,"Execution":{
+        "Sequence":20
+       ,"Point":"After Processing"
+      }
+     ,"Behavior":{
+        "Type":"Page or URL (Redirect)"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:128:\u0026SESSION.\u0026success_msg=#SUCCESS_MSG#"
+         ,"Page":"128"
+        }
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"NEXT (18164051694172700380)"
+       ,"Type":"Function Body"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Function Body":"                   begin\n                            for c1 in (select skip_validation\n                                      from apex_appl_load_tables\n                                      where name = \u0027Customers\u0027 and application_id = apex_application.g_flow_id )\n                            loop\n                                if c1.skip_validation = \u0027Y\u0027 then return true;\n                                else return false;\n                                end if;\n                            end loop;\n                        end;"
+      }
+    }
+  ]
+}

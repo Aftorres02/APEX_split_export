@@ -1,0 +1,21 @@
+{
+    "id": "17849813297874893311",
+    "Identification": {
+        "Name": "Load Data",
+        "Type": "Execute Code",
+        "Execution Chain": "None"
+    },
+    "Source": {
+        "Location": "Local Database",
+        "Language": "PL/SQL",
+        "PL/SQL Code": "if :REQUEST = 'REPORTS' then \n    :LAST_VIEW := 20;\nelse\n    :LAST_VIEW := 30 ;\nend if;"
+    },
+    "Execution": {
+        "Sequence": 20,
+        "Point": "Before Header",
+        "Run Process": "Once Per Page Visit (default)"
+    },
+    "Server-side Condition": {
+        "Type": "Never"
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "id": "14787889445280445942",
+    "Identification": {
+        "Button Name": "RESET_REPORT",
+        "Label": "Reset"
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Region": "Contact Types (17835936263206776878)",
+        "Position": "RIGHT_OF_IR_SEARCH_BAR",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Button Template": "Icon (14888281684153691889)",
+        "Hot": false,
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "Icon": "fa-undo-alt"
+    },
+    "Behavior": {
+        "Action": "Redirect to Page in this Application",
+        "Target": {
+            "url": "f?p=&APP_ID.:8:&SESSION.::&DEBUG.:8,RIR::",
+            "Page": "8",
+            "Clear Cache": "8,RIR"
+        },
+        "Warn on Unsaved Changes": "Do Not Check"
+    }
+}

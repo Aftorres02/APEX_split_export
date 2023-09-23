@@ -1,0 +1,64 @@
+{
+    "id": "17829392310015720381",
+    "Identification": {
+        "Name": "P6_DESCRIPTION",
+        "Type": "Textarea"
+    },
+    "Label": {
+        "Label": "Description",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Resizable": true,
+        "Auto-Height": false,
+        "Character Counter": false,
+        "Trim Spaces": "Leading and Trailing"
+    },
+    "Layout": {
+        "Sequence": 40,
+        "Region": "Customer Status Code (17829390397637720309)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Optional - Floating (295787000362769848)",
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "Width": 64,
+        "Height": 4
+    },
+    "Validation": {
+        "Value Required": false,
+        "Maximum Length": 255
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Database Column",
+        "Database Column": "DESCRIPTION",
+        "Used": "Always, replacing any existing value in session state"
+    },
+    "Session State": {
+        "Data Type": "VARCHAR2",
+        "Storage": "Per Session (Persistent)"
+    },
+    "Quick Picks": {
+        "Show Quick Picks": false
+    },
+    "Security": {
+        "Session State Protection": "Checksum Required - Session Level",
+        "Store value encrypted in session state": false,
+        "Restricted Characters": "All characters can be saved."
+    },
+    "Help": {
+        "Help Text": "Enter short description."
+    }
+}

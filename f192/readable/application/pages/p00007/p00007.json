@@ -1,0 +1,47 @@
+{
+    "id": "7",
+    "Identification": {
+        "Name": "Maintain Update",
+        "Alias": "MAINTAIN-UPDATE",
+        "Title": "Maintain Update",
+        "Page Group": "Customers (14749179822908293214)"
+    },
+    "Appearance": {
+        "Page Mode": "Normal",
+        "Page Template": "Theme Default",
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Navigation Menu": {
+        "Override User Interface Level": false
+    },
+    "Navigation": {
+        "Cursor Focus": "First item on page",
+        "Warn on Unsaved Changes": false
+    },
+    "HTML Header": {
+        "HTML Header": "<script language=\"JavaScript\" type=\"text/javascript\">\n<!--\n\n htmldb_delete_message='\"DELETE_CONFIRM_MSG\"';\n\n//-->\n</script>"
+    },
+    "Security": {
+        "Authorization Scheme": "CONTRIBUTION RIGHTS (15995681224497193873)",
+        "Authentication": "Page Requires Authentication",
+        "Deep Linking": "Application Default",
+        "Page Access Protection": "Arguments Must Have Checksum",
+        "Form Auto Complete": "On",
+        "Browser Cache": "Application Default"
+    },
+    "Session Management": {
+        "Rejoin Sessions": "Application Default"
+    },
+    "Advanced": {
+        "Enable duplicate page submissions": "Yes - Enable page to be re-posted",
+        "Reload on Submit": "Always"
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Help": {
+        "Help Text": "No help is available for this page."
+    }
+}

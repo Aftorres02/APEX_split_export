@@ -1,0 +1,4203 @@
+[
+  {
+    "id":"14605799941171979775"
+   ,"Identification":{
+      "Name":"Mobile Main Menu"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+  }
+ ,{
+    "id":"14888372247988757513"
+   ,"Identification":{
+      "Name":"Application Navigation"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"1389513431433163016"
+       ,"Label":{
+          "Label":"ACL Features"
+        }
+       ,"Layout":{
+          "Sequence":530
+         ,"Parent Entry":"Access Control (14902889920394859378)"
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "123"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:123:\u0026SESSION.::\u0026DEBUG."
+           ,"Page":"123"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+      }
+     ,{
+        "id":"2061182734764376565"
+       ,"Label":{
+          "Label":"Timeline"
+        }
+       ,"Layout":{
+          "Sequence":210
+         ,"Parent Entry":"Reports (14888372771459757518)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:124:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"124"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+      }
+     ,{
+        "id":"2595614214623386827"
+       ,"Label":{
+          "Label":"Issue Statuses"
+        }
+       ,"Layout":{
+          "Sequence":410
+         ,"Parent Entry":"Code Tables (14890931303526298751)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:132:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"132"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+       ,"Configuration":{
+          "Build Option":"Issues (2595223701453778803)"
+        }
+      }
+     ,{
+        "id":"2595615989332419930"
+       ,"Label":{
+          "Label":"Issues"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-alert"
+        }
+       ,"Layout":{
+          "Sequence":30
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "134"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:134:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"134"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Server-side Condition":{
+          "Type":"Rows returned"
+         ,"SQL Query":"select null\n  from eba_cust_issues"
+        }
+       ,"Configuration":{
+          "Build Option":"Issues (2595223701453778803)"
+        }
+      }
+     ,{
+        "id":"13571821251236155355"
+       ,"Label":{
+          "Label":"All Customers"
+        }
+       ,"Layout":{
+          "Sequence":200
+         ,"Parent Entry":"Reports (14888372771459757518)"
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "93"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:93:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"93"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+      }
+     ,{
+        "id":"14310155796529404447"
+       ,"Label":{
+          "Label":"Reference Statuses"
+        }
+       ,"Layout":{
+          "Sequence":370
+         ,"Parent Entry":"Code Tables (14890931303526298751)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:94:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"94"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+       ,"Configuration":{
+          "Build Option":"Product Referencability (14317412967320277148)"
+        }
+      }
+     ,{
+        "id":"14888372357454757517"
+       ,"Label":{
+          "Label":"Referencability"
+        }
+       ,"Layout":{
+          "Sequence":150
+         ,"Parent Entry":"Products [\u0026PRODUCTS.] (14888372616347757518)"
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "100"
+           ,"122"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:100:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"100"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"10.":"33,31,59,15,76,100"
+        }
+       ,"Configuration":{
+          "Build Option":"Product Referencability (14317412967320277148)"
+        }
+      }
+     ,{
+        "id":"14888372469300757518"
+       ,"Label":{
+          "Label":"Customers [\u0026CUSTOMERS.]"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-home"
+        }
+       ,"Layout":{
+          "Sequence":10
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "2"
+           ,"10"
+           ,"13"
+           ,"25"
+           ,"47"
+           ,"50"
+           ,"51"
+           ,"52"
+           ,"59"
+           ,"67"
+           ,"92"
+           ,"149"
+           ,"150"
+           ,"131"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:59:\u0026SESSION.::\u0026DEBUG.:RP,RIR,CIR:::"
+           ,"Page":"59"
+           ,"Clear Cache":"RP,RIR,CIR"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"10.":"2,13,47,53,54,55,56,50,52,64,51,66,68,67,37,25,69,7,10,13,1"
+        }
+      }
+     ,{
+        "id":"14888372521932757518"
+       ,"Label":{
+          "Label":"Contacts [\u0026CONTACTS.]"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-user"
+        }
+       ,"Layout":{
+          "Sequence":70
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "18"
+           ,"20"
+           ,"60"
+           ,"61"
+           ,"62"
+           ,"63"
+           ,"38"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:18:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"18"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Configuration":{
+          "Build Option":"Contacts (14985202220127679969)"
+        }
+      }
+     ,{
+        "id":"14888372616347757518"
+       ,"Label":{
+          "Label":"Products [\u0026PRODUCTS.]"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-archive"
+        }
+       ,"Layout":{
+          "Sequence":40
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "19"
+           ,"44"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:44:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"44"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Configuration":{
+          "Build Option":"Products and Services (14985194932254613518)"
+        }
+      }
+     ,{
+        "id":"14888372771459757518"
+       ,"Label":{
+          "Label":"Reports"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-file-text-o"
+        }
+       ,"Layout":{
+          "Sequence":90
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:17:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"17"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Configuration":{
+          "Build Option":"Reports (14985268924324738425)"
+        }
+      }
+     ,{
+        "id":"14888372871053757518"
+       ,"Label":{
+          "Label":"Administration"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-gear"
+        }
+       ,"Layout":{
+          "Sequence":100
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:12:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"12"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"14890931303526298751"
+       ,"Label":{
+          "Label":"Code Tables"
+        }
+       ,"Layout":{
+          "Sequence":240
+         ,"Parent Entry":"Administration (14888372871053757518)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"14890969205633301249"
+       ,"Label":{
+          "Label":"Categories"
+        }
+       ,"Layout":{
+          "Sequence":290
+         ,"Parent Entry":"Code Tables (14890931303526298751)"
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "3"
+           ,"4"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:3:\u0026SESSION.::\u0026DEBUG.:RP,3:::"
+           ,"Page":"3"
+           ,"Clear Cache":"RP,3"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"14893783649099951207"
+       ,"Label":{
+          "Label":"Customers"
+        }
+       ,"Layout":{
+          "Sequence":160
+         ,"Parent Entry":"Reports (14888372771459757518)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:1:\u0026SESSION.::\u0026DEBUG.:RP:::"
+           ,"Page":"1"
+           ,"Clear Cache":"RP"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Server-side Condition":{
+          "Type":"Never"
+        }
+      }
+     ,{
+        "id":"14902749393184720226"
+       ,"Label":{
+          "Label":"Customer Types"
+        }
+       ,"Layout":{
+          "Sequence":310
+         ,"Parent Entry":"Code Tables (14890931303526298751)"
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "5"
+           ,"6"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:5:\u0026SESSION.::\u0026DEBUG.:RP,5:::"
+           ,"Page":"5"
+           ,"Clear Cache":"RP,5"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"14902749792606728562"
+       ,"Label":{
+          "Label":"Contact Types"
+        }
+       ,"Layout":{
+          "Sequence":330
+         ,"Parent Entry":"Code Tables (14890931303526298751)"
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "8"
+           ,"9"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:8:\u0026SESSION.::\u0026DEBUG.:RP,8:::"
+           ,"Page":"8"
+           ,"Clear Cache":"RP,8"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+       ,"Configuration":{
+          "Build Option":"Contacts (14985202220127679969)"
+        }
+      }
+     ,{
+        "id":"14902750736036731127"
+       ,"Label":{
+          "Label":"Products"
+        }
+       ,"Layout":{
+          "Sequence":360
+         ,"Parent Entry":"Code Tables (14890931303526298751)"
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "42"
+           ,"43"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:42:\u0026SESSION.::\u0026DEBUG.:RP,42:::"
+           ,"Page":"42"
+           ,"Clear Cache":"RP,42"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+       ,"Configuration":{
+          "Build Option":"Products and Services (14985194932254613518)"
+        }
+      }
+     ,{
+        "id":"14902751132143733732"
+       ,"Label":{
+          "Label":"Geographies"
+        }
+       ,"Layout":{
+          "Sequence":380
+         ,"Parent Entry":"Code Tables (14890931303526298751)"
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "48"
+           ,"49"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:48:\u0026SESSION.::\u0026DEBUG.:RP,48:::"
+           ,"Page":"48"
+           ,"Clear Cache":"RP,48"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+       ,"Configuration":{
+          "Build Option":"Geography (14985171647776348081)"
+        }
+      }
+     ,{
+        "id":"14902752023501736619"
+       ,"Label":{
+          "Label":"Industries"
+        }
+       ,"Layout":{
+          "Sequence":400
+         ,"Parent Entry":"Code Tables (14890931303526298751)"
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "27"
+           ,"30"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:27:\u0026SESSION.::\u0026DEBUG.:RP,27:::"
+           ,"Page":"27"
+           ,"Clear Cache":"RP,27"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"14902796787544778074"
+       ,"Label":{
+          "Label":"Build Options"
+        }
+       ,"Layout":{
+          "Sequence":450
+         ,"Parent Entry":"Configuration (14902801735556816051)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:11:\u0026SESSION.::\u0026DEBUG.:RP,11:::"
+           ,"Page":"11"
+           ,"Clear Cache":"RP,11"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"14902799970322803778"
+       ,"Label":{
+          "Label":"Error Logs"
+        }
+       ,"Layout":{
+          "Sequence":540
+         ,"Parent Entry":"Logging (18764486009986423254)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:175:\u0026SESSION.::\u0026DEBUG.:RP,175:::"
+           ,"Page":"175"
+           ,"Clear Cache":"RP,175"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"14902801735556816051"
+       ,"Label":{
+          "Label":"Configuration"
+        }
+       ,"Layout":{
+          "Sequence":230
+         ,"Parent Entry":"Administration (14888372871053757518)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"14902803286462825622"
+       ,"Label":{
+          "Label":"Application Settings"
+        }
+       ,"Layout":{
+          "Sequence":470
+         ,"Parent Entry":"Configuration (14902801735556816051)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:28:\u0026SESSION.::\u0026DEBUG.:RP,28:::"
+           ,"Page":"28"
+           ,"Clear Cache":"RP,28"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"14902808349424835556"
+       ,"Label":{
+          "Label":"Sample Data"
+        }
+       ,"Layout":{
+          "Sequence":480
+         ,"Parent Entry":"Configuration (14902801735556816051)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:77:\u0026SESSION.::\u0026DEBUG.:RP,77:::"
+           ,"Page":"77"
+           ,"Clear Cache":"RP,77"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"14902809803288847466"
+       ,"Label":{
+          "Label":"Notifications"
+        }
+       ,"Layout":{
+          "Sequence":270
+         ,"Parent Entry":"Administration (14888372871053757518)"
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "34"
+           ,"36"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:34:\u0026SESSION.::\u0026DEBUG.:RP,34:::"
+           ,"Page":"34"
+           ,"Clear Cache":"RP,34"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"14902811053337850988"
+       ,"Label":{
+          "Label":"Welcome Text"
+        }
+       ,"Layout":{
+          "Sequence":280
+         ,"Parent Entry":"Administration (14888372871053757518)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:14:\u0026SESSION.::\u0026DEBUG.:RP,14:::"
+           ,"Page":"14"
+           ,"Clear Cache":"RP,14"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"14902889920394859378"
+       ,"Label":{
+          "Label":"Access Control"
+        }
+       ,"Layout":{
+          "Sequence":220
+         ,"Parent Entry":"Administration (14888372871053757518)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"14902890658547865282"
+       ,"Label":{
+          "Label":"Settings"
+        }
+       ,"Layout":{
+          "Sequence":510
+         ,"Parent Entry":"Access Control (14902889920394859378)"
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "16"
+           ,"35"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:35:\u0026SESSION.::\u0026DEBUG.:RP,35:::"
+           ,"Page":"35"
+           ,"Clear Cache":"RP,35"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"14902891271663868824"
+       ,"Label":{
+          "Label":"Users"
+        }
+       ,"Layout":{
+          "Sequence":520
+         ,"Parent Entry":"Access Control (14902889920394859378)"
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "57"
+           ,"58"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:57:\u0026SESSION.::\u0026DEBUG.:RP,57:::"
+           ,"Page":"57"
+           ,"Clear Cache":"RP,57"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"14903278639951974861"
+       ,"Label":{
+          "Label":"Recent Updates"
+        }
+       ,"Layout":{
+          "Sequence":170
+         ,"Parent Entry":"Reports (14888372771459757518)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:29:\u0026SESSION.::\u0026DEBUG.:RP:::"
+           ,"Page":"29"
+           ,"Clear Cache":"RP"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+      }
+     ,{
+        "id":"14903279564551984072"
+       ,"Label":{
+          "Label":"Activity Calendar"
+        }
+       ,"Layout":{
+          "Sequence":180
+         ,"Parent Entry":"Reports (14888372771459757518)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:22:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"22"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+      }
+     ,{
+        "id":"14903279738751987333"
+       ,"Label":{
+          "Label":"Tags"
+        }
+       ,"Layout":{
+          "Sequence":190
+         ,"Parent Entry":"Reports (14888372771459757518)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:40:\u0026SESSION.::\u0026DEBUG.:RP:::"
+           ,"Page":"40"
+           ,"Clear Cache":"RP"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+      }
+     ,{
+        "id":"15264247202765614099"
+       ,"Label":{
+          "Label":"Theme Style"
+        }
+       ,"Layout":{
+          "Sequence":490
+         ,"Parent Entry":"Configuration (14902801735556816051)"
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "70"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:70:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"70"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"15670847230461419468"
+       ,"Label":{
+          "Label":"Reference Types"
+        }
+       ,"Layout":{
+          "Sequence":340
+         ,"Parent Entry":"Code Tables (14890931303526298751)"
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "78"
+           ,"79"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:78:\u0026SESSION.::\u0026DEBUG.:RP,78:::"
+           ,"Page":"78"
+           ,"Clear Cache":"RP,78"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"15800013852283189599"
+       ,"Label":{
+          "Label":"Categories"
+        }
+       ,"Layout":{
+          "Sequence":110
+         ,"Parent Entry":"Customers [\u0026CUSTOMERS.] (14888372469300757518)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:32:\u0026SESSION.::\u0026DEBUG.:RP:::"
+           ,"Page":"32"
+           ,"Clear Cache":"RP"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+      }
+     ,{
+        "id":"15800019569089243709"
+       ,"Label":{
+          "Label":"Geographies"
+        }
+       ,"Layout":{
+          "Sequence":120
+         ,"Parent Entry":"Customers [\u0026CUSTOMERS.] (14888372469300757518)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:85:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"85"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Configuration":{
+          "Build Option":"Geography (14985171647776348081)"
+        }
+      }
+     ,{
+        "id":"15800933799224347818"
+       ,"Label":{
+          "Label":"Referenceability"
+        }
+       ,"Layout":{
+          "Sequence":130
+         ,"Parent Entry":"Customers [\u0026CUSTOMERS.] (14888372469300757518)"
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "86"
+           ,"91"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:86:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"86"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Configuration":{
+          "Build Option":"Customer Referencability (14317354550591202996)"
+        }
+      }
+     ,{
+        "id":"15873152045612787081"
+       ,"Label":{
+          "Label":"Reference Phases"
+        }
+       ,"Layout":{
+          "Sequence":420
+         ,"Parent Entry":"Code Tables (14890931303526298751)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:87:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"87"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+       ,"Configuration":{
+          "Build Option":"Customer Referencability (14317354550591202996)"
+        }
+      }
+     ,{
+        "id":"15873163653989826444"
+       ,"Label":{
+          "Label":"Sales Channels"
+        }
+       ,"Layout":{
+          "Sequence":430
+         ,"Parent Entry":"Code Tables (14890931303526298751)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:89:\u0026SESSION.::\u0026DEBUG.:RP:::"
+           ,"Page":"89"
+           ,"Clear Cache":"RP"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"15899106753388703544"
+       ,"Label":{
+          "Label":"Products"
+        }
+       ,"Layout":{
+          "Sequence":140
+         ,"Parent Entry":"Customers [\u0026CUSTOMERS.] (14888372469300757518)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:92:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"92"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Configuration":{
+          "Build Option":"Products and Services (14985194932254613518)"
+        }
+      }
+     ,{
+        "id":"16959554229914142559"
+       ,"Label":{
+          "Label":"Countries"
+        }
+       ,"Layout":{
+          "Sequence":390
+         ,"Parent Entry":"Code Tables (14890931303526298751)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:98:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"98"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+       ,"Configuration":{
+          "Build Option":"Countries (16956786967740861701)"
+        }
+      }
+     ,{
+        "id":"17030899629307226699"
+       ,"Label":{
+          "Label":"Customer Statuses"
+        }
+       ,"Layout":{
+          "Sequence":300
+         ,"Parent Entry":"Code Tables (14890931303526298751)"
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "102"
+           ,"103"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:102:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"102"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+       ,"Configuration":{
+          "Build Option":"Customer Status (17168530605040612062)"
+        }
+      }
+     ,{
+        "id":"17156369618901857058"
+       ,"Label":{
+          "Label":"Customer Use Cases"
+        }
+       ,"Layout":{
+          "Sequence":320
+         ,"Parent Entry":"Code Tables (14890931303526298751)"
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "104"
+           ,"105"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:104:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"104"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+       ,"Configuration":{
+          "Build Option":"Customer Use Case (17146729199024533840)"
+        }
+      }
+     ,{
+        "id":"17791926163784043626"
+       ,"Label":{
+          "Label":"Product Families"
+        }
+       ,"Layout":{
+          "Sequence":350
+         ,"Parent Entry":"Code Tables (14890931303526298751)"
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "112"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:112:\u0026SESSION.::\u0026DEBUG.:RP,RIR,112:::"
+           ,"Page":"112"
+           ,"Clear Cache":"RP,RIR,112"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+       ,"Configuration":{
+          "Build Option":"Products and Services (14985194932254613518)"
+        }
+      }
+     ,{
+        "id":"17806974474786010799"
+       ,"Label":{
+          "Label":"Partners"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-thumbs-o-up"
+        }
+       ,"Layout":{
+          "Sequence":50
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "115"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:115:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"115"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Configuration":{
+          "Build Option":"Partners (1369032409088696269)"
+        }
+      }
+     ,{
+        "id":"17807143442242069658"
+       ,"Label":{
+          "Label":"Competitors"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-emoji-cringe"
+        }
+       ,"Layout":{
+          "Sequence":60
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "116"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:116:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"116"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"View Competitors (1389549476559443708)"
+        }
+       ,"Configuration":{
+          "Build Option":"Competitors (1365880821184671587)"
+        }
+      }
+     ,{
+        "id":"18174433487693699905"
+       ,"Label":{
+          "Label":"Activity Types"
+        }
+       ,"Layout":{
+          "Sequence":440
+         ,"Parent Entry":"Code Tables (14890931303526298751)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:53:\u0026SESSION.::\u0026DEBUG.:RP,RIR,53:::"
+           ,"Page":"53"
+           ,"Clear Cache":"RP,RIR,53"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+       ,"Configuration":{
+          "Build Option":"Activities (18167958259658546771)"
+        }
+      }
+     ,{
+        "id":"18174761023034799044"
+       ,"Label":{
+          "Label":"Activities [\u0026ACTIVITIES.]"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-newspaper-o"
+        }
+       ,"Layout":{
+          "Sequence":80
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "55"
+           ,"56"
+           ,"145"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:55:\u0026SESSION.::\u0026DEBUG.:RP,RIR,55:::"
+           ,"Page":"55"
+           ,"Clear Cache":"RP,RIR,55"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Configuration":{
+          "Build Option":"Activities (18167958259658546771)"
+        }
+      }
+     ,{
+        "id":"18175818820267912930"
+       ,"Label":{
+          "Label":"Upload Customers"
+        }
+       ,"Layout":{
+          "Sequence":500
+         ,"Parent Entry":"Configuration (14902801735556816051)"
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "125"
+           ,"126"
+           ,"127"
+           ,"128"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:125:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"125"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"18762644872900865698"
+       ,"Label":{
+          "Label":"Feedback"
+        }
+       ,"Layout":{
+          "Sequence":260
+         ,"Parent Entry":"Administration (14888372871053757518)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:119:\u0026SESSION.::\u0026DEBUG.:RP,119:::"
+           ,"Page":"119"
+           ,"Clear Cache":"RP,119"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+       ,"Configuration":{
+          "Build Option":"Feedback (18760340844679500439)"
+        }
+      }
+     ,{
+        "id":"18764486009986423254"
+       ,"Label":{
+          "Label":"Logging"
+        }
+       ,"Layout":{
+          "Sequence":250
+         ,"Parent Entry":"Administration (14888372871053757518)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":"#"
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"18764537250788497680"
+       ,"Label":{
+          "Label":"Email Logs"
+        }
+       ,"Layout":{
+          "Sequence":550
+         ,"Parent Entry":"Logging (18764486009986423254)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:121:\u0026SESSION.::\u0026DEBUG.:RP,121:::"
+           ,"Page":"121"
+           ,"Clear Cache":"RP,121"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+       ,"Configuration":{
+          "Build Option":"Feedback (18760340844679500439)"
+        }
+      }
+     ,{
+        "id":"20275832023667431418"
+       ,"Label":{
+          "Label":"Dashboard"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-dial-gauge-chart"
+        }
+       ,"Layout":{
+          "Sequence":20
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:1:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"1"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"14893768593937884821"
+   ,"Identification":{
+      "Name":"customers"
+    }
+   ,"Source":{
+      "Type":"SQL Query"
+     ,"SQL Query":"select the_level, label, \n      apex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:50:\u0027||:APP_SESSION||\u0027:::50:P50_ID:\u0027||id) target,\n       \u0027YES\u0027 is_current,\n       null image,\n       null image_attrib,\n       null image_alt,\n       a01,\n       a02,\n       a03\nfrom\n(\nselect null the_level,\n       a.customer_name label,\n       a.summary     a01,\n       c.status||\u0027, \u0027||nvl((select INDUSTRY_NAME from EBA_CUST_INDUSTRIES i where i.id = a.INDUSTRY_ID),\u0027\u0027)||decode(geography_name,null,null,\u0027, \u0027|| geography_name)    a02,\n       upper(\n          decode(instr(a.customer_name,\u0027 \u0027),\n                 0, \n                 substr(a.customer_name,1,2),\n                 substr(a.customer_name,1,1)||substr(a.customer_name,instr(a.customer_name,\u0027 \u0027)+1,1)\n           )) a03,\n       a.id\nfrom eba_cust_customers a,\n    eba_cust_categories b,\n    eba_cust_status c,\n    eba_cust_geographies d\nwhere a.category_id = b.id(+)\n    and a.status_id = c.id(+)\n    and a.geography_id = d.id(+)\n    and (:P59_SEARCH is null or\n            instr(upper(a.customer_name),upper(:P59_SEARCH)) \u003E 0 or\n                       instr(upper(a.summary),upper(:P59_SEARCH)) \u003E 0 )\n    and (NVL(:P59_GEO,0) = 0 or :P59_GEO = a.geography_id)\n    and (NVL(:P59_INDUSTRY,0) = 0 or  :P59_INDUSTRY = a.industry_id)\n    and (NVL(:P59_STATUS,0) = 0 or :P59_STATUS = a.status_id)\n) x\nwhere rownum \u003C= nvl(:P59_MAX_ROWS,200)\norder by label\n\n"
+    }
+  }
+ ,{
+    "id":"14902680077830421317"
+   ,"Identification":{
+      "Name":"Navigation Bar"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"14902680656281421329"
+       ,"Label":{
+          "Label":"Help"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"a-Icon icon-help"
+        }
+       ,"Layout":{
+          "Sequence":20
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:1001:\u0026SESSION.::\u0026DEBUG.:1001:P1001_PAGE_ID:\u0026APP_PAGE_ID.:"
+           ,"Page":"1001"
+           ,"Clear Cache":"1001"
+           ,"Values":{
+              "P1001_PAGE_ID":"\u0026APP_PAGE_ID."
+            }
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+      }
+     ,{
+        "id":"14902680882678421330"
+       ,"Label":{
+          "Label":"\u0026APP_USER."
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"a-Icon icon-user"
+        }
+       ,"Layout":{
+          "Sequence":30
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":"#"
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"2.":"has-username"
+        }
+      }
+     ,{
+        "id":"14902681222291421330"
+       ,"Label":{
+          "Label":"Preferences"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-heart"
+        }
+       ,"Layout":{
+          "Sequence":40
+         ,"Parent Entry":"\u0026APP_USER. (14902680882678421330)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:65:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"65"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+      }
+     ,{
+        "id":"14902681557215421330"
+       ,"Label":{
+          "Label":"Sign Out"
+        }
+       ,"Layout":{
+          "Sequence":50
+         ,"Parent Entry":"\u0026APP_USER. (14902680882678421330)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":"\u0026LOGOUT_URL."
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+      }
+     ,{
+        "id":"18760625737668533221"
+       ,"Label":{
+          "Label":"Feedback"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-comment-o"
+        }
+       ,"Layout":{
+          "Sequence":15
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:118:\u0026SESSION.::\u0026DEBUG.:118:P118_APPLICATION_ID,P118_PAGE_ID:\u0026APP_ID.,\u0026APP_PAGE_ID.:"
+           ,"Page":"118"
+           ,"Clear Cache":"118"
+           ,"Values":{
+              "P118_APPLICATION_ID":"\u0026APP_ID."
+             ,"P118_PAGE_ID":"\u0026APP_PAGE_ID."
+            }
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Configuration":{
+          "Build Option":"Feedback (18760340844679500439)"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"14902704932403541972"
+   ,"Identification":{
+      "Name":"Preferences"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"14902705117709541974"
+       ,"Label":{
+          "Label":"Time Zone"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-globe"
+        }
+       ,"Layout":{
+          "Sequence":10
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:76:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"76"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Set my time zone preference for this application."
+         ,"2.":"switchIcon"
+         ,"3.":"\u0026TZ."
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"14928721855420142522"
+   ,"Identification":{
+      "Name":"Customer Actions"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"2595171755063320351"
+       ,"Label":{
+          "Label":"Add Issue"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-alert"
+        }
+       ,"Layout":{
+          "Sequence":22
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:129:\u0026SESSION.::\u0026DEBUG.:129:P129_CUSTOMER_ID:\u0026P50_ID.:"
+           ,"Page":"129"
+           ,"Clear Cache":"129"
+           ,"Values":{
+              "P129_CUSTOMER_ID":"\u0026P50_ID."
+            }
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+        }
+       ,"Configuration":{
+          "Build Option":"Issues (2595223701453778803)"
+        }
+      }
+     ,{
+        "id":"14928722353272142524"
+       ,"Label":{
+          "Label":"Add Contact"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-user"
+        }
+       ,"Layout":{
+          "Sequence":20
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:37:\u0026SESSION.::\u0026DEBUG.:37:P37_CUSTOMER_ID:\u0026P50_ID.:"
+           ,"Page":"37"
+           ,"Clear Cache":"37"
+           ,"Values":{
+              "P37_CUSTOMER_ID":"\u0026P50_ID."
+            }
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Configuration":{
+          "Build Option":"Contacts (14985202220127679969)"
+        }
+      }
+     ,{
+        "id":"14928722646570142524"
+       ,"Label":{
+          "Label":"Add Product(s)"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-square-o"
+        }
+       ,"Layout":{
+          "Sequence":30
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:68:\u0026SESSION.::\u0026DEBUG.:RP,68,RIR:P68_CUSTOMER_ID:\u0026P50_ID.:"
+           ,"Page":"68"
+           ,"Clear Cache":"RP,68,RIR"
+           ,"Values":{
+              "P68_CUSTOMER_ID":"\u0026P50_ID."
+            }
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Configuration":{
+          "Build Option":"Products and Services (14985194932254613518)"
+        }
+      }
+     ,{
+        "id":"14928722892069142524"
+       ,"Label":{
+          "Label":"Add Update"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-comment-o"
+        }
+       ,"Layout":{
+          "Sequence":40
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:97:\u0026SESSION.::\u0026DEBUG.:97:P97_CUSTOMER_ID:\u0026P50_ID.:"
+           ,"Page":"97"
+           ,"Clear Cache":"97"
+           ,"Values":{
+              "P97_CUSTOMER_ID":"\u0026P50_ID."
+            }
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+      }
+     ,{
+        "id":"14928723257242142525"
+       ,"Label":{
+          "Label":"Add Link"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-chain"
+        }
+       ,"Layout":{
+          "Sequence":50
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:66:\u0026SESSION.::\u0026DEBUG.:66:P66_CUSTOMER_ID:\u0026P50_ID.:"
+           ,"Page":"66"
+           ,"Clear Cache":"66"
+           ,"Values":{
+              "P66_CUSTOMER_ID":"\u0026P50_ID."
+            }
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+      }
+     ,{
+        "id":"14928724926483150298"
+       ,"Label":{
+          "Label":"Add Attachment"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-paperclip"
+        }
+       ,"Layout":{
+          "Sequence":60
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:64:\u0026SESSION.::\u0026DEBUG.:64:P64_CUSTOMER_ID:\u0026P50_ID.:"
+           ,"Page":"64"
+           ,"Clear Cache":"64"
+           ,"Values":{
+              "P64_CUSTOMER_ID":"\u0026P50_ID."
+            }
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+      }
+     ,{
+        "id":"16892729416365491372"
+       ,"Label":{
+          "Label":"Referenceability"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-phone"
+        }
+       ,"Layout":{
+          "Sequence":15
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:96:\u0026SESSION.::\u0026DEBUG.:96:P96_ID:\u0026P50_ID.:"
+           ,"Page":"96"
+           ,"Clear Cache":"96"
+           ,"Values":{
+              "P96_ID":"\u0026P50_ID."
+            }
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+        }
+      }
+     ,{
+        "id":"17777782004218638233"
+       ,"Label":{
+          "Label":"Add Partner(s)"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-thumbs-o-up"
+        }
+       ,"Layout":{
+          "Sequence":35
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:110:\u0026SESSION.::\u0026DEBUG.:RP,110,RIR:P110_CUSTOMER_ID:\u0026P50_ID.:"
+           ,"Page":"110"
+           ,"Clear Cache":"RP,110,RIR"
+           ,"Values":{
+              "P110_CUSTOMER_ID":"\u0026P50_ID."
+            }
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Configuration":{
+          "Build Option":"Partners (1369032409088696269)"
+        }
+      }
+     ,{
+        "id":"17780624756877224060"
+       ,"Label":{
+          "Label":"Add Competitor(s)"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-emoji-cringe"
+        }
+       ,"Layout":{
+          "Sequence":36
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:111:\u0026SESSION.::\u0026DEBUG.:RP,111,RIR:P111_CUSTOMER_ID:\u0026P50_ID.:"
+           ,"Page":"111"
+           ,"Clear Cache":"RP,111,RIR"
+           ,"Values":{
+              "P111_CUSTOMER_ID":"\u0026P50_ID."
+            }
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"View Competitors (1389549476559443708)"
+        }
+       ,"Configuration":{
+          "Build Option":"Competitors (1365880821184671587)"
+        }
+      }
+     ,{
+        "id":"18210382080749954004"
+       ,"Label":{
+          "Label":"Add Activity"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-newspaper-o"
+        }
+       ,"Layout":{
+          "Sequence":25
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:150:\u0026SESSION.::\u0026DEBUG.:150:P150_CUSTOMER_ID:\u0026P50_ID.:"
+           ,"Page":"150"
+           ,"Clear Cache":"150"
+           ,"Values":{
+              "P150_CUSTOMER_ID":"\u0026P50_ID."
+            }
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+        }
+       ,"Configuration":{
+          "Build Option":"Activities (18167958259658546771)"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"15715459423450446689"
+   ,"Identification":{
+      "Name":"Data Load Process Train - customers"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+  }
+ ,{
+    "id":"15873106752286710937"
+   ,"Identification":{
+      "Name":"Administrative Code Tables"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"2595575780826918339"
+       ,"Label":{
+          "Label":"Issue Statuses"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-alert"
+        }
+       ,"Layout":{
+          "Sequence":95
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:132:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"132"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Manage the domain of statuses a customer issue can be assigned to"
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+       ,"Configuration":{
+          "Build Option":"Issues (2595223701453778803)"
+        }
+      }
+     ,{
+        "id":"14310063273629390240"
+       ,"Label":{
+          "Label":"Reference Statuses"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-tags"
+        }
+       ,"Layout":{
+          "Sequence":130
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:94:\u0026SESSION.::\u0026DEBUG.:RP:::"
+           ,"Page":"94"
+           ,"Clear Cache":"RP"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Manage the reference statuses for customer product assignments."
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+       ,"Configuration":{
+          "Build Option":"Product Referencability (14317412967320277148)"
+        }
+      }
+     ,{
+        "id":"15873107707085710938"
+       ,"Label":{
+          "Label":"Categories"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-bullseye"
+        }
+       ,"Layout":{
+          "Sequence":20
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "3"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:3:\u0026SESSION.::\u0026DEBUG.:RP:::"
+           ,"Page":"3"
+           ,"Clear Cache":"RP"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Manage the categories used to bucket customers."
+         ,"2.":"formIcon"
+         ,"3.":"\u0026CNT_02."
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"15873108138468710938"
+       ,"Label":{
+          "Label":"Customer Types"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-edit"
+        }
+       ,"Layout":{
+          "Sequence":60
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "5"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:5:\u0026SESSION.::\u0026DEBUG.:RP:::"
+           ,"Page":"5"
+           ,"Clear Cache":"RP"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Manage domain of customer types."
+         ,"2.":"formIcon"
+         ,"3.":"\u0026CNT_03."
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"15873108485682710939"
+       ,"Label":{
+          "Label":"Contact Types"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-crosshairs"
+        }
+       ,"Layout":{
+          "Sequence":30
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "8"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:8:\u0026SESSION.::\u0026DEBUG.:RP:::"
+           ,"Page":"8"
+           ,"Clear Cache":"RP"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Manage domain of customer contact types."
+         ,"2.":"formIcon"
+         ,"3.":"\u0026CNT_04."
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+       ,"Configuration":{
+          "Build Option":"Contacts (14985202220127679969)"
+        }
+      }
+     ,{
+        "id":"15873108890708710939"
+       ,"Label":{
+          "Label":"Reference Types"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-group"
+        }
+       ,"Layout":{
+          "Sequence":140
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "78"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:78:\u0026SESSION.::\u0026DEBUG.:RP:::"
+           ,"Page":"78"
+           ,"Clear Cache":"RP"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Manage domain of customer reference types."
+        }
+       ,"Server-side Condition":{
+          "Type":"Expression"
+         ,"Language":"PL\/SQL"
+         ,"PL\/SQL Expression":"APEX_UTIL.GET_BUILD_OPTION_STATUS(\n    P_APPLICATION_ID =\u003E :APP_ID,\n    P_BUILD_OPTION_NAME =\u003E \u0027Customer Referencability\u0027) = \u0027INCLUDE\u0027\nor\nAPEX_UTIL.GET_BUILD_OPTION_STATUS(\n    P_APPLICATION_ID =\u003E :APP_ID,\n    P_BUILD_OPTION_NAME =\u003E \u0027Product Referencability\u0027) = \u0027INCLUDE\u0027"
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+       ,"Configuration":{
+          "Build Option":"Product Referencability (14317412967320277148)"
+        }
+      }
+     ,{
+        "id":"15873109367329710939"
+       ,"Label":{
+          "Label":"Products"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-tag"
+        }
+       ,"Layout":{
+          "Sequence":110
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "42"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:42:\u0026SESSION.::\u0026DEBUG.:RP:::"
+           ,"Page":"42"
+           ,"Clear Cache":"RP"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Manage the list of available products that can be associated with a customer."
+         ,"2.":"formIcon"
+         ,"3.":"\u0026CNT_05."
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+       ,"Configuration":{
+          "Build Option":"Products and Services (14985194932254613518)"
+        }
+      }
+     ,{
+        "id":"15873109696715710939"
+       ,"Label":{
+          "Label":"Geographies"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-globe"
+        }
+       ,"Layout":{
+          "Sequence":80
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "48"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:48:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"48"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Manage the list of geographies used to organize customers."
+         ,"2.":"formIcon"
+         ,"3.":"\u0026CNT_06."
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+       ,"Configuration":{
+          "Build Option":"Geography (14985171647776348081)"
+        }
+      }
+     ,{
+        "id":"15873110164510710939"
+       ,"Label":{
+          "Label":"Industries"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-building-o"
+        }
+       ,"Layout":{
+          "Sequence":90
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:27:\u0026SESSION.::\u0026DEBUG.:RP:::"
+           ,"Page":"27"
+           ,"Clear Cache":"RP"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Manage the domain of industries a customer can be assigned to"
+         ,"2.":"formIcon"
+         ,"3.":"\u0026CNT_09."
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"15873148356309740055"
+       ,"Label":{
+          "Label":"Reference Phases"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-moon-o"
+        }
+       ,"Layout":{
+          "Sequence":120
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:87:\u0026SESSION.::\u0026DEBUG.:RP:::"
+           ,"Page":"87"
+           ,"Clear Cache":"RP"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Manage reference life cycle using phases."
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+       ,"Configuration":{
+          "Build Option":"Customer Referencability (14317354550591202996)"
+        }
+      }
+     ,{
+        "id":"15873163923450830683"
+       ,"Label":{
+          "Label":"Sales Channels"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-exchange"
+        }
+       ,"Layout":{
+          "Sequence":150
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:89:\u0026SESSION.::\u0026DEBUG.:RP:::"
+           ,"Page":"89"
+           ,"Clear Cache":"RP"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Manage domain of available sales channels"
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"16959581856391157621"
+       ,"Label":{
+          "Label":"Countries"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-globe"
+        }
+       ,"Layout":{
+          "Sequence":40
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:98:\u0026SESSION.::\u0026DEBUG.:98,RIR:::"
+           ,"Page":"98"
+           ,"Clear Cache":"98,RIR"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Manage the list of countries used to organize customers."
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+       ,"Configuration":{
+          "Build Option":"Countries (16956786967740861701)"
+        }
+      }
+     ,{
+        "id":"17030905504603232241"
+       ,"Label":{
+          "Label":"Customer Statuses"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-edit"
+        }
+       ,"Layout":{
+          "Sequence":50
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "5"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:102:\u0026SESSION.::\u0026DEBUG.:RP:::"
+           ,"Page":"102"
+           ,"Clear Cache":"RP"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Manage domain of customer statuses."
+         ,"2.":"formIcon"
+         ,"3.":"\u0026CNT_03."
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+       ,"Configuration":{
+          "Build Option":"Customer Status (17168530605040612062)"
+        }
+      }
+     ,{
+        "id":"17156455571050929638"
+       ,"Label":{
+          "Label":"Customer Use Cases"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-check"
+        }
+       ,"Layout":{
+          "Sequence":70
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:104:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"104"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Manage domain of customer use cases."
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+       ,"Configuration":{
+          "Build Option":"Customer Use Case (17146729199024533840)"
+        }
+      }
+     ,{
+        "id":"17791788870622039300"
+       ,"Label":{
+          "Label":"Product Families"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-tags"
+        }
+       ,"Layout":{
+          "Sequence":100
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "112"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:112:\u0026SESSION.::\u0026DEBUG.:RP,RIR,112:::"
+           ,"Page":"112"
+           ,"Clear Cache":"RP,RIR,112"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Manage the list of available product families that a product can belong to."
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+       ,"Configuration":{
+          "Build Option":"Products and Services (14985194932254613518)"
+        }
+      }
+     ,{
+        "id":"18168730547774665391"
+       ,"Label":{
+          "Label":"Activity Types"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-newspaper-o"
+        }
+       ,"Layout":{
+          "Sequence":10
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:53:\u0026SESSION.::\u0026DEBUG.:RP,RIR,53:::"
+           ,"Page":"53"
+           ,"Clear Cache":"RP,RIR,53"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Manage the types of activities tracked by the system."
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+       ,"Configuration":{
+          "Build Option":"Activities (18167958259658546771)"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"15916752444946932145"
+   ,"Identification":{
+      "Name":"Data Load Process Train - contacts"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"15916752817809932146"
+       ,"Label":{
+          "Label":"Data Load Source"
+        }
+       ,"Layout":{
+          "Sequence":10
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:60:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"60"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+        }
+      }
+     ,{
+        "id":"15916753144962932148"
+       ,"Label":{
+          "Label":"Data \/ Table Mapping"
+        }
+       ,"Layout":{
+          "Sequence":20
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:61:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"61"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+        }
+      }
+     ,{
+        "id":"15916753424160932148"
+       ,"Label":{
+          "Label":"Data Validation"
+        }
+       ,"Layout":{
+          "Sequence":30
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:62:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"62"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+        }
+      }
+     ,{
+        "id":"15916753723542932148"
+       ,"Label":{
+          "Label":"Data Load Results"
+        }
+       ,"Layout":{
+          "Sequence":40
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:63:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"63"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Server-side Condition":{
+          "Type":"Never"
+        }
+       ,"Security":{
+          "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"16375437435936769538"
+   ,"Identification":{
+      "Name":"Additional Administration"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"16375437647959769539"
+       ,"Label":{
+          "Label":"Manage Notifications"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-comment"
+        }
+       ,"Layout":{
+          "Sequence":10
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:34:\u0026SESSION.::\u0026DEBUG.:RP,34:::"
+           ,"Page":"34"
+           ,"Clear Cache":"RP,34"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Manage application notification text displayed on home page.  Requires Administrative privilege."
+         ,"2.":"formIcon"
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"18762086816584780377"
+       ,"Label":{
+          "Label":"Manage Feedback"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-comments-o"
+        }
+       ,"Layout":{
+          "Sequence":20
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:119:\u0026SESSION.::\u0026DEBUG.:RP,119:::"
+           ,"Page":"119"
+           ,"Clear Cache":"RP,119"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Report of all feedback left by application users. Feedback types include general comments, enhancement requests, and bugs."
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+       ,"Configuration":{
+          "Build Option":"Feedback (18760340844679500439)"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"16672052538012366863"
+   ,"Identification":{
+      "Name":"+ Mobile Menu"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+  }
+ ,{
+    "id":"17822111557955704232"
+   ,"Identification":{
+      "Name":"User Activity Reports"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"14985169037017322668"
+       ,"Label":{
+          "Label":"Application Activity by Page"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-table"
+        }
+       ,"Layout":{
+          "Sequence":40
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:24:\u0026SESSION.::\u0026DEBUG.:RP:::"
+           ,"Page":"24"
+           ,"Clear Cache":"RP"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Review application page performance and popularity.  A weighted page performance column multiplies page views by median rendering time. "
+         ,"2.":"Interactive Report"
+        }
+      }
+     ,{
+        "id":"14995289048358119821"
+       ,"Label":{
+          "Label":"Application Activity"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-calendar"
+        }
+       ,"Layout":{
+          "Sequence":5
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:46:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"46"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Monthly calendar reporting historical usage, number of users and number of page views by day.  Requires contributor rights."
+         ,"2.":"Monthly Calendar"
+        }
+       ,"Security":{
+          "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+        }
+      }
+     ,{
+        "id":"16766636117168551675"
+       ,"Label":{
+          "Label":"Activity Calendar"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-calendar"
+        }
+       ,"Layout":{
+          "Sequence":30
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:21:\u0026SESSION.::\u0026DEBUG.:RP,21:::"
+           ,"Page":"21"
+           ,"Clear Cache":"RP,21"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Summary of page views by user by day.  Requires contributor rights."
+         ,"2.":"Monthly Calendar"
+        }
+       ,"Security":{
+          "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+        }
+      }
+     ,{
+        "id":"17822111755145704240"
+       ,"Label":{
+          "Label":"Top Users"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-table"
+        }
+       ,"Layout":{
+          "Sequence":10
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+         ,"Pages":[
+            "23"
+          ]
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:23:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"23"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Summary report of page view activity by user.  Requires contributor rights."
+         ,"2.":"Interactive Report"
+        }
+       ,"Security":{
+          "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+        }
+      }
+     ,{
+        "id":"17834461840574326509"
+       ,"Label":{
+          "Label":"Page View Activity"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-table"
+        }
+       ,"Layout":{
+          "Sequence":20
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:45:\u0026SESSION.::\u0026DEBUG.:RP:::"
+           ,"Page":"45"
+           ,"Clear Cache":"RP"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Interactive report of each application page view.  Requires contributor rights."
+         ,"2.":"Interactive Report"
+        }
+       ,"Security":{
+          "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"17823880751343092800"
+   ,"Identification":{
+      "Name":"Load Customers Train"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+  }
+ ,{
+    "id":"17830379503578289807"
+   ,"Identification":{
+      "Name":"Administration"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"14749191448669314956"
+       ,"Label":{
+          "Label":"Page Privileges"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-eye"
+        }
+       ,"Layout":{
+          "Sequence":100
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:26:\u0026SESSION.::\u0026DEBUG.:RP:::"
+           ,"Page":"26"
+           ,"Clear Cache":"RP"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Report of the pages within this application and their corresponding access control security level."
+         ,"2.":"reportIcon"
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"14766342725789782959"
+       ,"Label":{
+          "Label":"Application Settings"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-pencil"
+        }
+       ,"Layout":{
+          "Sequence":700
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:28:\u0026SESSION.::\u0026DEBUG.:RP:::"
+           ,"Page":"28"
+           ,"Clear Cache":"RP"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Change the application settings including the name, displayed on the top left of each page, to one of your choosing. By default, the application name is \"\u0026APP_NAME.\"."
+         ,"2.":"formIcon"
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"14965834944097478894"
+       ,"Label":{
+          "Label":"Build Options"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-adjust"
+        }
+       ,"Layout":{
+          "Sequence":5
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:11:\u0026SESSION.::\u0026DEBUG.:RP:::"
+           ,"Page":"11"
+           ,"Clear Cache":"RP"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Manage the status of build options. Build options allow application functionality to be included or excluded from an application.  Use build options to factor your application."
+         ,"2.":"formIcon"
+         ,"3.":"\u0026CNT_07."
+        }
+       ,"Server-side Condition":{
+          "Type":"Rows returned"
+         ,"SQL Query":"select null\n  from apex_application_build_options\n where application_id = :APP_ID"
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"15025786085164391996"
+       ,"Label":{
+          "Label":"Upload Customers"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-cloud-upload"
+        }
+       ,"Layout":{
+          "Sequence":730
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:125:\u0026SESSION.::\u0026DEBUG.:125,126,127,128:::"
+           ,"Page":"125"
+           ,"Clear Cache":"125,126,127,128"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Bulk add customers to the system using file upload from csv or cut and paste."
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"15097005535648961625"
+       ,"Label":{
+          "Label":"Welcome Text"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-comment-o"
+        }
+       ,"Layout":{
+          "Sequence":710
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:14:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"14"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Define the welcome text that is displayed on application home page."
+         ,"2.":"formIcon"
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"15264254455794621475"
+       ,"Label":{
+          "Label":"Theme Style"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-desktop"
+        }
+       ,"Layout":{
+          "Sequence":720
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:70:\u0026SESSION.::\u0026DEBUG.:RP:::"
+           ,"Page":"70"
+           ,"Clear Cache":"RP"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Change user interface theme style for all users."
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"15414948579224244594"
+       ,"Label":{
+          "Label":"Manage Sample Data"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-database"
+        }
+       ,"Layout":{
+          "Sequence":80
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:77:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"77"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Remove, create, or re-create sample data provided with this application."
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"17834615795043769109"
+   ,"Identification":{
+      "Name":"Reports"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"2061184785893389127"
+       ,"Label":{
+          "Label":"Timeline"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-clock-o"
+        }
+       ,"Layout":{
+          "Sequence":50
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:124:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"124"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Recent activity, changes to this customer repository"
+        }
+      }
+     ,{
+        "id":"14903268006125959075"
+       ,"Label":{
+          "Label":"Customer Detail"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-table"
+        }
+       ,"Layout":{
+          "Sequence":10
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:1:\u0026SESSION.::\u0026DEBUG.:RP:::"
+           ,"Page":"1"
+           ,"Clear Cache":"RP"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Customer detail report with options to download and subscribe."
+        }
+       ,"Server-side Condition":{
+          "Type":"Never"
+        }
+      }
+     ,{
+        "id":"15800014809881204271"
+       ,"Label":{
+          "Label":"Customers by Category"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-bar-chart"
+        }
+       ,"Layout":{
+          "Sequence":1
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:32:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"32"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Chart of customer counts"
+        }
+      }
+     ,{
+        "id":"15800018981240240278"
+       ,"Label":{
+          "Label":"Customers by Geography"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-bar-chart"
+        }
+       ,"Layout":{
+          "Sequence":2
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:85:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"85"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Chart of customer counts"
+        }
+      }
+     ,{
+        "id":"15800934322818357684"
+       ,"Label":{
+          "Label":"Customers by Reference Type"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-bar-chart"
+        }
+       ,"Layout":{
+          "Sequence":3
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:86:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"86"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Chart of customer counts "
+        }
+       ,"Configuration":{
+          "Build Option":"Customer Referencability (14317354550591202996)"
+        }
+      }
+     ,{
+        "id":"16622912549256081755"
+       ,"Label":{
+          "Label":"Updates"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-calendar"
+        }
+       ,"Layout":{
+          "Sequence":30
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:22:\u0026SESSION.::\u0026DEBUG.:RP:::"
+           ,"Page":"22"
+           ,"Clear Cache":"RP"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"View date of last update to customers in a calendar format.  Use this report to see what customers have been recently updated."
+        }
+      }
+     ,{
+        "id":"17834824105177269457"
+       ,"Label":{
+          "Label":"Recent Updates"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-table"
+        }
+       ,"Layout":{
+          "Sequence":20
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:29:\u0026SESSION.::\u0026DEBUG.:RP,29:::"
+           ,"Page":"29"
+           ,"Clear Cache":"RP,29"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Recent activity, changes to this customer repository"
+        }
+      }
+     ,{
+        "id":"17841426434944520376"
+       ,"Label":{
+          "Label":"Tags"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-tag"
+        }
+       ,"Layout":{
+          "Sequence":40
+        }
+       ,"Is Current":{
+          "Type":"Pages"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:40:\u0026SESSION.::\u0026DEBUG.:RP:::"
+           ,"Page":"40"
+           ,"Clear Cache":"RP"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Display tag clouds"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"17835942447805820511"
+   ,"Identification":{
+      "Name":"Access Control"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"1389545461703278378"
+       ,"Label":{
+          "Label":"ACL Features"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-check-square-o"
+        }
+       ,"Layout":{
+          "Sequence":50
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:123:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"123"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Manage the access levels required to access specific functionality. "
+        }
+       ,"Server-side Condition":{
+          "Type":"Expression"
+         ,"Language":"PL\/SQL"
+         ,"PL\/SQL Expression":"eba_cust_fw.get_preference_value(\u0027ACCESS_CONTROL_ENABLED\u0027) = \u0027Y\u0027"
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"14844401723527726788"
+       ,"Label":{
+          "Label":"Username Format"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-user"
+        }
+       ,"Layout":{
+          "Sequence":40
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:16:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"16"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Define the username format for new users in this application."
+         ,"2.":"formIcon"
+        }
+       ,"Server-side Condition":{
+          "Type":"Never"
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"15955076819327862482"
+       ,"Label":{
+          "Label":"Access Control"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-key"
+        }
+       ,"Layout":{
+          "Sequence":20
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:130:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"130"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Use to change the Access Control Scope or to disable Access Control."
+         ,"2.":"switchIcon"
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"15996746035868443111"
+       ,"Label":{
+          "Label":"Users"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-users"
+        }
+       ,"Layout":{
+          "Sequence":30
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:57:\u0026SESSION.:57,RIR:\u0026DEBUG.::::"
+           ,"Page":"57"
+           ,"Request":"57,RIR"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Administrators can define the domain of users and assign each a role."
+         ,"2.":"userIcon"
+        }
+       ,"Server-side Condition":{
+          "Type":"Expression"
+         ,"Language":"PL\/SQL"
+         ,"PL\/SQL Expression":"eba_cust_fw.get_preference_value(\u0027ACCESS_CONTROL_ENABLED\u0027) = \u0027Y\u0027"
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"18008519637590982753"
+   ,"Identification":{
+      "Name":"Welome Actions"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"18008519833401982756"
+       ,"Label":{
+          "Label":"Add a New Customer"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-user"
+        }
+       ,"Layout":{
+          "Sequence":10
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:2:\u0026SESSION.::\u0026DEBUG.:RP,2:::"
+           ,"Page":"2"
+           ,"Clear Cache":"RP,2"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Start by adding your first customer."
+        }
+       ,"Security":{
+          "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+        }
+      }
+     ,{
+        "id":"18008520279689982758"
+       ,"Label":{
+          "Label":"Load Sample Data"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-download"
+        }
+       ,"Layout":{
+          "Sequence":20
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:77:\u0026SESSION.::\u0026DEBUG.::::"
+           ,"Page":"77"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Easily load and manage sample data."
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"18162501605150472592"
+   ,"Identification":{
+      "Name":"Data Load Process Train - customers"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+  }
+ ,{
+    "id":"18164014268707697567"
+   ,"Identification":{
+      "Name":"Data Load Process Train - Customers"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"18164014614554697569"
+       ,"Label":{
+          "Label":"Data Load Source"
+        }
+       ,"Layout":{
+          "Sequence":10
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:125:\u0026SESSION.::\u0026DEBUG."
+           ,"Page":"125"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+      }
+     ,{
+        "id":"18164015008942697571"
+       ,"Label":{
+          "Label":"Data \/ Table Mapping"
+        }
+       ,"Layout":{
+          "Sequence":20
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:126:\u0026SESSION.::\u0026DEBUG."
+           ,"Page":"126"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+      }
+     ,{
+        "id":"18164015476104697572"
+       ,"Label":{
+          "Label":"Data Validation"
+        }
+       ,"Layout":{
+          "Sequence":30
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:127:\u0026SESSION.::\u0026DEBUG."
+           ,"Page":"127"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+      }
+     ,{
+        "id":"18164015869745697572"
+       ,"Label":{
+          "Label":"Data Load Results"
+        }
+       ,"Layout":{
+          "Sequence":40
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:128:\u0026SESSION.::\u0026DEBUG."
+           ,"Page":"128"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"18195557481596308169"
+   ,"Identification":{
+      "Name":"Data Load Process Train - Customers"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+  }
+ ,{
+    "id":"18203143845872251430"
+   ,"Identification":{
+      "Name":"Activity Actions"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"18203146814134251439"
+       ,"Label":{
+          "Label":"Add Attachment"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-paperclip"
+        }
+       ,"Layout":{
+          "Sequence":60
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:114:\u0026SESSION.::\u0026DEBUG.:114:P114_ACTIVITY_ID:\u0026P145_ID.:"
+           ,"Page":"114"
+           ,"Clear Cache":"114"
+           ,"Values":{
+              "P114_ACTIVITY_ID":"\u0026P145_ID."
+            }
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"18764654293578482401"
+   ,"Identification":{
+      "Name":"Administrative Logs"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"18764654435632482404"
+       ,"Label":{
+          "Label":"Application Error Log"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-alert"
+        }
+       ,"Layout":{
+          "Sequence":10
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:175:\u0026SESSION.::\u0026DEBUG.:RP,RIR,CIR:::"
+           ,"Page":"175"
+           ,"Clear Cache":"RP,RIR,CIR"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Report of all internal errors encountered within the application."
+         ,"2.":"reportIcon"
+         ,"3.":"\u0026CNT_08."
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+      }
+     ,{
+        "id":"18764654959776482408"
+       ,"Label":{
+          "Label":"Application Email Log"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-envelope-o"
+        }
+       ,"Layout":{
+          "Sequence":20
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:121:\u0026SESSION.::\u0026DEBUG.:RP,RIR,CIR:::"
+           ,"Page":"121"
+           ,"Clear Cache":"RP,RIR,CIR"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Report of all emails sent from the application."
+        }
+       ,"Security":{
+          "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+        }
+       ,"Configuration":{
+          "Build Option":"Feedback (18760340844679500439)"
+        }
+      }
+    ]
+  }
+]

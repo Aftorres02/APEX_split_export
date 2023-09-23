@@ -1,0 +1,447 @@
+{
+  "id":"22"
+ ,"Identification":{
+    "Name":"Updates"
+   ,"Alias":"UPDATES"
+   ,"Title":"Updates"
+   ,"Page Group":"Reports (14749179718753291941)"
+  }
+ ,"Appearance":{
+    "Page Mode":"Normal"
+   ,"Page Template":"Theme Default"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"First item on page"
+   ,"Warn on Unsaved Changes":false
+  }
+ ,"Security":{
+    "Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"On"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Always"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Help":{
+    "Help Text":"This calendar displays Changes to customers by day. Click the \u003Cstrong\u003E\u003C\u003C\/strong\u003E button to go to the previous month and the \u003Cstrong\u003E\u003E\u003C\/strong\u003E button to go forward a month. Switch between the calendar view to the list view by clicking the \u003Cstrong\u003Elist\u003C\/strong\u003E button."
+  }
+ ,"Configuration":{
+    "Build Option":"Reports (14985268924324738425)"
+  }
+ ,"Regions":[
+    {
+      "id":"17823985162823371021"
+     ,"Identification":{
+        "Title":"Updates"
+       ,"Type":"Calendar"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select distinct a.customer_id\n,      a.updated\n,      a.customer_name\nfrom (select n.customer_id\n      ,      trunc(n.created) updated\n      ,      c.CUSTOMER_NAME\n      from  eba_cust_notes n , eba_cust_customers c\n      where n.customer_id = c.id\n      union all\n      select c.id customer_id\n      ,      trunc(h.change_date) updated\n      ,      c.customer_name\n      from EBA_CUST_HISTORY h, eba_cust_customers c\n      where h.component_id = c.id\n     ) a\n"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--hideHeader"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Security":{
+        "Escape special characters":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Display Column":"CUSTOMER_NAME"
+         ,"Start Date Column":"UPDATED"
+         ,"Show Time":false
+         ,"Supplemental Information":"\u0026DETAIL."
+         ,"Multiple Line Events":true
+         ,"Show Tooltip":false
+         ,"Additional Calendar Views":"month:list:navigation"
+         ,"View \/ Edit Link":{
+            "url":"f?p=\u0026APP_ID.:50:\u0026SESSION.::\u0026DEBUG.:RP,50:P50_ID:\u0026CUSTOMER_ID."
+           ,"Page":"50"
+           ,"Clear Cache":"RP,50"
+           ,"Values":{
+              "P50_ID":"\u0026CUSTOMER_ID."
+            }
+          }
+         ,"Maximum Events \/ Day":16
+         ,"Show Weekend":true
+        }
+       ,"Performance":{
+          "Lazy Loading":true
+        }
+      }
+    }
+   ,{
+      "id":"17823985573360371025"
+     ,"Identification":{
+        "Title":"Activities"
+       ,"Type":"Breadcrumb"
+      }
+     ,"Source":{
+        "Breadcrumb":"Breadcrumb (17869143586620226407)"
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_01"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Title Bar (14888267217215691848)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-BreadcrumbRegion--useBreadcrumbTitle"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "Breadcrumb Template":"Breadcrumb (14888282717314691893)"
+         ,"Template Options":[
+            "#DEFAULT#"
+          ]
+        }
+      }
+    }
+  ]
+ ,"Page Items":[
+    {
+      "id":"17823990390463371037"
+     ,"Identification":{
+        "Name":"P22_CALENDAR_DATE"
+       ,"Type":"Hidden"
+      }
+     ,"Settings":{
+        "Value Protected":true
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Updates (17823985162823371021)"
+       ,"Position":"BODY"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Item"
+       ,"Item":"P22_CALENDAR_DATE"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Default":{
+        "Type":"Function Body"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Function Body":"return to_char(sysdate,\u0027YYYYMMDD\u0027);"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Comments":{
+        "Comments":"Generated by Calendar wizard on 18-JUN-07"
+      }
+    }
+   ,{
+      "id":"17823990588133371038"
+     ,"Identification":{
+        "Name":"P22_CALENDAR_TYPE"
+       ,"Type":"Hidden"
+      }
+     ,"Settings":{
+        "Value Protected":true
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Updates (17823985162823371021)"
+       ,"Position":"BODY"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Item"
+       ,"Item":"P22_CALENDAR_TYPE"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"M"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Comments":{
+        "Comments":"Generated by Calendar wizard on 18-JUN-07"
+      }
+    }
+  ]
+ ,"Processes":[
+    {
+      "id":"17823990780880371039"
+     ,"Identification":{
+        "Name":"Reset Pagination"
+       ,"Type":"Reset Pagination"
+       ,"Execution Chain":"None"
+      }
+     ,"Settings":{
+        "Target":"This Page"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Error Message":"Unable to reset pagination."
+       ,"Display Location":"On Error Page"
+      }
+     ,"Server-side Condition":{
+        "Type":"Request is contained in Value"
+       ,"Value":"Go,P22_REPORT_SEARCH"
+      }
+    }
+   ,{
+      "id":"17823990967195371040"
+     ,"Identification":{
+        "Name":"Adjust Calendar Date -Monthly"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":" htmldb_util.month_calendar(\u0027P22_CALENDAR_TYPE\u0027);"
+      }
+     ,"Execution":{
+        "Sequence":20
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Error Message":"Error changing calendar date."
+       ,"Display Location":"On Error Page"
+      }
+     ,"Comments":{
+        "Comments":"Generated 18-JUN-07"
+      }
+    }
+   ,{
+      "id":"17823991164920371040"
+     ,"Identification":{
+        "Name":"Adjust Calendar Date -Weekly"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":" htmldb_util.weekly_calendar(\u0027P22_CALENDAR_TYPE\u0027);"
+      }
+     ,"Execution":{
+        "Sequence":30
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Error Message":"Error changing calendar date."
+       ,"Display Location":"On Error Page"
+      }
+     ,"Comments":{
+        "Comments":"Generated 18-JUN-07"
+      }
+    }
+   ,{
+      "id":"17823991389587371041"
+     ,"Identification":{
+        "Name":"Adjust Calendar Date -Daily"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":" htmldb_util.daily_calendar(\u0027P22_CALENDAR_TYPE\u0027);"
+      }
+     ,"Execution":{
+        "Sequence":40
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Error Message":"Error changing calendar date."
+       ,"Display Location":"On Error Page"
+      }
+     ,"Comments":{
+        "Comments":"Generated 18-JUN-07"
+      }
+    }
+   ,{
+      "id":"17823991571752371041"
+     ,"Identification":{
+        "Name":"Adjust Calendar Date -Previous"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":" htmldb_util.decrement_calendar;"
+      }
+     ,"Execution":{
+        "Sequence":50
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Error Message":"Error changing calendar date."
+       ,"Display Location":"On Error Page"
+      }
+     ,"Comments":{
+        "Comments":"Generated 18-JUN-07"
+      }
+    }
+   ,{
+      "id":"17823991788085371041"
+     ,"Identification":{
+        "Name":"Adjust Calendar Date -Today"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":" htmldb_util.today_calendar;"
+      }
+     ,"Execution":{
+        "Sequence":60
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Error Message":"Error changing calendar date."
+       ,"Display Location":"On Error Page"
+      }
+     ,"Comments":{
+        "Comments":"Generated 18-JUN-07"
+      }
+    }
+   ,{
+      "id":"17823991964967371041"
+     ,"Identification":{
+        "Name":"Adjust Calendar Date -Next"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":" htmldb_util.increment_calendar;"
+      }
+     ,"Execution":{
+        "Sequence":70
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Error Message":"Error changing calendar date."
+       ,"Display Location":"On Error Page"
+      }
+     ,"Comments":{
+        "Comments":"Generated 18-JUN-07"
+      }
+    }
+  ]
+ ,"Branches":[
+    {
+      "id":"17823992676639371043"
+     ,"Identification":{
+        "Name":"Go To Page 22"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"After Processing"
+      }
+     ,"Behavior":{
+        "Type":"Page or URL (Redirect)"
+       ,"Target":{
+          "url":"f?p=\u0026FLOW_ID.:22:\u0026SESSION."
+         ,"App":"\u0026FLOW_ID."
+         ,"Page":"22"
+        }
+       ,"Save State before Branching":true
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+    "id": "14893639597424818378",
+    "Identification": {
+        "Name": "P2_SUMMARY",
+        "Type": "Textarea"
+    },
+    "Label": {
+        "Label": "Project Summary",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Resizable": true,
+        "Auto-Height": false,
+        "Character Counter": false,
+        "Trim Spaces": "Leading and Trailing"
+    },
+    "Layout": {
+        "Sequence": 180,
+        "Region": "Project (17742639201513739139)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Optional (14888281543517691887)",
+        "Template Options": [
+            "#DEFAULT#",
+            "t-Form-fieldContainer--stretchInputs"
+        ],
+        "Width": 80,
+        "Height": 5
+    },
+    "Validation": {
+        "Value Required": false,
+        "Maximum Length": 4000
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Database Column",
+        "Database Column": "SUMMARY",
+        "Used": "Always, replacing any existing value in session state"
+    },
+    "Session State": {
+        "Data Type": "VARCHAR2",
+        "Storage": "Per Session (Persistent)"
+    },
+    "Quick Picks": {
+        "Show Quick Picks": false
+    },
+    "Security": {
+        "Session State Protection": "Unrestricted",
+        "Store value encrypted in session state": false,
+        "Restricted Characters": "All characters can be saved."
+    }
+}

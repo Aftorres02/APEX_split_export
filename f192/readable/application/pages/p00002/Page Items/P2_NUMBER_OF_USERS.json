@@ -1,0 +1,63 @@
+{
+    "id": "15097428218035942179",
+    "Identification": {
+        "Name": "P2_NUMBER_OF_USERS",
+        "Type": "Number Field"
+    },
+    "Label": {
+        "Label": "Number of Users",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Number Alignment": "End",
+        "Virtual Keyboard": "Text"
+    },
+    "Layout": {
+        "Sequence": 160,
+        "Region": "Project (17742639201513739139)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Optional (14888281543517691887)",
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "Width": 64
+    },
+    "Validation": {
+        "Value Required": false,
+        "Maximum Length": 4000
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Database Column",
+        "Database Column": "NUMBER_OF_USERS",
+        "Used": "Always, replacing any existing value in session state"
+    },
+    "Session State": {
+        "Storage": "Per Session (Persistent)"
+    },
+    "Quick Picks": {
+        "Show Quick Picks": false
+    },
+    "Security": {
+        "Session State Protection": "Unrestricted",
+        "Store value encrypted in session state": false,
+        "Restricted Characters": "All characters can be saved."
+    },
+    "Help": {
+        "Help Text": "Enter the number of users / employees."
+    },
+    "Configuration": {
+        "Build Option": "Number_of_users (14904495615565772763)"
+    }
+}

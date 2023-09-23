@@ -1,0 +1,22 @@
+{
+    "id": "17857392486904551117",
+    "Identification": {
+        "Name": "Check Dependencies"
+    },
+    "Execution": {
+        "Sequence": 30
+    },
+    "Validation": {
+        "Type": "No Rows returned",
+        "SQL Query": "select 1 from eba_cust_contacts where CONTACT_TYPE_ID = :P9_ID and rownum = 1",
+        "Always Execute": false
+    },
+    "Error": {
+        "Error Message": "Cannot Delete this Contact Type, Contacts exists in this Category.",
+        "Display Location": "Inline with Field and in Notification",
+        "Associated Item": "P9_CONTACT_TYPE (17829408303092640554)"
+    },
+    "Server-side Condition": {
+        "When Button Pressed": "DELETE (17829407108058640504)"
+    }
+}

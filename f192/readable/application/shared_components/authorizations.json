@@ -1,0 +1,110 @@
+[
+  {
+    "id":"1376783792648393558"
+   ,"Identification":{
+      "Name":"Copy of ADMINISTRATION RIGHTS"
+    }
+   ,"Authorization Scheme":{
+      "Type":"PL\/SQL Function Returning Boolean"
+    }
+   ,"Settings":{
+      "PL\/SQL Function Body":"return eba_cust.get_authorization_level(:APP_USER) = 3;"
+    }
+   ,"Server Cache":{
+      "Evaluation Point":"Once per Session"
+    }
+   ,"Error":{
+      "Error Message":"Insufficient privileges, user is not an Administrator"
+    }
+  }
+ ,{
+    "id":"1389512017763144600"
+   ,"Identification":{
+      "Name":"Edit Competitors"
+    }
+   ,"Authorization Scheme":{
+      "Type":"PL\/SQL Function Returning Boolean"
+    }
+   ,"Settings":{
+      "PL\/SQL Function Body":"return eba_cust.get_feature_level(:APP_USER, \u0027EDIT_COMPETITORS\u0027);"
+    }
+   ,"Server Cache":{
+      "Evaluation Point":"Once per Session"
+    }
+   ,"Error":{
+      "Error Message":"Insufficient privileges, user is not allowed to edit competitors."
+    }
+  }
+ ,{
+    "id":"1389549476559443708"
+   ,"Identification":{
+      "Name":"View Competitors"
+    }
+   ,"Authorization Scheme":{
+      "Type":"PL\/SQL Function Returning Boolean"
+    }
+   ,"Settings":{
+      "PL\/SQL Function Body":"return eba_cust.get_feature_level(:APP_USER, \u0027VIEW_COMPETITORS\u0027);"
+    }
+   ,"Server Cache":{
+      "Evaluation Point":"Once per Session"
+    }
+   ,"Error":{
+      "Error Message":"Insufficient privileges, user is not allowed to view competitors."
+    }
+  }
+ ,{
+    "id":"15704753031447651527"
+   ,"Identification":{
+      "Name":"ADMINISTRATION RIGHTS"
+    }
+   ,"Authorization Scheme":{
+      "Type":"PL\/SQL Function Returning Boolean"
+    }
+   ,"Settings":{
+      "PL\/SQL Function Body":"return eba_cust.get_authorization_level(:APP_USER) = 3;"
+    }
+   ,"Server Cache":{
+      "Evaluation Point":"Once per Session"
+    }
+   ,"Error":{
+      "Error Message":"Insufficient privileges, user is not an Administrator"
+    }
+  }
+ ,{
+    "id":"15995665447222190978"
+   ,"Identification":{
+      "Name":"APPLICATION SENTRY"
+    }
+   ,"Authorization Scheme":{
+      "Type":"PL\/SQL Function Returning Boolean"
+    }
+   ,"Settings":{
+      "PL\/SQL Function Body":"begin\n    if :APP_PAGE_ID = 101 then\n        return true;\n    else\n        return (eba_cust.get_authorization_level(:APP_USER) \u003E 0);\n    end if;\nend;"
+    }
+   ,"Server Cache":{
+      "Evaluation Point":"Once per Session"
+    }
+   ,"Error":{
+      "Error Message":"You are not authorized to view this application, either because you have not been granted access, or your account has been locked. Please contact the application administrator."
+    }
+  }
+ ,{
+    "id":"15995681224497193873"
+   ,"Identification":{
+      "Name":"CONTRIBUTION RIGHTS"
+    }
+   ,"Authorization Scheme":{
+      "Type":"PL\/SQL Function Returning Boolean"
+    }
+   ,"Settings":{
+      "PL\/SQL Function Body":"return eba_cust.get_authorization_level(:APP_USER) \u003E= 2;"
+    }
+   ,"Server Cache":{
+      "Evaluation Point":"Once per Session"
+    }
+   ,"Error":{
+      "Error Message":"Insufficient privileges, user is not a Contributor"
+    }
+  }
+]

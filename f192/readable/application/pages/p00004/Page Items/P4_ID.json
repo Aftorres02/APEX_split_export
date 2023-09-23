@@ -1,0 +1,32 @@
+{
+    "id": "17829379504022682876",
+    "Identification": {
+        "Name": "P4_ID",
+        "Type": "Hidden"
+    },
+    "Settings": {
+        "Value Protected": true
+    },
+    "Layout": {
+        "Sequence": 1,
+        "Region": "Category Details (17829378104262682818)",
+        "Position": "BODY"
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Database Column",
+        "Database Column": "ID",
+        "Used": "Always, replacing any existing value in session state"
+    },
+    "Session State": {
+        "Data Type": "VARCHAR2",
+        "Storage": "Per Session (Persistent)"
+    },
+    "Security": {
+        "Session State Protection": "Checksum Required - Session Level",
+        "Store value encrypted in session state": false,
+        "Restricted Characters": "All characters can be saved."
+    }
+}

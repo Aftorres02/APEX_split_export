@@ -1,0 +1,62 @@
+{
+    "id": "2074510390433783456",
+    "Identification": {
+        "Name": "P1_TYPE",
+        "Type": "Select List"
+    },
+    "Label": {
+        "Label": "Type",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Page Action on Selection": "None",
+        "Allow Multi Selection": false
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Region": "More Filters (20006072089876467610)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Optional - Above (15050274849633028680)",
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "Height": 1
+    },
+    "Validation": {
+        "Value Required": false
+    },
+    "List of Values": {
+        "Type": "Shared Component",
+        "List of Values": "TYPE (17070263972513584655)",
+        "Display Extra Values": false,
+        "Display Null Value": true,
+        "Null Display Value": "- All -"
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Null",
+        "Used": "Only when current value in session state is null"
+    },
+    "Session State": {
+        "Storage": "Per Session (Persistent)"
+    },
+    "Quick Picks": {
+        "Show Quick Picks": false
+    },
+    "Security": {
+        "Session State Protection": "Unrestricted",
+        "Store value encrypted in session state": false,
+        "Restricted Characters": "All characters can be saved."
+    }
+}

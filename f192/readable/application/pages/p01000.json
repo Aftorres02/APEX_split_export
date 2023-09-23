@@ -1,0 +1,1628 @@
+{
+  "id":"1000"
+ ,"Identification":{
+    "Name":"Getting Started"
+   ,"Alias":"GETTING-STARTED"
+   ,"Title":"Getting Started"
+  }
+ ,"Appearance":{
+    "Page Mode":"Normal"
+   ,"Page Template":"Minimal (No Navigation) (15050224004758028507)"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"Do not focus cursor"
+   ,"Warn on Unsaved Changes":true
+  }
+ ,"CSS":{
+    "Inline":".step-container { max-width: 768px; margin: 1.6rem auto }\n.step-container .t-HeroRegion:not(.t-HeroRegion--featured) .t-HeroRegion-wrap { padding: 0 }\n.t-Alert--info .t-Alert-icon { vertical-align: top }\n.t-Alert--horizontal .t-Alert-title { line-height: 2.8rem }\n.content-well { background: rgba(0, 0, 0, .05); border-radius: 2px; padding: 1.6rem }\n.users-table .t-Report-report thead { display: none }\n.users-table .t-Report-cell { padding: 0.8rem 0; font-size: 1.4rem; line-height: 1.5 }\n.cta-button {padding: 16px 32px; font-size: 16px;}\n.t-Card-info {\n  margin-top: 0;\n}\n\n.t-Card-desc {\n  display: none;\n}\n\n.t-Card-title {\n  font-weight: 400;\n}\n.apex-item-yes-no {white-space:pre;}"
+  }
+ ,"Security":{
+    "Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"Off"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Only for Success"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Help":{
+    "Help Text":"Use this items on this page to configure the app."
+  }
+ ,"Regions":[
+    {
+      "id":"3165338303168950366"
+     ,"Identification":{
+        "Title":"Welcome to \u0026APPLICATION_TITLE."
+       ,"Type":"Static Content"
+      }
+     ,"Source":{
+        "HTML Code":"Please take a moment to complete this first time setup."
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"Introduction Wizard (3165338433101950367)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Hero (14888260989426691838)"
+       ,"Template Options":[
+          "t-HeroRegion--noPadding"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Image":{
+        "File URL":"#APP_FILES#icons\/app-icon-192.png"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"3165338433101950367"
+     ,"Identification":{
+        "Title":"Introduction Wizard"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Blank with Attributes (14888250988334691823)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"CSS Classes":[
+          "step-container"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":true
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server-side Condition":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"eba_cust_fw.get_preference_value(\u0027FIRST_RUN\u0027) = \u0027YES\u0027"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"3165338479565950368"
+     ,"Identification":{
+        "Title":"Access Control"
+       ,"Type":"Static Content"
+      }
+     ,"Source":{
+        "HTML Code":"\u003Cp\u003EAccess Control enables you to control the level of access users have to the application.  Your user account is automatically configured as an Administrator.\u003C\/p\u003E"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Alert (14888249258257691818)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Alert--horizontal"
+         ,"t-Alert--customIcons"
+         ,"t-Alert--info"
+        ]
+       ,"CSS Classes":[
+          "step-container"
+        ]
+       ,"Icon":"fa-number-1"
+       ,"Render Components":"Below Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server-side Condition":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"eba_cust_fw.get_preference_value(\u0027FIRST_RUN\u0027) = \u0027YES\u0027"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"3165338623383950369"
+     ,"Identification":{
+        "Title":"Sample Data"
+       ,"Type":"Static Content"
+      }
+     ,"Source":{
+        "HTML Code":"Loading Sample Data will enable you to explore the functionality of the app with pre-populated sample data."
+      }
+     ,"Layout":{
+        "Sequence":40
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Alert (14888249258257691818)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Alert--horizontal"
+         ,"t-Alert--customIcons"
+         ,"t-Alert--info"
+        ]
+       ,"CSS Classes":[
+          "step-container"
+        ]
+       ,"Icon":"fa-number-3"
+       ,"Render Components":"Below Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server-side Condition":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"eba_cust_fw.get_preference_value(\u0027FIRST_RUN\u0027) = \u0027YES\u0027"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"3165338740502950370"
+     ,"Identification":{
+        "Title":"Application Options"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":50
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Alert (14888249258257691818)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Alert--horizontal"
+         ,"t-Alert--customIcons"
+         ,"t-Alert--info"
+        ]
+       ,"CSS Classes":[
+          "step-container"
+        ]
+       ,"Icon":"fa-number-4"
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Header and Footer":{
+        "Footer Text":"\u003Cp\u003EAdditional options are available, to view and set these navigate to the build option console under administration.\u003C\/p\u003E"
+      }
+     ,"Server-side Condition":{
+        "Type":"Rows returned"
+       ,"SQL Query":"select null\n  from apex_application_build_options\n where application_id = :APP_ID\n   and eba_cust_fw.get_preference_value(\u0027FIRST_RUN\u0027) = \u0027YES\u0027"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"3165339279734950376"
+     ,"Identification":{
+        "Title":"Users"
+       ,"Type":"Classic Report"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select\n    apex_util.prepare_url( \u0027f?p=\u0027 || :APP_ID || \u0027:192:\u0027 || :APP_SESSION\n                          || \u0027::::P192_USERNAME,P192_ACCESS_LEVEL_ID,P192_SEQUENCE:\u0027\n                          || lower(apex_escape.html(c001)) || \u0027,\u0027 || n001 || \u0027,\u0027 || seq_id ) as card_link,\n    lower(c001) as username,\n    case n001 \n        when 3 then \u0027Administrator\u0027 \n        when 2 then \u0027Contributor\u0027 \n        when 1 then \u0027Reader\u0027\n        when 0 then \u0027Pending Approval\u0027\n        when -99 then \u0027No Access\u0027\n    end as card_subtext,\n    case n001 \n        when 3 then \u0027fa-user-wrench\u0027 \n        when 2 then \u0027fa-user-edit\u0027 \n        when 1 then \u0027fa-user\u0027\n        when 0 then \u0027fa-user-clock\u0027\n        when -99 then \u0027fa-user-ban\u0027\n    end as card_icon,\n    case n001 \n        when 3 then \u0027u-color-15\u0027 \n        when 2 then \u0027u-color-4\u0027 \n        when 1 then \u0027u-color-1\u0027\n        when 0 then \u0027u-color-7\u0027\n        when -99 then \u0027u-color-9\u0027\n    end as card_color,\n    rownum,\n    lower(c001) card_title,\n    null card_text\nfrom\n    apex_collections\nwhere\n    collection_name = \u0027NEW_USERS\u0027\norder by n001 desc, c001"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"Users (3165342027534950403)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Blank with Attributes (14888250988334691823)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Layout":{
+          "Number of Rows Type":"Static Value"
+         ,"Number of Rows":500
+        }
+       ,"Appearance":{
+          "Template Type":"Theme"
+         ,"Template":"Cards (15050272951605028665)"
+         ,"Template Options":[
+            "#DEFAULT#"
+           ,"t-Cards--compact"
+           ,"t-Cards--displayIcons"
+           ,"t-Cards--4cols"
+           ,"t-Cards--animColorFill"
+          ]
+         ,"CSS Classes":[
+            "users-table"
+          ]
+        }
+       ,"Pagination":{
+          "Type":"No Pagination (Show All Rows)"
+         ,"Partial Page Refresh":true
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+        }
+       ,"Break Formatting":{
+          "Break Columns":"No Break"
+        }
+       ,"Advanced":{
+          "Strip HTML":false
+         ,"Sort Nulls":"Last"
+        }
+       ,"Heading":{
+          "Type":"Custom Headings"
+        }
+       ,"Download":{
+          "CSV Export Enabled":false
+        }
+       ,"Printing":{
+          "Enabled":false
+        }
+      }
+     ,"Columns":[
+        {
+          "id":"1192973153611503208"
+         ,"Identification":{
+            "Column Name":"CARD_ICON"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Card icon"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":4
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"1192973546759503208"
+         ,"Identification":{
+            "Column Name":"CARD_TITLE"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Card title"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":5
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"1192973936587503209"
+         ,"Identification":{
+            "Column Name":"CARD_TEXT"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Card text"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":6
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"1192974349846503209"
+         ,"Identification":{
+            "Column Name":"CARD_SUBTEXT"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Card subtext"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":7
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"1192974773244503209"
+         ,"Identification":{
+            "Column Name":"USERNAME"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Username"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":1
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Column Formatting":{
+            "HTML Expression":"\u003Ca href=\"#CARD_LINK#\" role=\"button\" class=\"t-Button t-Button--icon t-Button--noUI t-Button--iconLeft\"\u003E\u003Cspan aria-hidden=\"true\" class=\"t-Icon t-Icon--left fa #CARD_ICON#\" title=\"#USERNAME# - #CARD_SUBTEXT#\"\u003E\u003C\/span\u003E#USERNAME#\u003C\/a\u003E"
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"1192975128218503210"
+         ,"Identification":{
+            "Column Name":"ROWNUM"
+           ,"Type":"Hidden Column"
+          }
+         ,"Layout":{
+            "Sequence":2
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"1192975542893503210"
+         ,"Identification":{
+            "Column Name":"CARD_LINK"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Card link"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":3
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"1389243591803158549"
+         ,"Identification":{
+            "Column Name":"CARD_COLOR"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Card color"
+           ,"Alignment":"center"
+          }
+         ,"Layout":{
+            "Sequence":8
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"3165340655130950389"
+     ,"Identification":{
+        "Title":"ACL Level"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"Access Control (3165338479565950368)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Blank with Attributes (14888250988334691823)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"3165341112975950394"
+     ,"Identification":{
+        "Title":"Feature Configuration"
+       ,"Type":"Classic Report"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select \n    build_option_id ID, \n    build_option_name build_option, \n    build_option_status, \n    apex_item.hidden(p_idx =\u003E 1, p_value =\u003E build_option_id) ||\n    apex_item.hidden(p_idx =\u003E 2, p_value =\u003E build_option_status) ||\n    apex_item.switch ( \n       p_idx =\u003E 3,\n       p_value =\u003E build_option_status,\n       p_on_value =\u003E \u0027Include\u0027,\n       p_on_label =\u003E \u0027Yes\u0027,\n       p_off_value =\u003E \u0027Exclude\u0027,\n       p_off_label =\u003E \u0027No\u0027,\n       p_item_id =\u003E \u0027BO_OPT_\u0027 || rownum,\n       p_item_label =\u003E apex_escape.html(build_option_name) || \u0027: Is Enabled\u0027,\n       p_attributes =\u003E \u0027style=\"white-space:pre;\"\u0027) toggle_build_option,\n    component_comment,\n    last_updated_on updated,\n    lower(last_updated_by) updated_by\nfrom\n    apex_application_build_options bo\nwhere\n    application_id = :APP_ID\nand\n    build_option_name in (\u0027Competitors\u0027, \u0027Contacts\u0027, \u0027Feedback\u0027, \u0027Geography\u0027, \u0027Partners\u0027)\norder by\n    2 asc"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"Application Options (3165338740502950370)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Blank with Attributes (14888250988334691823)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Layout":{
+          "Number of Rows Type":"Static Value"
+         ,"Number of Rows":500
+        }
+       ,"Appearance":{
+          "Template Type":"Theme"
+         ,"Template":"Standard (14888271344395691859)"
+         ,"Template Options":[
+            "#DEFAULT#"
+           ,"t-Report--stretch"
+           ,"t-Report--staticRowColors"
+           ,"t-Report--rowHighlightOff"
+           ,"t-Report--horizontalBorders"
+          ]
+         ,"Show Null Values as":"-"
+        }
+       ,"Pagination":{
+          "Type":"No Pagination (Show All Rows)"
+         ,"Partial Page Refresh":true
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+        }
+       ,"Break Formatting":{
+          "Break Columns":"No Break"
+        }
+       ,"Advanced":{
+          "Strip HTML":false
+         ,"Sort Nulls":"Last"
+        }
+       ,"Heading":{
+          "Type":"Custom Headings"
+        }
+       ,"Download":{
+          "CSV Export Enabled":false
+        }
+       ,"Printing":{
+          "Enabled":false
+        }
+      }
+     ,"Columns":[
+        {
+          "id":"1192978952365503214"
+         ,"Identification":{
+            "Column Name":"ID"
+           ,"Type":"Hidden Column"
+          }
+         ,"Layout":{
+            "Sequence":1
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"1192979322230503214"
+         ,"Identification":{
+            "Column Name":"BUILD_OPTION"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Feature"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":2
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Column Formatting":{
+            "HTML Expression":"\u003Cstrong\u003E#BUILD_OPTION#\u003C\/strong\u003E\u003Cbr\u003E\n#COMPONENT_COMMENT#"
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"1192979714306503215"
+         ,"Identification":{
+            "Column Name":"BUILD_OPTION_STATUS"
+           ,"Type":"Hidden Column"
+          }
+         ,"Layout":{
+            "Sequence":3
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"1192980147106503215"
+         ,"Identification":{
+            "Column Name":"TOGGLE_BUILD_OPTION"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Enabled"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":4
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":false
+          }
+        }
+       ,{
+          "id":"1192980525843503215"
+         ,"Identification":{
+            "Column Name":"COMPONENT_COMMENT"
+           ,"Type":"Hidden Column"
+          }
+         ,"Layout":{
+            "Sequence":5
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"1192980977308503216"
+         ,"Identification":{
+            "Column Name":"UPDATED"
+           ,"Type":"Hidden Column"
+          }
+         ,"Layout":{
+            "Sequence":6
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"1192981349686503216"
+         ,"Identification":{
+            "Column Name":"UPDATED_BY"
+           ,"Type":"Hidden Column"
+          }
+         ,"Layout":{
+            "Sequence":7
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"3165342027534950403"
+     ,"Identification":{
+        "Title":"Users"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Alert (14888249258257691818)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Alert--horizontal"
+         ,"t-Alert--customIcons"
+         ,"t-Alert--info"
+        ]
+       ,"CSS Classes":[
+          "step-container"
+        ]
+       ,"Icon":"fa-number-2"
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":true
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server-side Condition":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"eba_cust_fw.get_preference_value(\u0027FIRST_RUN\u0027) = \u0027YES\u0027"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"3165342107788950404"
+     ,"Identification":{
+        "Title":"Buttons"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":70
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Buttons Container (14888251272274691825)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-ButtonRegion--noUI"
+        ]
+       ,"CSS Classes":[
+          "step-container"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":true
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"3176669397332209964"
+     ,"Identification":{
+        "Title":"First Time Setup Completed"
+       ,"Type":"Static Content"
+      }
+     ,"Source":{
+        "HTML Code":"The first time setup has already been completed for \u0026APPLICATION_TITLE.."
+      }
+     ,"Layout":{
+        "Sequence":60
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Alert (14888249258257691818)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Alert--wizard"
+         ,"t-Alert--defaultIcons"
+         ,"t-Alert--info"
+        ]
+       ,"CSS Classes":[
+          "step-container"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":true
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server-side Condition":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"eba_cust_fw.get_preference_value(\u0027FIRST_RUN\u0027) = \u0027NO\u0027"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+  ]
+ ,"Page Items":[
+    {
+      "id":"1192971762515503206"
+     ,"Identification":{
+        "Name":"P1000_ACL_CONFIG"
+       ,"Type":"Radio Group"
+      }
+     ,"Label":{
+        "Label":"Access Control Level"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Number of Columns":1
+       ,"Page Action on Selection":"None"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"ACL Level (3165340655130950389)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"ACCESS CONTROL SCOPE (16614853248884942104)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":false
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"PUBLIC_READONLY"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Escape special characters":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"1192972118010503206"
+     ,"Identification":{
+        "Name":"P1000_USERNAME_FORMAT"
+       ,"Type":"Radio Group"
+      }
+     ,"Label":{
+        "Label":"Username Format"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Number of Columns":1
+       ,"Page Action on Selection":"None"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"ACL Level (3165340655130950389)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":false
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Validation":{
+        "Value Required":true
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"USERNAME_FORMAT (14844370324666635129)"
+       ,"Display Extra Values":true
+       ,"Display Null Value":false
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"eba_cust_fw.get_preference_value (\u0027USERNAME_FORMAT\u0027)"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Server-side Condition":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"instr(:APP_USER,\u0027@\u0027) \u003E 0"
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Escape special characters":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"1192977964350503213"
+     ,"Identification":{
+        "Name":"P1000_LOAD_SAMPLE_YN"
+       ,"Type":"Radio Group"
+      }
+     ,"Label":{
+        "Label":"Load Sample Data"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Number of Columns":1
+       ,"Page Action on Selection":"None"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Sample Data (3165338623383950369)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"0"
+      }
+     ,"Appearance":{
+        "Template":"Hidden (14888281412990691885)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Static Values"
+       ,"Static Values":"STATIC2:Yes - Load Sample Data;Y,No - Do Not Load Sample Data;N"
+       ,"Display Extra Values":false
+       ,"Display Null Value":false
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"Y"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Escape special characters":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"1192975918047503210"
+     ,"Identification":{
+        "Button Name":"ADD_USER"
+       ,"Label":"Add User"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Users (3165339279734950376)"
+       ,"Position":"NEXT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text with Icon (14888281958145691891)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--iconLeft"
+        ]
+       ,"Icon":"fa-user-plus"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:192:\u0026SESSION.::\u0026DEBUG.:RP,192::"
+         ,"Page":"192"
+         ,"Clear Cache":"RP,192"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+     ,"Advanced":{
+        "Custom Attributes":[
+          "style=\"margin-top:10px;\""
+        ]
+      }
+    }
+   ,{
+      "id":"1192976689584503211"
+     ,"Identification":{
+        "Button Name":"COMPLETE"
+       ,"Label":"Complete Setup"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Buttons (3165342107788950404)"
+       ,"Position":"CHANGE"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text with Icon (14888281958145691891)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--large"
+         ,"t-Button--iconRight"
+        ]
+       ,"CSS Classes":[
+          "cta-button"
+        ]
+       ,"Icon":"fa-check-circle"
+      }
+     ,"Behavior":{
+        "Action":"Submit Page"
+       ,"Execute Validations":true
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+     ,"Server-side Condition":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"eba_cust_fw.get_preference_value(\u0027FIRST_RUN\u0027) = \u0027YES\u0027"
+      }
+    }
+   ,{
+      "id":"1192982067773503217"
+     ,"Identification":{
+        "Button Name":"OK"
+       ,"Label":"Continue"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"First Time Setup Completed (3176669397332209964)"
+       ,"Position":"CREATE"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:CUSTOMERS:\u0026SESSION.::\u0026DEBUG.:RP::"
+         ,"Page":"CUSTOMERS"
+         ,"Clear Cache":"RP"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+     ,"Server-side Condition":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"eba_cust_fw.get_preference_value(\u0027FIRST_RUN\u0027) = \u0027NO\u0027"
+      }
+    }
+  ]
+ ,"Dynamic Actions":[
+    {
+      "id":"1192984420581503219"
+     ,"Identification":{
+        "Name":"Refresh Users Region on Modal Close"
+      }
+     ,"Execution":{
+        "Sequence":10
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.FAMEWORK.APEXAFTERCLOSEDIALOG"
+       ,"Selection Type":"Button"
+       ,"Button":"957782048676529459 (957782048676529459)"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"1192984966149503221"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Users (3165339279734950376)"
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Refresh Users Region on Modal Close (1192984420581503219)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"1192985314973503221"
+     ,"Identification":{
+        "Name":"Refresh on edit"
+      }
+     ,"Execution":{
+        "Sequence":20
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.FAMEWORK.APEXAFTERCLOSEDIALOG"
+       ,"Selection Type":"Region"
+       ,"Region":"Users (3165339279734950376)"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"1192985830941503221"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Users (3165339279734950376)"
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Refresh on edit (1192985314973503221)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+  ]
+ ,"Processes":[
+    {
+      "id":"1192982422142503217"
+     ,"Identification":{
+        "Name":"Create NEW_USERS Collection"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":"apex_collection.create_or_truncate_collection(p_collection_name =\u003E \u0027NEW_USERS\u0027);"
+      }
+     ,"Execution":{
+        "Sequence":20
+       ,"Point":"After Header"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Server-side Condition":{
+        "Type":"Function Body"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Function Body":"return not apex_collection.collection_exists(p_collection_name =\u003E \u0027NEW_USERS\u0027);"
+      }
+    }
+   ,{
+      "id":"1192982895200503218"
+     ,"Identification":{
+        "Name":"Add Current User to Collection"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":"apex_collection.add_member(\n    p_collection_name =\u003E \u0027NEW_USERS\u0027,\n    p_c001            =\u003E lower(:APP_USER),\n    p_n001            =\u003E 3);"
+      }
+     ,"Execution":{
+        "Sequence":30
+       ,"Point":"After Header"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Server-side Condition":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"apex_collection.collection_member_count(p_collection_name =\u003E \u0027NEW_USERS\u0027) = 0"
+      }
+    }
+   ,{
+      "id":"1192983259659503218"
+     ,"Identification":{
+        "Name":"Set Username Format based on current user\u0027s username"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":"if instr(:APP_USER,\u0027@\u0027) \u003E 0 then\n    eba_cust_fw.set_preference_value (\u0027USERNAME_FORMAT\u0027,\u0027EMAIL\u0027);\nelse\n    eba_cust_fw.set_preference_value (\u0027USERNAME_FORMAT\u0027,\u0027STRING\u0027);\nend if;"
+      }
+     ,"Execution":{
+        "Sequence":40
+       ,"Point":"After Header"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+    }
+   ,{
+      "id":"1192983634525503218"
+     ,"Identification":{
+        "Name":"Reset User Collection"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":"apex_collection.truncate_collection(p_collection_name =\u003E \u0027NEW_USERS\u0027);"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"After Header"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Server-side Condition":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":":REQUEST = \u0027CC\u0027 and apex_collection.collection_exists(p_collection_name =\u003E \u0027NEW_USERS\u0027)"
+      }
+    }
+   ,{
+      "id":"1192984111154503219"
+     ,"Identification":{
+        "Name":"Process Page Data"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":"begin\n    -- Enable ACL\n    eba_cust_fw.set_preference_value (\n        p_preference_name  =\u003E \u0027ACCESS_CONTROL_ENABLED\u0027,\n        p_preference_value =\u003E \u0027Y\u0027 );\n    \n    -- Set ACL Scope\n    eba_cust_fw.set_preference_value (\n        p_preference_name  =\u003E \u0027ACCESS_CONTROL_SCOPE\u0027,\n        p_preference_value =\u003E :P1000_ACL_CONFIG );\n\n    -- Define Username Preference\n    if instr(:APP_USER,\u0027@\u0027) \u003E 0 then\n        eba_cust_fw.set_preference_value (\n            p_preference_name  =\u003E \u0027USERNAME_FORMAT\u0027,\n            p_preference_value =\u003E :P1000_USERNAME_FORMAT );\n    end if;\n    \n    -- Add Users\n    begin\n        insert into eba_cust_users\n        (username, access_level_id, account_locked)\n        select\n                c001 as username,\n                n001 as access_level_id,\n                \u0027N\u0027  as account_locked\n            from\n                apex_collections\n            where\n                collection_name = \u0027NEW_USERS\u0027\n            and\n                lower(c001) not in (select distinct lower(username) from eba_cust_users);\n    exception\n      when others then\n        null;\n    end;\n\n    -- Get rid of the collection\n    apex_collection.delete_collection(p_collection_name =\u003E \u0027NEW_USERS\u0027);\n\n    -- Load Sample Data\n    if :P1000_LOAD_SAMPLE_YN = \u0027Y\u0027 then\n        eba_cust_sample_data.create_sample_data();\n    end if;\n\n    -- Set Build Options\n    for i in 1..apex_application.g_f01.count\n    loop\n        for c1 in ( select application_id, build_option_name, build_option_status\n                    from apex_application_build_options\n                    where apex_application.g_f01(i) = build_option_id\n                       and application_Id = :APP_ID)\n        loop\n            if c1.build_option_status != apex_application.g_f03(i) then\n                apex_util.set_build_option_status(  p_application_id =\u003E :APP_ID,\n                                                    p_id =\u003E apex_application.g_f01(i),\n                                                    p_build_status =\u003E upper(apex_application.g_f03(i)) );\n            end if;\n        end loop;\n    end loop;\n\n    -- Set First Run to No\n    eba_cust_fw.set_preference_value (\n        p_preference_name  =\u003E \u0027FIRST_RUN\u0027,\n        p_preference_value =\u003E \u0027NO\u0027 );\nend;"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Success Message":{
+        "Success Message":"Access Control has been enabled, defined users have been added, and application settings have been successfully updated."
+      }
+     ,"Error":{
+        "Display Location":"Inline in Notification"
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"COMPLETE (1192976689584503211)"
+      }
+    }
+  ]
+ ,"Branches":[
+    {
+      "id":"1192986365808503222"
+     ,"Identification":{
+        "Name":"Go To Page HOME"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"After Processing"
+      }
+     ,"Behavior":{
+        "Type":"Page or URL (Redirect)"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:CUSTOMERS:\u0026SESSION.::\u0026DEBUG.:RP::\u0026success_msg=#SUCCESS_MSG#"
+         ,"Page":"CUSTOMERS"
+         ,"Clear Cache":"RP"
+        }
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"COMPLETE (1192976689584503211)"
+      }
+    }
+  ]
+}

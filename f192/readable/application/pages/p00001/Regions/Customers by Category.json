@@ -1,0 +1,205 @@
+{
+    "id": "1085913010767423278",
+    "Identification": {
+        "Title": "Customers by Category",
+        "Type": "Chart"
+    },
+    "Source": {
+        "Page Items to Submit": [
+            "P1_TYPE",
+            "P1_SEARCH",
+            "P1_USE_CASE",
+            "P1_MARQUEE_CUST",
+            "P1_PRODUCT",
+            "P1_IMP_PARTNER",
+            "P1_GEO",
+            "P1_COMPETITOR",
+            "P1_REFERENCEABLE",
+            "P1_SCP_CUST",
+            "P1_REFERENCE_TYPES",
+            "P1_COUNTRY",
+            "P1_STATUS",
+            "P1_INDUSTRY",
+            "P1_CATEGORY"
+        ]
+    },
+    "Layout": {
+        "Sequence": 56,
+        "Parent Region": "No Parent",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Standard (14888264683728691846)",
+        "Template Options": [
+            "#DEFAULT#",
+            "js-showMaximizeButton",
+            "i-h320",
+            "t-Region--scrollBody"
+        ],
+        "CSS Classes": [
+            "scrollable-region"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Static ID": "CUST_BY_CATS",
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Security": {
+        "Escape special characters": true
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Customizable and Shown By Default"
+    },
+    "Attributes": {
+        "id": "1085913181528423280",
+        "Chart": {
+            "Type": "Bar"
+        },
+        "Appearance": {
+            "Orientation": "Vertical",
+            "Stack": false
+        },
+        "Data Cursor": {
+            "Cursor": "Automatic",
+            "Behavior": "Automatic",
+            "Dim On Hover": false
+        },
+        "Multi-Series Chart Data": {
+            "Fill Gaps in Chart Data": true,
+            "Sort Order": "Label - Ascending",
+            "Render Gap as Zero": true
+        },
+        "Settings": {
+            "Zoom and Scroll": "No"
+        },
+        "Animation": {
+            "On Display": "None",
+            "On Data Change": "None"
+        },
+        "Tooltip": {
+            "Show": true,
+            "Show Series Name": false,
+            "Show Group Name": true,
+            "Show Value": true
+        },
+        "Legend": {
+            "Show": false
+        },
+        "Series": [
+            {
+                "id": "1085913268366423281",
+                "Identification": {
+                    "Name": "Category"
+                },
+                "Execution": {
+                    "Sequence": 10
+                },
+                "Source": {
+                    "Location": "Local Database",
+                    "Type": "SQL Query",
+                    "SQL Query": "select  \n    b.id,\n    b.category,\n    count(*) cnt\nfrom   \n    eba_cust_customers a, \n    eba_cust_categories b,\n    eba_cust_status c,\n    eba_cust_geographies d,\n    eba_cust_type e,\n    eba_cust_use_case f\nwhere a.category_id = b.id\n    and a.status_id = c.id(+)\n    and a.geography_id = d.id(+)\n    and a.type_id = e.id(+)\n    and a.use_case_id = f.id(+)\n    and a.category_id is not null\n    and (:P1_SEARCH is null or\n            instr(upper(a.customer_name),upper(:P1_SEARCH)) > 0 or\n                       instr(upper(a.summary),upper(:P1_SEARCH)) > 0 )\n    and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n    and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n    and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n    and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n    and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n    and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n    and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n    and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n    and (:P1_IMP_PARTNER is null\n        or exists ( select null\n                    from eba_cust_cust_partner_ref rf\n                    where rf.customer_id = a.id\n                        and rf.partner_id = :P1_IMP_PARTNER ))\n    and (:P1_COMPETITOR is null\n        or exists ( select null\n                    from eba_cust_cust_competitor_ref rf\n                    where rf.customer_id = a.id\n                        and rf.competitor_id = :P1_COMPETITOR ))\n    and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n    and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n    and (\n        exists (select 1 from eba_cust_customer_reftype_ref r\n        where r.customer_id = a.id and\n              instr(':'||:P1_REFERENCE_TYPES||':',':'||reference_type_id||':') > 0)\n        or \n        :P1_REFERENCE_TYPES is null\n        )\n    and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P1_PRODUCT))\ngroup by b.id, b.category\norder by 2"
+                },
+                "Column Mapping": {
+                    "Label": "CATEGORY",
+                    "Value": "CNT"
+                },
+                "Appearance": {
+                    "Assigned To Y2 Axis": false
+                },
+                "Link": {
+                    "Type": "Redirect to Page in this Application",
+                    "Target": {
+                        "url": "f?p=&APP_ID.:59:&SESSION.::&DEBUG.:RP,59,RIR:IR_CATEGORY,P59_CATEGORY,P59_COMPETITOR,P59_COUNTRY,P59_GEO,P59_IMP_PARTNER,P59_INDUSTRY,P59_MARQUEE_CUST,P59_MAX_ROWS,P59_PRODUCT,P59_REFERENCE_TYPES,P59_REFERENCEABLE,P59_SCP_CUST,P59_STATUS,P59_TYPE,P59_USE_CASE,P59_SEARCH:&CATEGORY.,&ID.,&P1_COMPETITOR.,&P1_COUNTRY.,&P1_GEO.,&P1_IMP_PARTNER.,&P1_INDUSTRY.,&P1_MARQUEE_CUST.,&P1_MAX_ROWS.,&P1_PRODUCT.,\\&P1_REFERENCE_TYPES.\\,&P1_REFERENCEABLE.,&P1_SCP_CUST.,&P1_STATUS.,&P1_TYPE.,&P1_USE_CASE.,&P1_SEARCH.",
+                        "Page": "59",
+                        "Clear Cache": "RP,59,RIR",
+                        "Values": {
+                            "IR_CATEGORY": "&CATEGORY.",
+                            "P59_CATEGORY": "&ID.",
+                            "P59_COMPETITOR": "&P1_COMPETITOR.",
+                            "P59_COUNTRY": "&P1_COUNTRY.",
+                            "P59_GEO": "&P1_GEO.",
+                            "P59_IMP_PARTNER": "&P1_IMP_PARTNER.",
+                            "P59_INDUSTRY": "&P1_INDUSTRY.",
+                            "P59_MARQUEE_CUST": "&P1_MARQUEE_CUST.",
+                            "P59_MAX_ROWS": "&P1_MAX_ROWS.",
+                            "P59_PRODUCT": "&P1_PRODUCT.",
+                            "P59_REFERENCE_TYPES": "&P1_REFERENCE_TYPES.",
+                            "P59_REFERENCEABLE": "&P1_REFERENCEABLE.",
+                            "P59_SCP_CUST": "&P1_SCP_CUST.",
+                            "P59_STATUS": "&P1_STATUS.",
+                            "P59_TYPE": "&P1_TYPE.",
+                            "P59_USE_CASE": "&P1_USE_CASE.",
+                            "P59_SEARCH": "&P1_SEARCH."
+                        }
+                    }
+                },
+                "Label": {
+                    "Show": false
+                }
+            }
+        ],
+        "Axes": [
+            {
+                "id": "1134985742359235232",
+                "Identification": {
+                    "Name": "x",
+                    "Show Axis": true
+                },
+                "Value": {
+                    "Format Scaling": "Automatic",
+                    "Baseline Scaling": "Zero",
+                    "Scale": "Linear"
+                },
+                "Major Ticks": {
+                    "Show": "Automatic"
+                },
+                "Minor Ticks": {
+                    "Show": true
+                },
+                "Tick Label": {
+                    "Show": true,
+                    "Rotation": true,
+                    "Position": "Outside"
+                }
+            },
+            {
+                "id": "1134985836418235233",
+                "Identification": {
+                    "Name": "y",
+                    "Show Axis": true
+                },
+                "Value": {
+                    "Format Scaling": "None",
+                    "Baseline Scaling": "Zero",
+                    "Scale": "Linear"
+                },
+                "Appearance": {
+                    "Position": "Automatic"
+                },
+                "Major Ticks": {
+                    "Show": "Yes"
+                },
+                "Minor Ticks": {
+                    "Show": false
+                },
+                "Tick Label": {
+                    "Show": true
+                }
+            }
+        ]
+    }
+}

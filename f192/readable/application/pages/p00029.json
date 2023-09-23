@@ -1,0 +1,545 @@
+{
+  "id":"29"
+ ,"Identification":{
+    "Name":"Recent Activities"
+   ,"Alias":"RECENT-ACTIVITIES"
+   ,"Title":"Recent Activities"
+   ,"Page Group":"Reports (14749179718753291941)"
+  }
+ ,"Appearance":{
+    "Page Mode":"Normal"
+   ,"Page Template":"Standard (14888221571271691783)"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"First item on page"
+   ,"Warn on Unsaved Changes":false
+  }
+ ,"Security":{
+    "Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"On"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Always"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Help":{
+    "Help Text":"No help is available for this page."
+  }
+ ,"Configuration":{
+    "Build Option":"Reports (14985268924324738425)"
+  }
+ ,"Regions":[
+    {
+      "id":"16628474849488649220"
+     ,"Identification":{
+        "Title":"Customer Updates"
+       ,"Type":"Interactive Report"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select  n.customer_id,\n        c.customer_name,\n        \u0027Note Added\u0027 note_type,\n        dbms_lob.substr(n.note,100,1)||decode(greatest(length(n.note),100),100,null,\u0027...\u0027) detail,\n        lower(n.created_by) updated_by,\n        n.created updated\nfrom EBA_CUST_NOTES n, eba_cust_customers c\nwhere n.customer_id = c.id\nunion all\nselect  c.id,\n        c.customer_name,\n        \u0027Customer Added\u0027 note_type,\n        c.summary detail,\n        lower(c.created_by) updated_by,\n        c.created updated\nfrom eba_cust_customers c\nunion all\nselect  n.customer_id,\n        c.customer_name,\n        \u0027Contact Added\u0027 note_type,\n        n.name detail,\n        lower(n.created_by) updated_by,\n        n.created updated\nfrom EBA_CUST_CONTACTS n, eba_cust_customers c\nwhere n.customer_id = c.id\nunion all\nselect  n.customer_id,\n        c.customer_name,\n        \u0027Link Added\u0027 note_type,\n        n.link_desc detail,\n        lower(n.created_by) updated_by,\n        n.created updated\nfrom EBA_CUST_LINKS n, eba_cust_customers c\nwhere n.customer_id = c.id\nunion all\nselect  n.customer_id,\n        c.customer_name,\n        \u0027File Added\u0027 note_type,\n        n.file_name detail,\n        lower(n.created_by) updated_by,\n        n.created updated\nfrom EBA_CUST_FILES n, eba_cust_customers c\nwhere n.customer_id = c.id\nunion all\nselect y.customer_id,\n       y.customer_name,\n       y.note_type,\n       substr(y.detail,1,100)||decode(greatest(length(y.detail),100),100,null,\u0027...\u0027) detail,\n       y.updated_by,\n       y.updated\nfrom (\nselect h.component_id customer_id,\n       c.customer_name,\n       initcap(substr(h.table_name, 1, length(h.table_name) - 1)) || \u0027 Updated\u0027 note_type,\n       initcap(replace(replace(h.COLUMN_NAME,\u0027_ID\u0027,null),\u0027_\u0027,\u0027 \u0027))||\u0027 changed from \"\u0027||h.OLD_VALUE||\u0027\" to \"\u0027||h.new_value||\u0027\"\u0027 detail,\n       lower(h.CHANGED_BY) updated_by,\n       h.CHANGE_DATE updated\nfrom EBA_CUST_HISTORY h, eba_cust_customers c\nwhere h.component_id = c.id) y\nunion all\nselect y.customer_id,\n       y.customer_name,\n       y.note_type,\n       substr(y.detail,1,100)||decode(greatest(length(y.detail),100),100,null,\u0027...\u0027) detail,\n       y.updated_by,\n       y.updated\nfrom (\nselect h.component_id customer_id,\n       h.old_value customer_name,\n       initcap(substr(h.table_name, 1, length(h.table_name) - 1)) || \u0027 Removed\u0027 note_type,\n       \u0027This customer has been removed. The \"Customer Name\" link will give a \"No Data Found\" error.\u0027 detail,\n       lower(h.CHANGED_BY) updated_by,\n       h.CHANGE_DATE updated\nfrom EBA_CUST_HISTORY h\nwhere h.column_name = \u0027CUSTOMER_REMOVED\u0027) y"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Interactive Report (14888264240956691843)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "id":"16628474940783649234"
+       ,"Link":{
+          "Link Column":"Exclude Link Column"
+        }
+       ,"Appearance":{
+          "Show Null Values as":"-"
+        }
+       ,"Pagination":{
+          "Type":"Row Ranges X to Y"
+         ,"Display Position":"Bottom - Right"
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+         ,"Maximum Rows to Process":100000
+        }
+       ,"Messages":{
+          "When No Data Found":"No data found."
+         ,"When More Data Found":"This query returns more than #MAX_ROW_COUNT# rows, please filter your data to ensure complete results."
+        }
+       ,"Search Bar":{
+          "Include Search Bar":true
+         ,"Search Field":true
+         ,"Finder Drop Down":true
+         ,"Reports Select List":true
+         ,"Rows Per Page Selector":false
+        }
+       ,"Actions Menu":{
+          "Include Actions Menu":true
+         ,"Filter":true
+         ,"Select Columns":true
+         ,"Rows Per Page":true
+         ,"Sort":true
+         ,"Control Break":true
+         ,"Highlight":true
+         ,"Compute":true
+         ,"Aggregate":true
+         ,"Chart":true
+         ,"Group By":true
+         ,"Pivot":true
+         ,"Flashback":true
+         ,"Save Report":true
+         ,"Save Public Report":true
+         ,"Reset":true
+         ,"Help":true
+         ,"Download":true
+         ,"Subscription":true
+        }
+       ,"Download":{
+          "Formats":[
+            "CSV"
+           ,"HTML"
+          ]
+         ,"Send as Email":true
+        }
+       ,"Heading":{
+          "Fixed To":"Page"
+        }
+       ,"Icon View":{
+          "Show":false
+        }
+       ,"Detail View":{
+          "Show":false
+        }
+       ,"Saved Reports":[
+          {
+            "id":"16628476822607650980"
+           ,"Identification":{
+              "Name":"Primary Report"
+             ,"Alias":"25339667"
+            }
+          }
+        ]
+       ,"Columns":[
+          {
+            "id":"16628479119322687809"
+           ,"Identification":{
+              "Column Name":"NOTE_TYPE"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Update Type"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":1
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"16628481345341723727"
+           ,"Identification":{
+              "Column Name":"CUSTOMER_ID"
+             ,"Type":"Hidden Column"
+            }
+           ,"Heading":{
+              "Heading":"Customer Id"
+            }
+           ,"Layout":{
+              "Sequence":2
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Security":{
+              "Escape special characters":false
+            }
+          }
+         ,{
+            "id":"16628481525510723728"
+           ,"Identification":{
+              "Column Name":"DETAIL"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Detail"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":4
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"16628481637664723728"
+           ,"Identification":{
+              "Column Name":"UPDATED_BY"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Updated By"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":5
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"16628481744138723728"
+           ,"Identification":{
+              "Column Name":"UPDATED"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Updated"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":6
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Appearance":{
+              "Format Mask":"SINCE"
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+             ,"Date Ranges":"All"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"16628483327941737645"
+           ,"Identification":{
+              "Column Name":"CUSTOMER_NAME"
+             ,"Type":"Link"
+            }
+           ,"Heading":{
+              "Heading":"Customer Name"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":7
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Link":{
+              "Target":{
+                "url":"f?p=\u0026APP_ID.:50:\u0026SESSION.::\u0026DEBUG.:50:P50_ID:#CUSTOMER_ID#"
+               ,"Page":"50"
+               ,"Clear Cache":"50"
+               ,"Values":{
+                  "P50_ID":"#CUSTOMER_ID#"
+                }
+              }
+             ,"Link Text":"#CUSTOMER_NAME#"
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+        ]
+      }
+    }
+   ,{
+      "id":"17852074209201778478"
+     ,"Identification":{
+        "Title":"Customer Updates"
+       ,"Type":"Breadcrumb"
+      }
+     ,"Source":{
+        "Breadcrumb":"Breadcrumb (17869143586620226407)"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_01"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Title Bar (14888267217215691848)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-BreadcrumbRegion--useBreadcrumbTitle"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "Breadcrumb Template":"Breadcrumb (14888282717314691893)"
+         ,"Template Options":[
+            "#DEFAULT#"
+          ]
+        }
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"16628509029027466566"
+     ,"Identification":{
+        "Button Name":"RESET_REPORT"
+       ,"Label":"Reset"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Customer Updates (16628474849488649220)"
+       ,"Position":"RIGHT_OF_IR_SEARCH_BAR"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Icon (14888281684153691889)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Icon":"fa-undo-alt"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:29:\u0026SESSION.::\u0026DEBUG.:RP,RIR::"
+         ,"Page":"29"
+         ,"Clear Cache":"RP,RIR"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+  ]
+ ,"Branches":[
+    {
+      "id":"17826380287111263521"
+     ,"Identification":{
+        "Name":"Go To Page 29"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"After Processing"
+      }
+     ,"Behavior":{
+        "Type":"Page or URL (Redirect)"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:29:\u0026SESSION.::\u0026DEBUG.:29::"
+         ,"Page":"29"
+         ,"Clear Cache":"29"
+        }
+       ,"Save State before Branching":true
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"17827416777571671277 (17827416777571671277)"
+      }
+     ,"Comments":{
+        "Comments":"Created 31-JUL-2007 04:50 by SATHISH"
+      }
+    }
+   ,{
+      "id":"17854528696581014969"
+     ,"Identification":{
+        "Name":"Go To Page 29"
+      }
+     ,"Execution":{
+        "Sequence":20
+       ,"Point":"After Processing"
+      }
+     ,"Behavior":{
+        "Type":"Page or URL (Redirect)"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:29:\u0026SESSION.::\u0026DEBUG.:::"
+         ,"Page":"29"
+        }
+       ,"Save State before Branching":true
+      }
+     ,"Comments":{
+        "Comments":"Created 30-MAY-2007 04:37 by SATHISH"
+      }
+    }
+  ]
+}

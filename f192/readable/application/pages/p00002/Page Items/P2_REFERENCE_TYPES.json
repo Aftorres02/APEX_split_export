@@ -1,0 +1,67 @@
+{
+    "id": "91026068348327486",
+    "Identification": {
+        "Name": "P2_REFERENCE_TYPES",
+        "Type": "Checkbox Group"
+    },
+    "Label": {
+        "Label": "Reference Types",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Number of Columns": 1
+    },
+    "Layout": {
+        "Sequence": 480,
+        "Region": "Customer Details (17829324616828140228)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": false,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Optional (14888281543517691887)",
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Validation": {
+        "Value Required": false
+    },
+    "List of Values": {
+        "Type": "Shared Component",
+        "List of Values": "REFERENCE_TYPES (15670880632026549329)",
+        "Display Extra Values": false
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "SQL Query (return colon separated value)",
+        "SQL Query": "select listagg(rt.id,':') within group (order by rt.reference_type) types\nfrom eba_cust_reference_types rt,\n    eba_cust_customer_reftype_ref ref\nwhere rt.id = ref.reference_type_id\n    and ref.customer_id = :P2_ID",
+        "Used": "Only when current value in session state is null"
+    },
+    "Session State": {
+        "Storage": "Per Session (Persistent)"
+    },
+    "Server-side Condition": {
+        "Type": "Item is NULL",
+        "Item": "P2_ID"
+    },
+    "Security": {
+        "Session State Protection": "Unrestricted",
+        "Store value encrypted in session state": false,
+        "Escape special characters": true,
+        "Restricted Characters": "All characters can be saved."
+    },
+    "Help": {
+        "Help Text": "In what ways would this customer be willing to be a reference?"
+    },
+    "Configuration": {
+        "Build Option": "Customer Referencability (14317354550591202996)"
+    }
+}

@@ -1,0 +1,511 @@
+{
+  "id":"73"
+ ,"Identification":{
+    "Name":"Add Multiple Users"
+   ,"Alias":"ADD-MULTIPLE-USERS"
+   ,"Title":"Add Multiple Users"
+   ,"Page Group":"ACL (14749179346326290465)"
+  }
+ ,"Appearance":{
+    "Page Mode":"Modal Dialog"
+   ,"Dialog Template":"Theme Default"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Dialog":{
+    "Chained":false
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"Do not focus cursor"
+   ,"Warn on Unsaved Changes":false
+  }
+ ,"CSS":{
+    "Inline":".helpText {\npadding: 8px;\ncolor: #707070;\n}"
+  }
+ ,"Security":{
+    "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+   ,"Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"On"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Only for Success"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Help":{
+    "Help Text":"No help is available for this page."
+  }
+ ,"Regions":[
+    {
+      "id":"1685172923529761250"
+     ,"Identification":{
+        "Title":"Buttons"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_03"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Buttons Container (14888251272274691825)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":true
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"14844377727469656892"
+     ,"Identification":{
+        "Title":"Wizard Container"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Blank with Attributes (14888250988334691823)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"14844379124555656897"
+     ,"Identification":{
+        "Title":"Hidden Items"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Blank with Attributes (14888250988334691823)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+  ]
+ ,"Page Items":[
+    {
+      "id":"14844377917756656892"
+     ,"Identification":{
+        "Name":"P73_ROLE"
+       ,"Type":"Radio Group"
+      }
+     ,"Label":{
+        "Label":"Role"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Number of Columns":3
+       ,"Page Action on Selection":"None"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Wizard Container (14844377727469656892)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Required - Floating (295786634453769843)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Form-fieldContainer--stretchInputs"
+         ,"t-Form-fieldContainer--radioButtonGroup"
+        ]
+      }
+     ,"Validation":{
+        "Value Required":true
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"ACCESS_LEVELS (15719670033206442554)"
+       ,"Display Extra Values":true
+       ,"Display Null Value":false
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"2"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Escape special characters":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"14844378149241656895"
+     ,"Identification":{
+        "Name":"P73_PRELIM_USERS"
+       ,"Type":"Textarea"
+      }
+     ,"Label":{
+        "Label":"Usernames"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Resizable":true
+       ,"Auto-Height":false
+       ,"Character Counter":false
+       ,"Trim Spaces":"None"
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Region":"Wizard Container (14844377727469656892)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Required - Floating (295786634453769843)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":80
+       ,"Height":10
+       ,"Value Placeholder":"Enter usernames here"
+      }
+     ,"Validation":{
+        "Value Required":true
+       ,"Maximum Length":4000
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Inline Help Text":"Enter usernames separated by commas, semicolons, or whitespace. Existing or duplicate usernames will automatically be ignored."
+      }
+    }
+   ,{
+      "id":"14844379339138656897"
+     ,"Identification":{
+        "Name":"P73_USERNAME_FORMAT1"
+       ,"Type":"Hidden"
+      }
+     ,"Settings":{
+        "Value Protected":true
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Hidden Items (14844379124555656897)"
+       ,"Position":"BODY"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"eba_cust_fw.get_preference_value (\u0027USERNAME_FORMAT\u0027)"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"14844377327383656891"
+     ,"Identification":{
+        "Button Name":"CANCEL"
+       ,"Label":"Cancel"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Buttons (1685172923529761250)"
+       ,"Position":"EDIT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Defined by Dynamic Action"
+       ,"Execute Validations":true
+      }
+     ,"Security":{
+        "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+      }
+    }
+   ,{
+      "id":"14844377517678656892"
+     ,"Identification":{
+        "Button Name":"NEXT"
+       ,"Label":"Next"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Buttons (1685172923529761250)"
+       ,"Position":"NEXT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text with Icon (14888281958145691891)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--iconRight"
+         ,"t-Button--gapLeft"
+        ]
+       ,"Icon":"fa-chevron-right"
+      }
+     ,"Behavior":{
+        "Action":"Submit Page"
+       ,"Execute Validations":true
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+  ]
+ ,"Dynamic Actions":[
+    {
+      "id":"1685173088097761251"
+     ,"Identification":{
+        "Name":"Cancel Dialog"
+      }
+     ,"Execution":{
+        "Sequence":10
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CLICK"
+       ,"Selection Type":"Button"
+       ,"Button":"CANCEL (14844377327383656891)"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"1685173186702761252"
+         ,"Identification":{
+            "Action":"Cancel Dialog"
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Cancel Dialog (1685173088097761251)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+  ]
+ ,"Computations":[
+    {
+      "id":"14844380125934656900"
+     ,"Identification":{
+        "Item Name":"LAST_VIEW"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"Before Header"
+      }
+     ,"Computation":{
+        "Type":"Static Value"
+       ,"Static Value":"\u0026APP_PAGE_ID."
+      }
+    }
+  ]
+ ,"Processes":[
+    {
+      "id":"14844380247531656901"
+     ,"Identification":{
+        "Name":"Create Collections"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":"declare\n    l_line      varchar2(32767);\n    l_emails    wwv_flow_global.vc_arr2;\n    l_username  varchar2(4000);\n    l_at        number;\n    l_dot       number;\n    l_valid     boolean := true;\n    l_domain    varchar2(4000);\nbegin\n    ---------------------\n    -- create collections\n    --\n    apex_collection.CREATE_OR_TRUNCATE_COLLECTION (\u0027EBA_CUST_BULK_USER_INVALID\u0027);\n    apex_collection.CREATE_OR_TRUNCATE_COLLECTION (\u0027EBA_CUST_BULK_USER_VALID\u0027);\n    apex_collection.CREATE_OR_TRUNCATE_COLLECTION (\u0027EBA_CUST_BULK_USER_CREATE\u0027);\n\n    --------------------------------------------\n    -- replace delimiting characters with commas\n    --\n    l_line := :P73_PRELIM_USERS;\n    l_line := replace(l_line,chr(10),\u0027 \u0027);\n    l_line := replace(l_line,chr(13),\u0027 \u0027);\n    l_line := replace(l_line,chr(9),\u0027 \u0027);\n    l_line := replace(l_line,\u0027\u003C\u0027,\u0027 \u0027);\n    l_line := replace(l_line,\u0027\u003E\u0027,\u0027 \u0027);\n    l_line := replace(l_line,\u0027;\u0027,\u0027 \u0027);\n    l_line := replace(l_line,\u0027:\u0027,\u0027 \u0027);\n    l_line := replace(l_line,\u0027(\u0027,\u0027 \u0027);\n    l_line := replace(l_line,\u0027)\u0027,\u0027 \u0027);\n    l_line := replace(l_line,\u0027 \u0027,\u0027,\u0027);\n\n    -----------------------------------------\n    -- get one comma separated line of emails\n    --\n    for j in 1..1000 loop\n        if instr(l_line,\u0027,,\u0027) \u003E 0 then\n           l_line := replace(l_line,\u0027,,\u0027,\u0027,\u0027);\n        else\n           exit;\n        end if;\n    end loop;\n\n    -------------------------\n    -- get an array of emails\n    --\n    l_emails := wwv_flow_utilities.string_to_table(l_line,\u0027,\u0027);\n\n    -----------------------------\n    -- add emails to a collection\n    --\n    l_username := null;\n    l_domain := null;\n    l_at := 0;\n    l_dot := 0;\n    for j in 1..l_emails.count loop\n        l_valid := true;\n        l_username := trim(l_emails(j));\n\n        if l_username is not null then\n            if eba_cust_fw.get_preference_value(\u0027USERNAME_FORMAT\u0027) = \u0027EMAIL\u0027 then\n              -----------\n              -- Validate\n              --\n              l_at := instr(nvl(l_username,\u0027x\u0027),\u0027@\u0027);\n              l_domain := substr(l_username,l_at+1);\n              l_dot := instr(l_domain,\u0027.\u0027);\n              if l_at \u003C 2 then\n                  -- invalid email\n                  apex_collection.add_member(\n                      p_collection_name =\u003E \u0027EBA_CUST_BULK_USER_INVALID\u0027,\n                      p_c001            =\u003E l_username,\n                      p_c002            =\u003E apex_lang.message(\u0027MISSING_AT_SIGN\u0027));\n                  commit;\n                  l_valid := false;\n              end if;\n\n              if l_dot = 0 and l_valid then\n                  apex_collection.add_member(\n                      p_collection_name =\u003E \u0027EBA_CUST_BULK_USER_INVALID\u0027,\n                      p_c001            =\u003E l_username,\n                      p_c002            =\u003E apex_lang.message(\u0027MISSING_DOT\u0027));\n                  commit;\n                  l_valid := false;\n              end if;\n            end if;\n\n            l_username := trim(l_username);\n            l_username := trim(both \u0027.\u0027 from l_username);\n            l_username := replace(l_username,\u0027 \u0027,null);\n            l_username := replace(l_username,chr(10),null);\n            l_username := replace(l_username,chr(9),null);\n            l_username := replace(l_username,chr(13),null);\n            l_username := replace(l_username,chr(49824),null);\n\n            if l_valid and length(l_username) \u003E 255 then\n                apex_collection.add_member(\n                    p_collection_name =\u003E \u0027EBA_CUST_BULK_USER_INVALID\u0027,\n                    p_c001            =\u003E upper(l_username),\n                    p_c002            =\u003E apex_lang.message(\u0027USERNAME_TOO_LONG\u0027));\n                commit;\n                l_valid := false;\n            end if;\n\n            if l_valid then\n                for c1 in (select \/* APEX76a66f *\/ username\n                             from eba_cust_users\n                            where upper(username) = upper(l_username))\n                loop\n                    wwv_flow_collection.add_member(\n                        p_collection_name =\u003E \u0027EBA_CUST_BULK_USER_INVALID\u0027,\n                        p_c001            =\u003E upper(l_username),\n                        p_c002            =\u003E apex_lang.message(\u0027ALREADY_IN_ACL\u0027));\n                    commit;\n                    l_valid := false;\n                    exit;\n                end loop;\n            end if;\n\n            if l_valid then\n                for c1 in (select \/* APEXeaf772 *\/  c001\n                             from wwv_flow_collections\n                            where collection_name = \u0027EBA_CUST_BULK_USER_VALID\u0027\n                              and c001 = upper(l_username))\n                loop\n                    apex_collection.add_member(\n                        p_collection_name =\u003E \u0027EBA_CUST_BULK_USER_INVALID\u0027,\n                        p_c001            =\u003E upper(l_username),\n                        p_c002            =\u003E apex_lang.message(\u0027DUPLICATE_USER\u0027));\n                        commit;\n                    l_valid := false;\n                    exit;\n                end loop;\n            end if;\n\n            if l_valid then\n                apex_collection.add_member(\n                    p_collection_name =\u003E \u0027EBA_CUST_BULK_USER_VALID\u0027,\n                    p_c001            =\u003E upper(l_username));\n                    commit;\n            end if;\n\n        end if;\n        l_username := null;\n    end loop;\nend;"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Error Message":"#SQLERRM@"
+       ,"Display Location":"Inline in Notification"
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"NEXT (14844377517678656892)"
+      }
+    }
+  ]
+ ,"Branches":[
+    {
+      "id":"14844380531886656904"
+     ,"Identification":{
+        "Name":"Go To Page 74"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"After Processing"
+      }
+     ,"Behavior":{
+        "Type":"Page or URL (Redirect)"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:74:\u0026SESSION.\u0026success_msg=#SUCCESS_MSG#"
+         ,"Page":"74"
+        }
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"NEXT (14844377517678656892)"
+      }
+    }
+  ]
+}

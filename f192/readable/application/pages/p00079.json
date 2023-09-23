@@ -1,0 +1,891 @@
+{
+  "id":"79"
+ ,"Identification":{
+    "Name":"Reference Type Details"
+   ,"Alias":"REFERENCE-TYPE-DETAILS"
+   ,"Title":"Reference Type Details"
+   ,"Page Group":"Administration (14749179244941290086)"
+  }
+ ,"Appearance":{
+    "Page Mode":"Modal Dialog"
+   ,"Dialog Template":"Theme Default"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Dialog":{
+    "Chained":false
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"First item on page"
+   ,"Warn on Unsaved Changes":false
+  }
+ ,"HTML Header":{
+    "HTML Header":"\u003Cscript language=\"JavaScript\" type=\"text\/javascript\"\u003E\n\u003C!--\n\n htmldb_delete_message=\u0027\"DELETE_CONFIRM_MSG\"\u0027;\n\n\/\/--\u003E\n\u003C\/script\u003E"
+  }
+ ,"Security":{
+    "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+   ,"Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"Off"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Only for Success"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Help":{
+    "Help Text":"No help is available for this page."
+  }
+ ,"Regions":[
+    {
+      "id":"1642227388082195267"
+     ,"Identification":{
+        "Title":"Buttons"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_03"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Buttons Container (14888251272274691825)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":true
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"15670832658337382286"
+     ,"Identification":{
+        "Title":"Reference Type Details"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Blank with Attributes (14888250988334691823)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"15670836720085382301"
+     ,"Identification":{
+        "Title":"Audit Information"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Collapsible (14888261571832691840)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"js-useLocalStorage"
+         ,"is-collapsed"
+         ,"t-Region--noBorder"
+         ,"t-Region--scrollBody"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server-side Condition":{
+        "Type":"Item is NOT NULL"
+       ,"Item":"P79_ID"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+  ]
+ ,"Page Items":[
+    {
+      "id":"15670832975696382287"
+     ,"Identification":{
+        "Name":"P79_ID"
+       ,"Type":"Hidden"
+      }
+     ,"Settings":{
+        "Value Protected":true
+      }
+     ,"Layout":{
+        "Sequence":1
+       ,"Region":"Reference Type Details (15670832658337382286)"
+       ,"Position":"BODY"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Database Column"
+       ,"Database Column":"ID"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"15670833379728382292"
+     ,"Identification":{
+        "Name":"P79_REFERENCE_TYPE"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"Reference Type"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Subtype":"Text"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Reference Type Details (15670832658337382286)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"8"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Required - Floating (295786634453769843)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":48
+      }
+     ,"Validation":{
+        "Value Required":true
+       ,"Maximum Length":60
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Database Column"
+       ,"Database Column":"REFERENCE_TYPE"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Contact Types are used to categorize Contacts."
+      }
+    }
+   ,{
+      "id":"15670834351075382296"
+     ,"Identification":{
+        "Name":"P79_IS_ACTIVE"
+       ,"Type":"Checkbox Group"
+      }
+     ,"Label":{
+        "Alignment":"Left"
+      }
+     ,"Settings":{
+        "Number of Columns":1
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Region":"Reference Type Details (15670832658337382286)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":false
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Hidden (14888281412990691885)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Static Values"
+       ,"Static Values":"STATIC2:Active;Y"
+       ,"Display Extra Values":false
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Database Column"
+       ,"Database Column":"IS_ACTIVE"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Default":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"case when :P79_ID is null then \u0027Y\u0027 end;"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Escape special characters":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"15670837109917382301"
+     ,"Identification":{
+        "Name":"P79_CREATED"
+       ,"Type":"Display Only"
+      }
+     ,"Label":{
+        "Label":"\u003Cb\u003ECreated On:\u003C\/b\u003E"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Format":"Plain Text"
+       ,"Based On":"Item Value"
+       ,"Show Line Breaks":false
+       ,"Send On Page Submit":false
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Region":"Audit Information (15670836720085382301)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Format Mask":"\u0026APP_DATE_FORMAT."
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Database Column"
+       ,"Database Column":"CREATED"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"The date on which the Contact Type was created."
+      }
+    }
+   ,{
+      "id":"15670837982051382302"
+     ,"Identification":{
+        "Name":"P79_CREATED_BY"
+       ,"Type":"Display Only"
+      }
+     ,"Label":{
+        "Label":"\u003Cb\u003ECreated By:\u003C\/b\u003E"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Format":"Plain Text"
+       ,"Based On":"Item Value"
+       ,"Show Line Breaks":false
+       ,"Send On Page Submit":false
+      }
+     ,"Layout":{
+        "Sequence":40
+       ,"Region":"Audit Information (15670836720085382301)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Database Column"
+       ,"Database Column":"CREATED_BY"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"The User who created this Contact Type."
+      }
+    }
+   ,{
+      "id":"15670838908773382303"
+     ,"Identification":{
+        "Name":"P79_UPDATED"
+       ,"Type":"Display Only"
+      }
+     ,"Label":{
+        "Label":"\u003Cb\u003EUpdated On:\u003C\/b\u003E"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Format":"Plain Text"
+       ,"Based On":"Item Value"
+       ,"Show Line Breaks":false
+       ,"Send On Page Submit":false
+      }
+     ,"Layout":{
+        "Sequence":50
+       ,"Region":"Audit Information (15670836720085382301)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Format Mask":"\u0026APP_DATE_FORMAT."
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Database Column"
+       ,"Database Column":"UPDATED"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"The date on which the Contact Type details was last Updated."
+      }
+    }
+   ,{
+      "id":"15670839845636382303"
+     ,"Identification":{
+        "Name":"P79_UPDATED_BY"
+       ,"Type":"Display Only"
+      }
+     ,"Label":{
+        "Label":"\u003Cb\u003EUpdated By:\u003C\/b\u003E"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Format":"Plain Text"
+       ,"Based On":"Item Value"
+       ,"Show Line Breaks":false
+       ,"Send On Page Submit":false
+      }
+     ,"Layout":{
+        "Sequence":60
+       ,"Region":"Audit Information (15670836720085382301)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Database Column"
+       ,"Database Column":"UPDATED_BY"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"The User who last updated the Contact Type Details."
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"15670835150480382299"
+     ,"Identification":{
+        "Button Name":"SAVE"
+       ,"Label":"Apply Changes"
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Region":"Buttons (1642227388082195267)"
+       ,"Position":"NEXT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--gapLeft"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Submit Page"
+       ,"Execute Validations":true
+       ,"Warn on Unsaved Changes":"Do Not Check"
+       ,"Database Action":"SQL UPDATE action"
+      }
+     ,"Server-side Condition":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":":P79_ID is not null \nand\n(\nAPEX_UTIL.GET_BUILD_OPTION_STATUS(\n    P_APPLICATION_ID =\u003E :APP_ID,\n    P_BUILD_OPTION_NAME =\u003E \u0027Customer Referencability\u0027) = \u0027INCLUDE\u0027\nor\nAPEX_UTIL.GET_BUILD_OPTION_STATUS(\n    P_APPLICATION_ID =\u003E :APP_ID,\n    P_BUILD_OPTION_NAME =\u003E \u0027Product Referencability\u0027) = \u0027INCLUDE\u0027\n)"
+      }
+     ,"Security":{
+        "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+      }
+    }
+   ,{
+      "id":"15670835492818382299"
+     ,"Identification":{
+        "Button Name":"CANCEL"
+       ,"Label":"Cancel"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Buttons (1642227388082195267)"
+       ,"Position":"PREVIOUS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Defined by Dynamic Action"
+       ,"Execute Validations":true
+      }
+    }
+   ,{
+      "id":"15670835946593382300"
+     ,"Identification":{
+        "Button Name":"CREATE"
+       ,"Label":"Create Reference Type"
+      }
+     ,"Layout":{
+        "Sequence":40
+       ,"Region":"Buttons (1642227388082195267)"
+       ,"Position":"NEXT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--gapLeft"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Submit Page"
+       ,"Execute Validations":true
+       ,"Warn on Unsaved Changes":"Do Not Check"
+       ,"Database Action":"SQL INSERT action"
+      }
+     ,"Server-side Condition":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":":P79_ID is null \nand\n(\nAPEX_UTIL.GET_BUILD_OPTION_STATUS(\n    P_APPLICATION_ID =\u003E :APP_ID,\n    P_BUILD_OPTION_NAME =\u003E \u0027Customer Referencability\u0027) = \u0027INCLUDE\u0027\nor\nAPEX_UTIL.GET_BUILD_OPTION_STATUS(\n    P_APPLICATION_ID =\u003E :APP_ID,\n    P_BUILD_OPTION_NAME =\u003E \u0027Product Referencability\u0027) = \u0027INCLUDE\u0027\n)"
+      }
+     ,"Security":{
+        "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+      }
+    }
+   ,{
+      "id":"15670836368017382300"
+     ,"Identification":{
+        "Button Name":"DELETE"
+       ,"Label":"Delete"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Buttons (1642227388082195267)"
+       ,"Position":"PREVIOUS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--danger"
+         ,"t-Button--simple"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Redirect to URL"
+       ,"Target":"javascript:apex.confirm(htmldb_delete_message,\u0027DELETE\u0027);"
+       ,"Execute Validations":true
+       ,"Warn on Unsaved Changes":"Do Not Check"
+       ,"Database Action":"SQL DELETE action"
+      }
+     ,"Server-side Condition":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":":P79_ID is not null \nand\n(\nAPEX_UTIL.GET_BUILD_OPTION_STATUS(\n    P_APPLICATION_ID =\u003E :APP_ID,\n    P_BUILD_OPTION_NAME =\u003E \u0027Customer Referencability\u0027) = \u0027INCLUDE\u0027\nor\nAPEX_UTIL.GET_BUILD_OPTION_STATUS(\n    P_APPLICATION_ID =\u003E :APP_ID,\n    P_BUILD_OPTION_NAME =\u003E \u0027Product Referencability\u0027) = \u0027INCLUDE\u0027\n)"
+      }
+     ,"Security":{
+        "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+      }
+    }
+  ]
+ ,"Dynamic Actions":[
+    {
+      "id":"1642227509736195268"
+     ,"Identification":{
+        "Name":"Cancel Dialog"
+      }
+     ,"Execution":{
+        "Sequence":10
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CLICK"
+       ,"Selection Type":"Button"
+       ,"Button":"CANCEL (15670835492818382299)"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"1642227609149195269"
+         ,"Identification":{
+            "Action":"Cancel Dialog"
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Cancel Dialog (1642227509736195268)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+  ]
+ ,"Validations":[
+    {
+      "id":"15670841163972382305"
+     ,"Identification":{
+        "Name":"P79_REFERENCE_TYPE unique"
+      }
+     ,"Execution":{
+        "Sequence":5
+      }
+     ,"Validation":{
+        "Type":"No Rows returned"
+       ,"SQL Query":"select null\nfrom eba_cust_reference_types\nwhere upper(reference_type) = upper(:P79_REFERENCE_TYPE)\n    and ( :P79_ID is null or id \u003C\u003E :P79_ID )"
+       ,"Always Execute":false
+      }
+     ,"Error":{
+        "Error Message":"#LABEL# already exists."
+       ,"Display Location":"Inline with Field and in Notification"
+       ,"Associated Item":"P79_REFERENCE_TYPE (15670833379728382292)"
+      }
+     ,"Server-side Condition":{
+        "Type":"Request is contained in Value"
+       ,"Value":"CREATE,SAVE"
+      }
+    }
+  ]
+ ,"Processes":[
+    {
+      "id":"1642227675616195270"
+     ,"Identification":{
+        "Name":"Close Dialog"
+       ,"Type":"Close Dialog"
+       ,"Execution Chain":"None"
+      }
+     ,"Execution":{
+        "Sequence":50
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Display Location":"Inline in Notification"
+      }
+    }
+   ,{
+      "id":"15670841799288382307"
+     ,"Identification":{
+        "Name":"Fetch Row from EBA_CUST_REFERENCE_TYPES"
+       ,"Type":"Automatic Row Fetch [Legacy]"
+       ,"Execution Chain":"None"
+      }
+     ,"Settings":{
+        "Table Owner":"PARSING SCHEMA"
+       ,"Table Name":"EBA_CUST_REFERENCE_TYPES"
+       ,"Primary Key Column ":"ID"
+       ,"Primary Key Item":"P79_ID"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"After Header"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Error Message":"Unable to fetch row."
+      }
+    }
+   ,{
+      "id":"15670842197464382308"
+     ,"Identification":{
+        "Name":"Process Row of EBA_CUST_REFERENCE_TYPES"
+       ,"Type":"Automatic Row Processing (DML) [Legacy]"
+       ,"Execution Chain":"None"
+      }
+     ,"Settings":{
+        "Table Owner":"PARSING SCHEMA"
+       ,"Table Name":"EBA_CUST_REFERENCE_TYPES"
+       ,"Primary Key Column ":"ID"
+       ,"Primary Key Item":"P79_ID"
+       ,"Lock Row":true
+       ,"Supported Operations":"I:U:D"
+      }
+     ,"Execution":{
+        "Sequence":30
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Success Message":{
+        "Success Message":"Action Processed."
+      }
+     ,"Error":{
+        "Error Message":"Unable to process row of table EBA_CUST_CONTACT_TYPES."
+       ,"Display Location":"On Error Page"
+      }
+    }
+   ,{
+      "id":"15670842651720382308"
+     ,"Identification":{
+        "Name":"reset page"
+       ,"Type":"Clear Session State"
+       ,"Execution Chain":"None"
+      }
+     ,"Settings":{
+        "Type":"Clear all Items on the Current Page"
+      }
+     ,"Execution":{
+        "Sequence":40
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Display Location":"On Error Page"
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"DELETE (15670836368017382300)"
+      }
+     ,"Security":{
+        "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+      }
+    }
+   ,{
+      "id":"15670843040652382309"
+     ,"Identification":{
+        "Name":"Load data"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":"if :REQUEST = \u0027HOME\u0027 then\n   :LAST_VIEW := 100 ;\nelse\n   :LAST_VIEW := 78 ;\nend if;"
+      }
+     ,"Execution":{
+        "Sequence":50
+       ,"Point":"Before Header"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+    }
+  ]
+}

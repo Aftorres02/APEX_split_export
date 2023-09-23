@@ -1,0 +1,39 @@
+{
+    "id": "13571863964071203240",
+    "Identification": {
+        "Button Name": "CREATE_CUSTOMER",
+        "Label": "Create Customer"
+    },
+    "Layout": {
+        "Sequence": 30,
+        "Region": "Recently Updated Customers (13571862438541203236)",
+        "Position": "EDIT",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Button Template": "Icon (14888281684153691889)",
+        "Hot": false,
+        "Template Options": [
+            "#DEFAULT#",
+            "#DEFAULT#",
+            "t-Button--noUI"
+        ],
+        "Icon": "fa-plus"
+    },
+    "Behavior": {
+        "Action": "Redirect to Page in this Application",
+        "Target": {
+            "url": "f?p=&APP_ID.:2:&SESSION.::&DEBUG.:2::",
+            "Page": "2",
+            "Clear Cache": "2"
+        },
+        "Warn on Unsaved Changes": "Do Not Check"
+    },
+    "Security": {
+        "Authorization Scheme": "CONTRIBUTION RIGHTS (15995681224497193873)"
+    }
+}

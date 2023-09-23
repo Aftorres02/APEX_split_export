@@ -1,0 +1,38 @@
+[
+  {
+    "id":"1"
+   ,"Identification":{
+      "Name":"APP_DATE_FORMAT"
+    }
+   ,"Installation":{
+      "Prompt Substitution":false
+    }
+  }
+ ,{
+    "id":"2"
+   ,"Identification":{
+      "Name":"GETTING_STARTED_URL"
+    }
+   ,"Installation":{
+      "Prompt Substitution":false
+    }
+  }
+ ,{
+    "id":"3"
+   ,"Identification":{
+      "Name":"APP_DATETIME_FORMAT"
+    }
+   ,"Installation":{
+      "Prompt Substitution":false
+    }
+  }
+ ,{
+    "id":"4"
+   ,"Identification":{
+      "Name":"APP_NAME"
+    }
+   ,"Installation":{
+      "Prompt Substitution":false
+    }
+  }
+]

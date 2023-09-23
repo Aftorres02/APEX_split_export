@@ -1,0 +1,585 @@
+{
+  "id":"123"
+ ,"Identification":{
+    "Name":"ACL Features"
+   ,"Alias":"ACL-FEATURES"
+   ,"Title":"ACL Features"
+   ,"Page Group":"Administration (14749179244941290086)"
+  }
+ ,"Appearance":{
+    "Page Mode":"Modal Dialog"
+   ,"Dialog Template":"Theme Default"
+   ,"Template Options":[
+      "#DEFAULT#"
+     ,"ui-dialog--stretch"
+     ,"t-Dialog--noPadding"
+    ]
+  }
+ ,"Dialog":{
+    "Chained":true
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"First item on page"
+   ,"Warn on Unsaved Changes":false
+  }
+ ,"Security":{
+    "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+   ,"Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"On"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Only for Success"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Help":{
+    "Help Text":"\u003Cp\u003EACL Features allow for specific application functionality to be set to specific access levels.  Use ACL options to limit which users can perform the specified feature when running your application.\u003C\/p\u003E\n\u003Cp\u003ESelect the appropriate \u003Cstrong\u003EAccess Level\u003C\/strong\u003E for each of the Authorizations listed.\u003C\/p\u003E"
+  }
+ ,"Regions":[
+    {
+      "id":"16322281881694894437"
+     ,"Identification":{
+        "Title":"ACL Features"
+       ,"Type":"Interactive Grid"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select \n       initcap(replace(authorization_name,\u0027_\u0027,\u0027 \u0027)) authorization,\n       feature,\n       access_level_id,\n       updated,\n       lower(updated_by) updated_by\n  from eba_cust_acl_features a\n"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Interactive Report (14888264240956691843)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-IRR-region--noBorders"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "id":"1136395211604769950"
+       ,"Edit":{
+          "Enabled":true
+         ,"Allowed Operations":[
+            "Update Row"
+          ]
+         ,"Lost Update Type":"Row Values"
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+        }
+       ,"Appearance":{
+          "Show Null Values as":"-"
+         ,"Select First Row":true
+         ,"Fixed Row Height":true
+        }
+       ,"Pagination":{
+          "Type":"Scroll"
+         ,"Show Total Count":true
+        }
+       ,"Toolbar":{
+          "Show":true
+         ,"Controls":[
+            "Search Column Selection"
+           ,"Search Field"
+           ,"Actions Menu"
+           ,"Reset Button"
+           ,"Save Button"
+          ]
+        }
+       ,"Enable Users To":{
+          "Save Public Report":false
+         ,"Flashback":true
+         ,"Define Chart View":true
+         ,"Download":true
+        }
+       ,"Download":{
+          "Formats":[
+            "CSV"
+           ,"HTML"
+           ,"Excel"
+           ,"PDF"
+          ]
+         ,"Send as Email":true
+        }
+       ,"Heading":{
+          "Fixed To":"Page"
+        }
+       ,"Icon View":{
+          "Show":false
+        }
+       ,"Detail View":{
+          "Show":false
+        }
+       ,"Saved Reports":[
+          {
+            "id":"1389529092877204430"
+           ,"Identification":{
+              "Name":"Primary Report"
+             ,"Alias":"13033"
+            }
+          }
+        ]
+      }
+     ,"Columns":[
+        {
+          "id":"1136395374454769951"
+         ,"Identification":{
+            "Column Name":"AUTHORIZATION"
+           ,"Type":"Display Only"
+          }
+         ,"Heading":{
+            "Heading":"Authorization"
+           ,"Alignment":"start"
+          }
+         ,"Settings":{
+            "Format":"Plain Text"
+           ,"Based On":"Item Value"
+          }
+         ,"Layout":{
+            "Sequence":40
+           ,"Column Alignment":"start"
+           ,"Stretch":"Use Report Setting"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Source":{
+            "Type":"Database Column"
+           ,"Database Column":"AUTHORIZATION"
+           ,"Data Type":"VARCHAR2"
+           ,"Query Only":true
+           ,"Primary Key":false
+          }
+         ,"Session State":{
+            "Data Type":"VARCHAR2"
+          }
+         ,"Column Filter":{
+            "Enabled":true
+           ,"Performance Impacting Operators":[
+              "Contains"
+             ,"Starts With"
+             ,"Case Insensitive"
+             ,"Regular Expression"
+            ]
+           ,"Text Case":"Mixed"
+           ,"LOV Type":"None"
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Enable Users To":{
+            "Sort":true
+           ,"Control Break\/Aggregate":true
+           ,"Hide":true
+          }
+        }
+       ,{
+          "id":"1136395483253769952"
+         ,"Identification":{
+            "Column Name":"FEATURE"
+           ,"Type":"Display Only"
+          }
+         ,"Heading":{
+            "Heading":"Feature"
+           ,"Alignment":"start"
+          }
+         ,"Settings":{
+            "Format":"Plain Text"
+           ,"Based On":"Item Value"
+          }
+         ,"Layout":{
+            "Sequence":50
+           ,"Column Alignment":"start"
+           ,"Stretch":"Use Report Setting"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Source":{
+            "Type":"Database Column"
+           ,"Database Column":"FEATURE"
+           ,"Data Type":"VARCHAR2"
+           ,"Query Only":false
+           ,"Primary Key":false
+          }
+         ,"Default":{
+            "Duplicate Copies Existing Value":true
+          }
+         ,"Session State":{
+            "Data Type":"VARCHAR2"
+          }
+         ,"Column Filter":{
+            "Enabled":true
+           ,"Performance Impacting Operators":[
+              "Contains"
+             ,"Starts With"
+             ,"Case Insensitive"
+             ,"Regular Expression"
+            ]
+           ,"Text Case":"Mixed"
+           ,"LOV Type":"None"
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Enable Users To":{
+            "Sort":true
+           ,"Control Break\/Aggregate":true
+           ,"Hide":true
+          }
+        }
+       ,{
+          "id":"1136395515599769953"
+         ,"Identification":{
+            "Column Name":"ACCESS_LEVEL_ID"
+           ,"Type":"Select List"
+          }
+         ,"Heading":{
+            "Heading":"Access Level"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":60
+           ,"Column Alignment":"start"
+           ,"Stretch":"Use Report Setting"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Validation":{
+            "Value Required":true
+          }
+         ,"List of Values":{
+            "Type":"Shared Component"
+           ,"List of Values":"ACCESS_LEVELS (15719670033206442554)"
+           ,"Display Extra Values":false
+           ,"Display Null Value":true
+           ,"Null Display Value":"- Select Access Level -"
+          }
+         ,"Source":{
+            "Type":"Database Column"
+           ,"Database Column":"ACCESS_LEVEL_ID"
+           ,"Data Type":"NUMBER"
+           ,"Query Only":false
+           ,"Primary Key":false
+          }
+         ,"Default":{
+            "Duplicate Copies Existing Value":true
+          }
+         ,"Column Filter":{
+            "Enabled":true
+           ,"Performance Impacting Operators":[
+              "Contains"
+             ,"Starts With"
+             ,"Case Insensitive"
+             ,"Regular Expression"
+            ]
+           ,"Text Case":"Mixed"
+           ,"LOV Type":"Use List of Values"
+           ,"Exact Match":true
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Enable Users To":{
+            "Sort":true
+           ,"Control Break\/Aggregate":true
+           ,"Hide":true
+          }
+        }
+       ,{
+          "id":"1136395670204769954"
+         ,"Identification":{
+            "Column Name":"UPDATED"
+           ,"Type":"Display Only"
+          }
+         ,"Heading":{
+            "Heading":"Updated"
+           ,"Alignment":"center"
+          }
+         ,"Settings":{
+            "Format":"Plain Text"
+           ,"Based On":"Item Value"
+          }
+         ,"Layout":{
+            "Sequence":70
+           ,"Column Alignment":"center"
+           ,"Stretch":"Use Report Setting"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Source":{
+            "Type":"Database Column"
+           ,"Database Column":"UPDATED"
+           ,"Data Type":"TIMESTAMP WITH LOCAL TIME ZONE"
+           ,"Query Only":true
+           ,"Primary Key":false
+          }
+         ,"Session State":{
+            "Data Type":"VARCHAR2"
+          }
+         ,"Column Filter":{
+            "Enabled":true
+           ,"LOV Type":"Distinct Column"
+           ,"Date Ranges":"All"
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Enable Users To":{
+            "Sort":true
+           ,"Control Break\/Aggregate":true
+           ,"Hide":true
+          }
+        }
+       ,{
+          "id":"1136395719160769955"
+         ,"Identification":{
+            "Column Name":"UPDATED_BY"
+           ,"Type":"Display Only"
+          }
+         ,"Heading":{
+            "Heading":"Updated By"
+           ,"Alignment":"start"
+          }
+         ,"Settings":{
+            "Format":"Plain Text"
+           ,"Based On":"Item Value"
+          }
+         ,"Layout":{
+            "Sequence":80
+           ,"Column Alignment":"start"
+           ,"Stretch":"Use Report Setting"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Source":{
+            "Type":"Database Column"
+           ,"Database Column":"UPDATED_BY"
+           ,"Data Type":"VARCHAR2"
+           ,"Query Only":true
+           ,"Primary Key":false
+          }
+         ,"Session State":{
+            "Data Type":"VARCHAR2"
+          }
+         ,"Column Filter":{
+            "Enabled":true
+           ,"Performance Impacting Operators":[
+              "Contains"
+             ,"Starts With"
+             ,"Case Insensitive"
+             ,"Regular Expression"
+            ]
+           ,"Text Case":"Mixed"
+           ,"LOV Type":"None"
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Enable Users To":{
+            "Sort":true
+           ,"Control Break\/Aggregate":true
+           ,"Hide":true
+          }
+        }
+       ,{
+          "id":"1136395911228769956"
+         ,"Identification":{
+            "Column Name":"ROWID"
+           ,"Type":"Hidden"
+          }
+         ,"Settings":{
+            "Value Protected":true
+          }
+         ,"Layout":{
+            "Sequence":30
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Source":{
+            "Type":"Database Column"
+           ,"Database Column":"ROWID"
+           ,"Data Type":"ROWID"
+           ,"Primary Key":true
+          }
+         ,"Session State":{
+            "Data Type":"VARCHAR2"
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":false
+          }
+        }
+       ,{
+          "id":"1136395917234769957"
+         ,"Identification":{
+            "Column Name":"APEX$ROW_ACTION"
+           ,"Type":"Actions Menu"
+          }
+         ,"Layout":{
+            "Sequence":20
+          }
+        }
+       ,{
+          "id":"1136396102955769958"
+         ,"Identification":{
+            "Column Name":"APEX$ROW_SELECTOR"
+           ,"Type":"Row Selector"
+          }
+         ,"Settings":{
+            "Enable Multi Select":true
+           ,"Show Select All":true
+           ,"Hide Control":false
+          }
+         ,"Layout":{
+            "Sequence":10
+          }
+        }
+      ]
+     ,"Printing":{
+        "Page":{
+          "Size":"Letter"
+         ,"Orientation":"Landscape"
+         ,"Units":"Inches"
+         ,"Width":11
+         ,"Height":8.5
+         ,"Border Width":0.5
+         ,"Border Color":"#666666"
+        }
+       ,"Page Header":{
+          "Font":"Helvetica"
+         ,"Font Weight":"Normal"
+         ,"Font Size":12
+         ,"Font Color":"#000000"
+         ,"Alignment":"center"
+        }
+       ,"Column Headings":{
+          "Font":"Helvetica"
+         ,"Font Weight":"Normal"
+         ,"Font Size":10
+         ,"Font Color":"#000000"
+         ,"Background Color":"#9bafde"
+        }
+       ,"Columns":{
+          "Font":"Helvetica"
+         ,"Font Weight":"Normal"
+         ,"Font Size":10
+         ,"Font Color":"#000000"
+         ,"Background Color":"#efefef"
+        }
+       ,"Page Footer":{
+          "Font":"Helvetica"
+         ,"Font Weight":"Normal"
+         ,"Font Size":12
+         ,"Font Color":"#000000"
+         ,"Alignment":"center"
+        }
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"1389517295386163054"
+     ,"Identification":{
+        "Button Name":"RESET_REPORT"
+       ,"Label":"Reset"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"ACL Features (16322281881694894437)"
+       ,"Position":"RIGHT_OF_IR_SEARCH_BAR"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Icon (14888281684153691889)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Icon":"fa-undo-alt"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:123:\u0026SESSION.::\u0026DEBUG.:RP,9,RIR::"
+         ,"Page":"123"
+         ,"Clear Cache":"RP,9,RIR"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+  ]
+ ,"Processes":[
+    {
+      "id":"1136396143764769959"
+     ,"Identification":{
+        "Name":"ACL Features - Save Interactive Grid Data"
+       ,"Type":"Interactive Grid - Automatic Row Processing (DML)"
+       ,"Execution Chain":"None"
+       ,"Editable Region":"ACL Features (16322281881694894437)"
+      }
+     ,"Settings":{
+        "Target Type":"Region Source"
+       ,"Prevent Lost Updates":true
+       ,"Lock Row":"Yes"
+       ,"Return Primary Key(s) after Insert":true
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Success Message":{
+        "Success Message":"ACL Feature Access Levels updated."
+      }
+     ,"Error":{
+        "Display Location":"Inline in Notification"
+      }
+     ,"Server-side Condition":{
+        "Execution Scope":"For Created and Modified Rows"
+      }
+    }
+  ]
+}

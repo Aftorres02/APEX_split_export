@@ -1,0 +1,551 @@
+{
+    "id": "1",
+    "Identification": {
+        "Name": "Dashboard",
+        "Alias": "DASHBOARD",
+        "Title": "Dashboard",
+        "Page Group": "Customers (14749179822908293214)"
+    },
+    "Appearance": {
+        "Page Mode": "Normal",
+        "Page Template": "Left Side Column (14888224114215691787)",
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Navigation Menu": {
+        "Override User Interface Level": false
+    },
+    "Navigation": {
+        "Cursor Focus": "First item on page",
+        "Warn on Unsaved Changes": false
+    },
+    "Security": {
+        "Authentication": "Page Requires Authentication",
+        "Deep Linking": "Enabled",
+        "Page Access Protection": "Arguments Must Have Checksum",
+        "Form Auto Complete": "Off",
+        "Browser Cache": "Application Default"
+    },
+    "Session Management": {
+        "Rejoin Sessions": "Application Default"
+    },
+    "Advanced": {
+        "Enable duplicate page submissions": "Yes - Enable page to be re-posted",
+        "Reload on Submit": "Always"
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Help": {
+        "Help Text": "No help is available for this page."
+    },
+    "Dynamic Actions": [
+        {
+            "id": "2044147462400901752",
+            "Identification": {
+                "Name": "Refresh Regions on Change"
+            },
+            "Execution": {
+                "Event Scope": "Static",
+                "Type": "Immediate"
+            },
+            "When": {
+                "Event": "EVENT.EVENT.BROWSER.CHANGE",
+                "Selection Type": "Item(s)",
+                "Item(s)": [
+                    "P1_CATEGORY",
+                    "P1_TYPE",
+                    "P1_SEARCH",
+                    "P1_USE_CASE",
+                    "P1_MARQUEE_CUST",
+                    "P1_PRODUCT",
+                    "P1_IMP_PARTNER",
+                    "P1_GEO",
+                    "P1_COMPETITOR",
+                    "P1_REFERENCEABLE",
+                    "P1_SCP_CUST",
+                    "P1_REFERENCE_TYPES",
+                    "P1_COUNTRY",
+                    "P1_STATUS",
+                    "P1_INDUSTRY"
+                ]
+            },
+            "Actions": [
+                {
+                    "id": "2044147595421901753",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "Region",
+                        "Region": "Customer Summary (with References, Products, & Issues) (14306876320599591504)"
+                    },
+                    "Execution": {
+                        "Sequence": 20,
+                        "Event": "Refresh Regions on Change (2044147462400901752)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                },
+                {
+                    "id": "2044147646970901754",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "Region",
+                        "Region": "Customer Summary (without References) (13571849116761193798)"
+                    },
+                    "Execution": {
+                        "Sequence": 30,
+                        "Event": "Refresh Regions on Change (2044147462400901752)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                },
+                {
+                    "id": "2044147799834901755",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "Region",
+                        "Region": "Customer Updates (13571870816771211098)"
+                    },
+                    "Execution": {
+                        "Sequence": 40,
+                        "Event": "Refresh Regions on Change (2044147462400901752)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                },
+                {
+                    "id": "2044147816959901756",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "Region",
+                        "Region": "Customers by Category (1085913010767423278)"
+                    },
+                    "Execution": {
+                        "Sequence": 50,
+                        "Event": "Refresh Regions on Change (2044147462400901752)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                },
+                {
+                    "id": "2044147986286901757",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "Region",
+                        "Region": "Customers by Geography (1134985930100235234)"
+                    },
+                    "Execution": {
+                        "Sequence": 60,
+                        "Event": "Refresh Regions on Change (2044147462400901752)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                },
+                {
+                    "id": "2044148067362901758",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "Region",
+                        "Region": "Customers by Industry (1134986571730235240)"
+                    },
+                    "Execution": {
+                        "Sequence": 70,
+                        "Event": "Refresh Regions on Change (2044147462400901752)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                },
+                {
+                    "id": "2044148152197901759",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "Region",
+                        "Region": "Customers by Product (13571861757080201500)"
+                    },
+                    "Execution": {
+                        "Sequence": 80,
+                        "Event": "Refresh Regions on Change (2044147462400901752)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                },
+                {
+                    "id": "2044148225989901760",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "Region",
+                        "Region": "Recently Updated Customers (13571862438541203236)"
+                    },
+                    "Execution": {
+                        "Sequence": 90,
+                        "Event": "Refresh Regions on Change (2044147462400901752)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                },
+                {
+                    "id": "2044148377832901761",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "Region",
+                        "Region": "Summary (13571865733552209656)"
+                    },
+                    "Execution": {
+                        "Sequence": 100,
+                        "Event": "Refresh Regions on Change (2044147462400901752)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                },
+                {
+                    "id": "2044148456850901762",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "Region",
+                        "Region": "Tags (13571873041366212727)"
+                    },
+                    "Execution": {
+                        "Sequence": 110,
+                        "Event": "Refresh Regions on Change (2044147462400901752)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                },
+                {
+                    "id": "2044149355040901771",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "Region",
+                        "Region": "Customer Summary (with References & No Products) (2044148791703901765)"
+                    },
+                    "Execution": {
+                        "Sequence": 30,
+                        "Event": "Refresh Regions on Change (2044147462400901752)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                }
+            ]
+        },
+        {
+            "id": "2074718773405039833",
+            "Identification": {
+                "Name": "Perform Search on Enter"
+            },
+            "Execution": {
+                "Event Scope": "Static",
+                "Type": "Immediate"
+            },
+            "When": {
+                "Event": "EVENT.EVENT.BROWSER.KEYDOWN",
+                "Selection Type": "Item(s)",
+                "Item(s)": [
+                    "P1_SEARCH"
+                ]
+            },
+            "Client-side Condition": {
+                "Type": "JavaScript expression",
+                "JavaScript Expression": "this.browserEvent.which === 13"
+            },
+            "Server-side Condition": {
+                "Type": "Never"
+            },
+            "Actions": [
+                {
+                    "id": "2044146729607901745",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "Region",
+                        "Region": "Customer Updates (13571870816771211098)"
+                    },
+                    "Execution": {
+                        "Sequence": 40,
+                        "Event": "Perform Search on Enter (2074718773405039833)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                },
+                {
+                    "id": "2044146899467901746",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "Region",
+                        "Region": "Customers by Geography (1134985930100235234)"
+                    },
+                    "Execution": {
+                        "Sequence": 60,
+                        "Event": "Perform Search on Enter (2074718773405039833)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                },
+                {
+                    "id": "2044146939687901747",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "Region",
+                        "Region": "Customer Summary (without References) (13571849116761193798)"
+                    },
+                    "Execution": {
+                        "Sequence": 30,
+                        "Event": "Perform Search on Enter (2074718773405039833)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                },
+                {
+                    "id": "2044147026510901748",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "Region",
+                        "Region": "Customers by Category (1085913010767423278)"
+                    },
+                    "Execution": {
+                        "Sequence": 50,
+                        "Event": "Perform Search on Enter (2074718773405039833)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                },
+                {
+                    "id": "2044147201482901749",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "Region",
+                        "Region": "Customers by Industry (1134986571730235240)"
+                    },
+                    "Execution": {
+                        "Sequence": 70,
+                        "Event": "Perform Search on Enter (2074718773405039833)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                },
+                {
+                    "id": "2044147304920901750",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "Region",
+                        "Region": "Recently Updated Customers (13571862438541203236)"
+                    },
+                    "Execution": {
+                        "Sequence": 90,
+                        "Event": "Perform Search on Enter (2074718773405039833)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                },
+                {
+                    "id": "2044147348822901751",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "Region",
+                        "Region": "Tags (13571873041366212727)"
+                    },
+                    "Execution": {
+                        "Sequence": 110,
+                        "Event": "Perform Search on Enter (2074718773405039833)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                },
+                {
+                    "id": "2074719116271039840",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "Region",
+                        "Region": "Customer Summary (with References, Products, & Issues) (14306876320599591504)"
+                    },
+                    "Execution": {
+                        "Sequence": 20,
+                        "Event": "Perform Search on Enter (2074718773405039833)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                },
+                {
+                    "id": "2074719701820039842",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "Region",
+                        "Region": "Customers by Product (13571861757080201500)"
+                    },
+                    "Execution": {
+                        "Sequence": 80,
+                        "Event": "Perform Search on Enter (2074718773405039833)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                },
+                {
+                    "id": "2074720183855039842",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "Region",
+                        "Region": "Summary (13571865733552209656)"
+                    },
+                    "Execution": {
+                        "Sequence": 100,
+                        "Event": "Perform Search on Enter (2074718773405039833)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                },
+                {
+                    "id": "2074720700019039842",
+                    "Identification": {
+                        "Action": "Cancel Event"
+                    },
+                    "Execution": {
+                        "Sequence": 120,
+                        "Event": "Perform Search on Enter (2074718773405039833)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                }
+            ]
+        },
+        {
+            "id": "2074722102812069351",
+            "Identification": {
+                "Name": "Toggle Reference Type Checkboxes"
+            },
+            "Execution": {
+                "Event Scope": "Static",
+                "Type": "Immediate"
+            },
+            "When": {
+                "Event": "EVENT.EVENT.BROWSER.CLICK",
+                "Selection Type": "jQuery Selector",
+                "jQuery Selector": "#reference_check_box"
+            },
+            "Client-side Condition": {
+                "Type": "JavaScript expression",
+                "JavaScript Expression": "$(this.triggeringElement).text() === \"Check All\""
+            },
+            "Actions": [
+                {
+                    "id": "2074722474162069351",
+                    "Identification": {
+                        "Action": "Execute JavaScript Code"
+                    },
+                    "Settings": {
+                        "Code": "$(\".reference_types_checkbox input[type=checkbox]\").prop('checked',true);\n$(this.triggeringElement).text('Uncheck All');"
+                    },
+                    "Execution": {
+                        "Sequence": 10,
+                        "Event": "Toggle Reference Type Checkboxes (2074722102812069351)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                },
+                {
+                    "id": "2074722995127069352",
+                    "Identification": {
+                        "Action": "Execute JavaScript Code"
+                    },
+                    "Settings": {
+                        "Code": "$(\".reference_types_checkbox input[type=checkbox]\").prop('checked',false);\n$(this.triggeringElement).text('Check All');"
+                    },
+                    "Execution": {
+                        "Sequence": 10,
+                        "Event": "Toggle Reference Type Checkboxes (2074722102812069351)",
+                        "Fire When Event Result Is": "False",
+                        "Fire on Initialization": false
+                    }
+                },
+                {
+                    "id": "2074723425534069352",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "jQuery Selector",
+                        "jQuery Selector": "#CARDS, #LOGOS, #CUSTOMERS"
+                    },
+                    "Execution": {
+                        "Sequence": 20,
+                        "Event": "Toggle Reference Type Checkboxes (2074722102812069351)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                },
+                {
+                    "id": "2074724010546069353",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "jQuery Selector",
+                        "jQuery Selector": "#CARDS, #LOGOS, #CUSTOMERS"
+                    },
+                    "Execution": {
+                        "Sequence": 30,
+                        "Event": "Toggle Reference Type Checkboxes (2074722102812069351)",
+                        "Fire When Event Result Is": "False",
+                        "Fire on Initialization": false
+                    }
+                }
+            ]
+        }
+    ],
+    "Computations": [
+        {
+            "id": "17841413665784013886",
+            "Identification": {
+                "Item Name": "LAST_VIEW"
+            },
+            "Execution": {
+                "Sequence": 10,
+                "Point": "Before Header"
+            },
+            "Computation": {
+                "Type": "Static Value",
+                "Static Value": "1"
+            }
+        }
+    ]
+}

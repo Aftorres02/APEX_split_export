@@ -1,0 +1,996 @@
+{
+  "id":"18"
+ ,"Identification":{
+    "Name":"Contacts"
+   ,"Alias":"CONTACTS"
+   ,"Title":"Contacts"
+   ,"Page Group":"Contacts (14749179925332293830)"
+  }
+ ,"Appearance":{
+    "Page Mode":"Normal"
+   ,"Page Template":"Standard (14888221571271691783)"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"First item on page"
+   ,"Warn on Unsaved Changes":false
+  }
+ ,"Security":{
+    "Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"On"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Always"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Help":{
+    "Help Text":"\u003Cp\u003EThis page provides an interactive report of all customer contacts.  Each contact is associated with one customer.  Assuming you have contribution privileges you can add contacts from this page or by locating a customer and clicking the add contact button.  Click on column headings to sort and filter data, click on the \u003Cstrong\u003EActions\u003C\/strong\u003E menu to customize column display and many additional advanced features.\u003C\/p\u003E"
+  }
+ ,"Configuration":{
+    "Build Option":"Contacts (14985202220127679969)"
+  }
+ ,"Regions":[
+    {
+      "id":"17834039444952634017"
+     ,"Identification":{
+        "Title":"Contacts"
+       ,"Type":"Interactive Report"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select a.id,\n    a.name,\n    a.title,\n    a.phone,\n    a.email,\n    a.tags,\n    a.company,\n    (   select contact_type\n        from eba_cust_contact_types t\n        where t.id = a.contact_type_id ) contact_type,\n    a.city,\n    a.state,\n    a.country,\n    a.created,\n    a.created_by,\n    a.updated,\n    a.updated_by,\n    (   select customer_name\n        from eba_cust_customers c\n        where c.id = a.customer_id ) customer_name,\n    a.customer_id\nfrom eba_cust_contacts a"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Interactive Report (14888264240956691843)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Static ID":"CONTACTS"
+       ,"Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "id":"17834039540494634017"
+       ,"Link":{
+          "Link Column":"Exclude Link Column"
+        }
+       ,"Appearance":{
+          "Show Null Values as":"-"
+        }
+       ,"Pagination":{
+          "Type":"Row Ranges X to Y"
+         ,"Display Position":"Bottom - Right"
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+         ,"Maximum Rows to Process":10000
+        }
+       ,"Messages":{
+          "When No Data Found":"No data found."
+         ,"When More Data Found":"This query returns more than #MAX_ROW_COUNT# rows, please filter your data to ensure complete results."
+        }
+       ,"Search Bar":{
+          "Include Search Bar":true
+         ,"Search Field":true
+         ,"Finder Drop Down":true
+         ,"Reports Select List":true
+         ,"Rows Per Page Selector":false
+        }
+       ,"Actions Menu":{
+          "Include Actions Menu":true
+         ,"Filter":true
+         ,"Select Columns":true
+         ,"Rows Per Page":true
+         ,"Sort":true
+         ,"Control Break":true
+         ,"Highlight":true
+         ,"Compute":true
+         ,"Aggregate":true
+         ,"Chart":true
+         ,"Group By":true
+         ,"Pivot":true
+         ,"Flashback":true
+         ,"Save Report":true
+         ,"Save Public Report":true
+         ,"Reset":true
+         ,"Help":true
+         ,"Download":true
+         ,"Subscription":true
+        }
+       ,"Download":{
+          "Formats":[
+            "CSV"
+           ,"HTML"
+           ,"PDF"
+          ]
+         ,"Send as Email":true
+        }
+       ,"Heading":{
+          "Fixed To":"Page"
+        }
+       ,"Icon View":{
+          "Show":false
+        }
+       ,"Detail View":{
+          "Show":false
+        }
+       ,"Saved Reports":[
+          {
+            "id":"17834041446593637520"
+           ,"Identification":{
+              "Name":"Primary Report"
+             ,"Alias":"9117312"
+            }
+          }
+        ]
+       ,"Columns":[
+          {
+            "id":"15097432429410271249"
+           ,"Identification":{
+              "Column Name":"CUSTOMER_ID"
+             ,"Type":"Hidden Column"
+            }
+           ,"Heading":{
+              "Heading":"Customer ID"
+            }
+           ,"Layout":{
+              "Sequence":40
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Security":{
+              "Escape special characters":false
+            }
+          }
+         ,{
+            "id":"17834039752044634023"
+           ,"Identification":{
+              "Column Name":"ID"
+             ,"Type":"Hidden Column"
+            }
+           ,"Heading":{
+              "Heading":" "
+            }
+           ,"Layout":{
+              "Sequence":1
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Security":{
+              "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+             ,"Escape special characters":false
+            }
+          }
+         ,{
+            "id":"17834039864067634023"
+           ,"Identification":{
+              "Column Name":"NAME"
+             ,"Type":"Link"
+            }
+           ,"Heading":{
+              "Heading":"Name"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":2
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Link":{
+              "Target":{
+                "url":"f?p=\u0026APP_ID.:20:\u0026SESSION.::\u0026DEBUG.:20:P20_ID:#ID#"
+               ,"Page":"20"
+               ,"Clear Cache":"20"
+               ,"Values":{
+                  "P20_ID":"#ID#"
+                }
+              }
+             ,"Link Text":"#NAME#"
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+             ,"Escape special characters":true
+            }
+          }
+         ,{
+            "id":"17834039944933634024"
+           ,"Identification":{
+              "Column Name":"TITLE"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Title"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":3
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"17834040035839634024"
+           ,"Identification":{
+              "Column Name":"PHONE"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Phone"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":10
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"17834040157190634024"
+           ,"Identification":{
+              "Column Name":"EMAIL"
+             ,"Type":"Link"
+            }
+           ,"Heading":{
+              "Heading":"Email"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":12
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Link":{
+              "Target":"mailto:#EMAIL#"
+             ,"Link Text":"#EMAIL#"
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"17834040262685634025"
+           ,"Identification":{
+              "Column Name":"COMPANY"
+             ,"Type":"Hidden Column"
+            }
+           ,"Heading":{
+              "Heading":"Company"
+            }
+           ,"Layout":{
+              "Sequence":6
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Security":{
+              "Escape special characters":false
+            }
+          }
+         ,{
+            "id":"17834040361789634025"
+           ,"Identification":{
+              "Column Name":"CONTACT_TYPE"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Contact Type"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":8
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"17834040464998634030"
+           ,"Identification":{
+              "Column Name":"CITY"
+             ,"Type":"Hidden Column"
+            }
+           ,"Heading":{
+              "Heading":"City"
+            }
+           ,"Layout":{
+              "Sequence":11
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Security":{
+              "Escape special characters":false
+            }
+          }
+         ,{
+            "id":"17834040535647634030"
+           ,"Identification":{
+              "Column Name":"STATE"
+             ,"Type":"Hidden Column"
+            }
+           ,"Heading":{
+              "Heading":"State"
+            }
+           ,"Layout":{
+              "Sequence":13
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Security":{
+              "Escape special characters":false
+            }
+          }
+         ,{
+            "id":"17834040659297634031"
+           ,"Identification":{
+              "Column Name":"COUNTRY"
+             ,"Type":"Hidden Column"
+            }
+           ,"Heading":{
+              "Heading":"Country"
+            }
+           ,"Layout":{
+              "Sequence":14
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Security":{
+              "Escape special characters":false
+            }
+          }
+         ,{
+            "id":"17834040839823634031"
+           ,"Identification":{
+              "Column Name":"CREATED_BY"
+             ,"Type":"Hidden Column"
+            }
+           ,"Heading":{
+              "Heading":"Created By"
+            }
+           ,"Layout":{
+              "Sequence":5
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Security":{
+              "Escape special characters":false
+            }
+          }
+         ,{
+            "id":"17834041035344634032"
+           ,"Identification":{
+              "Column Name":"UPDATED_BY"
+             ,"Type":"Hidden Column"
+            }
+           ,"Heading":{
+              "Heading":"Updated By"
+            }
+           ,"Layout":{
+              "Sequence":7
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Security":{
+              "Escape special characters":false
+            }
+          }
+         ,{
+            "id":"17834052352377856869"
+           ,"Identification":{
+              "Column Name":"CUSTOMER_NAME"
+             ,"Type":"Link"
+            }
+           ,"Heading":{
+              "Heading":"Customer"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":15
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Link":{
+              "Target":{
+                "url":"f?p=\u0026APP_ID.:50:\u0026SESSION.::\u0026DEBUG.:RP,50:P50_ID:#CUSTOMER_ID#"
+               ,"Page":"50"
+               ,"Clear Cache":"RP,50"
+               ,"Values":{
+                  "P50_ID":"#CUSTOMER_ID#"
+                }
+              }
+             ,"Link Text":"#CUSTOMER_NAME#"
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"17839050052366702843"
+           ,"Identification":{
+              "Column Name":"TAGS"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Tags"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":16
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Use Defined List of Values to Filter Word Contains"
+             ,"SQL Query":"select tag\n  from eba_cust_tags_type_sum\n where content_type = \u0027CONTACT\u0027\n   and tag_count \u003E 0"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"17854291864545321736"
+           ,"Identification":{
+              "Column Name":"CREATED"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Created"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":17
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Appearance":{
+              "Format Mask":"SINCE"
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+             ,"Date Ranges":"All"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"17854291956507321736"
+           ,"Identification":{
+              "Column Name":"UPDATED"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Updated"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":18
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Appearance":{
+              "Format Mask":"SINCE"
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+             ,"Date Ranges":"All"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+        ]
+       ,"Printing":{
+          "Output":{
+            "View File As":"Attachment"
+          }
+         ,"Page":{
+            "Size":"Letter"
+           ,"Orientation":"Landscape"
+           ,"Units":"Inches"
+           ,"Width":11
+           ,"Height":8.5
+           ,"Border Width":0.5
+           ,"Border Color":"#666666"
+          }
+         ,"Page Header":{
+            "Font":"Helvetica"
+           ,"Font Weight":"Normal"
+           ,"Font Size":12
+           ,"Font Color":"#000000"
+           ,"Alignment":"center"
+          }
+         ,"Column Headings":{
+            "Font":"Helvetica"
+           ,"Font Weight":"Bold"
+           ,"Font Size":10
+           ,"Font Color":"#000000"
+           ,"Background Color":"#EEEEEE"
+          }
+         ,"Columns":{
+            "Font":"Helvetica"
+           ,"Font Weight":"Normal"
+           ,"Font Size":10
+           ,"Font Color":"#000000"
+           ,"Background Color":"#FFFFFF"
+          }
+         ,"Page Footer":{
+            "Font":"Helvetica"
+           ,"Font Weight":"Normal"
+           ,"Font Size":12
+           ,"Font Color":"#000000"
+           ,"Alignment":"center"
+          }
+        }
+      }
+    }
+   ,{
+      "id":"17834780998685014583"
+     ,"Identification":{
+        "Title":"Breadcrumb"
+       ,"Type":"Breadcrumb"
+      }
+     ,"Source":{
+        "Breadcrumb":"Breadcrumb (17869143586620226407)"
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_01"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Title Bar (14888267217215691848)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-BreadcrumbRegion--showBreadcrumb"
+         ,"t-BreadcrumbRegion--useBreadcrumbTitle"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "Breadcrumb Template":"Breadcrumb (14888282717314691893)"
+        }
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"15917458819337194244"
+     ,"Identification":{
+        "Button Name":"UPLOAD_CONTACTS_DATA"
+       ,"Label":"Upload Contacts Data"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Breadcrumb (17834780998685014583)"
+       ,"Position":"PREVIOUS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:60:\u0026SESSION.::\u0026DEBUG.:60,61,62,63::"
+         ,"Page":"60"
+         ,"Clear Cache":"60,61,62,63"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+     ,"Security":{
+        "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+      }
+    }
+   ,{
+      "id":"16623895443560538291"
+     ,"Identification":{
+        "Button Name":"RESET_REPORT"
+       ,"Label":"Reset"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Contacts (17834039444952634017)"
+       ,"Position":"RIGHT_OF_IR_SEARCH_BAR"
+       ,"Start New Layout":false
+       ,"Start New Row":false
+       ,"Column":"Automatic"
+       ,"New Column":false
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Icon (14888281684153691889)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Icon":"fa-undo-alt"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:\u0026APP_PAGE_ID.:\u0026SESSION.::\u0026DEBUG.:RP,RIR,\u0026APP_PAGE_ID.::"
+         ,"Page":"\u0026APP_PAGE_ID."
+         ,"Clear Cache":"RP,RIR,\u0026APP_PAGE_ID."
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+   ,{
+      "id":"17851193494154816336"
+     ,"Identification":{
+        "Button Name":"CREATE"
+       ,"Label":"Add Contact"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Breadcrumb (17834780998685014583)"
+       ,"Position":"CREATE"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:20:\u0026SESSION.::\u0026DEBUG.:20,2::"
+         ,"Page":"20"
+         ,"Clear Cache":"20,2"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+     ,"Security":{
+        "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+      }
+    }
+  ]
+ ,"Computations":[
+    {
+      "id":"17841414057996049502"
+     ,"Identification":{
+        "Item Name":"LAST_VIEW"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"Before Header"
+      }
+     ,"Computation":{
+        "Type":"Static Value"
+       ,"Static Value":"18"
+      }
+    }
+  ]
+ ,"Processes":[
+    {
+      "id":"17834783200897014597"
+     ,"Identification":{
+        "Name":"Reset Pagination"
+       ,"Type":"Reset Pagination"
+       ,"Execution Chain":"None"
+      }
+     ,"Settings":{
+        "Target":"This Page"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Error Message":"Unable to reset pagination."
+       ,"Display Location":"On Error Page"
+      }
+     ,"Server-side Condition":{
+        "Type":"Request is contained in Value"
+       ,"Value":"Go,P18_REPORT_SEARCH"
+      }
+    }
+  ]
+ ,"Branches":[
+    {
+      "id":"17834783683094014599"
+     ,"Identification":{
+        "Name":"Go To Page 18"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"After Processing"
+      }
+     ,"Behavior":{
+        "Type":"Page or URL (Redirect)"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:18:\u0026SESSION."
+         ,"Page":"18"
+        }
+       ,"Save State before Branching":true
+      }
+    }
+  ]
+}

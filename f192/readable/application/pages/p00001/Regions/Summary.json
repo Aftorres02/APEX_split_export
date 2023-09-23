@@ -1,0 +1,497 @@
+{
+    "id": "13571865733552209656",
+    "Identification": {
+        "Title": "Summary",
+        "Type": "Classic Report"
+    },
+    "Source": {
+        "Location": "Local Database",
+        "Type": "SQL Query",
+        "SQL Query": "select \n   x.number_of_customers,\n   x.added_1w,\n   x.REFERENCABLE,\n   x.Potentially_REFERENCABLE,\n   x.Not_REFERENCABLE,\n   x.referencability_unknown,\n   x.with_tags,\n   y.customer_products,\n   z.contacts,\n   z.customers_with_contacts,\n   x.marquee_customers\nfrom\n(\n    select\n        trim(to_char(count(*),'999G999G999G990'))                                                  number_of_customers,\n        trim(to_char(sum(decode(greatest(a.CREATED,sysdate-7), a.CREATED,1,0)),'999G999G999G990')) added_1w,\n        trim(to_char(sum(decode(a.REFERENCABLE , 'Yes',1,0)),'999G999G999G990'))                   REFERENCABLE,\n        trim(to_char(sum(decode(a.REFERENCABLE , 'Potentially',1,0)),'999G999G999G990'))           Potentially_REFERENCABLE,\n        trim(to_char(sum(decode(a.REFERENCABLE , 'No',1,0)),'999G999G999G990'))                    Not_REFERENCABLE,\n        trim(to_char(sum(decode(a.REFERENCABLE , null,1,0)),'999G999G999G990'))                    referencability_unknown,\n        trim(to_char(sum(decode(a.tags , null,0,1)),'999G999G999G990'))                            with_tags,\n        trim(to_char(sum(decode(nvl(a.MARQUEE_CUSTOMER_YN,'N') , 'Y',1,0)),'999G999G999G990'))     marquee_customers\n    from eba_cust_customers a,\n        eba_cust_categories b,\n        eba_cust_status c,\n        eba_cust_geographies d,\n        eba_cust_type e,\n        eba_cust_use_case f\n    where a.category_id = b.id(+)\n        and a.status_id = c.id(+)\n        and a.geography_id = d.id(+)\n        and a.type_id = e.id(+)\n        and a.use_case_id = f.id(+)\n        and (:P1_SEARCH is null or\n                instr(upper(a.customer_name),upper(:P1_SEARCH)) > 0 or\n                           instr(upper(a.summary),upper(:P1_SEARCH)) > 0 )\n        and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n        and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n        and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n        and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n        and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n        and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n        and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n        and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n        and (:P1_IMP_PARTNER is null\n            or exists ( select null\n                        from eba_cust_cust_partner_ref rf\n                        where rf.customer_id = a.id\n                            and rf.partner_id = :P1_IMP_PARTNER ))\n        and (:P1_COMPETITOR is null\n            or exists ( select null\n                        from eba_cust_cust_competitor_ref rf\n                        where rf.customer_id = a.id\n                            and rf.competitor_id = :P1_COMPETITOR ))\n        and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n        and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n        and (\n            exists (select 1 from eba_cust_customer_reftype_ref r\n            where r.customer_id = a.id and\n                  instr(':'||:P1_REFERENCE_TYPES||':',':'||reference_type_id||':') > 0)\n            or \n            :P1_REFERENCE_TYPES is null\n            )\n        and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P1_PRODUCT))\n) x,\n(\n    select\n        trim(to_char(count(distinct u.product_id),'999G999G999G990')) customer_products\n    from eba_cust_customers a,\n        eba_cust_categories b,\n        eba_cust_status c,\n        eba_cust_geographies d,\n        eba_cust_type e,\n        eba_cust_use_case f,\n        eba_cust_product_uses u\n    where a.category_id = b.id(+)\n        and a.status_id = c.id(+)\n        and a.geography_id = d.id(+)\n        and a.type_id = e.id(+)\n        and a.use_case_id = f.id(+)\n        and a.id = u.customer_id\n        and (:P1_SEARCH is null or\n                instr(upper(a.customer_name),upper(:P1_SEARCH)) > 0 or\n                           instr(upper(a.summary),upper(:P1_SEARCH)) > 0 )\n        and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n        and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n        and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n        and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n        and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n        and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n        and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n        and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n        and (:P1_IMP_PARTNER is null\n            or exists ( select null\n                        from eba_cust_cust_partner_ref rf\n                        where rf.customer_id = a.id\n                            and rf.partner_id = :P1_IMP_PARTNER ))\n        and (:P1_COMPETITOR is null\n            or exists ( select null\n                        from eba_cust_cust_competitor_ref rf\n                        where rf.customer_id = a.id\n                            and rf.competitor_id = :P1_COMPETITOR ))\n        and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n        and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n        and (\n            exists (select 1 from eba_cust_customer_reftype_ref r\n            where r.customer_id = a.id and\n                  instr(':'||:P1_REFERENCE_TYPES||':',':'||reference_type_id||':') > 0)\n            or \n            :P1_REFERENCE_TYPES is null\n            )\n        and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P1_PRODUCT))\n) y,\n(\n    select\n        trim(to_char(count(*),'999G999G999G990'))                    contacts,\n        trim(to_char(count(distinct customer_id),'999G999G999G990')) customers_with_contacts\n    from eba_cust_customers a,\n        eba_cust_categories b,\n        eba_cust_status c,\n        eba_cust_geographies d,\n        eba_cust_type e,\n        eba_cust_use_case f,\n        eba_cust_contacts x\n    where a.category_id = b.id(+)\n        and a.status_id = c.id(+)\n        and a.geography_id = d.id(+)\n        and a.type_id = e.id(+)\n        and a.use_case_id = f.id(+)\n        and a.id = x.customer_id\n        and (:P1_SEARCH is null or\n                instr(upper(a.customer_name),upper(:P1_SEARCH)) > 0 or\n                           instr(upper(a.summary),upper(:P1_SEARCH)) > 0 )\n        and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n        and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n        and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n        and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n        and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n        and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n        and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n        and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n        and (:P1_IMP_PARTNER is null\n            or exists ( select null\n                        from eba_cust_cust_partner_ref rf\n                        where rf.customer_id = a.id\n                            and rf.partner_id = :P1_IMP_PARTNER ))\n        and (:P1_COMPETITOR is null\n            or exists ( select null\n                        from eba_cust_cust_competitor_ref rf\n                        where rf.customer_id = a.id\n                            and rf.competitor_id = :P1_COMPETITOR ))\n        and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n        and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n        and (\n            exists (select 1 from eba_cust_customer_reftype_ref r\n            where r.customer_id = a.id and\n                  instr(':'||:P1_REFERENCE_TYPES||':',':'||reference_type_id||':') > 0)\n            or \n            :P1_REFERENCE_TYPES is null\n            )\n        and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P1_PRODUCT))\n) z",
+        "Page Items to Submit": [
+            "P1_TYPE",
+            "P1_SEARCH",
+            "P1_USE_CASE",
+            "P1_MARQUEE_CUST",
+            "P1_PRODUCT",
+            "P1_IMP_PARTNER",
+            "P1_GEO",
+            "P1_COMPETITOR",
+            "P1_REFERENCEABLE",
+            "P1_SCP_CUST",
+            "P1_REFERENCE_TYPES",
+            "P1_COUNTRY",
+            "P1_STATUS",
+            "P1_INDUSTRY",
+            "P1_CATEGORY"
+        ]
+    },
+    "Layout": {
+        "Sequence": 96,
+        "Parent Region": "No Parent",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Standard (14888264683728691846)",
+        "Template Options": [
+            "#DEFAULT#",
+            "t-Region--noPadding",
+            "js-showMaximizeButton",
+            "i-h320",
+            "t-Region--hiddenOverflow"
+        ],
+        "CSS Classes": [
+            "scrollable-region"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Static ID": "CUST_SUMMARY",
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Customizable and Shown By Default"
+    },
+    "Attributes": {
+        "Layout": {
+            "Number of Rows Type": "Static Value",
+            "Number of Rows": 15
+        },
+        "Appearance": {
+            "Template Type": "Theme",
+            "Template": "Value Attribute Pairs - Column (14888273239684691865)",
+            "Template Options": [
+                "#DEFAULT#",
+                "t-AVPList--rightAligned"
+            ],
+            "Show Null Values as": " - "
+        },
+        "Pagination": {
+            "Type": "No Pagination (Show All Rows)",
+            "Partial Page Refresh": true
+        },
+        "Performance": {
+            "Lazy Loading": false,
+            "Maximum Rows to Process": 500
+        },
+        "Messages": {
+            "When No Data Found": "no data found"
+        },
+        "Break Formatting": {
+            "Break Columns": "No Break"
+        },
+        "Advanced": {
+            "Strip HTML": true,
+            "Sort Nulls": "Last"
+        },
+        "Heading": {
+            "Type": "Custom Headings"
+        },
+        "Download": {
+            "CSV Export Enabled": false
+        },
+        "Printing": {
+            "Enabled": false
+        }
+    },
+    "Columns": [
+        {
+            "id": "13571866032260209657",
+            "Identification": {
+                "Column Name": "NUMBER_OF_CUSTOMERS",
+                "Type": "Plain Text"
+            },
+            "Heading": {
+                "Heading": "Number of Customers",
+                "Alignment": "start"
+            },
+            "Layout": {
+                "Sequence": 1,
+                "Column Alignment": "start"
+            },
+            "Accessibility": {
+                "Value Identifies Row": false
+            },
+            "Sorting": {
+                "Default Sequence": "1",
+                "Direction": "Descending",
+                "Sortable": true
+            },
+            "Export / Printing": {
+                "Include In Export / Print": true
+            },
+            "Advanced": {
+                "Compute Sum": false
+            },
+            "UI Defaults Reference": {
+                "Table Owner": "Parsing Schema"
+            },
+            "Security": {
+                "Escape special characters": true
+            }
+        },
+        {
+            "id": "13571866483784209658",
+            "Identification": {
+                "Column Name": "ADDED_1W",
+                "Type": "Plain Text"
+            },
+            "Heading": {
+                "Heading": "New last 7 days",
+                "Alignment": "start"
+            },
+            "Layout": {
+                "Sequence": 2,
+                "Column Alignment": "start"
+            },
+            "Accessibility": {
+                "Value Identifies Row": false
+            },
+            "Sorting": {
+                "Sortable": false
+            },
+            "Export / Printing": {
+                "Include In Export / Print": true
+            },
+            "Advanced": {
+                "Compute Sum": false
+            },
+            "UI Defaults Reference": {
+                "Table Owner": "Parsing Schema"
+            },
+            "Security": {
+                "Escape special characters": true
+            }
+        },
+        {
+            "id": "13571866901204209658",
+            "Identification": {
+                "Column Name": "REFERENCABLE",
+                "Type": "Plain Text"
+            },
+            "Heading": {
+                "Heading": "Publicly Referenceable",
+                "Alignment": "start"
+            },
+            "Layout": {
+                "Sequence": 3,
+                "Column Alignment": "start"
+            },
+            "Accessibility": {
+                "Value Identifies Row": false
+            },
+            "Sorting": {
+                "Sortable": false
+            },
+            "Export / Printing": {
+                "Include In Export / Print": true
+            },
+            "Advanced": {
+                "Compute Sum": false
+            },
+            "UI Defaults Reference": {
+                "Table Owner": "Parsing Schema"
+            },
+            "Server-side Condition": {
+                "Type": "Expression",
+                "Language": "PL/SQL",
+                "PL/SQL Expression": "APEX_UTIL.GET_BUILD_OPTION_STATUS(\n    P_APPLICATION_ID => :APP_ID,\n    P_BUILD_OPTION_NAME => 'Customer Referencability') = 'INCLUDE'"
+            },
+            "Security": {
+                "Escape special characters": true
+            }
+        },
+        {
+            "id": "13571867212189209658",
+            "Identification": {
+                "Column Name": "POTENTIALLY_REFERENCABLE",
+                "Type": "Plain Text"
+            },
+            "Heading": {
+                "Heading": "Potentially Referenceable",
+                "Alignment": "start"
+            },
+            "Layout": {
+                "Sequence": 4,
+                "Column Alignment": "start"
+            },
+            "Accessibility": {
+                "Value Identifies Row": false
+            },
+            "Sorting": {
+                "Sortable": false
+            },
+            "Export / Printing": {
+                "Include In Export / Print": true
+            },
+            "Advanced": {
+                "Compute Sum": false
+            },
+            "UI Defaults Reference": {
+                "Table Owner": "Parsing Schema"
+            },
+            "Server-side Condition": {
+                "Type": "Expression",
+                "Language": "PL/SQL",
+                "PL/SQL Expression": "APEX_UTIL.GET_BUILD_OPTION_STATUS(\n    P_APPLICATION_ID => :APP_ID,\n    P_BUILD_OPTION_NAME => 'Customer Referencability') = 'INCLUDE'"
+            },
+            "Security": {
+                "Escape special characters": true
+            }
+        },
+        {
+            "id": "13571867609673209659",
+            "Identification": {
+                "Column Name": "NOT_REFERENCABLE",
+                "Type": "Plain Text"
+            },
+            "Heading": {
+                "Heading": "Not Referenceable",
+                "Alignment": "start"
+            },
+            "Layout": {
+                "Sequence": 5,
+                "Column Alignment": "start"
+            },
+            "Accessibility": {
+                "Value Identifies Row": false
+            },
+            "Sorting": {
+                "Sortable": false
+            },
+            "Export / Printing": {
+                "Include In Export / Print": true
+            },
+            "Advanced": {
+                "Compute Sum": false
+            },
+            "UI Defaults Reference": {
+                "Table Owner": "Parsing Schema"
+            },
+            "Server-side Condition": {
+                "Type": "Expression",
+                "Language": "PL/SQL",
+                "PL/SQL Expression": "APEX_UTIL.GET_BUILD_OPTION_STATUS(\n    P_APPLICATION_ID => :APP_ID,\n    P_BUILD_OPTION_NAME => 'Customer Referencability') = 'INCLUDE'"
+            },
+            "Security": {
+                "Escape special characters": true
+            }
+        },
+        {
+            "id": "13571868106749209659",
+            "Identification": {
+                "Column Name": "REFERENCABILITY_UNKNOWN",
+                "Type": "Plain Text"
+            },
+            "Heading": {
+                "Heading": "Referenceability Unknown",
+                "Alignment": "start"
+            },
+            "Layout": {
+                "Sequence": 6,
+                "Column Alignment": "start"
+            },
+            "Accessibility": {
+                "Value Identifies Row": false
+            },
+            "Sorting": {
+                "Sortable": false
+            },
+            "Export / Printing": {
+                "Include In Export / Print": true
+            },
+            "Advanced": {
+                "Compute Sum": false
+            },
+            "UI Defaults Reference": {
+                "Table Owner": "Parsing Schema"
+            },
+            "Server-side Condition": {
+                "Type": "Expression",
+                "Language": "PL/SQL",
+                "PL/SQL Expression": "APEX_UTIL.GET_BUILD_OPTION_STATUS(\n    P_APPLICATION_ID => :APP_ID,\n    P_BUILD_OPTION_NAME => 'Customer Referencability') = 'INCLUDE'"
+            },
+            "Security": {
+                "Escape special characters": true
+            }
+        },
+        {
+            "id": "13571868492310209660",
+            "Identification": {
+                "Column Name": "WITH_TAGS",
+                "Type": "Plain Text"
+            },
+            "Heading": {
+                "Heading": "With Tags",
+                "Alignment": "start"
+            },
+            "Layout": {
+                "Sequence": 7,
+                "Column Alignment": "start"
+            },
+            "Accessibility": {
+                "Value Identifies Row": false
+            },
+            "Sorting": {
+                "Sortable": false
+            },
+            "Export / Printing": {
+                "Include In Export / Print": true
+            },
+            "Advanced": {
+                "Compute Sum": false
+            },
+            "UI Defaults Reference": {
+                "Table Owner": "Parsing Schema"
+            },
+            "Security": {
+                "Escape special characters": true
+            }
+        },
+        {
+            "id": "13571868861396209660",
+            "Identification": {
+                "Column Name": "CUSTOMER_PRODUCTS",
+                "Type": "Plain Text"
+            },
+            "Heading": {
+                "Heading": "Customer Products",
+                "Alignment": "start"
+            },
+            "Layout": {
+                "Sequence": 8,
+                "Column Alignment": "start"
+            },
+            "Accessibility": {
+                "Value Identifies Row": false
+            },
+            "Sorting": {
+                "Sortable": false
+            },
+            "Export / Printing": {
+                "Include In Export / Print": true
+            },
+            "Advanced": {
+                "Compute Sum": false
+            },
+            "UI Defaults Reference": {
+                "Table Owner": "Parsing Schema"
+            },
+            "Security": {
+                "Escape special characters": true
+            }
+        },
+        {
+            "id": "13571869248788209660",
+            "Identification": {
+                "Column Name": "CONTACTS",
+                "Type": "Plain Text"
+            },
+            "Heading": {
+                "Heading": "Contacts",
+                "Alignment": "start"
+            },
+            "Layout": {
+                "Sequence": 9,
+                "Column Alignment": "start"
+            },
+            "Accessibility": {
+                "Value Identifies Row": false
+            },
+            "Sorting": {
+                "Sortable": false
+            },
+            "Export / Printing": {
+                "Include In Export / Print": true
+            },
+            "Advanced": {
+                "Compute Sum": false
+            },
+            "UI Defaults Reference": {
+                "Table Owner": "Parsing Schema"
+            },
+            "Security": {
+                "Escape special characters": true
+            }
+        },
+        {
+            "id": "13571869621069209661",
+            "Identification": {
+                "Column Name": "CUSTOMERS_WITH_CONTACTS",
+                "Type": "Plain Text"
+            },
+            "Heading": {
+                "Heading": "Customers With Contacts",
+                "Alignment": "start"
+            },
+            "Layout": {
+                "Sequence": 10,
+                "Column Alignment": "start"
+            },
+            "Accessibility": {
+                "Value Identifies Row": false
+            },
+            "Sorting": {
+                "Sortable": false
+            },
+            "Export / Printing": {
+                "Include In Export / Print": true
+            },
+            "Advanced": {
+                "Compute Sum": false
+            },
+            "UI Defaults Reference": {
+                "Table Owner": "Parsing Schema"
+            },
+            "Security": {
+                "Escape special characters": true
+            }
+        },
+        {
+            "id": "13571870091941209661",
+            "Identification": {
+                "Column Name": "MARQUEE_CUSTOMERS",
+                "Type": "Plain Text"
+            },
+            "Heading": {
+                "Heading": "Marquee Customers",
+                "Alignment": "start"
+            },
+            "Layout": {
+                "Sequence": 11,
+                "Column Alignment": "start"
+            },
+            "Accessibility": {
+                "Value Identifies Row": false
+            },
+            "Sorting": {
+                "Sortable": false
+            },
+            "Export / Printing": {
+                "Include In Export / Print": true
+            },
+            "Advanced": {
+                "Compute Sum": false
+            },
+            "UI Defaults Reference": {
+                "Table Owner": "Parsing Schema"
+            },
+            "Security": {
+                "Escape special characters": true
+            }
+        }
+    ]
+}

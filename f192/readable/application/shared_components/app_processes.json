@@ -1,0 +1,72 @@
+[
+  {
+    "id":"14888642069924156704"
+   ,"Identification":{
+      "Name":"set globals"
+     ,"Type":"NATIVE_PLSQL"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Language":"PL\/SQL"
+     ,"PL\/SQL Code":"select trim(to_char(count(*),\u0027999G999G999G999G990\u0027)) into :CUSTOMERS from eba_cust_customers;\nselect trim(to_char(count(*),\u0027999G999G999G999G990\u0027)) into :PRODUCTS from eba_cust_products;\nselect trim(to_char(count(*),\u0027999G999G999G999G990\u0027)) into :CONTACTS from eba_cust_contacts;\nselect trim(to_char(count(*),\u0027999G999G999G999G990\u0027)) into :ACTIVITIES from eba_cust_activities;"
+    }
+   ,"Execution":{
+      "Sequence":4
+     ,"Point":"Before Header"
+    }
+  }
+ ,{
+    "id":"14971079242919771830"
+   ,"Identification":{
+      "Name":"Trim All Page Items"
+     ,"Type":"NATIVE_PLSQL"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Language":"PL\/SQL"
+     ,"PL\/SQL Code":"begin\n    for c1 in (select item_name\n               from apex_application_page_items\n               where application_id = :APP_ID\n                   and page_id = :APP_PAGE_ID\n                   and display_as_code in (\u0027NATIVE_TEXT_FIELD\u0027,\n                                           \u0027NATIVE_TEXTAREA\u0027,\n                                           \u0027NATIVE_NUMBER_FIELD\u0027) ) loop\n        apex_util.set_session_state( c1.item_name,\n            regexp_replace(apex_util.get_session_state( c1.item_name ),\n                \u0027^[[:space:]]*(.*?)[[:space:]]*$\u0027, \u0027\u005C1\u0027\n            )\n        );\n    end loop;\nend;"
+    }
+   ,"Execution":{
+      "Sequence":2
+     ,"Point":"After Submit"
+    }
+   ,"Error":{
+      "Display Location":"Inline in Notification"
+    }
+  }
+ ,{
+    "id":"15057228958558480382"
+   ,"Identification":{
+      "Name":"GET_IMAGE"
+     ,"Type":"NATIVE_PLSQL"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Language":"PL\/SQL"
+     ,"PL\/SQL Code":"declare\n\n   l_image     blob;\n   l_name      varchar2(255);\n   l_mime_type varchar2(255);\n   l_length    number;\n\nbegin\n\n   select logo_blob,\n        logo_name,\n        logo_mimetype,\n        dbms_lob.getlength(logo_blob)\n   into l_image,\n      l_name,\n      l_mime_type,\n      l_length\n\n   from eba_cust_customers\n   where id = :GET_ID;\n   \n   sys.htp.init();\n   \n   sys.owa_util.mime_header(\n      nvl(l_mime_type, \u0027application\/octet\u0027),\n      false\n   );\n\n   sys.htp.p(\u0027Cache-Control: max-age=36000\u0027);\n   sys.htp.p(\u0027Content-Length: \u0027 || l_length);\n   sys.htp.p(\u0027Content-Disposition: inline; filename=\"\u0027 || apex_escape.html(l_name) || \u0027\"; filename*=UTF-8\u0027\u0027\u0027\u0027\u0027 || apex_escape.html(l_name));\n   \n   sys.owa_util.http_header_close;\n   \n   sys.wpg_docload.download_file(l_image);\n   \n   apex_application.stop_apex_engine;\n   \nend;"
+    }
+   ,"Execution":{
+      "Sequence":1
+     ,"Point":"Ajax Callback"
+    }
+  }
+ ,{
+    "id":"16640404346207184036"
+   ,"Identification":{
+      "Name":"timezone"
+     ,"Type":"NATIVE_PLSQL"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Language":"PL\/SQL"
+     ,"PL\/SQL Code":"eba_cust_tz_init;"
+    }
+   ,"Execution":{
+      "Sequence":3
+     ,"Point":"After Authentication"
+    }
+   ,"Error":{
+      "Error Message":"Unable to set time zone."
+    }
+  }
+]

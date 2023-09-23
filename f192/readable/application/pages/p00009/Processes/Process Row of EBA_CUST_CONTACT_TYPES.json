@@ -1,0 +1,28 @@
+{
+    "id": "17829409009889640564",
+    "Identification": {
+        "Name": "Process Row of EBA_CUST_CONTACT_TYPES",
+        "Type": "Automatic Row Processing (DML) [Legacy]",
+        "Execution Chain": "None"
+    },
+    "Settings": {
+        "Table Owner": "PARSING SCHEMA",
+        "Table Name": "EBA_CUST_CONTACT_TYPES",
+        "Primary Key Column ": "ID",
+        "Primary Key Item": "P9_ID",
+        "Lock Row": true,
+        "Supported Operations": "I:U:D"
+    },
+    "Execution": {
+        "Sequence": 30,
+        "Point": "Processing",
+        "Run Process": "Once Per Page Visit (default)"
+    },
+    "Success Message": {
+        "Success Message": "Action Processed."
+    },
+    "Error": {
+        "Error Message": "Unable to process row of table EBA_CUST_CONTACT_TYPES.",
+        "Display Location": "On Error Page"
+    }
+}

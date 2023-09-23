@@ -1,0 +1,799 @@
+{
+  "id":"74"
+ ,"Identification":{
+    "Name":"Add Multiple Users"
+   ,"Alias":"ADD-MULTIPLE-USERS2"
+   ,"Title":"Add Multiple Users"
+   ,"Page Group":"ACL (14749179346326290465)"
+  }
+ ,"Appearance":{
+    "Page Mode":"Modal Dialog"
+   ,"Dialog Template":"Theme Default"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Dialog":{
+    "Chained":true
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"Do not focus cursor"
+   ,"Warn on Unsaved Changes":false
+  }
+ ,"CSS":{
+    "Inline":".uReportList {\n    margin: 0;\n    list-style: none;\n}\n.uReportList li {\n    margin: 0 0 4px 0;\n}\n.check_icon {\n    display: inline-block;\n    width: 16px;\n    height: 16px;\n    line-height: 16px;\n    background: #69B86B;\n    color: #FFF;\n    text-align: center;\n    border-radius: 12px;\n    font-size: 15px;\n    border: 1px solid green;\n    text-shadow: 0 -1px 0 rgba(0,0,0,.15);\n    vertical-align: top;\n    margin-right: 4px;\n}\n.valid_user {\n    display: inline-block;\n    padding: 4px 8px 4px 4px;\n    border: 1px solid #D0D0D0;\n    border-radius: 3px;\n    line-height: 20px;\n    background-color: #F8F8F8;\n    color: #404040;\n}"
+  }
+ ,"Security":{
+    "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+   ,"Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"On"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Only for Success"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Help":{
+    "Help Text":"No help is available for this page."
+  }
+ ,"Regions":[
+    {
+      "id":"1685173222367761253"
+     ,"Identification":{
+        "Title":"Buttons"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_03"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Buttons Container (14888251272274691825)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":true
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"14844394535495695902"
+     ,"Identification":{
+        "Title":"Bulk Load Users - Step 2"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":40
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Blank with Attributes (14888250988334691823)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"14844394717778695905"
+     ,"Identification":{
+        "Title":"Exceptions"
+       ,"Type":"Classic Report"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select c001 username, c002 reason\n  from apex_collections\n where collection_name = \u0027EBA_CUST_BULK_USER_INVALID\u0027\norder by 1"
+      }
+     ,"Layout":{
+        "Sequence":60
+       ,"Parent Region":"Bulk Load Users - Step 2 (14844394535495695902)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Collapsible (14888261571832691840)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--noPadding"
+         ,"is-expanded"
+         ,"t-Region--scrollBody"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Layout":{
+          "Number of Rows Type":"Static Value"
+         ,"Number of Rows":10000
+        }
+       ,"Appearance":{
+          "Template Type":"Theme"
+         ,"Template":"Standard (14888271344395691859)"
+         ,"Template Options":[
+            "#DEFAULT#"
+           ,"t-Report--stretch"
+           ,"t-Report--altRowsDefault"
+           ,"t-Report--rowHighlight"
+           ,"t-Report--inline"
+          ]
+         ,"Show Null Values as":" - "
+        }
+       ,"Pagination":{
+          "Type":"No Pagination (Show All Rows)"
+         ,"Partial Page Refresh":true
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+         ,"Maximum Rows to Process":500
+        }
+       ,"Messages":{
+          "When No Data Found":"No invalid new users found"
+        }
+       ,"Break Formatting":{
+          "Break Columns":"No Break"
+        }
+       ,"Advanced":{
+          "Strip HTML":true
+         ,"Sort Nulls":"Last"
+        }
+       ,"Heading":{
+          "Type":"Custom Headings"
+        }
+       ,"Download":{
+          "CSV Export Enabled":false
+        }
+       ,"Printing":{
+          "Enabled":false
+        }
+      }
+     ,"Columns":[
+        {
+          "id":"14844394943183695905"
+         ,"Identification":{
+            "Column Name":"REASON"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Why Invalid"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":2
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"14844395021941695905"
+         ,"Identification":{
+            "Column Name":"USERNAME"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Username"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":1
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"14844395117955695905"
+     ,"Identification":{
+        "Title":"Users to be added"
+       ,"Type":"List View"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select lower(c001) username\n  from apex_collections\n where collection_name = \u0027EBA_CUST_BULK_USER_VALID\u0027\norder by 1"
+      }
+     ,"Layout":{
+        "Sequence":50
+       ,"Parent Region":"Bulk Load Users - Step 2 (14844394535495695902)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Collapsible (14888261571832691840)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--noPadding"
+         ,"is-expanded"
+         ,"t-Region--scrollBody"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Security":{
+        "Escape special characters":true
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Features":"Advanced Formatting"
+         ,"Text Formatting":"\u003Cspan class=\"fa fa-check-circle u-success-text\" aria-hidden=\"true\"\u003E\u003C\/span\u003E \u003Cspan style=\"line-height:36px;\"\u003E\u0026USERNAME.\u003C\/span\u003E"
+        }
+       ,"Layout":{
+          "Number of Rows Type":"Static Value"
+         ,"Number of Rows":15
+        }
+      }
+    }
+   ,{
+      "id":"14844395446359695905"
+     ,"Identification":{
+        "Title":"Valid Users Exist - Page Info"
+       ,"Type":"PL\/SQL Dynamic Content [Legacy]"
+      }
+     ,"Source":{
+        "PL\/SQL Code":"sys.htp.p(\u0027\u003Cp\u003E\u0027);\nsys.htp.p(apex_lang.message(\u0027ABOUT_TO_CREATE\u0027, :P74_VALID_COUNT, :P74_ROLE));\nif :P74_INVALID_COUNT \u003E 0 then\n    sys.htp.p(apex_lang.message(\u0027INVALID_USERS_NOT_CREATED\u0027, :P74_INVALID_COUNT));\nend if;\nsys.htp.p(\u0027\u003C\/p\u003E\u0027);"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Blank with Attributes (14888250988334691823)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"CSS Classes":[
+          "infoTextRegion"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server-side Condition":{
+        "Type":"Rows returned"
+       ,"SQL Query":"select 1\n  from apex_collections\n where collection_name = \u0027EBA_CUST_BULK_USER_VALID\u0027"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+    }
+   ,{
+      "id":"14844395621728695906"
+     ,"Identification":{
+        "Title":"Hidden Items"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"None"
+       ,"Render Components":"Above Content"
+      }
+     ,"Advanced":{
+        "Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"14844396427553695906"
+     ,"Identification":{
+        "Title":"No Valid Users Exist - Page Info"
+       ,"Type":"Static Content"
+      }
+     ,"Source":{
+        "HTML Code":"\u003Cp\u003EThe username list on the previous page found no valid usernames and \u0026P74_INVALID_COUNT.. Please go back and verify the username list you provided.\u003C\/p\u003E"
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Blank with Attributes (14888250988334691823)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"CSS Classes":[
+          "infoTextRegion"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server-side Condition":{
+        "Type":"No Rows returned"
+       ,"SQL Query":"select 1\n  from apex_collections\n where collection_name = \u0027EBA_CUST_BULK_USER_VALID\u0027"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+  ]
+ ,"Page Items":[
+    {
+      "id":"14844395845154695906"
+     ,"Identification":{
+        "Name":"P74_ROLE"
+       ,"Type":"Hidden"
+      }
+     ,"Settings":{
+        "Value Protected":true
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Hidden Items (14844395621728695906)"
+       ,"Position":"BODY"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Function Body"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Function Body":"if :P73_ROLE = 3 then\n    return \u0027Administrator\u0027;\nelsif :P73_ROLE = 2 then\n    return \u0027Contributor\u0027;\nelsif :P73_ROLE = 1 then\n    return \u0027Reader\u0027;\nend if;"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"14844396037636695906"
+     ,"Identification":{
+        "Name":"P74_VALID_COUNT"
+       ,"Type":"Hidden"
+      }
+     ,"Settings":{
+        "Value Protected":true
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Hidden Items (14844395621728695906)"
+       ,"Position":"BODY"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"SQL Query (return single value)"
+       ,"SQL Query":"select count(*)\n  from apex_collections\n where collection_name = \u0027EBA_CUST_BULK_USER_VALID\u0027"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"14844396227540695906"
+     ,"Identification":{
+        "Name":"P74_INVALID_COUNT"
+       ,"Type":"Hidden"
+      }
+     ,"Settings":{
+        "Value Protected":true
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Region":"Hidden Items (14844395621728695906)"
+       ,"Position":"BODY"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"SQL Query (return single value)"
+       ,"SQL Query":"select count(*)\n  from apex_collections\n where collection_name = \u0027EBA_CUST_BULK_USER_INVALID\u0027"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"14844396825779695907"
+     ,"Identification":{
+        "Button Name":"CANCEL"
+       ,"Label":"Cancel"
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Region":"Buttons (1685173222367761253)"
+       ,"Position":"EDIT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Defined by Dynamic Action"
+       ,"Execute Validations":true
+      }
+     ,"Security":{
+        "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+      }
+    }
+   ,{
+      "id":"14844397018384695909"
+     ,"Identification":{
+        "Button Name":"PREVIOUS"
+       ,"Label":"Previous"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Buttons (1685173222367761253)"
+       ,"Position":"PREVIOUS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Icon (14888281684153691889)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Icon":"fa-chevron-left"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to URL"
+       ,"Target":"javascript:history.back();"
+       ,"Execute Validations":true
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+   ,{
+      "id":"14844397228373695909"
+     ,"Identification":{
+        "Button Name":"FINISH"
+       ,"Label":"Add Users"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Buttons (1685173222367761253)"
+       ,"Position":"NEXT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--gapLeft"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Submit Page"
+       ,"Execute Validations":true
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+     ,"Server-side Condition":{
+        "Type":"Rows returned"
+       ,"SQL Query":"select 1\n  from apex_collections\n where collection_name = \u0027EBA_CUST_BULK_USER_VALID\u0027"
+      }
+    }
+  ]
+ ,"Dynamic Actions":[
+    {
+      "id":"1685173399877761254"
+     ,"Identification":{
+        "Name":"Cancel Dialog"
+      }
+     ,"Execution":{
+        "Sequence":10
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CLICK"
+       ,"Selection Type":"Button"
+       ,"Button":"CANCEL (14844396825779695907)"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"1685173448199761255"
+         ,"Identification":{
+            "Action":"Cancel Dialog"
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Cancel Dialog (1685173399877761254)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+  ]
+ ,"Processes":[
+    {
+      "id":"1685173544547761256"
+     ,"Identification":{
+        "Name":"Close Dialog"
+       ,"Type":"Close Dialog"
+       ,"Execution Chain":"None"
+      }
+     ,"Execution":{
+        "Sequence":20
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Display Location":"Inline in Notification"
+      }
+    }
+   ,{
+      "id":"14844398139622695912"
+     ,"Identification":{
+        "Name":"Add Users to ACL"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":"for c in\n(\n    select\n        c001      as username,\n        :P73_ROLE as access_level_id\n    from\n        apex_collections\n    where\n        collection_name = \u0027EBA_CUST_BULK_USER_VALID\u0027\n)\nloop\n    insert into eba_cust_users\n    (username, access_level_id)\n    values\n    (c.username, c.access_level_id);\nend loop;\n\n---------------------\n-- delete collections\n--\nwwv_flow_collection.DELETE_COLLECTION(\u0027EBA_CUST_BULK_USER_INVALID\u0027);\nwwv_flow_collection.DELETE_COLLECTION(\u0027EBA_CUST_BULK_USER_VALID\u0027);\nwwv_flow_collection.DELETE_COLLECTION(\u0027EBA_CUST_BULK_USER_CREATE\u0027);"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Success Message":{
+        "Success Message":"User(s) added."
+      }
+     ,"Error":{
+        "Error Message":"#SQLERRM#"
+       ,"Display Location":"Inline in Notification"
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"FINISH (14844397228373695909)"
+      }
+    }
+  ]
+ ,"Branches":[
+    {
+      "id":"14844398428475695913"
+     ,"Identification":{
+        "Name":"Go To Page 57"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"After Processing"
+      }
+     ,"Behavior":{
+        "Type":"Page or URL (Redirect)"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:57:\u0026SESSION.::\u0026DEBUG.:73,\u0026APP_PAGE_ID.::\u0026success_msg=#SUCCESS_MSG#"
+         ,"Page":"57"
+         ,"Clear Cache":"73,\u0026APP_PAGE_ID."
+        }
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"FINISH (14844397228373695909)"
+      }
+     ,"Security":{
+        "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+      }
+    }
+  ]
+}

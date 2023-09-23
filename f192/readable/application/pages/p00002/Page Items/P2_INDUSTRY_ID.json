@@ -1,0 +1,66 @@
+{
+    "id": "17823530350436634965",
+    "Identification": {
+        "Name": "P2_INDUSTRY_ID",
+        "Type": "Select List"
+    },
+    "Label": {
+        "Label": "Industry",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Page Action on Selection": "None",
+        "Allow Multi Selection": false
+    },
+    "Layout": {
+        "Sequence": 70,
+        "Region": "Customer Details (17829324616828140228)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": false,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "1"
+    },
+    "Appearance": {
+        "Template": "Optional (14888281543517691887)",
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "Height": 1
+    },
+    "Validation": {
+        "Value Required": false
+    },
+    "List of Values": {
+        "Type": "Shared Component",
+        "List of Values": "P2_INDUSTRY_ID LOOKUP (14852869838645090511)",
+        "Display Extra Values": false,
+        "Display Null Value": true,
+        "Null Display Value": "- Select -"
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Database Column",
+        "Database Column": "INDUSTRY_ID",
+        "Used": "Always, replacing any existing value in session state"
+    },
+    "Session State": {
+        "Storage": "Per Session (Persistent)"
+    },
+    "Quick Picks": {
+        "Show Quick Picks": false
+    },
+    "Security": {
+        "Session State Protection": "Checksum Required - Session Level",
+        "Store value encrypted in session state": false,
+        "Restricted Characters": "All characters can be saved."
+    },
+    "Help": {
+        "Help Text": "The industry in which this particular customer belongs to"
+    }
+}

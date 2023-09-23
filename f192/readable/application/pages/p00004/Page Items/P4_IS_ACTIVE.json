@@ -1,0 +1,61 @@
+{
+    "id": "17864772981891110196",
+    "Identification": {
+        "Name": "P4_IS_ACTIVE",
+        "Type": "Checkbox Group"
+    },
+    "Label": {
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Number of Columns": 1
+    },
+    "Layout": {
+        "Sequence": 30,
+        "Region": "Category Details (17829378104262682818)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": false,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Hidden (14888281412990691885)",
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Validation": {
+        "Value Required": false
+    },
+    "List of Values": {
+        "Type": "Static Values",
+        "Static Values": "STATIC2:Active;Y",
+        "Display Extra Values": false
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Database Column",
+        "Database Column": "IS_ACTIVE",
+        "Used": "Always, replacing any existing value in session state"
+    },
+    "Default": {
+        "Type": "Expression",
+        "Language": "PL/SQL",
+        "PL/SQL Expression": "case when :P4_ID is null then 'Y' end;"
+    },
+    "Session State": {
+        "Storage": "Per Session (Persistent)"
+    },
+    "Security": {
+        "Session State Protection": "Checksum Required - Session Level",
+        "Store value encrypted in session state": false,
+        "Escape special characters": true,
+        "Restricted Characters": "All characters can be saved."
+    }
+}

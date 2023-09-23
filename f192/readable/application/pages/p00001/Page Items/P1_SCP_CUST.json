@@ -1,0 +1,65 @@
+{
+    "id": "2074512409708783461",
+    "Identification": {
+        "Name": "P1_SCP_CUST",
+        "Type": "Select List"
+    },
+    "Label": {
+        "Label": "SCP Customer",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Page Action on Selection": "None",
+        "Allow Multi Selection": false
+    },
+    "Layout": {
+        "Sequence": 60,
+        "Region": "More Filters (20006072089876467610)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Optional - Above (15050274849633028680)",
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "Height": 1
+    },
+    "Validation": {
+        "Value Required": false
+    },
+    "List of Values": {
+        "Type": "Shared Component",
+        "List of Values": "Y_OR_N (17831456739552151139)",
+        "Display Extra Values": false,
+        "Display Null Value": true,
+        "Null Display Value": "- All -"
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Null",
+        "Used": "Only when current value in session state is null"
+    },
+    "Session State": {
+        "Storage": "Per Session (Persistent)"
+    },
+    "Quick Picks": {
+        "Show Quick Picks": false
+    },
+    "Security": {
+        "Session State Protection": "Unrestricted",
+        "Store value encrypted in session state": false,
+        "Restricted Characters": "All characters can be saved."
+    },
+    "Configuration": {
+        "Build Option": "Strategic Customer Program (16917422310656199607)"
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "id": "17829392815056720384",
+    "Identification": {
+        "Name": "Fetch Row from EBA_CUST_TYPE",
+        "Type": "Automatic Row Fetch [Legacy]",
+        "Execution Chain": "None"
+    },
+    "Settings": {
+        "Table Owner": "PARSING SCHEMA",
+        "Table Name": "EBA_CUST_TYPE",
+        "Primary Key Column ": "ID",
+        "Primary Key Item": "P6_ID"
+    },
+    "Execution": {
+        "Sequence": 10,
+        "Point": "After Header",
+        "Run Process": "Once Per Page Visit (default)"
+    },
+    "Error": {
+        "Error Message": "Unable to fetch row."
+    }
+}

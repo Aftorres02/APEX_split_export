@@ -1,0 +1,24 @@
+{
+    "id": "2044149527226901773",
+    "Identification": {
+        "Name": "Go To Geographies"
+    },
+    "Execution": {
+        "Sequence": 10,
+        "Point": "After Processing"
+    },
+    "Behavior": {
+        "Type": "Page or URL (Redirect)",
+        "Target": {
+            "url": "f?p=&APP_ID.:85:&SESSION.::&DEBUG.:RP:P85_CATEGORY:&P1_CATEGORY.&success_msg=#SUCCESS_MSG#",
+            "Page": "85",
+            "Clear Cache": "RP",
+            "Values": {
+                "P85_CATEGORY": "&P1_CATEGORY."
+            }
+        }
+    },
+    "Server-side Condition": {
+        "When Button Pressed": "VIEW_GEO (13571865375286207233)"
+    }
+}

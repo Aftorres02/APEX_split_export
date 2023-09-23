@@ -1,0 +1,965 @@
+{
+  "id":"12"
+ ,"Identification":{
+    "Name":"Administration"
+   ,"Alias":"SETTINGS"
+   ,"Title":"Administration"
+   ,"Page Group":"Administration (14749179244941290086)"
+  }
+ ,"Appearance":{
+    "Page Mode":"Normal"
+   ,"Page Template":"Standard (14888221571271691783)"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"Do not focus cursor"
+   ,"Warn on Unsaved Changes":false
+  }
+ ,"CSS":{
+    "Inline":"body ul.largeLinkList li a { padding-right: 48px; }\n\n.acl-Info {\n  display: block;\n  overflow: hidden;\n}\n.acl-Info-statusBox,\n.acl-Info-usersBox {\n  display: block;\n  float: left;\n  width: 50%;\n}\n.acl-Info-statusBox {\n  text-align: center;\n}\n.acl-Info-heading {\n  display: block;\n  font-size: 16px;\n  margin: 16px 16px 8px 16px;\n  font-weight: bold;\n  color: #404040;\n}\n.acl-Info-heading span {\n  color: #707070;\n  font-weight: normal;\n}\n.acl-Info-status {\n  display: block;\n  width: 50%;\n  margin: 0 auto 8px auto;\n  padding: 12px 0;\n  border: 1px solid #D0D0D0;\n  border-radius: 2px;\n  font-size: 20px;\n  line-height: 20px;\n  color: #404040;\n  font-weight: bold;\n  background-color: #F0F0F0;\n}\n.authScheme .acl-Info-status {\n  font-size: 16px;\n  width: 70%\n}\n.acl-Info-status.is-enabled {\n  background-color: #40C230;\n  border-color: #37A62A;\n  color: #FFF;\n  text-shadow: 0 -1px 0 rgba(0,0,0,.25);\n}\n.acl-Info-status.is-disabled {\n  background-color: #DE3038;\n  border-color: #A0242A;\n  color: #FFF;\n  text-shadow: 0 -1px 0 rgba(0,0,0,.25);\n}\n.acl-Info-changeStatusLink {\n  display: inline-block;\n  padding: 8px 0;\n  color: #404040;\n  text-decoration: none;\n  font-size: 11px;\n  background-color: #F0F0F0;\n  border: 1px solid #D0D0D0;\n  margin: 0 16px 16px 16px;\n  border-radius: 2px;\n  width: 50%;\n}\n.acl-Info-changeStatusLink:hover {\n  background-color: #fff;\n  border-color: #C0C0C0;\n  box-shadow: 0 1px 1px rgba(0,0,0,.15);\n}\n.acl-Info-changeStatusLink:active {\n  background-color: #E0E0E0;\n  border-color: #C0C0C0;\n  box-shadow: 0 1px 1px rgba(0,0,0,.25) inset;\n}\n.acl-Info-users {\n  margin: 0;\n  list-style: none;\n  padding: 0;\n  margin: 0;\n  border-left: 1px solid #F0F0F0;\n}\n.acl-Info-user {\n  border-top: 1px solid #F0F0F0;\n}\n.acl-Info-userLink {\n  text-decoration: none;\n  display: block;\n  padding: 8px;\n}\n.acl-Info-userLink:hover {\n  background-color: #689AD8;\n}\n.acl-Info-user:first-child {\n  border-top: none;\n}\n.acl-Info-userType,\n.acl-Info-userCount {\n  display: block;\n  font-size: 14px;\n}\n.acl-Info-userType {\n  font-weight: bold;\n  float: left;\n  margin-right: 8px;\n  line-height: 32px;\n}\n.acl-Info-userLink:hover .acl-Info-userType {\n  color: #FFF;\n}\n.acl-Info-userCount {\n  display: block;\n  overflow: hidden;\n  text-align: right;\n}\n.acl-Info-userCount span {\n  display: inline-block;\n  padding: 8px;\n  background-color: #F8F8F8;\n  color: #404040;\n  line-height: 16px;\n  min-width: 36px;\n  text-decoration: none;\n  text-align: right;\n  border-radius: 2px;\n}\n.acl-Info-desc {\n    padding: 16px;\n    border-top: 1px solid #E0E0E0;\n    border-bottom: 1px solid #E0E0E0;\n    background: #F8F8F8;\n    font-size: 14px;\n    clear: both;\n}\n.acl-Info-desc\u003Ep:last-child {\n  margin-bottom: 0;\n}"
+  }
+ ,"Security":{
+    "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+   ,"Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"On"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Always"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Help":{
+    "Help Text":"\u003Cp\u003EThis page allows users with application administrator privileges to perform the following actions:\n    \u003Cul\u003E\n        \u003Cli\u003EEnable or disable access control\u003C\/li\u003E\n        \u003Cli\u003EAdd, edit, and\/or remove users\u003C\/li\u003E\n        \u003Cli\u003EChange the application\u0027s username format (email address or non-email address)\u003C\/li\u003E\n        \u003Cli\u003EMonitor application errors\u003C\/li\u003E\n        \u003Cli\u003EManage the application\u0027s appearance\u003C\/li\u003E\n        \u003Cli\u003EAdd, edit, and\/or remove application notifications\u003C\/li\u003E\n        \u003Cli\u003ERename the application\u003C\/li\u003E\n        \u003Cli\u003EManage all other application settings and preferences\u003C\/li\u003E\n    \u003C\/ul\u003E\n\u003C\/p\u003E"
+  }
+ ,"Regions":[
+    {
+      "id":"367411357557965942"
+     ,"Identification":{
+        "Title":"User Counts"
+       ,"Type":"Classic Report"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select sum(case when access_level_id = 1 then 1 else 0 end) reader_count,\n    sum(case when access_level_id = 2 then 1 else 0 end) contributor_count,\n    sum(case when access_level_id = 3 then 1 else 0 end) admin_count\nfrom eba_cust_users\norder by 1"
+      }
+     ,"Layout":{
+        "Sequence":55
+       ,"Parent Region":"Access Control Settings (14959855424916705066)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--noPadding"
+         ,"t-Region--removeHeader js-removeLandmark"
+         ,"t-Region--stacked"
+         ,"t-Region--scrollBody"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Layout":{
+          "Number of Rows Type":"Static Value"
+         ,"Number of Rows":15
+        }
+       ,"Appearance":{
+          "Template Type":"Theme"
+         ,"Template":"Badge List (14888268738355691853)"
+         ,"Template Options":[
+            "#DEFAULT#"
+           ,"t-BadgeList--large"
+           ,"t-BadgeList--fixed"
+           ,"t-BadgeList--circular"
+          ]
+         ,"Show Null Values as":"-"
+        }
+       ,"Pagination":{
+          "Type":"No Pagination (Show All Rows)"
+         ,"Partial Page Refresh":true
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+        }
+       ,"Break Formatting":{
+          "Break Columns":"No Break"
+        }
+       ,"Advanced":{
+          "Strip HTML":false
+         ,"Sort Nulls":"Last"
+        }
+       ,"Heading":{
+          "Type":"Custom Headings"
+        }
+       ,"Download":{
+          "CSV Export Enabled":false
+        }
+       ,"Printing":{
+          "Enabled":false
+        }
+      }
+     ,"Columns":[
+        {
+          "id":"367411415683965943"
+         ,"Identification":{
+            "Column Name":"READER_COUNT"
+           ,"Type":"Link"
+          }
+         ,"Heading":{
+            "Heading":"Readers"
+           ,"Alignment":"center"
+          }
+         ,"Layout":{
+            "Sequence":1
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Link":{
+            "Target":{
+              "url":"f?p=\u0026APP_ID.:57:\u0026SESSION.::\u0026DEBUG.:RP,57,RIR:IR_ACCESS_LEVEL_ID:Reader"
+             ,"Page":"57"
+             ,"Clear Cache":"RP,57,RIR"
+             ,"Values":{
+                "IR_ACCESS_LEVEL_ID":"Reader"
+              }
+            }
+           ,"Link Text":"#READER_COUNT#"
+          }
+         ,"Sorting":{
+            "Sortable":true
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"367411569928965944"
+         ,"Identification":{
+            "Column Name":"CONTRIBUTOR_COUNT"
+           ,"Type":"Link"
+          }
+         ,"Heading":{
+            "Heading":"Contributors"
+           ,"Alignment":"center"
+          }
+         ,"Layout":{
+            "Sequence":2
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Link":{
+            "Target":{
+              "url":"f?p=\u0026APP_ID.:57:\u0026SESSION.::\u0026DEBUG.:RP,57,RIR:IR_ACCESS_LEVEL_ID:Contributor"
+             ,"Page":"57"
+             ,"Clear Cache":"RP,57,RIR"
+             ,"Values":{
+                "IR_ACCESS_LEVEL_ID":"Contributor"
+              }
+            }
+           ,"Link Text":"#CONTRIBUTOR_COUNT#"
+          }
+         ,"Sorting":{
+            "Sortable":true
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"367411639493965945"
+         ,"Identification":{
+            "Column Name":"ADMIN_COUNT"
+           ,"Type":"Link"
+          }
+         ,"Heading":{
+            "Heading":"Administrators"
+           ,"Alignment":"center"
+          }
+         ,"Layout":{
+            "Sequence":3
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Link":{
+            "Target":{
+              "url":"f?p=\u0026APP_ID.:57:\u0026SESSION.::\u0026DEBUG.:RP,57,RIR:IR_ACCESS_LEVEL_ID:Administrator"
+             ,"Page":"57"
+             ,"Clear Cache":"RP,57,RIR"
+             ,"Values":{
+                "IR_ACCESS_LEVEL_ID":"Administrator"
+              }
+            }
+           ,"Link Text":"#ADMIN_COUNT#"
+          }
+         ,"Sorting":{
+            "Sortable":true
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"367411790292965946"
+     ,"Identification":{
+        "Title":"ACL Info"
+       ,"Type":"PL\/SQL Dynamic Content [Legacy]"
+      }
+     ,"Source":{
+        "PL\/SQL Code":"declare\n    l_acl_enabled varchar2(45);\n    l_acl_scope   varchar2(45);\nbegin\n    l_acl_enabled := eba_cust_fw.get_preference_value(\u0027ACCESS_CONTROL_ENABLED\u0027);\n    l_acl_scope   := eba_cust_fw.get_preference_value(\u0027ACCESS_CONTROL_SCOPE\u0027);\n\n    if l_acl_enabled = \u0027N\u0027 then\n        sys.htp.p(apex_lang.message(\u0027ACL_DISABLED\u0027));\n    else\n        case l_acl_scope\n            when \u0027ACL_ONLY\u0027 then sys.htp.p(apex_lang.message(\u0027ACL_ENABLED\u0027));\n            when \u0027PUBLIC_CONTRIBUTE\u0027 then sys.htp.p(apex_lang.message(\u0027ACL_PUBLIC_CONTRIBUTE\u0027));\n            when \u0027PUBLIC_READONLY\u0027 then sys.htp.p(apex_lang.message(\u0027ACL_PUBLIC_READONLY\u0027));\n        end case;\n    end if;\nend;"
+      }
+     ,"Layout":{
+        "Sequence":45
+       ,"Parent Region":"Access Control Settings (14959855424916705066)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Alert (14888249258257691818)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Alert--colorBG"
+         ,"t-Alert--horizontal"
+         ,"t-Alert--noIcon"
+         ,"t-Alert--warning"
+         ,"t-Alert--accessibleHeading"
+         ,"margin-top-sm"
+         ,"margin-bottom-sm"
+         ,"margin-left-sm"
+         ,"margin-right-sm"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+    }
+   ,{
+      "id":"14679478219286331604"
+     ,"Identification":{
+        "Title":"Confirm Enabling Access Control"
+       ,"Type":"Static Content"
+      }
+     ,"Source":{
+        "HTML Code":"\u003Cp\u003EEnabling Access Control allows access to the application and its features to be controlled by an Access Control List (ACL).  Until access control is enabled all authenticated users are administrators.\u003C\/p\u003E"
+      }
+     ,"Layout":{
+        "Sequence":50
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_04"
+       ,"Start New Layout":false
+       ,"Start New Row":false
+       ,"Column":"Automatic"
+       ,"New Column":false
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Inline Dialog (14888259977059691836)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"js-draggable"
+         ,"js-modal"
+         ,"js-resizable"
+         ,"js-dialog-size600x400"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Static ID":"confirmEnableACL"
+       ,"Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"14755555101330119421"
+     ,"Identification":{
+        "Title":"ACL Status"
+       ,"Type":"ACL Status"
+      }
+     ,"Source":{
+        "SQL Query":"select sum(case when access_level_id = 1 then 1 else 0 end) reader_count,\n    sum(case when access_level_id = 2 then 1 else 0 end) contributor_count,\n    sum(case when access_level_id = 3 then 1 else 0 end) admin_count\nfrom eba_cust_users"
+      }
+     ,"Layout":{
+        "Sequence":35
+       ,"Parent Region":"Access Control Settings (14959855424916705066)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Blank with Attributes (14888250988334691823)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server-side Condition":{
+        "Type":"Never"
+      }
+     ,"Security":{
+        "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Configuration Page":"35"
+         ,"ACL Page":"57"
+         ,"Administrator Count Column":"ADMIN_COUNT"
+         ,"Contributor Count Column":"CONTRIBUTOR_COUNT"
+         ,"Reader Count Column":"READER_COUNT"
+         ,"Scope Preference Value":"eba_cust_fw.get_preference_value(\u0027ACCESS_CONTROL_SCOPE\u0027)"
+         ,"ACL Enabled Preference":"eba_cust_fw.get_preference_value(\u0027ACCESS_CONTROL_ENABLED\u0027)"
+        }
+      }
+    }
+   ,{
+      "id":"14755555215384119422"
+     ,"Identification":{
+        "Title":"Application Authentication and Authorization"
+       ,"Type":"Authorization Administration"
+      }
+     ,"Layout":{
+        "Sequence":40
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":false
+       ,"Column":"Automatic"
+       ,"New Column":false
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--noPadding"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Security":{
+        "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Page Report Page":"26"
+         ,"Public Pages Label":"Public Pages"
+         ,"Authenticated Pages Label":"Login Required Pages"
+         ,"Authorized Pages Label":"Authorization Protected"
+        }
+      }
+    }
+   ,{
+      "id":"14959855424916705066"
+     ,"Identification":{
+        "Title":"Access Control Settings"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":false
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--noPadding"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Security":{
+        "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"15873112884269712057"
+     ,"Identification":{
+        "Title":"Code Tables"
+       ,"Type":"List"
+      }
+     ,"Source":{
+        "List":"Administrative Code Tables (15873106752286710937)"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":false
+       ,"Column":"Automatic"
+       ,"New Column":false
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--noPadding"
+         ,"t-Region--hiddenOverflow"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "List Template":"Media List (14888277784007691872)"
+         ,"Template Options":[
+            "#DEFAULT#"
+           ,"u-colors"
+          ]
+        }
+      }
+    }
+   ,{
+      "id":"16375797736676798202"
+     ,"Identification":{
+        "Title":"Management"
+       ,"Type":"List"
+      }
+     ,"Source":{
+        "List":"Additional Administration (16375437435936769538)"
+      }
+     ,"Layout":{
+        "Sequence":50
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":false
+       ,"Column":"Automatic"
+       ,"New Column":false
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--noPadding"
+         ,"t-Region--hiddenOverflow"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "List Template":"Media List (14888277784007691872)"
+         ,"Template Options":[
+            "#DEFAULT#"
+           ,"u-colors"
+          ]
+        }
+      }
+    }
+   ,{
+      "id":"17830378093049281930"
+     ,"Identification":{
+        "Title":"Breadcrumb"
+       ,"Type":"Breadcrumb"
+      }
+     ,"Source":{
+        "Breadcrumb":"Breadcrumb (17869143586620226407)"
+      }
+     ,"Layout":{
+        "Sequence":80
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_01"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Title Bar (14888267217215691848)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-BreadcrumbRegion--useBreadcrumbTitle"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":true
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "Breadcrumb Template":"Breadcrumb (14888282717314691893)"
+         ,"Template Options":[
+            "#DEFAULT#"
+          ]
+        }
+      }
+    }
+   ,{
+      "id":"17830406889386751901"
+     ,"Identification":{
+        "Title":"Administration"
+       ,"Type":"List"
+      }
+     ,"Source":{
+        "List":"Administration (17830379503578289807)"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--noPadding"
+         ,"t-Region--scrollBody"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "List Template":"Media List (14888277784007691872)"
+         ,"Template Options":[
+            "#DEFAULT#"
+           ,"u-colors"
+          ]
+        }
+      }
+    }
+   ,{
+      "id":"17835945053345822077"
+     ,"Identification":{
+        "Title":"Access Control"
+       ,"Type":"List"
+      }
+     ,"Source":{
+        "List":"Access Control (17835942447805820511)"
+      }
+     ,"Layout":{
+        "Sequence":65
+       ,"Parent Region":"Access Control Settings (14959855424916705066)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Blank with Attributes (14888250988334691823)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Security":{
+        "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "List Template":"Media List (14888277784007691872)"
+         ,"Template Options":[
+            "#DEFAULT#"
+           ,"u-colors"
+          ]
+        }
+      }
+    }
+   ,{
+      "id":"18033474594310656197"
+     ,"Identification":{
+        "Title":"Logging"
+       ,"Type":"List"
+      }
+     ,"Source":{
+        "List":"Administrative Logs (18764654293578482401)"
+      }
+     ,"Layout":{
+        "Sequence":60
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":false
+       ,"Column":"Automatic"
+       ,"New Column":false
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--noPadding"
+         ,"t-Region--hiddenOverflow"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "List Template":"Media List (14888277784007691872)"
+         ,"Template Options":[
+            "#DEFAULT#"
+           ,"u-colors"
+          ]
+        }
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"14679478432099335300"
+     ,"Identification":{
+        "Button Name":"CANCEL"
+       ,"Label":"Cancel"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Confirm Enabling Access Control (14679478219286331604)"
+       ,"Position":"CLOSE"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Redirect to URL"
+       ,"Target":"javascript:closeModal();"
+       ,"Execute Validations":false
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+   ,{
+      "id":"14679478643181338573"
+     ,"Identification":{
+        "Button Name":"ENABLE_ACCESS_CONTROL"
+       ,"Label":"Enable Access Control"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Confirm Enabling Access Control (14679478219286331604)"
+       ,"Position":"CREATE"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Submit Page"
+       ,"Execute Validations":true
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+  ]
+ ,"Computations":[
+    {
+      "id":"17840172839363102831"
+     ,"Identification":{
+        "Item Name":"LAST_VIEW"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"Before Header"
+      }
+     ,"Computation":{
+        "Type":"Static Value"
+       ,"Static Value":"12"
+      }
+    }
+  ]
+ ,"Processes":[
+    {
+      "id":"14984273033384292129"
+     ,"Identification":{
+        "Name":"set counts and tz"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":"declare\n   c integer;\nbegin\n    select count(*) into c from EBA_CUST_CATEGORIES;\n    :CNT_02 := c;\n    select count(*) into c from EBA_CUST_STATUS;\n    :CNT_03 := c;\n    select count(*) into c from EBA_CUST_CONTACT_TYPES;\n    :CNT_04 := c;\n    select count(*) into c from EBA_CUST_PRODUCTS;\n    :CNT_05 := c;\n    select count(*) into c from EBA_CUST_GEOGRAPHIES;\n    :CNT_06 := c;\n    select count(*) into c from apex_application_build_options bo\n    where application_id = :APP_ID; \n    :CNT_07 := c;\n    select count(*) into c from eba_cust_errors;\n    :CNT_08 := c;\n\n    select count(*) into c from EBA_CUST_INDUSTRIES;\n    :CNT_09 := c;\n\n    select count(*) into c from EBA_CUST_TYPE;\n    :CNT_10 := c;\n\n    :TZ := \u0027US\/Pacific\u0027;\n    for c1 in (\n        select timezone_preference \n        from eba_cust_TZ_PREF \n        where userid = :APP_USER\n    )\n    loop\n        :TZ := c1.timezone_preference;\n    end loop;\nend;"
+      }
+     ,"Execution":{
+        "Sequence":20
+       ,"Point":"Before Header"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+    }
+   ,{
+      "id":"16005665418155928200"
+     ,"Identification":{
+        "Name":"ENABLE_ACCESS_CONTROL"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":"-- Set AC flag\neba_cust_fw.set_preference_value(\u0027ACCESS_CONTROL_ENABLED\u0027,\u0027Y\u0027);\n\n-- Seed user table with current user as an administrator or set the current user as administrator\ndeclare\n   l_count number;\nbegin\n    select count(*) \n       into l_count \n       from eba_cust_users\n       where username = :APP_USER;\n    if l_count = 0 then\n        insert into eba_cust_users(username, access_level_id) values (:APP_USER, 3);   \n    else\n        update eba_cust_users\n            set access_level_id = 3\n            where username = :APP_USER;\n    end if;\nend;"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Success Message":{
+        "Success Message":"Access Control enabled and the current user \u0027\u0026APP_USER.\u0027 has been set to be an Administrator. "
+      }
+     ,"Error":{
+        "Error Message":"Error"
+       ,"Display Location":"Inline in Notification"
+      }
+     ,"Server-side Condition":{
+        "Type":"Request = Value"
+       ,"Value":"ENABLE_ACCESS_CONTROL"
+      }
+    }
+  ]
+}

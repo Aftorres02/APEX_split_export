@@ -1,0 +1,1949 @@
+{
+  "id":"127"
+ ,"Identification":{
+    "Name":"Data Validation"
+   ,"Alias":"DATA-VALIDATION2"
+   ,"Title":"Data Validation"
+   ,"Page Group":"Administration (14749179244941290086)"
+  }
+ ,"Appearance":{
+    "Page Mode":"Normal"
+   ,"Page Template":"Theme Default"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"Do not focus cursor"
+   ,"Warn on Unsaved Changes":false
+  }
+ ,"CSS":{
+    "Inline":"body section.load-warning {\n    margin: 0 auto;\n    border: 1px solid #FAD59E;\n    border-radius: 3px;\n    box-shadow: none;\n    background: #FFFBE4;\n}"
+  }
+ ,"Security":{
+    "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+   ,"Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"On"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Always"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Help":{
+    "Help Text":"\u003Cp\u003EThis report shows how the uploaded data is to be processed.  Specifically what data will be inserted, updated and what data will not be loaded.  Data updates are based on exact customer name matches. Any rows with status codes that do not match existing status codes or category codes will fail to load.  The action column identifies how the row will be processed.\u003C\/p\u003E"
+  }
+ ,"Regions":[
+    {
+      "id":"18164053786920700382"
+     ,"Identification":{
+        "Title":"Breadcrumb"
+       ,"Type":"Breadcrumb"
+      }
+     ,"Source":{
+        "Breadcrumb":"Breadcrumb (17869143586620226407)"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_01"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Title Bar (14888267217215691848)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-BreadcrumbRegion--useBreadcrumbTitle"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "Breadcrumb Template":"Breadcrumb (14888282717314691893)"
+         ,"Template Options":[
+            "#DEFAULT#"
+          ]
+        }
+      }
+    }
+   ,{
+      "id":"18164054469512700383"
+     ,"Identification":{
+        "Title":"Data Load Process Train"
+       ,"Type":"List"
+      }
+     ,"Source":{
+        "List":"Data Load Process Train - Customers (18164014268707697567)"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Wizard Container (14888267911512691851)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Wizard--hideStepsXSmall"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":true
+       ,"Exclude Title from Translation":true
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "List Template":"Wizard Progress (14888280721200691884)"
+        }
+      }
+    }
+   ,{
+      "id":"18164054722162700383"
+     ,"Identification":{
+        "Title":"Data Validation"
+       ,"Type":"Classic Report"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select n001 as row_num,\n       c049 as action,\n       c001, c002, c003,\n       c004, c005, c006,\n       c007, c008, c009,\n       c010, c011, c012,\n       c013, c014, c015,\n       c016, c017, c018,\n       c019, c020, c021,\n       c022, c023, c024,\n       c025, c026, c027,\n       c028, c029, c030,\n       c031, c032, c033,\n       c034, c035, c036,\n       c037, c038, c040,\n       c041, c042, c043,\n       c044, c045\n  from apex_collections\n where collection_name = \u0027LOAD_CONTENT\u0027\n   and c049 in (\u0027INSERT\u0027,\u0027UPDATE\u0027, \u0027FAILED\u0027)\n order by seq_id"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"Data Load Process Train (18164054469512700383)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"None"
+       ,"Render Components":"Above Content"
+      }
+     ,"Advanced":{
+        "Custom Attributes":[
+          "style=\"width:100%;max-width:none;\""
+         ,null
+        ]
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Layout":{
+          "Number of Rows Type":"Static Value"
+         ,"Number of Rows":15
+        }
+       ,"Appearance":{
+          "Template Type":"Predefined"
+         ,"Template":"HTML (standard)"
+        }
+       ,"Pagination":{
+          "Type":"Row Ranges 1-15 16-30 in select list (with pagination)"
+         ,"Display Position":"Bottom - Right"
+         ,"Partial Page Refresh":false
+        }
+       ,"Performance":{
+          "Maximum Rows to Process":500
+        }
+       ,"Messages":{
+          "When No Data Found":"no data found"
+        }
+       ,"Break Formatting":{
+          "Break Columns":"No Break"
+        }
+       ,"Advanced":{
+          "Strip HTML":true
+         ,"Sort Nulls":"Last"
+        }
+       ,"Heading":{
+          "Type":"PL\/SQL Function Body"
+         ,"PL\/SQL Function Body":"declare  \n    l_string varchar(32667);\nbegin\n    l_string := wwv_flow_lang.system_message(\u0027DATA_LOAD.SEQUENCE_ACTION\u0027);\n    for l_heading in ( select c005 as label\n                         from apex_collections\n                        where collection_name = \u0027LOAD_COL_HEAD\u0027\n                        order by seq_id )\n    loop\n        l_string := l_string || \u0027:\u0027 || apex_escape.html(l_heading.label);\n    end loop;\n    return l_string;\nend;"
+        }
+       ,"Download":{
+          "CSV Export Enabled":false
+        }
+       ,"Printing":{
+          "Enabled":false
+        }
+      }
+     ,"Columns":[
+        {
+          "id":"18164055463609700388"
+         ,"Identification":{
+            "Column Name":"ROW_NUM"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"ROW_NUM"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":1
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164055809711700390"
+         ,"Identification":{
+            "Column Name":"ACTION"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"ACTION"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":2
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164056255686700390"
+         ,"Identification":{
+            "Column Name":"C001"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C001"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":3
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164056678086700390"
+         ,"Identification":{
+            "Column Name":"C002"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C002"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":4
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164057101482700391"
+         ,"Identification":{
+            "Column Name":"C003"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C003"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":5
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164057408652700391"
+         ,"Identification":{
+            "Column Name":"C004"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C004"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":6
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164057853352700391"
+         ,"Identification":{
+            "Column Name":"C005"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C005"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":7
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164058223443700392"
+         ,"Identification":{
+            "Column Name":"C006"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C006"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":8
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164058659554700394"
+         ,"Identification":{
+            "Column Name":"C007"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C007"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":9
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164059036623700394"
+         ,"Identification":{
+            "Column Name":"C008"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C008"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":10
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164059483756700394"
+         ,"Identification":{
+            "Column Name":"C009"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C009"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":11
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164059837283700395"
+         ,"Identification":{
+            "Column Name":"C010"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C010"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":12
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164060219122700395"
+         ,"Identification":{
+            "Column Name":"C011"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C011"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":13
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164060677450700395"
+         ,"Identification":{
+            "Column Name":"C012"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C012"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":14
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164061089840700396"
+         ,"Identification":{
+            "Column Name":"C013"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C013"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":15
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164061489102700396"
+         ,"Identification":{
+            "Column Name":"C014"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C014"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":16
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164061872280700396"
+         ,"Identification":{
+            "Column Name":"C015"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C015"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":17
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164062255653700397"
+         ,"Identification":{
+            "Column Name":"C016"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C016"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":18
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164062680243700397"
+         ,"Identification":{
+            "Column Name":"C017"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C017"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":19
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164063052665700397"
+         ,"Identification":{
+            "Column Name":"C018"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C018"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":20
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164063505056700397"
+         ,"Identification":{
+            "Column Name":"C019"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C019"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":21
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164063904847700398"
+         ,"Identification":{
+            "Column Name":"C020"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C020"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":22
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164064285977700398"
+         ,"Identification":{
+            "Column Name":"C021"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C021"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":23
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164064654243700398"
+         ,"Identification":{
+            "Column Name":"C022"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C022"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":24
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164065025716700399"
+         ,"Identification":{
+            "Column Name":"C023"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C023"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":25
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164065419030700399"
+         ,"Identification":{
+            "Column Name":"C024"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C024"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":26
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164065866852700399"
+         ,"Identification":{
+            "Column Name":"C025"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C025"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":27
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164066261105700402"
+         ,"Identification":{
+            "Column Name":"C026"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C026"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":28
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164066668814700406"
+         ,"Identification":{
+            "Column Name":"C027"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C027"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":29
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164067068644700407"
+         ,"Identification":{
+            "Column Name":"C028"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C028"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":30
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164067454740700407"
+         ,"Identification":{
+            "Column Name":"C029"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C029"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":31
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164067820844700408"
+         ,"Identification":{
+            "Column Name":"C030"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C030"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":32
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164068250234700408"
+         ,"Identification":{
+            "Column Name":"C031"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C031"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":33
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164068646583700408"
+         ,"Identification":{
+            "Column Name":"C032"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C032"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":34
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164069049704700409"
+         ,"Identification":{
+            "Column Name":"C033"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C033"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":35
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164069479188700409"
+         ,"Identification":{
+            "Column Name":"C034"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C034"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":36
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164069823667700409"
+         ,"Identification":{
+            "Column Name":"C035"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C035"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":37
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164070255002700416"
+         ,"Identification":{
+            "Column Name":"C036"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C036"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":38
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164070645441700416"
+         ,"Identification":{
+            "Column Name":"C037"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C037"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":39
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164071083754700417"
+         ,"Identification":{
+            "Column Name":"C038"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C038"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":40
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164071415402700417"
+         ,"Identification":{
+            "Column Name":"C040"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C040"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":41
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164071877619700417"
+         ,"Identification":{
+            "Column Name":"C041"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C041"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":42
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164072307842700418"
+         ,"Identification":{
+            "Column Name":"C042"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C042"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":43
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164072608797700418"
+         ,"Identification":{
+            "Column Name":"C043"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C043"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":44
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164073030860700418"
+         ,"Identification":{
+            "Column Name":"C044"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C044"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":45
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164073484149700418"
+         ,"Identification":{
+            "Column Name":"C045"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"C045"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":46
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"18164691000190806526"
+     ,"Identification":{
+        "Title":"Error"
+       ,"Type":"Static Content"
+      }
+     ,"Source":{
+        "HTML Code":"\u003Csection class=\"uRegion uWhiteRegion uMessageRegion load-warning clearfix\" id=\"load-warning\" style=\"position: static\"\u003E\n  \u003Cdiv class=\"uRegionContent clearfix\"\u003E\n    \u003Cimg src=\"#IMAGE_PREFIX#f_spacer.gif\" class=\"uWarningIcon\" alt=\"\" \/\u003E\n    \u003Cdiv class=\"uMessageText\"\u003E\n      No data was provided that can be successfully loaded or updated.\n    \u003C\/div\u003E\n  \u003C\/div\u003E\n\u003C\/section\u003E"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"Data Load Process Train (18164054469512700383)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Blank with Attributes (14888250988334691823)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"CSS Classes":[
+          "infoTextRegion"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server-side Condition":{
+        "Type":"No Rows returned"
+       ,"SQL Query":"select 1 x \nfrom apex_collections\n where collection_name = \u0027LOAD_CONTENT\u0027\n   and c049 in (\u0027INSERT\u0027,\u0027UPDATE\u0027)"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"18164073854903700419"
+     ,"Identification":{
+        "Button Name":"CANCEL"
+       ,"Label":"Cancel"
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Region":"Data Load Process Train (18164054469512700383)"
+       ,"Position":"CLOSE"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--large"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:12:\u0026SESSION.::\u0026DEBUG."
+         ,"Page":"12"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+   ,{
+      "id":"18164074330746700419"
+     ,"Identification":{
+        "Button Name":"PREVIOUS"
+       ,"Label":"Previous"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Data Load Process Train (18164054469512700383)"
+       ,"Position":"PREVIOUS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Icon (14888281684153691889)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--large"
+        ]
+       ,"Icon":"fa-chevron-left"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:126:\u0026SESSION.::\u0026DEBUG."
+         ,"Page":"126"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+   ,{
+      "id":"18164074647758700419"
+     ,"Identification":{
+        "Button Name":"NEXT"
+       ,"Label":"Load Data"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Data Load Process Train (18164054469512700383)"
+       ,"Position":"NEXT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text with Icon (14888281958145691891)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--large"
+         ,"t-Button--iconRight"
+        ]
+       ,"Icon":"fa-chevron-right"
+      }
+     ,"Behavior":{
+        "Action":"Submit Page"
+       ,"Execute Validations":true
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+  ]
+ ,"Processes":[
+    {
+      "id":"18164075121822700420"
+     ,"Identification":{
+        "Name":"Prepare Uploaded Data"
+       ,"Type":"Load Uploaded Data [Legacy]"
+       ,"Execution Chain":"None"
+      }
+     ,"Settings":{
+        "Data Load Definition":"Customers (18164010502528697558)"
+       ,"Insert Count Item":"P128_INSERT_COUNT"
+       ,"Update Count Item":"P128_UPDATE_COUNT"
+       ,"Error Count Item":"P128_ERROR_COUNT"
+       ,"Review Count Item":"P128_REVIEW_COUNT"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Error Message":"Data Loading Failed"
+       ,"Display Location":"Inline in Notification"
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"NEXT (18164074647758700419)"
+      }
+    }
+  ]
+ ,"Branches":[
+    {
+      "id":"18164075565758700420"
+     ,"Identification":{
+        "Name":"Go To Page 128"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"After Processing"
+      }
+     ,"Behavior":{
+        "Type":"Page or URL (Redirect)"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:128:\u0026SESSION.\u0026success_msg=#SUCCESS_MSG#"
+         ,"Page":"128"
+        }
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"NEXT (18164074647758700419)"
+      }
+    }
+  ]
+}

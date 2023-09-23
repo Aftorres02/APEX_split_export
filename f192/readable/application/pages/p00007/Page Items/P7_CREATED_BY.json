@@ -1,0 +1,55 @@
+{
+    "id": "16663125827494525642",
+    "Identification": {
+        "Name": "P7_CREATED_BY",
+        "Type": "Display Only"
+    },
+    "Label": {
+        "Label": "<b>Created By:</b>",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Format": "Plain Text",
+        "Based On": "Item Value",
+        "Show Line Breaks": false,
+        "Send On Page Submit": false
+    },
+    "Layout": {
+        "Sequence": 80,
+        "Region": "Audit Information (16663125125422525642)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Optional (14888281543517691887)",
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Database Column",
+        "Database Column": "CREATED_BY",
+        "Used": "Always, replacing any existing value in session state"
+    },
+    "Session State": {
+        "Data Type": "VARCHAR2",
+        "Storage": "Per Session (Persistent)"
+    },
+    "Security": {
+        "Session State Protection": "Checksum Required - Session Level",
+        "Store value encrypted in session state": true,
+        "Restricted Characters": "All characters can be saved."
+    },
+    "Help": {
+        "Help Text": "The User who created this Category."
+    }
+}

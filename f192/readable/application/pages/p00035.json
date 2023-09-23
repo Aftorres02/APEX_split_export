@@ -1,0 +1,704 @@
+{
+  "id":"35"
+ ,"Identification":{
+    "Name":"Access Control Configuration"
+   ,"Alias":"ACCESS-CONTROL-CONFIGURATION"
+   ,"Title":"Access Control Configuration"
+   ,"Page Group":"ACL (14749179346326290465)"
+  }
+ ,"Appearance":{
+    "Page Mode":"Normal"
+   ,"Page Template":"Standard (14888221571271691783)"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"Do not focus cursor"
+   ,"Warn on Unsaved Changes":false
+  }
+ ,"Security":{
+    "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+   ,"Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"Off"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Always"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Help":{
+    "Help Text":"\u003Cp\u003E\u003Cstrong\u003EEnabling Access Control\u003C\/strong\u003E allows the application and its features to be controlled by the \u003Cstrong\u003EAccess Control List\u003C\/strong\u003E, as defined by the application administrator. This application has 3 access levels available that can be granted to a user; Administrator, Contributor and Reader. Please see the Manage Access Control List page for further details on what each level provides.\u003C\/p\u003E\n\n\u003Cp\u003EIn addition, if you want to make every authenticated user a \u0027Reader\u0027 of your application, you can select Reader access for any authenticated user from the Access Control Scope configuration option. Similarly, selecting Contributor access for any authenticated user will provide contributor access to any user who can authenticate into your application.\u003C\/p\u003E\n\n\u003Cbr\u003E\n\u003Cp\u003E\u003Cb\u003EDisabling Access Control\u003C\/b\u003E means that access to the application and all of its features including Administration are open to any user who can authenticate to the application.\u003C\/p\u003E\n\u003Cbr\u003E\n\u003Cp\u003ENote: Irrespective of whether Access Control is enabled or disabled, a user still has to authenticate successfully into the application.\u003C\/p\u003E"
+  }
+ ,"Regions":[
+    {
+      "id":"15994940534225044348"
+     ,"Identification":{
+        "Title":"Access Control Configuration"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--scrollBody"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"15994941734316044354"
+     ,"Identification":{
+        "Title":"About Access Control"
+       ,"Type":"PL\/SQL Dynamic Content [Legacy]"
+      }
+     ,"Source":{
+        "PL\/SQL Code":"htp.prn(replace(\n    apex_lang.message(\u0027ACL_CONFIGURATION_INFO\u0027),\n    \u0027#IMAGE_PREFIX\u0027||\u0027#\u0027,\n    :image_prefix));"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Blank with Attributes (14888250988334691823)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Static ID":"AC_ENABLED"
+       ,"Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+    }
+   ,{
+      "id":"15994941942591044355"
+     ,"Identification":{
+        "Title":"Access Control Configuration"
+       ,"Type":"Breadcrumb"
+      }
+     ,"Source":{
+        "Breadcrumb":"Breadcrumb (17869143586620226407)"
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_01"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Title Bar (14888267217215691848)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-BreadcrumbRegion--useBreadcrumbTitle"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "Breadcrumb Template":"Breadcrumb (14888282717314691893)"
+         ,"Template Options":[
+            "#DEFAULT#"
+          ]
+        }
+      }
+    }
+  ]
+ ,"Page Items":[
+    {
+      "id":"15994941133525044349"
+     ,"Identification":{
+        "Name":"P35_HIDDEN_AC_ENABLED"
+       ,"Type":"Hidden"
+      }
+     ,"Settings":{
+        "Value Protected":true
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Region":"Access Control Configuration (15994940534225044348)"
+       ,"Position":"BODY"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Function Body"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Function Body":"return eba_cust_fw.get_preference_value(\u0027ACCESS_CONTROL_ENABLED\u0027);"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"15994941519298044353"
+     ,"Identification":{
+        "Name":"P35_AC_ENABLED"
+       ,"Type":"Checkbox"
+      }
+     ,"Label":{
+        "Label":"Enable Access Control"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Use Defaults":true
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Access Control Configuration (15994940534225044348)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Validation":{
+        "Value Required":true
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Function Body"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Function Body":"return eba_cust_fw.get_preference_value(\u0027ACCESS_CONTROL_ENABLED\u0027);"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"16614854527328954830"
+     ,"Identification":{
+        "Name":"P35_ACCESS_CONTROL_SCOPE"
+       ,"Type":"Radio Group"
+      }
+     ,"Label":{
+        "Label":"Access Control Scope"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Number of Columns":1
+       ,"Page Action on Selection":"None"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Access Control Configuration (15994940534225044348)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"ACCESS CONTROL SCOPE (16614853248884942104)"
+       ,"Display Extra Values":true
+       ,"Display Null Value":false
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"eba_cust_fw.get_preference_value(\u0027ACCESS_CONTROL_SCOPE\u0027);"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Escape special characters":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"15994940746306044348"
+     ,"Identification":{
+        "Button Name":"APPLY_CHANGES"
+       ,"Label":"Apply Changes"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Access Control Configuration (15994941942591044355)"
+       ,"Position":"CREATE"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Defined by Dynamic Action"
+       ,"Execute Validations":true
+      }
+    }
+   ,{
+      "id":"15994940941297044348"
+     ,"Identification":{
+        "Button Name":"CANCEL"
+       ,"Label":"Cancel"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Access Control Configuration (15994941942591044355)"
+       ,"Position":"CREATE"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:12:\u0026SESSION.::\u0026DEBUG.:::"
+         ,"Page":"12"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+  ]
+ ,"Dynamic Actions":[
+    {
+      "id":"15994943021072044360"
+     ,"Identification":{
+        "Name":"APPLY CHANGES WHEN AC UNCHANGED"
+      }
+     ,"Execution":{
+        "Sequence":40
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CLICK"
+       ,"Selection Type":"Button"
+       ,"Button":"APPLY_CHANGES (15994940746306044348)"
+      }
+     ,"Client-side Condition":{
+        "Type":"JavaScript expression"
+       ,"JavaScript Expression":"($v(\u0027P35_HIDDEN_AC_ENABLED\u0027) === $v(\u0027P35_AC_ENABLED\u0027))\n"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"15994943327986044360"
+         ,"Identification":{
+            "Action":"Submit Page"
+          }
+         ,"Settings":{
+            "Request \/ Button Name":"APPLY_CHANGES_AC_UNCHANGED"
+           ,"Show Processing":false
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"APPLY CHANGES WHEN AC UNCHANGED (15994943021072044360)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"15994943423272044361"
+     ,"Identification":{
+        "Name":"APPLY CHANGES WHEN AC ENABLED"
+      }
+     ,"Execution":{
+        "Sequence":20
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CLICK"
+       ,"Selection Type":"Button"
+       ,"Button":"APPLY_CHANGES (15994940746306044348)"
+      }
+     ,"Client-side Condition":{
+        "Type":"JavaScript expression"
+       ,"JavaScript Expression":"($v(\u0027P35_HIDDEN_AC_ENABLED\u0027) !== $v(\u0027P35_AC_ENABLED\u0027) \u0026\u0026\n $v(\u0027P35_AC_ENABLED\u0027) === \u0027Y\u0027)\n"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"15994943745638044361"
+         ,"Identification":{
+            "Action":"Submit Page"
+          }
+         ,"Settings":{
+            "Request \/ Button Name":"APPLY_CHANGES_AC_ENABLED"
+           ,"Show Processing":false
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"APPLY CHANGES WHEN AC ENABLED (15994943423272044361)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"15994943832630044361"
+     ,"Identification":{
+        "Name":"APPLY CHANGES WHEN AC DISABLED"
+      }
+     ,"Execution":{
+        "Sequence":30
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CLICK"
+       ,"Selection Type":"Button"
+       ,"Button":"APPLY_CHANGES (15994940746306044348)"
+      }
+     ,"Client-side Condition":{
+        "Type":"JavaScript expression"
+       ,"JavaScript Expression":"($v(\u0027P35_HIDDEN_AC_ENABLED\u0027) !== $v(\u0027P35_AC_ENABLED\u0027) \u0026\u0026\n $v(\u0027P35_AC_ENABLED\u0027) === \u0027N\u0027)\n"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"15994944133881044361"
+         ,"Identification":{
+            "Action":"Confirm"
+          }
+         ,"Settings":{
+            "Message":"Disabling Access Control means that all application features are available to any user who can authenticate. Are you sure you want to disable Access Control?"
+           ,"Style":"Default"
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"APPLY CHANGES WHEN AC DISABLED (15994943832630044361)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"15994944338677044361"
+         ,"Identification":{
+            "Action":"Submit Page"
+          }
+         ,"Settings":{
+            "Request \/ Button Name":"APPLY_CHANGES_AC_DISABLED"
+           ,"Show Processing":false
+          }
+         ,"Execution":{
+            "Sequence":20
+           ,"Event":"APPLY CHANGES WHEN AC DISABLED (15994943832630044361)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"15994944419723044361"
+     ,"Identification":{
+        "Name":"ENABLE ACCESS CONTROL CHANGED"
+      }
+     ,"Execution":{
+        "Sequence":10
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CHANGE"
+       ,"Selection Type":"Item(s)"
+       ,"Item(s)":[
+          "P35_AC_ENABLED"
+        ]
+      }
+     ,"Client-side Condition":{
+        "Type":"Item = Value"
+       ,"Item":"P35_AC_ENABLED"
+       ,"Value":"Y"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"15994944749158044361"
+         ,"Identification":{
+            "Action":"Hide"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P35_ACCESS_CONTROL_SCOPE"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"ENABLE ACCESS CONTROL CHANGED (15994944419723044361)"
+           ,"Fire When Event Result Is":"False"
+           ,"Fire on Initialization":true
+          }
+        }
+       ,{
+          "id":"15994944946230044362"
+         ,"Identification":{
+            "Action":"Show"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P35_ACCESS_CONTROL_SCOPE"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"ENABLE ACCESS CONTROL CHANGED (15994944419723044361)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":true
+          }
+        }
+      ]
+    }
+  ]
+ ,"Processes":[
+    {
+      "id":"15994942449111044359"
+     ,"Identification":{
+        "Name":"ACCESS CONTROL ENABLED"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":"begin\n    eba_cust_fw.set_preference_value (\n        p_preference_name  =\u003E \u0027ACCESS_CONTROL_ENABLED\u0027,\n        p_preference_value =\u003E :P35_AC_ENABLED);\n    eba_cust_fw.set_preference_value (\n        p_preference_name  =\u003E \u0027ACCESS_CONTROL_SCOPE\u0027,\n        p_preference_value =\u003E (case \n                                   when :P35_AC_ENABLED = \u0027Y\u0027 then :P35_ACCESS_CONTROL_SCOPE\n                                   else \u0027ACL_ONLY\u0027 \n                               end) );\n\n    -- Seed user table with current user as an administrator or set the current user as administrator\n    declare\n       l_count number;\n    begin\n        select count(*) \n            into l_count \n        from eba_cust_users\n        where username = :APP_USER;\n        if l_count = 0 then\n            insert into eba_cust_users(username, access_level_id) values (:APP_USER, 3);   \n        else\n            update eba_cust_users\n            set access_level_id = 3\n            where username = :APP_USER;\n        end if;\n    end;\nend;"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Success Message":{
+        "Success Message":"Access Control enabled. Access to the application and its features are defined by an administrator in the \u003Ca href=\"f?p=\u0026APP_ID.:MANAGE_ACL:\u0026APP_SESSION.:::RP::\"\u003EAccess Control List\u003C\/a\u003E."
+      }
+     ,"Error":{
+        "Error Message":"Error trying to enable Access Control."
+       ,"Display Location":"Inline in Notification"
+      }
+     ,"Server-side Condition":{
+        "Type":"Request = Value"
+       ,"Value":"APPLY_CHANGES_AC_ENABLED"
+      }
+    }
+   ,{
+      "id":"15994942627494044360"
+     ,"Identification":{
+        "Name":"ACCESS CONTROL DISABLED"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":"begin\n    eba_cust_fw.set_preference_value (\n        p_preference_name  =\u003E \u0027ACCESS_CONTROL_ENABLED\u0027,\n        p_preference_value =\u003E :P35_AC_ENABLED);\n    eba_cust_fw.set_preference_value (\n        p_preference_name  =\u003E \u0027ACCESS_CONTROL_SCOPE\u0027,\n        p_preference_value =\u003E (case \n                                   when :P35_AC_ENABLED = \u0027Y\u0027 then :P35_ACCESS_CONTROL_SCOPE\n                                   else \u0027ACL_ONLY\u0027 \n                               end) );\nend;"
+      }
+     ,"Execution":{
+        "Sequence":20
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Success Message":{
+        "Success Message":"Access Control disabled. All application features are now available to any user who can authenticate."
+      }
+     ,"Error":{
+        "Error Message":"Error trying to disable Access Control."
+       ,"Display Location":"Inline in Notification"
+      }
+     ,"Server-side Condition":{
+        "Type":"Request = Value"
+       ,"Value":"APPLY_CHANGES_AC_DISABLED"
+      }
+    }
+   ,{
+      "id":"15994942837380044360"
+     ,"Identification":{
+        "Name":"ACCESS CONTROL UNCHANGED"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":"begin\n    eba_cust_fw.set_preference_value (\n        p_preference_name  =\u003E \u0027ACCESS_CONTROL_ENABLED\u0027,\n        p_preference_value =\u003E :P35_AC_ENABLED);\n    eba_cust_fw.set_preference_value (\n        p_preference_name  =\u003E \u0027ACCESS_CONTROL_SCOPE\u0027,\n        p_preference_value =\u003E (case \n                                   when :P35_AC_ENABLED = \u0027Y\u0027 then :P35_ACCESS_CONTROL_SCOPE\n                                   else \u0027ACL_ONLY\u0027 \n                               end) );\nend;"
+      }
+     ,"Execution":{
+        "Sequence":30
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Success Message":{
+        "Success Message":"Access Control Configuration saved."
+      }
+     ,"Error":{
+        "Error Message":"Error trying to save Access Control Configuration."
+       ,"Display Location":"Inline in Notification"
+      }
+     ,"Server-side Condition":{
+        "Type":"Request = Value"
+       ,"Value":"APPLY_CHANGES_AC_UNCHANGED"
+      }
+    }
+  ]
+ ,"Branches":[
+    {
+      "id":"15994945141990044362"
+     ,"Identification":{
+        "Name":"Go To Page 12"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"After Processing"
+      }
+     ,"Behavior":{
+        "Type":"Page or URL (Redirect)"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:12:\u0026SESSION.::\u0026DEBUG.:::\u0026success_msg=#SUCCESS_MSG#"
+         ,"Page":"12"
+        }
+      }
+     ,"Comments":{
+        "Comments":"Created 18-NOV-2011 11:02 by ANTHONY"
+      }
+    }
+  ]
+}

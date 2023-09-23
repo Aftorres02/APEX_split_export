@@ -1,0 +1,418 @@
+{
+  "id":"101"
+ ,"Identification":{
+    "Name":"Login"
+   ,"Alias":"LOGIN"
+   ,"Title":"Sign In | \u0026APPLICATION_TITLE."
+   ,"Page Group":"Login (14749179617367291574)"
+  }
+ ,"Appearance":{
+    "Page Mode":"Normal"
+   ,"Page Template":"Login (14888230737466691795)"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"Do not focus cursor"
+   ,"Warn on Unsaved Changes":false
+  }
+ ,"Security":{
+    "Authentication":"Page Is Public"
+  }
+ ,"Advanced":{
+    "Enable Meta Tags":false
+  }
+ ,"Security":{
+    "Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"Off"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Always"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Regions":[
+    {
+      "id":"17829319219968139993"
+     ,"Identification":{
+        "Title":"\u0026P101_APP_NAME."
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Login (14888264529685691845)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Image":{
+        "File URL":"#APP_FILES#icons\/app-icon-192.png"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Static ID":"customer_tracker"
+       ,"Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+  ]
+ ,"Page Items":[
+    {
+      "id":"14766344746467882066"
+     ,"Identification":{
+        "Name":"P101_APP_NAME"
+       ,"Type":"Hidden"
+      }
+     ,"Settings":{
+        "Value Protected":true
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Region":"\u0026P101_APP_NAME. (17829319219968139993)"
+       ,"Position":"BODY"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"nvl(:APPLICATION_TITLE, :APP_NAME)"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"17829319314617140020"
+     ,"Identification":{
+        "Name":"P101_USERNAME"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"Username"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Subtype":"Text"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"\u0026P101_APP_NAME. (17829319219968139993)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Hidden (14888281412990691885)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Icon":"fa-user"
+       ,"Width":64
+       ,"Value Placeholder":"username"
+      }
+     ,"Validation":{
+        "Value Required":true
+       ,"Maximum Length":100
+      }
+     ,"Advanced":{
+        "Post Text ":"\u003Cspan class=\"t-Login-iconValidation a-Icon icon-check\"\u003E\u003C\/span\u003E"
+       ,"Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":true
+       ,"Restricted Characters":"Blocklist HTML command characters (\u003C\u003E\")"
+      }
+    }
+   ,{
+      "id":"17829319427546140028"
+     ,"Identification":{
+        "Name":"P101_PASSWORD"
+       ,"Type":"Password"
+      }
+     ,"Label":{
+        "Label":"Password"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Submit when Enter pressed":true
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"\u0026P101_APP_NAME. (17829319219968139993)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Hidden (14888281412990691885)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Icon":"fa-key"
+       ,"Width":64
+       ,"Value Placeholder":"password"
+      }
+     ,"Validation":{
+        "Value Required":true
+       ,"Maximum Length":100
+      }
+     ,"Advanced":{
+        "Post Text ":"\u003Cspan class=\"t-Login-iconValidation a-Icon icon-check\"\u003E\u003C\/span\u003E"
+       ,"Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Request (Memory Only)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"16577139149122096234"
+     ,"Identification":{
+        "Button Name":"LOGIN"
+       ,"Label":"Sign In"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"\u0026P101_APP_NAME. (17829319219968139993)"
+       ,"Position":"NEXT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Submit Page"
+       ,"Execute Validations":true
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+  ]
+ ,"Dynamic Actions":[
+    {
+      "id":"16695966219732135497"
+     ,"Identification":{
+        "Name":"Set Focus"
+      }
+     ,"Execution":{
+        "Sequence":10
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.READY"
+      }
+     ,"Client-side Condition":{
+        "Type":"JavaScript expression"
+       ,"JavaScript Expression":"( $v( \"P101_USERNAME\" ) === \"\" )"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+      }
+     ,"Actions":[
+        {
+          "id":"16695966548469135498"
+         ,"Identification":{
+            "Action":"Set Focus"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P101_USERNAME"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Set Focus (16695966219732135497)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"16695966744215135498"
+         ,"Identification":{
+            "Action":"Set Focus"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P101_PASSWORD"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":20
+           ,"Event":"Set Focus (16695966219732135497)"
+           ,"Fire When Event Result Is":"False"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+  ]
+ ,"Processes":[
+    {
+      "id":"17829319620493140035"
+     ,"Identification":{
+        "Name":"Login"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":"apex_authentication.login(\n    p_username =\u003E :P101_USERNAME,\n    p_password =\u003E :P101_PASSWORD );"
+      }
+     ,"Execution":{
+        "Sequence":20
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Display Location":"On Error Page"
+      }
+    }
+   ,{
+      "id":"17829319722454140043"
+     ,"Identification":{
+        "Name":"Set Username Cookie"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":"apex_authentication.send_login_username_cookie (\n    p_username =\u003E lower(:P101_USERNAME) );"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Display Location":"On Error Page"
+      }
+    }
+   ,{
+      "id":"17829319819531140043"
+     ,"Identification":{
+        "Name":"Get Username Cookie"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":":P101_USERNAME := apex_authentication.get_login_username_cookie;"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"Before Header"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+    }
+   ,{
+      "id":"17829319896280140043"
+     ,"Identification":{
+        "Name":"Clear Page(s) Cache"
+       ,"Type":"Clear Session State"
+       ,"Execution Chain":"None"
+      }
+     ,"Settings":{
+        "Type":"Clear all Items on the Current Page"
+      }
+     ,"Execution":{
+        "Sequence":30
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Display Location":"On Error Page"
+      }
+    }
+  ]
+}

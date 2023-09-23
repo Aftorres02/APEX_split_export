@@ -1,0 +1,4522 @@
+{
+  "id":"59"
+ ,"Identification":{
+    "Name":"Customers"
+   ,"Alias":"CUSTOMERS"
+   ,"Title":"Customers"
+   ,"Page Group":"Customers (14749179822908293214)"
+  }
+ ,"Appearance":{
+    "Page Mode":"Normal"
+   ,"Page Template":"Left Side Column (14888224114215691787)"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"Do not focus cursor"
+   ,"Warn on Unsaved Changes":false
+  }
+ ,"JavaScript":{
+    "Execute when Page Loads":"\/\/ standard, cacheable elements\nvar timeout = 0; \/\/ used for debounce on search\nvar CONTAINER_SEL = \u0027.t-Form-fieldContainer\u0027;\nvar pagePrefix = \u0027P\u0027 + $(\u0027#pFlowStepId\u0027).val();\nvar displayAsId = pagePrefix + \u0027_DISPLAY_AS\u0027;\nvar $displayAs = $(\u0027#\u0027 + displayAsId);\nvar $body = $(\u0027.t-PageBody\u0027);\nvar $search = $(\u0027#\u0027 + pagePrefix + \u0027_SEARCH\u0027);\nvar $sort = $(\u0027#\u0027 + pagePrefix + \u0027_SORT\u0027);\nvar $reset = $(\u0027#reset_button\u0027);\nvar $cardsReg = $(\u0027#cards_region\u0027);\nvar $reportReg = $(\u0027#report_region\u0027);\nvar $logoReg = $(\u0027#logo_region\u0027);\n\n\/\/ custom items (will vary by page)\nvar $geo             = $(\u0027#\u0027 + pagePrefix + \u0027_GEO\u0027);\nvar $industry        = $(\u0027#\u0027 + pagePrefix + \u0027_INDUSTRY\u0027);\nvar $category        = $(\u0027#\u0027 + pagePrefix + \u0027_CATEGORY\u0027);\nvar $product         = $(\u0027#\u0027 + pagePrefix + \u0027_PRODUCT\u0027);\nvar $status          = $(\u0027#\u0027 + pagePrefix + \u0027_STATUS\u0027);\nvar $max_rows        = $(\u0027#\u0027 + pagePrefix + \u0027_MAX_ROWS\u0027);\nvar $reference_types = $(\u0027#\u0027 + pagePrefix + \u0027_REFERENCE_TYPES\u0027);\nvar $marquee_cust    = $(\u0027#\u0027 + pagePrefix + \u0027_MARQUEE_CUST\u0027);\nvar $scp_cust        = $(\u0027#\u0027 + pagePrefix + \u0027_SCP_CUST\u0027);\nvar $type            = $(\u0027#\u0027 + pagePrefix + \u0027_TYPE\u0027);\nvar $use_case        = $(\u0027#\u0027 + pagePrefix + \u0027_USE_CASE\u0027);\nvar $referenceable   = $(\u0027#\u0027 + pagePrefix + \u0027_REFERENCEABLE\u0027);\nvar $imp_partner     = $(\u0027#\u0027 + pagePrefix + \u0027_IMP_PARTNER\u0027);\nvar $competitor      = $(\u0027#\u0027 + pagePrefix + \u0027_COMPETITOR\u0027);\nvar $logo_size       = $(\u0027#\u0027 + pagePrefix + \u0027_LOGO_SIZE\u0027);\n\nfunction showLeftColumn() {\n    $body\n        .removeClass(\u0027t-PageBody--hideLeft\u0027)\n        .addClass(\u0027t-PageBody--showLeft\u0027);\n\n    \/\/ Takes 200ms to hide column\n    setTimeout(function() {\n        \/\/ Ensure column headers align correctly\n        $(window).trigger(\u0027apexwindowresized\u0027);\n    }, 250);\n}\n\nfunction hideLeftColumn() {\n    $body\n        .removeClass(\u0027t-PageBody--showLeft\u0027)\n        .addClass(\u0027t-PageBody--hideLeft\u0027);\n\n    \/\/ Takes 200ms to hide column\n    setTimeout(function() {\n        \/\/ Ensure column headers align correctly\n        $(window).trigger(\u0027apexwindowresized\u0027);\n    }, 250);\n}\n\n\/\/ applyFilters triggers the refresh event on the correct region\nfunction applyFilters() {\n    var display = $v(displayAsId);\n\n    if (display === \u0027CARDS\u0027) {\n        $cardsReg.trigger(\u0027apexrefresh\u0027);\n    } else if (display === \u0027REPORT\u0027) {\n        $reportReg.trigger(\u0027apexrefresh\u0027);\n    } else if (display === \u0027LOGOS\u0027) {\n        $logoReg.trigger(\u0027apexrefresh\u0027);\n    }\n}\n\n\/\/ toggleRegionDisplay is similar to applyFilters except that it also\n\/\/ takes into account what regions or items need to be displayed or hidden\nfunction toggleRegionDisplay(refresh) {\n    var display = $v(displayAsId);\n\n    refresh = (refresh === false) ? false : true;\n\n    if (display === \u0027CARDS\u0027) {\n        $reportReg.hide();\n        $logoReg.hide();\n        $logo_size.closest(CONTAINER_SEL).hide();\n        showLeftColumn();\n\n        if (refresh) {\n            $cardsReg.trigger(\u0027apexrefresh\u0027);\n        }\n\n        $cardsReg.show();\n    } else if (display === \u0027REPORT\u0027) {\n        $cardsReg.hide();\n        $logoReg.hide();\n        $logo_size.closest(CONTAINER_SEL).hide();\n        hideLeftColumn();\n        if (refresh) {\n            $reportReg.trigger(\u0027apexrefresh\u0027);\n        }\n\n        $reportReg.show();\n    } else if (display === \u0027LOGOS\u0027) {\n        $cardsReg.hide();\n        $reportReg.hide();\n        $logo_size.closest(CONTAINER_SEL).show();\n        showLeftColumn();\n        if (refresh) {\n            $logoReg.trigger(\u0027apexrefresh\u0027);\n        }\n        $logoReg.show();\n    }\n}\n\nfunction debounceSearch(e) {\n    \/* \n     * Prevent search for following keys:\n     * TAB:     9\n     * SHIFT:   16\n     * LEFT:    37\n     * RIGHT:   39\n     *\/\n    if ( e.which === 9 || e.which === 16 || e.which === 37 || e.which === 39 ) {\n        return false;\n    }\n\n    clearTimeout(timeout);\n    timeout = setTimeout(applyFilters, 250);\n}\n\nfunction preventSubmitOnEnter(e) {\n    if (e.which === 13) {\n        return false;\n    }\n}\n\nfunction resetFilters() {\n    $search.val(null);\n\n    $sort.val(null);\n    $geo.val(null);\n    $industry.val(null);\n    $category.val(null);\n    $product.val(null);\n    $status.val(null);\n    $max_rows.val(null);\n    $reference_types.val(null);\n    $marquee_cust.val(null);\n    $scp_cust.val(null);\n    $type.val(null);\n    $use_case.val(null);\n    $referenceable.val(null);\n    $imp_partner.val(null);\n    $competitor.val(null);\n    $logo_size.val(\u0027S\u0027);\n\n    applyFilters();\n}\n\n\/\/ standard search event bindings\n$search.keydown(preventSubmitOnEnter);\n$search.keyup(debounceSearch);\n\n\/\/ dynamic event bindings (will vary by filter page)\n$sort.change(applyFilters);\n$geo.change(applyFilters);\n$industry.change(applyFilters);\n$category.change(applyFilters);\n$product.change(applyFilters);\n$status.change(applyFilters);\n$max_rows.change(applyFilters);\n$reference_types.change(applyFilters);\n$marquee_cust.change(applyFilters);\n$scp_cust.change(applyFilters);\n$type.change(applyFilters);\n$use_case.change(applyFilters);\n$referenceable.change(applyFilters);\n$imp_partner.change(applyFilters);\n$competitor.change(applyFilters);\n\n\/\/ standard display, sort, reset event bindings\n$displayAs.change(toggleRegionDisplay);\n$reset.click(resetFilters);\n\ntoggleRegionDisplay(false);"
+  }
+ ,"CSS":{
+    "Inline":".logo-cards .t-Card-icon, .logo-cards .t-Card-titleWrap, .logo-cards .t-Card-info { display: none !important }\n.logo-cards .t-Card .t-Card-body { padding: 0; border: none; margin: 0 }\n.logo-cards .t-Card .t-Card-desc {position: relative;}\n.logo-cards .t-Card img { width: 100%; vertical-align: middle; max-height: ; }\nspan.no-image { display: block; text-align: center; color: #909090; font-weight: 200; white-space: nowrap; padding: 0 12px; }\n.t-Cards--float .t-Cards-item { max-width: 100% }\n.t-Cards--float.large-logos .t-Cards-item { width: 480px }\n.t-Cards--float.large-logos.logo-cards .t-Card .t-Card-desc { line-height: 300px; height: 300px}\n.t-Cards--float.large-logos span.no-image {font-size: 24px;}\n.t-Cards--float.medium-logos .t-Cards-item { width: 320px }\n.t-Cards--float.medium-logos.logo-cards .t-Card .t-Card-desc { line-height: 180px; height: 180px}\n.t-Cards--float.medium-logos span.no-image {font-size: 20px;}\n.t-Cards--float.small-logos .t-Cards-item { width: 180px }\n.t-Cards--float.small-logos.logo-cards .t-Card .t-Card-desc { line-height: 120px; height: 120px}\n.t-Cards--float.small-logos span.no-image {font-size: 14px;}\n\nspan.customer-logo {\n    display: block;\n    background-repeat: no-repeat;\n    background-position: 50%;\n    background-size: contain;\n    margin: 10px;\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n}"
+  }
+ ,"Security":{
+    "Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"Off"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Always"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Help":{
+    "Help Text":"\u003Ch2\u003EAbout this Application\u003C\/h2\u003E\n\u003Cp\u003ECustomers helps you improve your customer interactions by offering a centralized repository of information.\u003C\/p\u003E\n\u003Cp\u003EEach customer can have multiple contacts and be associated with multiple products.  Each contact has a variety of standard attributes, such as category, geography, industry and status, as well as the ability to add tags to a customer for further ad hoc classification.  You can indicate the reference status for a customer and enter free form text as a customer profile.\u003C\/p\u003E\n\u003Cp\u003EYou can create activity records to log interactions with each customer.  Customers includes a variety of reports which let you view recent activities, status changes and tags.  You can also use interactive reports to give your users the ability to filter and shape customer, contact, activity and interaction data.\u003C\/p\u003E\n\u003Cp\u003ECustomers gives you the ability to define your own standards for attributes such as categories, statuses, customer and activity types, and products, allowing you to create a customized version of Customers to meet your own needs.\u003C\/p\u003E"
+  }
+ ,"Regions":[
+    {
+      "id":"14306877862467591519"
+     ,"Identification":{
+        "Title":"Customer Logos"
+       ,"Type":"Classic Report"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select apex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:50:\u0027||:APP_SESSION||\u0027:::50:P50_ID:\u0027||a.id) card_link,\n       a.customer_name card_title,\n       case\n         when logo_blob is null\n         then \u0027\u003Cspan class=\"no-image\"\u003E\u0027||apex_escape.html(a.customer_name)||\u0027\u003C\/span\u003E\u0027\n         else \u0027\u003Cspan class=\"customer-logo\" style=\"background-image: url(\u0027\u0027\u0027 || apex_util.prepare_url(\u0027f?p=\u0027 || :APP_ID\n             || \u0027:IMAGE::APPLICATION_PROCESS=GET_IMAGE:::GET_ID:\u0027 || a.id) || \u0027\u0027\u0027);\" title=\"\u0027\n             ||apex_escape.html(a.customer_name)||\u0027\"\u003E\u003C\/span\u003E\u0027\n       end card_text,\n       null card_subtext,\n       null card_initials,\n        a.id\nfrom eba_cust_customers a,\n    eba_cust_categories b,\n    eba_cust_status c,\n    eba_cust_geographies d,\n    eba_cust_type e,\n    eba_cust_use_case f\nwhere a.category_id = b.id(+)\n    and a.status_id = c.id(+)\n    and a.geography_id = d.id(+)\n    and a.type_id = e.id(+)\n    and a.use_case_id = f.id(+)\n    and (:P59_SEARCH is null or\n            instr(upper(a.customer_name),upper(:P59_SEARCH)) \u003E 0 or\n                       instr(upper(a.summary),upper(:P59_SEARCH)) \u003E 0 )\n    and (NVL(:P59_GEO,0) = 0 or :P59_GEO = a.geography_id)\n    and (NVL(:P59_COUNTRY,0) = 0 or :P59_COUNTRY = a.country_id)\n    and (NVL(:P59_INDUSTRY,0) = 0 or  :P59_INDUSTRY = a.industry_id)\n    and (NVL(:P59_CATEGORY,0) = 0 or :P59_CATEGORY = a.category_id)\n    and (NVL(:P59_STATUS,0) = 0 or :P59_STATUS = a.status_id)\n    and (NVL(:P59_TYPE,0) = 0 or :P59_TYPE = a.type_id)\n    and (NVL(:P59_USE_CASE,0) = 0 or :P59_USE_CASE = a.use_case_id)\n    and (:P59_MARQUEE_CUST is null or :P59_MARQUEE_CUST = a.marquee_customer_yn)\n    and (:P59_IMP_PARTNER is null\n        or exists ( select null\n                    from eba_cust_cust_partner_ref rf\n                    where rf.customer_id = a.id\n                        and rf.partner_id = :P59_IMP_PARTNER ))\n    and (:P59_COMPETITOR is null\n        or exists ( select null\n                    from eba_cust_cust_competitor_ref rf\n                    where rf.customer_id = a.id\n                        and rf.competitor_id = :P59_COMPETITOR ))\n    and (:P59_REFERENCEABLE is null or :P59_REFERENCEABLE = a.referencable)\n    and (:P59_SCP_CUST is null or :P59_SCP_CUST = a.strategic_customer_program_yn)\n    and (\n        exists (select 1 from eba_cust_customer_reftype_ref r\n        where r.customer_id = a.id and\n              instr(\u0027:\u0027||:P59_REFERENCE_TYPES||\u0027:\u0027,\u0027:\u0027||reference_type_id||\u0027:\u0027) \u003E 0)\n        or \n        :P59_REFERENCE_TYPES is null\n        )\n    and  NVL(:P59_DISPLAY_AS,\u0027X\u0027) = \u0027LOGOS\u0027\n    and (NVL(:P59_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P59_PRODUCT))\norder by\n    case :P59_SORT\n        when \u0027NAME\u0027 then lower(a.customer_name)\n        else null\n    end,\n    case :P59_SORT\n        when \u0027UPDATED\u0027 then current_timestamp - a.updated\n        when \u0027OLDFIRST\u0027 then a.created - current_timestamp\n        when \u0027NEWFIRST\u0027 then current_timestamp - a.created\n        else null\n    end,\n    case :P59_SORT\n        when \u0027NAME\u0027 then current_timestamp - a.updated\n        else null\n    end,\n    case :P59_SORT\n        when \u0027UPDATED\u0027 then lower(a.customer_name)\n        when \u0027OLDFIRST\u0027 then lower(a.customer_name)\n        when \u0027NEWFIRST\u0027 then lower(a.customer_name)\n        else null\n    end"
+       ,"Page Items to Submit":[
+          "P59_SEARCH"
+         ,"P59_SORT"
+         ,"P59_GEO"
+         ,"P59_INDUSTRY"
+         ,"P59_CATEGORY"
+         ,"P59_STATUS"
+         ,"P59_MAX_ROWS"
+         ,"P59_REFERENCE_TYPES"
+         ,"P59_MARQUEE_CUST"
+         ,"P59_SCP_CUST"
+         ,"P59_TYPE"
+         ,"P59_USE_CASE"
+         ,"P59_LOGO_SIZE"
+         ,"P59_REFERENCEABLE"
+         ,"P59_IMP_PARTNER"
+         ,"P59_COMPETITOR"
+         ,"P59_DISPLAY_AS"
+         ,"P59_PRODUCT"
+        ]
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Blank with Attributes (14888250988334691823)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Static ID":"logo_region"
+       ,"Custom Attributes":[
+          "style=\"display:"
+         ,"none;\""
+        ]
+       ,"Region Display Selector":true
+       ,"Exclude Title from Translation":false
+      }
+     ,"Security":{
+        "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Layout":{
+          "Number of Rows Type":"Static Value"
+         ,"Number of Rows":5000
+        }
+       ,"Appearance":{
+          "Template Type":"Theme"
+         ,"Template":"Cards (15050272951605028665)"
+         ,"Template Options":[
+            "#DEFAULT#"
+           ,"t-Cards--featured force-fa-lg"
+           ,"t-Cards--float"
+           ,"t-Cards--animRaiseCard"
+          ]
+         ,"CSS Classes":[
+            "logo-cards"
+          ]
+         ,"Show Null Values as":"-"
+        }
+       ,"Pagination":{
+          "Type":"Row Ranges 1-15 16-30 in select list (with pagination)"
+         ,"Display Position":"Bottom - Right"
+         ,"Partial Page Refresh":true
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+        }
+       ,"Messages":{
+          "When No Data Found":"No customers found"
+        }
+       ,"Break Formatting":{
+          "Break Columns":"No Break"
+        }
+       ,"Advanced":{
+          "Strip HTML":false
+         ,"Sort Nulls":"Last"
+        }
+       ,"Heading":{
+          "Type":"Custom Headings"
+        }
+       ,"Download":{
+          "CSV Export Enabled":false
+        }
+       ,"Printing":{
+          "Enabled":false
+        }
+      }
+     ,"Columns":[
+        {
+          "id":"15025729032156364571"
+         ,"Identification":{
+            "Column Name":"ID"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":1
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"15029384728214559978"
+         ,"Identification":{
+            "Column Name":"CARD_LINK"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Card link"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":2
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"15029384836955559979"
+         ,"Identification":{
+            "Column Name":"CARD_TITLE"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Card title"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":3
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"15029384931914559980"
+         ,"Identification":{
+            "Column Name":"CARD_TEXT"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Card text"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":4
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":false
+          }
+        }
+       ,{
+          "id":"15029385086632559981"
+         ,"Identification":{
+            "Column Name":"CARD_SUBTEXT"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Card subtext"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":5
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"15029385141144559982"
+         ,"Identification":{
+            "Column Name":"CARD_INITIALS"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Card initials"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":6
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"14893584833943785432"
+     ,"Identification":{
+        "Title":"Breadcrumb"
+       ,"Type":"Breadcrumb"
+      }
+     ,"Source":{
+        "Breadcrumb":"Breadcrumb (17869143586620226407)"
+      }
+     ,"Layout":{
+        "Sequence":50
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_01"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Title Bar (14888267217215691848)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-BreadcrumbRegion--useBreadcrumbTitle"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server-side Condition":{
+        "Type":"Never"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "Breadcrumb Template":"Breadcrumb (14888282717314691893)"
+        }
+      }
+    }
+   ,{
+      "id":"14893769396265889860"
+     ,"Identification":{
+        "Title":"Customer Cards"
+       ,"Type":"Classic Report"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select apex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:50:\u0027||:APP_SESSION||\u0027:::50:P50_ID:\u0027||a.id) card_link,\n       a.customer_name card_title,\n       NVL(substr(a.summary,1,255), DBMS_LOB.substr(a.customer_profile,255,1))      card_text,\n       --nvl(c.status,\u0027Unknown Status\u0027)||\u0027, \u0027||\n       nvl((select INDUSTRY_NAME from EBA_CUST_INDUSTRIES i where i.id = a.INDUSTRY_ID),\u0027\u0027)||decode(geography_name,null,null,\u0027, \u0027|| geography_name) card_subtext,\n        upper(\n          decode(instr(a.customer_name,\u0027 \u0027),\n                 0, \n                 substr(a.customer_name,1,2),\n                 substr(a.customer_name,1,1)||substr(a.customer_name,instr(a.customer_name,\u0027 \u0027)+1,1)\n           )) card_initials\nfrom eba_cust_customers a,\n    eba_cust_categories b,\n    eba_cust_status c,\n    eba_cust_geographies d,\n    eba_cust_type e,\n    eba_cust_use_case f\nwhere a.category_id = b.id(+)\n    and a.status_id = c.id(+)\n    and a.geography_id = d.id(+)\n    and a.type_id = e.id(+)\n    and a.use_case_id = f.id(+)\n    and (:P59_SEARCH is null or\n            instr(upper(a.customer_name),upper(:P59_SEARCH)) \u003E 0 or\n                       instr(upper(a.summary),upper(:P59_SEARCH)) \u003E 0 )\n    and (NVL(:P59_GEO,0) = 0 or :P59_GEO = a.geography_id)\n    and (NVL(:P59_COUNTRY,0) = 0 or :P59_COUNTRY = a.country_id)\n    and (NVL(:P59_INDUSTRY,0) = 0 or  :P59_INDUSTRY = a.industry_id)\n    and (NVL(:P59_CATEGORY,0) = 0 or :P59_CATEGORY = a.category_id)\n    and (NVL(:P59_STATUS,0) = 0 or :P59_STATUS = a.status_id)\n    and (NVL(:P59_TYPE,0) = 0 or :P59_TYPE = a.type_id)\n    and (NVL(:P59_USE_CASE,0) = 0 or :P59_USE_CASE = a.use_case_id)\n    and (:P59_MARQUEE_CUST is null or :P59_MARQUEE_CUST = a.marquee_customer_yn)\n    and (:P59_IMP_PARTNER is null\n        or exists ( select null\n                    from eba_cust_cust_partner_ref rf\n                    where rf.customer_id = a.id\n                        and rf.partner_id = :P59_IMP_PARTNER ))\n    and (:P59_COMPETITOR is null\n        or exists ( select null\n                    from eba_cust_cust_competitor_ref rf\n                    where rf.customer_id = a.id\n                        and rf.competitor_id = :P59_COMPETITOR ))\n    and (:P59_REFERENCEABLE is null or :P59_REFERENCEABLE = a.referencable)\n    and (:P59_SCP_CUST is null or :P59_SCP_CUST = a.strategic_customer_program_yn)\n    and (\n        exists (select 1 from eba_cust_customer_reftype_ref r\n        where r.customer_id = a.id and\n              instr(\u0027:\u0027||:P59_REFERENCE_TYPES||\u0027:\u0027,\u0027:\u0027||reference_type_id||\u0027:\u0027) \u003E 0)\n        or \n        :P59_REFERENCE_TYPES is null\n        )\n    and  NVL(:P59_DISPLAY_AS,\u0027X\u0027) = \u0027CARDS\u0027\n    and (NVL(:P59_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P59_PRODUCT))\norder by\n    case :P59_SORT\n        when \u0027NAME\u0027 then lower(a.customer_name)\n        else null\n    end,\n    case :P59_SORT\n        when \u0027UPDATED\u0027 then current_timestamp - a.updated\n        when \u0027OLDFIRST\u0027 then a.created - current_timestamp\n        when \u0027NEWFIRST\u0027 then current_timestamp - a.created\n        else null\n    end,\n    case :P59_SORT\n        when \u0027NAME\u0027 then current_timestamp - a.updated\n        else null\n    end,\n    case :P59_SORT\n        when \u0027UPDATED\u0027 then lower(a.customer_name)\n        when \u0027OLDFIRST\u0027 then lower(a.customer_name)\n        when \u0027NEWFIRST\u0027 then lower(a.customer_name)\n        else null\n    end"
+       ,"Page Items to Submit":[
+          "P59_SEARCH"
+         ,"P59_SORT"
+         ,"P59_GEO"
+         ,"P59_INDUSTRY"
+         ,"P59_CATEGORY"
+         ,"P59_STATUS"
+         ,"P59_MAX_ROWS"
+         ,"P59_REFERENCE_TYPES"
+         ,"P59_MARQUEE_CUST"
+         ,"P59_SCP_CUST"
+         ,"P59_TYPE"
+         ,"P59_USE_CASE"
+         ,"P59_REFERENCEABLE"
+         ,"P59_IMP_PARTNER"
+         ,"P59_COMPETITOR"
+         ,"P59_DISPLAY_AS"
+         ,"P59_PRODUCT"
+        ]
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Blank with Attributes (14888250988334691823)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Static ID":"cards_region"
+       ,"Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Comments":{
+        "Comments":"    --and (NVL(:P59_PRODUCT,0) = 0 or instr((select listagg(p.id,\u0027,\u0027) within group (order by p.id) from eba_cust_products p, eba_cust_product_uses u where u.customer_id = a._id and u.product_id = p.id), :P59_PRODUCT) \u003E 0)\n"
+      }
+     ,"Attributes":{
+        "Layout":{
+          "Number of Rows Type":"Static Value"
+         ,"Number of Rows":50
+        }
+       ,"Appearance":{
+          "Template Type":"Theme"
+         ,"Template":"Cards (15050272951605028665)"
+         ,"Template Options":[
+            "#DEFAULT#"
+           ,"t-Cards--desc-2ln"
+           ,"u-colors"
+           ,"t-Cards--displayInitials"
+           ,"t-Cards--3cols"
+           ,"t-Cards--basic"
+           ,"t-Cards--animColorFill"
+          ]
+         ,"Show Null Values as":"-"
+        }
+       ,"Pagination":{
+          "Type":"Row Ranges X to Y of Z (with pagination)"
+         ,"Display Position":"Bottom - Right"
+         ,"Partial Page Refresh":true
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+        }
+       ,"Break Formatting":{
+          "Break Columns":"No Break"
+        }
+       ,"Advanced":{
+          "Strip HTML":false
+         ,"Sort Nulls":"Last"
+        }
+       ,"Heading":{
+          "Type":"Custom Headings"
+        }
+       ,"Download":{
+          "CSV Export Enabled":false
+        }
+       ,"Printing":{
+          "Enabled":false
+        }
+      }
+     ,"Columns":[
+        {
+          "id":"16917891478918343792"
+         ,"Identification":{
+            "Column Name":"CARD_LINK"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Card link"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":1
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"16917891524594343793"
+         ,"Identification":{
+            "Column Name":"CARD_TITLE"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Card title"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":2
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"16917891701620343794"
+         ,"Identification":{
+            "Column Name":"CARD_TEXT"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Card text"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":3
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"16917891724504343795"
+         ,"Identification":{
+            "Column Name":"CARD_SUBTEXT"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Card subtext"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":4
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"16917891819259343796"
+         ,"Identification":{
+            "Column Name":"CARD_INITIALS"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Card initials"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":5
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"14893784907800959850"
+     ,"Identification":{
+        "Title":"Filters"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_02"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--hideHeader"
+         ,"t-Region--scrollBody"
+         ,"t-Form--stretchInputs"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"15782905353620879697"
+     ,"Identification":{
+        "Title":"Customers Report"
+       ,"Type":"Interactive Report"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select a.row_key,\n    a.id,\n    a.parent_customer_id,\n    a.customer_account_number,\n    to_char(nvl(a.DISCOUNT_LEVEL,0),\u0027999G999G999G999G999G999G990\u0027) || \u0027%\u0027 discount_level,\n    \u0027$\u0027 || to_char(nvl(a.TOTAL_CONTRACT_VALUE,0),\u0027999G999G999G999G999G999G990\u0027) total_contract_value,\n    (select count(\u0027x\u0027) from eba_cust_activity_ref r where a.id = r.customer_id) activities,\n    customer_name,\n    a.STRATEGIC_CUSTOMER_PROGRAM_YN,\n    (select country_name from eba_cust_countries c where id = a.country_id) as country,\n    c.status,\n    e.type,\n    f.use_case,\n    category,\n    nvl(geography_name,\u0027Not Defined\u0027) geography_name,\n    decode(referencable, null, \u0027No\u0027, referencable) referencable,\n    (select status from EBA_CUST_REF_PHASE p where p.id = a.reference_phase_id) ref_phase,\n    a.REF_RECRUITMENT_OWNER,\n    (select channel from EBA_CUST_SALES_CHANNEL sc where sc.id = a.SALES_CHANNEL_ID) sales_channel,\n    number_of_users,\n    decode(marquee_customer_yn, null, \u0027No\u0027, \u0027N\u0027, \u0027No\u0027, \u0027Y\u0027, \u0027Yes\u0027) marquee_customer,\n    decode(greatest(length(nvl(summary,\u0027 \u0027)),50),50,summary,substr(summary,1,50)||\u0027...\u0027) summary,\n    web_site,\n    (   select listagg(p.product_name, \u0027, \u0027) within group (order by p.product_name) product_uses\n        from eba_cust_customers c, eba_cust_product_uses u, eba_cust_products p\n        where c.id = u.customer_id\n            and u.product_id = p.id\n            and c.id = a.id\n        group by c.customer_name\n    ) product_uses,\n    tags,\n    nvl((select INDUSTRY_NAME from EBA_CUST_INDUSTRIES i where i.id = a.INDUSTRY_ID),\u0027Not Defined\u0027) industry,\n    a.industry_id,\n    a.created,\n    a.created_by,\n    a.updated,\n    a.updated_by,\n    (   select listagg(rt.reference_type, \u0027, \u0027) within group (order by rt.reference_type) reference_types\n        from eba_cust_reference_types rt, eba_cust_customer_reftype_ref ref\n        where ref.customer_id = a.id\n            and rt.id = ref.reference_type_id\n    ) referencability\nfrom eba_cust_customers a,\n    eba_cust_categories b,\n    eba_cust_status c,\n    eba_cust_geographies d,\n    eba_cust_type e,\n    eba_cust_use_case f\nwhere a.category_id = b.id(+)\n    and a.status_id = c.id(+)\n    and a.geography_id = d.id(+)\n    and a.type_id = e.id(+)\n    and a.use_case_id = f.id(+)\n--\n--    and (:P59_SEARCH is null or\n--            instr(upper(a.customer_name),upper(:P59_SEARCH)) \u003E 0 or\n--                       instr(upper(a.summary),upper(:P59_SEARCH)) \u003E 0 )\n--    and (NVL(:P59_GEO,0) = 0 or :P59_GEO = a.geography_id)\n--    and (NVL(:P59_COUNTRY,0) = 0 or :P59_COUNTRY = a.country_id)\n--    and (NVL(:P59_INDUSTRY,0) = 0 or  :P59_INDUSTRY = a.industry_id)\n--    and (NVL(:P59_CATEGORY,0) = 0 or :P59_CATEGORY = a.category_id)\n--    and (NVL(:P59_STATUS,0) = 0 or :P59_STATUS = a.status_id)\n--    and (NVL(:P59_TYPE,0) = 0 or :P59_TYPE = a.type_id)\n--    and (NVL(:P59_USE_CASE,0) = 0 or :P59_USE_CASE = a.use_case_id)\n--    and (:P59_MARQUEE_CUST is null or :P59_MARQUEE_CUST = a.marquee_customer_yn)\n--    and (:P59_IMP_PARTNER is null\n--        or exists ( select null\n--                    from eba_cust_cust_partner_ref rf\n--                    where rf.customer_id = a.id\n--                        and rf.partner_id = :P59_IMP_PARTNER ))\n--    and (:P59_COMPETITOR is null\n--        or exists ( select null\n--                    from eba_cust_cust_competitor_ref rf\n--                    where rf.customer_id = a.id\n--                        and rf.competitor_id = :P59_COMPETITOR ))\n--    and (:P59_REFERENCEABLE is null or :P59_REFERENCEABLE = a.referencable)\n--    and (:P59_SCP_CUST is null or :P59_SCP_CUST = a.strategic_customer_program_yn)\n--    and (\n--        exists (select 1 from eba_cust_customer_reftype_ref r\n--        where r.customer_id = a.id and\n--              instr(\u0027:\u0027||:P59_REFERENCE_TYPES||\u0027:\u0027,\u0027:\u0027||reference_type_id||\u0027:\u0027) \u003E 0)\n--        or \n--        :P59_REFERENCE_TYPES is null\n--        )\n    and NVL(:P59_DISPLAY_AS,\u0027X\u0027) = \u0027REPORT\u0027\n--    and (NVL(:P59_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P59_PRODUCT))"
+       ,"Page Items to Submit":[
+          "P59_DISPLAY_AS"
+        ]
+      }
+     ,"Layout":{
+        "Sequence":40
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Interactive Report (14888264240956691843)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"js-showMaximizeButton"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Static ID":"report_region"
+       ,"Custom Attributes":[
+          "style=\"display:"
+         ,"none;\""
+        ]
+       ,"Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "id":"15782905592738879702"
+       ,"Link":{
+          "Link Column":"Exclude Link Column"
+        }
+       ,"Pagination":{
+          "Type":"Row Ranges X to Y"
+         ,"Display Position":"Bottom - Right"
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+         ,"Maximum Rows to Process":100000
+        }
+       ,"Messages":{
+          "When No Data Found":"No data found."
+         ,"When More Data Found":"This query returns more than #MAX_ROW_COUNT# rows, please filter your data to ensure complete results."
+        }
+       ,"Search Bar":{
+          "Include Search Bar":true
+         ,"Search Field":true
+         ,"Finder Drop Down":true
+         ,"Reports Select List":false
+         ,"Rows Per Page Selector":false
+        }
+       ,"Actions Menu":{
+          "Include Actions Menu":true
+         ,"Filter":true
+         ,"Select Columns":true
+         ,"Rows Per Page":true
+         ,"Sort":true
+         ,"Control Break":true
+         ,"Highlight":true
+         ,"Compute":true
+         ,"Aggregate":true
+         ,"Chart":true
+         ,"Group By":true
+         ,"Pivot":true
+         ,"Flashback":true
+         ,"Save Report":true
+         ,"Save Public Report":false
+         ,"Reset":true
+         ,"Help":true
+         ,"Download":true
+         ,"Subscription":false
+        }
+       ,"Download":{
+          "Formats":[
+            "CSV"
+           ,"HTML"
+           ,"Excel"
+           ,"PDF"
+          ]
+         ,"Send as Email":true
+        }
+       ,"Heading":{
+          "Fixed To":"Page"
+        }
+       ,"Icon View":{
+          "Show":false
+        }
+       ,"Detail View":{
+          "Show":false
+        }
+       ,"Saved Reports":[
+          {
+            "id":"2075463638445383476"
+           ,"Identification":{
+              "Name":"SORT_BY_UPD"
+             ,"Alias":"20424235"
+            }
+          }
+         ,{
+            "id":"15782920138336879739"
+           ,"Identification":{
+              "Name":"Primary Report"
+             ,"Alias":"23280856"
+            }
+          }
+        ]
+       ,"Columns":[
+          {
+            "id":"1136394682177769944"
+           ,"Identification":{
+              "Column Name":"DISCOUNT_LEVEL"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Discount Level"
+             ,"Alignment":"center"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":121
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"1136394794323769945"
+           ,"Identification":{
+              "Column Name":"TOTAL_CONTRACT_VALUE"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Total Contract Value"
+             ,"Alignment":"center"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":131
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"1136394831232769946"
+           ,"Identification":{
+              "Column Name":"ACTIVITIES"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Activities"
+             ,"Alignment":"center"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":141
+             ,"Column Alignment":"end"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"15151850036782590387"
+           ,"Identification":{
+              "Column Name":"REFERENCABILITY"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Referencability"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":51
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"15782905716957879707"
+           ,"Identification":{
+              "Column Name":"ID"
+             ,"Type":"Hidden Column"
+            }
+           ,"Heading":{
+              "Heading":"Selected Customer"
+            }
+           ,"Layout":{
+              "Sequence":1
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Security":{
+              "Escape special characters":false
+            }
+          }
+         ,{
+            "id":"15782912966104879719"
+           ,"Identification":{
+              "Column Name":"CUSTOMER_NAME"
+             ,"Type":"Link"
+            }
+           ,"Heading":{
+              "Heading":"Customer"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":2
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Link":{
+              "Target":{
+                "url":"f?p=\u0026APP_ID.:50:\u0026SESSION.::\u0026DEBUG.:RP,50:P50_ID:#ID#"
+               ,"Page":"50"
+               ,"Clear Cache":"RP,50"
+               ,"Values":{
+                  "P50_ID":"#ID#"
+                }
+              }
+             ,"Link Text":"#CUSTOMER_NAME#"
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"15782913285895879719"
+           ,"Identification":{
+              "Column Name":"STATUS"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Status"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":17
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"15782913720156879721"
+           ,"Identification":{
+              "Column Name":"CATEGORY"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Category"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":16
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"15782914101021879723"
+           ,"Identification":{
+              "Column Name":"REFERENCABLE"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Publicly Referenceable"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":3
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Server-side Condition":{
+              "Type":"Expression"
+             ,"Language":"PL\/SQL"
+             ,"PL\/SQL Expression":"APEX_UTIL.GET_BUILD_OPTION_STATUS(\n    P_APPLICATION_ID =\u003E :APP_ID,\n    P_BUILD_OPTION_NAME =\u003E \u0027Customer Referencability\u0027) = \u0027INCLUDE\u0027"
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"15782914484365879723"
+           ,"Identification":{
+              "Column Name":"NUMBER_OF_USERS"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"# of Users"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":4
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Server-side Condition":{
+              "Type":"Function Body"
+             ,"Language":"PL\/SQL"
+             ,"PL\/SQL Function Body":"return wwv_flow_utilities.is_build_option_enabled(\u0027Number_of_users\u0027);"
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"15782914973091879724"
+           ,"Identification":{
+              "Column Name":"SUMMARY"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Summary"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":5
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"15782915368958879726"
+           ,"Identification":{
+              "Column Name":"WEB_SITE"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Web Site"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":6
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"15782915717006879726"
+           ,"Identification":{
+              "Column Name":"CREATED_BY"
+             ,"Type":"Hidden Column"
+            }
+           ,"Heading":{
+              "Heading":"Created By"
+            }
+           ,"Layout":{
+              "Sequence":13
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Security":{
+              "Escape special characters":false
+            }
+          }
+         ,{
+            "id":"15782916074860879726"
+           ,"Identification":{
+              "Column Name":"UPDATED_BY"
+             ,"Type":"Hidden Column"
+            }
+           ,"Heading":{
+              "Heading":"Updated By"
+            }
+           ,"Layout":{
+              "Sequence":15
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Security":{
+              "Escape special characters":false
+            }
+          }
+         ,{
+            "id":"15782916543795879727"
+           ,"Identification":{
+              "Column Name":"TAGS"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Tags"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":18
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Use Defined List of Values to Filter Word Contains"
+             ,"SQL Query":"select tag\n  from eba_cust_tags_type_sum\n where content_type = \u0027CUSTOMER\u0027\n   and tag_count \u003E 0"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"15782916882984879729"
+           ,"Identification":{
+              "Column Name":"ROW_KEY"
+             ,"Type":"Link"
+            }
+           ,"Heading":{
+              "Heading":"View"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":19
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Link":{
+              "Target":{
+                "url":"f?p=\u0026APP_ID.:50:\u0026SESSION.::\u0026DEBUG.:50:P50_ID:#ID#"
+               ,"Page":"50"
+               ,"Clear Cache":"50"
+               ,"Values":{
+                  "P50_ID":"#ID#"
+                }
+              }
+             ,"Link Text":"\u003Cspan\u003E#ROW_KEY#\u003C\/span\u003E"
+             ,"Link Attributes":"class=\"t-Button t-Button--small t-Button--hot t-Button--simple t-Button--stretch\""
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"15782917360739879732"
+           ,"Identification":{
+              "Column Name":"CREATED"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Created"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":20
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Appearance":{
+              "Format Mask":"SINCE"
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+             ,"Date Ranges":"All"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"15782917726834879733"
+           ,"Identification":{
+              "Column Name":"UPDATED"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Updated"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":21
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Appearance":{
+              "Format Mask":"SINCE"
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+             ,"Date Ranges":"All"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"15782918113002879733"
+           ,"Identification":{
+              "Column Name":"GEOGRAPHY_NAME"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Geography"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":22
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Server-side Condition":{
+              "Type":"Expression"
+             ,"Language":"PL\/SQL"
+             ,"PL\/SQL Expression":"wwv_flow_utilities.is_build_option_enabled(\u0027Geography\u0027)"
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"15782918508767879735"
+           ,"Identification":{
+              "Column Name":"PRODUCT_USES"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Products"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":23
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Server-side Condition":{
+              "Type":"Expression"
+             ,"Language":"PL\/SQL"
+             ,"PL\/SQL Expression":"wwv_flow_utilities.is_build_option_enabled(\u0027Products and Services\u0027)"
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"15782918889535879736"
+           ,"Identification":{
+              "Column Name":"MARQUEE_CUSTOMER"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Marquee Customer"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":24
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"15782919281778879738"
+           ,"Identification":{
+              "Column Name":"INDUSTRY"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Industry"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":25
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"15782919703425879738"
+           ,"Identification":{
+              "Column Name":"INDUSTRY_ID"
+             ,"Type":"Hidden Column"
+            }
+           ,"Heading":{
+              "Heading":"Selected Industry"
+            }
+           ,"Layout":{
+              "Sequence":26
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Security":{
+              "Escape special characters":false
+            }
+          }
+         ,{
+            "id":"15873223070913164429"
+           ,"Identification":{
+              "Column Name":"REF_PHASE"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Ref Phase"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":48
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Server-side Condition":{
+              "Type":"Expression"
+             ,"Language":"PL\/SQL"
+             ,"PL\/SQL Expression":"APEX_UTIL.GET_BUILD_OPTION_STATUS(\n    P_APPLICATION_ID =\u003E :APP_ID,\n    P_BUILD_OPTION_NAME =\u003E \u0027Customer Referencability\u0027) = \u0027INCLUDE\u0027"
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"15873553182886463588"
+           ,"Identification":{
+              "Column Name":"SALES_CHANNEL"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Sales Channel"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":49
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"15873554792842465112"
+           ,"Identification":{
+              "Column Name":"REF_RECRUITMENT_OWNER"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Ref Recruitment Owner"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":50
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Server-side Condition":{
+              "Type":"Expression"
+             ,"Language":"PL\/SQL"
+             ,"PL\/SQL Expression":"APEX_UTIL.GET_BUILD_OPTION_STATUS(\n    P_APPLICATION_ID =\u003E :APP_ID,\n    P_BUILD_OPTION_NAME =\u003E \u0027Customer Referencability\u0027) = \u0027INCLUDE\u0027"
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"16960671171546633775"
+           ,"Identification":{
+              "Column Name":"COUNTRY"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Country"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":61
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"17031067832718244481"
+           ,"Identification":{
+              "Column Name":"TYPE"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Type"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":71
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"17031068166182244484"
+           ,"Identification":{
+              "Column Name":"USE_CASE"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Use Case"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":81
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"17170724197151248574"
+           ,"Identification":{
+              "Column Name":"STRATEGIC_CUSTOMER_PROGRAM_YN"
+             ,"Type":"Plain Text (based on List of Values)"
+            }
+           ,"List of Values":{
+              "List of Values":"Y_OR_N (17831456739552151139)"
+            }
+           ,"Heading":{
+              "Heading":"SCP Customer"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":91
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Use Named List of Values to Filter Exact Match"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+          }
+         ,{
+            "id":"18489427369960201613"
+           ,"Identification":{
+              "Column Name":"PARENT_CUSTOMER_ID"
+             ,"Type":"Plain Text (based on List of Values)"
+            }
+           ,"List of Values":{
+              "List of Values":"CUSTOMERS (16619949327825859798)"
+            }
+           ,"Heading":{
+              "Heading":"Parent"
+             ,"Alignment":"end"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":101
+             ,"Column Alignment":"end"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Use Named List of Values to Filter Exact Match"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+          }
+         ,{
+            "id":"18489427473017201614"
+           ,"Identification":{
+              "Column Name":"CUSTOMER_ACCOUNT_NUMBER"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Customer account number"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":111
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+        ]
+       ,"Printing":{
+          "Output":{
+            "View File As":"Attachment"
+          }
+         ,"Page":{
+            "Size":"Letter"
+           ,"Orientation":"Landscape"
+           ,"Units":"Inches"
+           ,"Width":11
+           ,"Height":8.5
+           ,"Border Width":0.5
+           ,"Border Color":"#666666"
+          }
+         ,"Page Header":{
+            "Font":"Helvetica"
+           ,"Font Weight":"Normal"
+           ,"Font Size":12
+           ,"Font Color":"#000000"
+           ,"Alignment":"center"
+          }
+         ,"Column Headings":{
+            "Font":"Helvetica"
+           ,"Font Weight":"Bold"
+           ,"Font Size":10
+           ,"Font Color":"#000000"
+           ,"Background Color":"#EEEEEE"
+          }
+         ,"Columns":{
+            "Font":"Helvetica"
+           ,"Font Weight":"Normal"
+           ,"Font Size":10
+           ,"Font Color":"#000000"
+           ,"Background Color":"#FFFFFF"
+          }
+         ,"Page Footer":{
+            "Font":"Helvetica"
+           ,"Font Weight":"Normal"
+           ,"Font Size":12
+           ,"Font Color":"#000000"
+           ,"Alignment":"center"
+          }
+        }
+      }
+    }
+   ,{
+      "id":"15782920886294919244"
+     ,"Identification":{
+        "Title":"Hidden Items"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":50
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Blank with Attributes (14888250988334691823)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"17964602220657285486"
+     ,"Identification":{
+        "Title":"More Filters"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_02"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Collapsible (14888261571832691840)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"is-collapsed"
+         ,"t-Region--scrollBody"
+         ,"t-Form--stretchInputs"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":true
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"20255147235943473984"
+     ,"Identification":{
+        "Title":"\u0026APPLICATION_TITLE."
+       ,"Type":"PL\/SQL Dynamic Content [Legacy]"
+      }
+     ,"Source":{
+        "PL\/SQL Code":"declare \n  t varchar2(4000) := null;\nbegin\n  begin\n      t := EBA_CUST_FW.get_preference_value(\u0027WELCOME_TEXT\u0027);\n  exception\n      when others then \n      t := null;\n  end;\n  if t is null or t = \u0027\u0026nbsp;\u0027 or t = \u0027Preference does not exist\u0027 then\n     sys.htp.p(\u0027\u003Cp\u003ETrack and Manage Customers\u003C\/p\u003E\u0027);\n  else\n     sys.htp.p(\u0027\u003Cp\u003E\u0027||apex_escape.html(t)||\u0027\u003C\/p\u003E\u0027);\n  end if;\nend;"
+      }
+     ,"Layout":{
+        "Sequence":60
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_01"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Hero (14888260989426691838)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Image":{
+        "File URL":"#APP_FILES#icons\/app-icon-192.png"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+    }
+   ,{
+      "id":"20255147600179473987"
+     ,"Identification":{
+        "Title":"Search"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":170
+       ,"Parent Region":"\u0026APPLICATION_TITLE. (20255147235943473984)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Blank with Attributes (14888250988334691823)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"#DEFAULT#"
+        ]
+       ,"CSS Classes":[
+          "t-Form--search"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"20255871994472617687"
+     ,"Identification":{
+        "Title":"Notifications"
+       ,"Type":"Classic Report"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select\n    id,\n    decode(lower(NOTIFICATION_TYPE),\u0027yellow\u0027,\u0027warning\u0027,\u0027red\u0027,\u0027danger\u0027,lower(NOTIFICATION_TYPE)) as ALERT_TYPE,\n    NOTIFICATION_NAME as ALERT_TITLE,\n    NOTIFICATION_DESCRIPTION as ALERT_DESC,\n    \u0027\u0027 alert_action\n  from EBA_CUST_NOTIFICATIONS\n where (DISPLAY_FROM is null or DISPLAY_FROM \u003C= current_date) and\n       (DISPLAY_UNTIL is null or DISPLAY_UNTIL \u003E= current_date)\n order by nvl(DISPLAY_SEQUENCE,0),NOTIFICATION_NAME"
+      }
+     ,"Layout":{
+        "Sequence":1
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--hideHeader"
+         ,"t-Region--noUI"
+         ,"t-Region--scrollBody"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server-side Condition":{
+        "Type":"Rows returned"
+       ,"SQL Query":"select null\n  from EBA_CUST_NOTIFICATIONS\n where (DISPLAY_FROM is null or DISPLAY_FROM \u003C= current_date) and\n       (DISPLAY_UNTIL is null or DISPLAY_UNTIL \u003E= current_date)"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Layout":{
+          "Number of Rows Type":"Static Value"
+         ,"Number of Rows":100
+        }
+       ,"Appearance":{
+          "Template Type":"Theme"
+         ,"Template":"Alerts (14904021707502102923)"
+         ,"Template Options":[
+            "#DEFAULT#"
+          ]
+        }
+       ,"Pagination":{
+          "Type":"No Pagination (Show All Rows)"
+         ,"Partial Page Refresh":true
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+         ,"Maximum Rows to Process":500
+        }
+       ,"Break Formatting":{
+          "Break Columns":"No Break"
+        }
+       ,"Advanced":{
+          "Strip HTML":true
+         ,"Sort Nulls":"Last"
+        }
+       ,"Heading":{
+          "Type":"Custom Headings"
+        }
+       ,"Download":{
+          "CSV Export Enabled":false
+        }
+       ,"Printing":{
+          "Enabled":false
+        }
+      }
+     ,"Columns":[
+        {
+          "id":"20255872288628617692"
+         ,"Identification":{
+            "Column Name":"ID"
+           ,"Type":"Hidden Column"
+          }
+         ,"Layout":{
+            "Sequence":1
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"20255872632496617694"
+         ,"Identification":{
+            "Column Name":"ALERT_TYPE"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Alert type"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":2
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"20255873053164617695"
+         ,"Identification":{
+            "Column Name":"ALERT_TITLE"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Alert title"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":3
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"20255873416611617696"
+         ,"Identification":{
+            "Column Name":"ALERT_DESC"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Alert desc"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":4
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"20255873875455617696"
+         ,"Identification":{
+            "Column Name":"ALERT_ACTION"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Alert action"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":5
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"20255875697126619160"
+     ,"Identification":{
+        "Title":"ACL Warning"
+       ,"Type":"ACL Warning"
+      }
+     ,"Layout":{
+        "Sequence":2
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":false
+       ,"Column":"Automatic"
+       ,"New Column":false
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Alert (14888249258257691818)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Alert--colorBG"
+         ,"t-Alert--defaultIcons"
+         ,"t-Alert--warning"
+         ,"t-Alert--horizontal"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":true
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server-side Condition":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"eba_cust_fw.get_preference_value(\u0027ACCESS_CONTROL_ENABLED\u0027) = \u0027N\u0027"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Administration Page Link":{
+            "url":"f?p=\u0026APP_ID.:SETTINGS:\u0026SESSION.::\u0026DEBUG.:RP::"
+           ,"Page":"SETTINGS"
+           ,"Clear Cache":"RP"
+          }
+        }
+      }
+    }
+   ,{
+      "id":"20255909134676834266"
+     ,"Identification":{
+        "Title":"Timezone"
+       ,"Type":"Static Content"
+      }
+     ,"Source":{
+        "HTML Code":"\"TIMEZONE\" \n "
+      }
+     ,"Layout":{
+        "Sequence":180
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Blank with Attributes (14888250988334691823)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Custom Attributes":[
+          "style=\"clear:"
+         ,"both;\""
+        ]
+       ,"Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":true
+        }
+      }
+    }
+   ,{
+      "id":"20255910710014835514"
+     ,"Identification":{
+        "Title":"Welcome to Customers"
+       ,"Type":"List"
+      }
+     ,"Source":{
+        "List":"Welome Actions (18008519637590982753)"
+      }
+     ,"Layout":{
+        "Sequence":3
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Alert (14888249258257691818)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Alert--wizard"
+         ,"t-Alert--noIcon"
+         ,"t-Alert--info"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":true
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server-side Condition":{
+        "Type":"No Rows returned"
+       ,"SQL Query":"select 1 from eba_cust_customers"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "List Template":"Media List (14888277784007691872)"
+         ,"Template Options":[
+            "#DEFAULT#"
+           ,"t-MediaList--cols t-MediaList--2cols"
+          ]
+        }
+      }
+    }
+  ]
+ ,"Page Items":[
+    {
+      "id":"1126686134939151851"
+     ,"Identification":{
+        "Name":"P59_DISPLAY_AS"
+       ,"Type":"Radio Group"
+      }
+     ,"Label":{
+        "Label":"Display as"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Number of Columns":4
+       ,"Page Action on Selection":"None"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Search (20255147600179473987)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Hidden (14888281412990691885)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Form-fieldContainer--large"
+         ,"t-Form-fieldContainer--radioButtonGroup"
+        ]
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"HOMEPAGE_DISPLAY_AS (1179212359942687121)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":false
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"CARDS"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Escape special characters":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"12028635236974842119"
+     ,"Identification":{
+        "Name":"P59_REFERENCE_TYPES"
+       ,"Type":"Checkbox Group"
+      }
+     ,"Label":{
+        "Label":"Reference Types (any)"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Number of Columns":1
+      }
+     ,"Layout":{
+        "Sequence":70
+       ,"Region":"Filters (14893784907800959850)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"CSS Classes":[
+          "reference_types_checkbox"
+        ]
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"REFERENCE_TYPES (15670880632026549329)"
+       ,"Display Extra Values":false
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Escape special characters":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Inline Help Text":"\u003Cbutton class=\"t-Button t-Button--small\" id=\"reference_check_box\" type=\"button\"\u003ECheck All\u003C\/button\u003E"
+       ,"Help Text":"Check all the boxes you would like to see.  If any customers have any of the reference types selected you will see the customer."
+      }
+    }
+   ,{
+      "id":"14893786273586971374"
+     ,"Identification":{
+        "Name":"P59_GEO"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Geography"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":50
+       ,"Region":"Filters (14893784907800959850)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"GEOGRAPHY (14893785263994968434)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All - "
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"0"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"14893787491068976914"
+     ,"Identification":{
+        "Name":"P59_SEARCH"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"Search"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Subtype":"Text"
+       ,"Trim Spaces":"Leading and Trailing"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Filters (14893784907800959850)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Hidden (14888281412990691885)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Form-fieldContainer--large"
+        ]
+       ,"Icon":"fa-search"
+       ,"Width":64
+       ,"Value Placeholder":"Search Customers"
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":4000
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"14893788173516981515"
+     ,"Identification":{
+        "Name":"P59_INDUSTRY"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Industry"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":90
+       ,"Region":"More Filters (17964602220657285486)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"P2_INDUSTRY_ID LOOKUP (14852869838645090511)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All - "
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"0"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"14893788726217991700"
+     ,"Identification":{
+        "Name":"P59_CATEGORY"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Category"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":100
+       ,"Region":"More Filters (17964602220657285486)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"CAT (14893788503901989125)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All - "
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"0"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"14893816441643049393"
+     ,"Identification":{
+        "Name":"P59_MAX_ROWS"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Rows"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":110
+       ,"Region":"More Filters (17964602220657285486)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"MAX ROWS (14893828822030133361)"
+       ,"Display Extra Values":true
+       ,"Display Null Value":false
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"20"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Server-side Condition":{
+        "Type":"Never"
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"14893833072705233596"
+     ,"Identification":{
+        "Name":"P59_STATUS"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Status"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":80
+       ,"Region":"Filters (14893784907800959850)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"STATUS  (14893834441176237959)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All -"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Configuration":{
+        "Build Option":"Customer Status (17168530605040612062)"
+      }
+    }
+   ,{
+      "id":"15061047078250447892"
+     ,"Identification":{
+        "Name":"P59_LOGO_SIZE"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Logo Sizes"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":100
+       ,"Region":"Filters (14893784907800959850)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"LOGO SIZES (15073149819818168241)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":false
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"S"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"15061049386926447915"
+     ,"Identification":{
+        "Name":"P59_MARQUEE_CUST"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Marquee Customer"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Region":"More Filters (17964602220657285486)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"MARQUEE (14787835144719105135)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All -"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"15061049446311447916"
+     ,"Identification":{
+        "Name":"P59_SCP_CUST"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"SCP Customer"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":60
+       ,"Region":"More Filters (17964602220657285486)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"Y_OR_N (17831456739552151139)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All -"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Configuration":{
+        "Build Option":"Strategic Customer Program (16917422310656199607)"
+      }
+    }
+   ,{
+      "id":"16917894043416343818"
+     ,"Identification":{
+        "Name":"P59_PRODUCT"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Product"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":40
+       ,"Region":"Filters (14893784907800959850)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"PRODUCTS (16960032275999277784)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All -"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"0"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"17031067175760244474"
+     ,"Identification":{
+        "Name":"P59_TYPE"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Type"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"More Filters (17964602220657285486)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"TYPE (17070263972513584655)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All -"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"17031068100029244483"
+     ,"Identification":{
+        "Name":"P59_USE_CASE"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Use Case"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"More Filters (17964602220657285486)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"USE_CASE (17156523483716946751)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All -"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Configuration":{
+        "Build Option":"Customer Use Case (17146729199024533840)"
+      }
+    }
+   ,{
+      "id":"17031068985474244492"
+     ,"Identification":{
+        "Name":"P59_REFERENCEABLE"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Publicly Referenceable"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":60
+       ,"Region":"Filters (14893784907800959850)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"REFERENCABLE (14787832928789100513)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All -"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"17170726769346248600"
+     ,"Identification":{
+        "Name":"P59_COUNTRY"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Country"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":80
+       ,"Region":"More Filters (17964602220657285486)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"COUNTRIES_P59 (17422725866108985090)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All -"
+       ,"Null Return Value":"0"
+      }
+     ,"Cascading List of Values":{
+        "Parent Item(s)":[
+          "P59_GEO"
+        ]
+       ,"Parent Required":false
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Configuration":{
+        "Build Option":"Countries (16956786967740861701)"
+      }
+    }
+   ,{
+      "id":"17777738120576622193"
+     ,"Identification":{
+        "Name":"P59_IMP_PARTNER"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Partner"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":40
+       ,"Region":"More Filters (17964602220657285486)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"SQL Query"
+       ,"SQL Query":"select name d, id r\nfrom eba_cust_impl_partners\norder by lower(name)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All -"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"17777738794939622199"
+     ,"Identification":{
+        "Name":"P59_COMPETITOR"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Competitor"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":50
+       ,"Region":"More Filters (17964602220657285486)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"SQL Query"
+       ,"SQL Query":"select name d, id r\nfrom eba_cust_competitors\norder by lower(name)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All -"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"17777739736332622209"
+     ,"Identification":{
+        "Name":"P59_SORT"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Sort By"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":90
+       ,"Region":"Filters (14893784907800959850)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Static Values"
+       ,"Static Values":"STATIC:Name;NAME,Last Updated;UPDATED,Oldest to Newest;OLDFIRST,Newest to Oldest;NEWFIRST"
+       ,"Display Extra Values":false
+       ,"Display Null Value":false
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Static Value"
+       ,"Static Value":"UPDATED"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per User (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"14903362122415005933"
+     ,"Identification":{
+        "Button Name":"RESET_REPORT"
+       ,"Label":"Reset"
+      }
+     ,"Layout":{
+        "Sequence":50
+       ,"Region":"Filters (14893784907800959850)"
+       ,"Position":"CREATE"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text with Icon (14888281958145691891)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--iconLeft"
+        ]
+       ,"Icon":"fa-undo-alt"
+      }
+     ,"Behavior":{
+        "Action":"Defined by Dynamic Action"
+       ,"Execute Validations":true
+      }
+     ,"Advanced":{
+        "Static ID":"reset_button"
+      }
+    }
+   ,{
+      "id":"15801003319911530364"
+     ,"Identification":{
+        "Button Name":"ADD_CUSTOMER"
+       ,"Label":"Add Customer"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"\u0026APPLICATION_TITLE. (20255147235943473984)"
+       ,"Position":"NEXT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--gapLeft"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:2:\u0026SESSION.::\u0026DEBUG.:2::"
+         ,"Page":"2"
+         ,"Clear Cache":"2"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+     ,"Security":{
+        "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+      }
+    }
+   ,{
+      "id":"17170724209037248575"
+     ,"Identification":{
+        "Button Name":"RESET"
+       ,"Label":"Reset"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Customers Report (15782905353620879697)"
+       ,"Position":"RIGHT_OF_IR_SEARCH_BAR"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Icon (14888281684153691889)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Icon":"fa-undo-alt"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:\u0026APP_PAGE_ID.:\u0026SESSION.::\u0026DEBUG.:RP,RIR::"
+         ,"Page":"\u0026APP_PAGE_ID."
+         ,"Clear Cache":"RP,RIR"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+   ,{
+      "id":"20255875968730619163"
+     ,"Identification":{
+        "Button Name":"CONFIG_ACL"
+       ,"Label":"Configure ACL"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"ACL Warning (20255875697126619160)"
+       ,"Position":"NEXT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:35:\u0026SESSION.::\u0026DEBUG.:RP,35::"
+         ,"Page":"35"
+         ,"Clear Cache":"RP,35"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+  ]
+ ,"Dynamic Actions":[
+    {
+      "id":"1126686307997151852"
+     ,"Identification":{
+        "Name":"Set Logo Sizes on Region Refresh"
+      }
+     ,"Execution":{
+        "Sequence":264
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.FAMEWORK.APEXAFTERREFRESH"
+       ,"Selection Type":"Region"
+       ,"Region":"Customer Logos (14306877862467591519)"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"1126686317648151853"
+         ,"Identification":{
+            "Action":"Execute JavaScript Code"
+          }
+         ,"Settings":{
+            "Code":"var logo_cards$ = $(\"#logo_region_cards\");\nvar logo_select_val = $v(\u0027P59_LOGO_SIZE\u0027);\n\nif (logo_select_val === \u0027S\u0027) {\n  logo_cards$.addClass(\"small-logos\");\n  logo_cards$.removeClass(\"medium-logos large-logos\"); \n} else if (logo_select_val === \u0027M\u0027) {\n  logo_cards$.addClass(\"medium-logos\");\n  logo_cards$.removeClass(\"small-logos large-logos\");\n} else {\n  logo_cards$.addClass(\"large-logos\");\n  logo_cards$.removeClass(\"small-logos medium-logos\");\n}"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P59_LOGO_SIZE"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Set Logo Sizes on Region Refresh (1126686307997151852)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"15029385353456559984"
+     ,"Identification":{
+        "Name":"Reset Search Filters"
+      }
+     ,"Execution":{
+        "Sequence":234
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CLICK"
+       ,"Selection Type":"Button"
+       ,"Button":"RESET_REPORT (14903362122415005933)"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"15029385486797559985"
+         ,"Identification":{
+            "Action":"Clear"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P59_SEARCH"
+             ,"P59_GEO"
+             ,"P59_INDUSTRY"
+             ,"P59_CATEGORY"
+             ,"P59_STATUS"
+             ,"P59_MAX_ROWS"
+             ,"P59_REFERENCE_TYPES"
+             ,"P59_LOGO_SIZE"
+             ,"P59_PRODUCT"
+             ,"P59_MARQUEE_CUST"
+             ,"P59_SCP_CUST"
+             ,"P59_TYPE"
+             ,"P59_USE_CASE"
+             ,"P59_REFERENCEABLE"
+             ,"P59_COUNTRY"
+             ,"P59_IMP_PARTNER"
+             ,"P59_COMPETITOR"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Reset Search Filters (15029385353456559984)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"15029386248029559993"
+     ,"Identification":{
+        "Name":"Set Logo Sizes"
+      }
+     ,"Execution":{
+        "Sequence":254
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CHANGE"
+       ,"Selection Type":"Item(s)"
+       ,"Item(s)":[
+          "P59_LOGO_SIZE"
+        ]
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"15029386318668559994"
+         ,"Identification":{
+            "Action":"Execute JavaScript Code"
+          }
+         ,"Settings":{
+            "Code":"var logo_cards$ = $(\"#logo_region_cards\");\nvar logo_select_val = $v(\u0027P59_LOGO_SIZE\u0027);\n\nif (logo_select_val === \u0027S\u0027) {\n  logo_cards$.addClass(\"small-logos\");\n  logo_cards$.removeClass(\"medium-logos large-logos\"); \n} else if (logo_select_val === \u0027M\u0027) {\n  logo_cards$.addClass(\"medium-logos\");\n  logo_cards$.removeClass(\"small-logos large-logos\");\n} else {\n  logo_cards$.addClass(\"large-logos\");\n  logo_cards$.removeClass(\"small-logos medium-logos\");\n}"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P59_LOGO_SIZE"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Set Logo Sizes (15029386248029559993)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"15061045729295447879"
+     ,"Identification":{
+        "Name":"Toggle Reference Type Checkboxes"
+      }
+     ,"Execution":{
+        "Sequence":224
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CLICK"
+       ,"Selection Type":"jQuery Selector"
+       ,"jQuery Selector":"#reference_check_box"
+      }
+     ,"Client-side Condition":{
+        "Type":"JavaScript expression"
+       ,"JavaScript Expression":"$(this.triggeringElement).text() === \"Check All\""
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"15061045844708447880"
+         ,"Identification":{
+            "Action":"Execute JavaScript Code"
+          }
+         ,"Settings":{
+            "Code":"$(\".reference_types_checkbox input[type=checkbox]\").prop(\u0027checked\u0027,true);\n$(this.triggeringElement).text(\u0027Uncheck All\u0027);"
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Toggle Reference Type Checkboxes (15061045729295447879)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"15061046075915447882"
+         ,"Identification":{
+            "Action":"Execute JavaScript Code"
+          }
+         ,"Settings":{
+            "Code":"$(\".reference_types_checkbox input[type=checkbox]\").prop(\u0027checked\u0027,false);\n$(this.triggeringElement).text(\u0027Check All\u0027);"
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Toggle Reference Type Checkboxes (15061045729295447879)"
+           ,"Fire When Event Result Is":"False"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"15061046467702447886"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"jQuery Selector"
+           ,"jQuery Selector":"#CARDS, #LOGOS, #CUSTOMERS"
+          }
+         ,"Execution":{
+            "Sequence":20
+           ,"Event":"Toggle Reference Type Checkboxes (15061045729295447879)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"15061046737406447889"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"jQuery Selector"
+           ,"jQuery Selector":"#CARDS, #LOGOS, #CUSTOMERS"
+          }
+         ,"Execution":{
+            "Sequence":30
+           ,"Event":"Toggle Reference Type Checkboxes (15061045729295447879)"
+           ,"Fire When Event Result Is":"False"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"15706449565164654942"
+     ,"Identification":{
+        "Name":"Perform Search on Enter"
+      }
+     ,"Execution":{
+        "Sequence":60
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.KEYDOWN"
+       ,"Selection Type":"Item(s)"
+       ,"Item(s)":[
+          "P59_SEARCH"
+        ]
+      }
+     ,"Client-side Condition":{
+        "Type":"JavaScript expression"
+       ,"JavaScript Expression":"this.browserEvent.which === 13"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Server-side Condition":{
+        "Type":"Never"
+      }
+     ,"Actions":[
+        {
+          "id":"15025729852061364579"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Customer Logos (14306877862467591519)"
+          }
+         ,"Execution":{
+            "Sequence":40
+           ,"Event":"Perform Search on Enter (15706449565164654942)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"15706449672524654943"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Customer Cards (14893769396265889860)"
+          }
+         ,"Execution":{
+            "Sequence":20
+           ,"Event":"Perform Search on Enter (15706449565164654942)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"15706449693299654944"
+         ,"Identification":{
+            "Action":"Cancel Event"
+          }
+         ,"Execution":{
+            "Sequence":50
+           ,"Event":"Perform Search on Enter (15706449565164654942)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+  ]
+ ,"Computations":[
+    {
+      "id":"14893827295895126880"
+     ,"Identification":{
+        "Item Name":"LAST_VIEW"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"Before Header"
+      }
+     ,"Computation":{
+        "Type":"Static Value"
+       ,"Static Value":"\u0026APP_PAGE_ID."
+      }
+    }
+  ]
+ ,"Branches":[
+    {
+      "id":"1188561346620473936"
+     ,"Identification":{
+        "Name":"Go to Getting Started Page"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"Before Header"
+      }
+     ,"Behavior":{
+        "Type":"Page or URL (Redirect)"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:1000:\u0026SESSION.::\u0026DEBUG.:RP::\u0026success_msg=#SUCCESS_MSG#"
+         ,"Page":"1000"
+         ,"Clear Cache":"RP"
+        }
+      }
+     ,"Server-side Condition":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"eba_cust_fw.get_preference_value(\u0027FIRST_RUN\u0027) = \u0027YES\u0027"
+      }
+    }
+  ]
+}

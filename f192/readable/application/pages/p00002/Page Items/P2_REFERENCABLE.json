@@ -1,0 +1,77 @@
+{
+    "id": "91025222292323361",
+    "Identification": {
+        "Name": "P2_REFERENCABLE",
+        "Type": "Select List"
+    },
+    "Label": {
+        "Label": "Publicly Referenceable",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Page Action on Selection": "None",
+        "Allow Multi Selection": false
+    },
+    "Layout": {
+        "Sequence": 470,
+        "Region": "Customer Details (17829324616828140228)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Optional (14888281543517691887)",
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "Height": 1
+    },
+    "Validation": {
+        "Value Required": false
+    },
+    "List of Values": {
+        "Type": "Shared Component",
+        "List of Values": "REFERENCABLE (14787832928789100513)",
+        "Display Extra Values": true,
+        "Display Null Value": true,
+        "Null Display Value": "- Select -"
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Database Column",
+        "Database Column": "REFERENCABLE",
+        "Used": "Always, replacing any existing value in session state"
+    },
+    "Default": {
+        "Type": "Static",
+        "Static Value": "No"
+    },
+    "Session State": {
+        "Storage": "Per Session (Persistent)"
+    },
+    "Quick Picks": {
+        "Show Quick Picks": false
+    },
+    "Server-side Condition": {
+        "Type": "Item is NULL",
+        "Item": "P2_ID"
+    },
+    "Security": {
+        "Session State Protection": "Checksum Required - Session Level",
+        "Store value encrypted in session state": false,
+        "Restricted Characters": "All characters can be saved."
+    },
+    "Help": {
+        "Help Text": "Would this customer give us a good reference?"
+    },
+    "Configuration": {
+        "Build Option": "Customer Referencability (14317354550591202996)"
+    }
+}

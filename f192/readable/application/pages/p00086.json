@@ -1,0 +1,951 @@
+{
+  "id":"86"
+ ,"Identification":{
+    "Name":"Referenceability"
+   ,"Alias":"REFERENCEABILITY"
+   ,"Title":"Referenceability"
+   ,"Page Group":"Customers (14749179822908293214)"
+  }
+ ,"Appearance":{
+    "Page Mode":"Normal"
+   ,"Page Template":"Theme Default"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"Do not focus cursor"
+   ,"Warn on Unsaved Changes":false
+  }
+ ,"Security":{
+    "Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"On"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Always"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Help":{
+    "Help Text":"No help is available for this page."
+  }
+ ,"Configuration":{
+    "Build Option":"Customer Referencability (14317354550591202996)"
+  }
+ ,"Regions":[
+    {
+      "id":"1126689023301151880"
+     ,"Identification":{
+        "Title":"By Asset Commitment"
+       ,"Type":"Chart"
+      }
+     ,"Layout":{
+        "Sequence":35
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":false
+       ,"Column":"Automatic"
+       ,"New Column":false
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--scrollBody"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":true
+       ,"Exclude Title from Translation":false
+      }
+     ,"Security":{
+        "Escape special characters":true
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Configuration":{
+        "Build Option":"Geography (14985171647776348081)"
+      }
+     ,"Attributes":{
+        "id":"1126689151361151881"
+       ,"Chart":{
+          "Type":"Bar"
+        }
+       ,"Appearance":{
+          "Orientation":"Vertical"
+         ,"Stack":false
+        }
+       ,"Data Cursor":{
+          "Cursor":"Automatic"
+         ,"Behavior":"Automatic"
+         ,"Dim On Hover":false
+        }
+       ,"Multi-Series Chart Data":{
+          "Fill Gaps in Chart Data":true
+         ,"Sort Order":"Label - Ascending"
+         ,"Render Gap as Zero":true
+        }
+       ,"Settings":{
+          "Zoom and Scroll":"No"
+        }
+       ,"Animation":{
+          "On Display":"Automatic"
+         ,"On Data Change":"Automatic"
+        }
+       ,"Tooltip":{
+          "Show":true
+         ,"Show Series Name":false
+         ,"Show Group Name":true
+         ,"Show Value":true
+        }
+       ,"Legend":{
+          "Show":false
+        }
+       ,"Series":[
+          {
+            "id":"1350364191005156232"
+           ,"Identification":{
+              "Name":"Asset Commitment"
+            }
+           ,"Execution":{
+              "Sequence":10
+            }
+           ,"Source":{
+              "Location":"Local Database"
+             ,"Type":"SQL Query"
+             ,"SQL Query":"select ID,\nreference_TYPE group_name,\n(select count(distinct(customer_id)) \n from EBA_CUST_CUSTOMER_REFTYPE_REF rt , eba_cust_customers c\n where rt.reference_type_id = t.id and c.id = rt.customer_id and \n       (NVL(:P86_CATEGORY,0) = 0 or c.CATEGORY_ID = :P86_CATEGORY) and\n       (NVL(:P86_GEO,0) = 0 or :P86_GEO = c.geography_id)\n ) cnt\nfrom EBA_CUST_reference_TYPES t\norder by 2 desc"
+             ,"Page Items to Submit":[
+                "P86_CATEGORY"
+               ,"P86_GEO"
+              ]
+            }
+           ,"Column Mapping":{
+              "Label":"GROUP_NAME"
+             ,"Value":"CNT"
+            }
+           ,"Appearance":{
+              "Assigned To Y2 Axis":false
+            }
+           ,"Link":{
+              "Type":"Redirect to Page in this Application"
+             ,"Target":{
+                "url":"f?p=\u0026APP_ID.:91:\u0026SESSION.::\u0026DEBUG.:RP,RIR,91:IR_REFERENCE_TYPE:\u0026GROUP_NAME."
+               ,"Page":"91"
+               ,"Clear Cache":"RP,RIR,91"
+               ,"Values":{
+                  "IR_REFERENCE_TYPE":"\u0026GROUP_NAME."
+                }
+              }
+            }
+           ,"Label":{
+              "Show":false
+            }
+          }
+        ]
+       ,"Axes":[
+          {
+            "id":"1350364243419156233"
+           ,"Identification":{
+              "Name":"x"
+             ,"Show Axis":true
+            }
+           ,"Value":{
+              "Format Scaling":"Automatic"
+             ,"Baseline Scaling":"Zero"
+             ,"Scale":"Linear"
+            }
+           ,"Major Ticks":{
+              "Show":"No"
+            }
+           ,"Minor Ticks":{
+              "Show":false
+            }
+           ,"Tick Label":{
+              "Show":true
+             ,"Rotation":true
+             ,"Position":"Outside"
+            }
+          }
+         ,{
+            "id":"1350364336337156234"
+           ,"Identification":{
+              "Name":"y"
+             ,"Show Axis":true
+            }
+           ,"Value":{
+              "Format":"Decimal"
+             ,"Decimal Places":0
+             ,"Format Scaling":"Automatic"
+             ,"Baseline Scaling":"Zero"
+             ,"Scale":"Linear"
+            }
+           ,"Appearance":{
+              "Position":"Automatic"
+            }
+           ,"Major Ticks":{
+              "Show":"Yes"
+            }
+           ,"Minor Ticks":{
+              "Show":false
+            }
+           ,"Tick Label":{
+              "Show":true
+            }
+          }
+        ]
+      }
+    }
+   ,{
+      "id":"1350364506624156235"
+     ,"Identification":{
+        "Title":"By Phase"
+       ,"Type":"Chart"
+      }
+     ,"Layout":{
+        "Sequence":45
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":false
+       ,"Column":"Automatic"
+       ,"New Column":false
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--scrollBody"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":true
+       ,"Exclude Title from Translation":false
+      }
+     ,"Security":{
+        "Escape special characters":true
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Configuration":{
+        "Build Option":"Geography (14985171647776348081)"
+      }
+     ,"Attributes":{
+        "id":"1350364527010156236"
+       ,"Chart":{
+          "Type":"Bar"
+        }
+       ,"Appearance":{
+          "Orientation":"Vertical"
+         ,"Stack":false
+        }
+       ,"Data Cursor":{
+          "Cursor":"Automatic"
+         ,"Behavior":"Automatic"
+         ,"Dim On Hover":false
+        }
+       ,"Multi-Series Chart Data":{
+          "Fill Gaps in Chart Data":true
+         ,"Sort Order":"Label - Ascending"
+         ,"Render Gap as Zero":true
+        }
+       ,"Settings":{
+          "Zoom and Scroll":"No"
+        }
+       ,"Animation":{
+          "On Display":"Automatic"
+         ,"On Data Change":"Automatic"
+        }
+       ,"Tooltip":{
+          "Show":true
+         ,"Show Series Name":false
+         ,"Show Group Name":true
+         ,"Show Value":true
+        }
+       ,"Legend":{
+          "Show":false
+        }
+       ,"Series":[
+          {
+            "id":"1350364660700156237"
+           ,"Identification":{
+              "Name":"Asset Commitment"
+            }
+           ,"Execution":{
+              "Sequence":10
+            }
+           ,"Source":{
+              "Location":"Local Database"
+             ,"Type":"SQL Query"
+             ,"SQL Query":"select ID,\nstatus group_name,\n(select count(distinct(c.id)) \n from eba_cust_customers c\n where (NVL(:P86_CATEGORY,0) = 0 or c.CATEGORY_ID = :P86_CATEGORY) and \n       (NVL(:P86_GEO,0) = 0 or :P86_GEO = c.geography_id) and\n       t.id = c.reference_phase_id) cnt\nfrom EBA_CUST_REF_PHASE t\norder by display_sequence, description"
+             ,"Page Items to Submit":[
+                "P86_CATEGORY"
+               ,"P86_GEO"
+              ]
+            }
+           ,"Column Mapping":{
+              "Label":"GROUP_NAME"
+             ,"Value":"CNT"
+            }
+           ,"Appearance":{
+              "Assigned To Y2 Axis":false
+            }
+           ,"Link":{
+              "Type":"Redirect to Page in this Application"
+             ,"Target":{
+                "url":"f?p=\u0026APP_ID.:91:\u0026SESSION.::\u0026DEBUG.:RP,RIR,91:IR_REF_PHASE,P91_CATEGORY:\u0026GROUP_NAME.,\u0026P86_CATEGORY."
+               ,"Page":"91"
+               ,"Clear Cache":"RP,RIR,91"
+               ,"Values":{
+                  "IR_REF_PHASE":"\u0026GROUP_NAME."
+                 ,"P91_CATEGORY":"\u0026P86_CATEGORY."
+                }
+              }
+            }
+           ,"Label":{
+              "Show":false
+            }
+          }
+        ]
+       ,"Axes":[
+          {
+            "id":"1350364795919156238"
+           ,"Identification":{
+              "Name":"x"
+             ,"Show Axis":true
+            }
+           ,"Value":{
+              "Format Scaling":"Automatic"
+             ,"Baseline Scaling":"Zero"
+             ,"Scale":"Linear"
+            }
+           ,"Major Ticks":{
+              "Show":"No"
+            }
+           ,"Minor Ticks":{
+              "Show":false
+            }
+           ,"Tick Label":{
+              "Show":true
+             ,"Rotation":true
+             ,"Position":"Outside"
+            }
+          }
+         ,{
+            "id":"1350364835774156239"
+           ,"Identification":{
+              "Name":"y"
+             ,"Show Axis":true
+            }
+           ,"Value":{
+              "Format":"Decimal"
+             ,"Decimal Places":0
+             ,"Format Scaling":"Automatic"
+             ,"Baseline Scaling":"Zero"
+             ,"Scale":"Linear"
+            }
+           ,"Appearance":{
+              "Position":"Automatic"
+            }
+           ,"Major Ticks":{
+              "Show":"Yes"
+             ,"Minimum Step":1
+            }
+           ,"Minor Ticks":{
+              "Show":true
+            }
+           ,"Tick Label":{
+              "Show":true
+            }
+          }
+        ]
+      }
+    }
+   ,{
+      "id":"15800932657809345801"
+     ,"Identification":{
+        "Title":"Breadcrumb"
+       ,"Type":"Breadcrumb"
+      }
+     ,"Source":{
+        "Breadcrumb":"Breadcrumb (17869143586620226407)"
+      }
+     ,"Layout":{
+        "Sequence":40
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_01"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Title Bar (14888267217215691848)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-BreadcrumbRegion--useBreadcrumbTitle"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "Breadcrumb Template":"Breadcrumb (14888282717314691893)"
+         ,"Template Options":[
+            "#DEFAULT#"
+          ]
+        }
+      }
+    }
+   ,{
+      "id":"15800990795910490201"
+     ,"Identification":{
+        "Title":"Customer Summary"
+       ,"Type":"Badge List"
+      }
+     ,"Source":{
+        "SQL Query":"select label, nvl(to_number(value,\u0027999G999G990\u0027),0) value, url from (\nwith data as (\n    select count(*) total,\n        sum(decode(marquee_customer_yn,\u0027Y\u0027,1,0)) marquee,\n        sum(decode(referencable,\u0027Yes\u0027,1,0)) ref\n    from eba_cust_customers c\n    where (NVL(:P86_CATEGORY,0) = 0 or CATEGORY_ID = :P86_CATEGORY) and\n          (NVL(:P86_GEO,0) = 0 or :P86_GEO = c.geography_id)\n), rws as (\n    select level r from dual connect by level \u003C 4\n)\nselect rws.r display_order,\n    decode(rws.r, 1, \u0027Customers Tracked\u0027,    2, \u0027Marquee\u0027,    3, \u0027Referenceable\u0027)  label,\n    decode(rws.r, 1, data.total, 2, data.marquee, 3, data.ref) value,\n    decode(rws.r, 1, \u0027f?p=\u0027||:APP_ID||\u0027:59:\u0027||:APP_SESSION||\u0027:::59,RIR:\u0027,\n                  2, \u0027f?p=\u0027||:APP_ID||\u0027:59:\u0027||:APP_SESSION||\u0027:::59,RIR:IR_MARQUEE_CUSTOMER,P59_MARQUEE_CUST:Yes,Y\u0027,\n                  3, \u0027f?p=\u0027||:APP_ID||\u0027:59:\u0027||:APP_SESSION||\u0027:::59,RIR:IR_REFERENCABLE,P59_REFERENCEABLE:Yes,Yes:\u0027) url\nfrom data, rws\nunion all\nselect 4 display_order,\n\t\u0027Products\u0027 label,\n\tcount(*) value,\n\tapex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:44:\u0027||:APP_SESSION||\u0027:::44,RIR\u0027) url\nfrom eba_cust_products\n)\norder by display_order"
+       ,"Page Items to Submit":[
+          "P86_CATEGORY"
+         ,"P86_GEO"
+        ]
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--noPadding"
+         ,"t-Region--hideHeader"
+         ,"t-Region--hiddenOverflow"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Security":{
+        "Escape special characters":true
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Badge Style":"Default"
+         ,"Value":"VALUE"
+         ,"Bottom Label":"LABEL"
+         ,"Link Target":"\u0026URL."
+         ,"Layout":"4 columns"
+         ,"Color":"No"
+        }
+      }
+    }
+   ,{
+      "id":"15800991629658491385"
+     ,"Identification":{
+        "Title":"Button Bar"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Buttons Container (14888251272274691825)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-ButtonRegion--noPadding"
+         ,"t-ButtonRegion--noUI"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"15801163140484672878"
+     ,"Identification":{
+        "Title":"Region Display Selector"
+       ,"Type":"Region Display Selector"
+      }
+     ,"Layout":{
+        "Sequence":25
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Blank with Attributes (14888250988334691823)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":true
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Mode":"View Single Region"
+         ,"Display Region Icons":false
+         ,"Include \u0027Show All\u0027":true
+         ,"Remember Selection":"No"
+        }
+      }
+    }
+   ,{
+      "id":"15873572530082520153"
+     ,"Identification":{
+        "Title":"by Recruitment Owner"
+       ,"Type":"HTML 5 Bar Chart"
+      }
+     ,"Source":{
+        "SQL Query":"select REF_RECRUITMENT_OWNER RECRUITMENT_OWNER,\n       count(*) customers\nfrom EBA_CUST_CUSTOMERS c\nwhere REF_RECRUITMENT_OWNER is not null and  \n     (NVL(:P86_CATEGORY,0) = 0 or c.CATEGORY_ID = :P86_CATEGORY) and\n     (NVL(:P86_GEO,0) = 0 or :P86_GEO = c.geography_id)\ngroup by REF_RECRUITMENT_OWNER"
+       ,"Page Items to Submit":[
+          "P86_CATEGORY"
+         ,"P86_GEO"
+        ]
+      }
+     ,"Layout":{
+        "Sequence":65
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--noPadding"
+         ,"t-Region--scrollBody"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":true
+       ,"Exclude Title from Translation":false
+      }
+     ,"Security":{
+        "Escape special characters":true
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Label Column":"RECRUITMENT_OWNER"
+         ,"Value Column":"CUSTOMERS"
+         ,"Label Link Target":{
+            "url":"f?p=\u0026APP_ID.:91:\u0026SESSION.::\u0026DEBUG.:RP,91,RIR:IR_RECRUITMENT_OWNER,P91_CATEGORY:\u0026RECRUITMENT_OWNER.,\u0026P86_CATEGORY."
+           ,"Page":"91"
+           ,"Clear Cache":"RP,91,RIR"
+           ,"Values":{
+              "IR_RECRUITMENT_OWNER":"\u0026RECRUITMENT_OWNER."
+             ,"P91_CATEGORY":"\u0026P86_CATEGORY."
+            }
+          }
+         ,"Value Display":"Value"
+         ,"Bar Width Calculation":"Absolute"
+         ,"Display Type":"Text Chart"
+         ,"Text Position":"Inline"
+         ,"Color Scheme":"Theme Colors"
+         ,"Maximum Rows":50
+         ,"Message When No Data Found":"No data found."
+        }
+      }
+    }
+  ]
+ ,"Page Items":[
+    {
+      "id":"15800991913848491386"
+     ,"Identification":{
+        "Name":"P86_CATEGORY"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Category"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Button Bar (15800991629658491385)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"CAT (14893788503901989125)"
+       ,"Display Extra Values":true
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All -"
+       ,"Null Return Value":"0"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Static Value"
+       ,"Static Value":"0"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"0"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"15902985461421559811"
+     ,"Identification":{
+        "Name":"P86_GEO"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Geography"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Button Bar (15800991629658491385)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":false
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"GEOGRAPHY (14893785263994968434)"
+       ,"Display Extra Values":true
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All - "
+       ,"Null Return Value":"0"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"15801007834724543472"
+     ,"Identification":{
+        "Button Name":"RESET_REPORT"
+       ,"Label":"Reset"
+      }
+     ,"Layout":{
+        "Sequence":1000
+       ,"Region":"Breadcrumb (15800932657809345801)"
+       ,"Position":"CREATE"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text with Icon (14888281958145691891)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--iconLeft"
+        ]
+       ,"Icon":"fa-undo-alt"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:\u0026APP_PAGE_ID.:\u0026SESSION.::\u0026DEBUG.:RP,\u0026APP_PAGE_ID.,RIR::"
+         ,"Page":"\u0026APP_PAGE_ID."
+         ,"Clear Cache":"RP,\u0026APP_PAGE_ID.,RIR"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+  ]
+ ,"Dynamic Actions":[
+    {
+      "id":"15902988249290617287"
+     ,"Identification":{
+        "Name":"cat"
+      }
+     ,"Execution":{
+        "Sequence":10
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CHANGE"
+       ,"Selection Type":"Item(s)"
+       ,"Item(s)":[
+          "P86_CATEGORY"
+        ]
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"15902989555775619986"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"by Recruitment Owner (15873572530082520153)"
+          }
+         ,"Execution":{
+            "Sequence":30
+           ,"Event":"cat (15902988249290617287)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"15902991912309630841"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Customer Summary (15800990795910490201)"
+          }
+         ,"Execution":{
+            "Sequence":40
+           ,"Event":"cat (15902988249290617287)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"15902989852132624348"
+     ,"Identification":{
+        "Name":"geo"
+      }
+     ,"Execution":{
+        "Sequence":20
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CHANGE"
+       ,"Selection Type":"Item(s)"
+       ,"Item(s)":[
+          "P86_GEO"
+        ]
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"15902991172945627124"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"by Recruitment Owner (15873572530082520153)"
+          }
+         ,"Execution":{
+            "Sequence":30
+           ,"Event":"geo (15902989852132624348)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"15902991569352628729"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Customer Summary (15800990795910490201)"
+          }
+         ,"Execution":{
+            "Sequence":40
+           ,"Event":"geo (15902989852132624348)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+  ]
+}

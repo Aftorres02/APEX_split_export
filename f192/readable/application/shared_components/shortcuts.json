@@ -1,0 +1,23 @@
+[
+  {
+    "id":"16640404739759191620"
+   ,"Identification":{
+      "Name":"TIMEZONE"
+    }
+   ,"Source":{
+      "Type":"Function Body returning VARCHAR2"
+     ,"Language":"PL\/SQL"
+     ,"PL\/SQL Function Body":"return \u0027\u003Cp\u003E\u0027||\u0027Dates and Times are displayed in the \u0027||\n\u0027\u003Ca href=\"f?p=\u0027||:APP_ID||\u0027:76:\u0027||:APP_SESSION||\u0027\"\u003E\u0027||\nnvl(apex_escape.html(apex_util.get_session_time_zone),\u0027unknown\u0027)||\u0027\u003C\/a\u003E timezone.\u003C\/p\u003E\u0027;"
+    }
+  }
+ ,{
+    "id":"17829325096106140240"
+   ,"Identification":{
+      "Name":"DELETE_CONFIRM_MSG"
+    }
+   ,"Source":{
+      "Type":"Text with JavaScript Escaped Single Quotes"
+     ,"Text":"Would you like to perform this delete action?"
+    }
+  }
+]

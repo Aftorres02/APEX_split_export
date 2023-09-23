@@ -1,0 +1,34 @@
+{
+    "id": "14787888033721433095",
+    "Identification": {
+        "Button Name": "RESET_REPORT",
+        "Label": "Reset"
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Region": "Categories (17835931360859747553)",
+        "Position": "RIGHT_OF_IR_SEARCH_BAR",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Button Template": "Icon (14888281684153691889)",
+        "Hot": false,
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "Icon": "fa-undo-alt"
+    },
+    "Behavior": {
+        "Action": "Redirect to Page in this Application",
+        "Target": {
+            "url": "f?p=&APP_ID.:3:&SESSION.::&DEBUG.:3,RIR::",
+            "Page": "3",
+            "Clear Cache": "3,RIR"
+        },
+        "Warn on Unsaved Changes": "Do Not Check"
+    }
+}

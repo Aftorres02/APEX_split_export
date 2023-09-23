@@ -1,0 +1,152 @@
+[
+  {
+    "id":"14766335625240740025"
+   ,"Identification":{
+      "Item Name":"APPLICATION_TITLE"
+    }
+   ,"Execution":{
+      "Sequence":10
+     ,"Point":"New Session"
+    }
+   ,"Computation":{
+      "Type":"Function Body"
+     ,"Language":"PL\/SQL"
+     ,"PL\/SQL Function Body":"declare\n    l_app_name varchar2(255);\nbegin\n    select nvl(preference_value,:APP_NAME)\n      into l_app_name\n      from eba_cust_preferences\n     where preference_name = \u0027APPLICATION_TITLE\u0027;\n    return l_app_name;\nexception\n    when others then\n        return :APP_NAME;\nend;"
+    }
+  }
+ ,{
+    "id":"17031043784248283582"
+   ,"Identification":{
+      "Item Name":"CUSTOMER_TYPE_HELP"
+    }
+   ,"Execution":{
+      "Sequence":10
+     ,"Point":"New Session"
+    }
+   ,"Computation":{
+      "Type":"Expression"
+     ,"Language":"PL\/SQL"
+     ,"PL\/SQL Expression":"htmldb_lang.message(\u0027CUSTOMER_TYPE_HELP\u0027);"
+    }
+  }
+ ,{
+    "id":"17155690289759767293"
+   ,"Identification":{
+      "Item Name":"CUSTOMER_USE_CASE_HELP"
+    }
+   ,"Execution":{
+      "Sequence":10
+     ,"Point":"New Session"
+    }
+   ,"Computation":{
+      "Type":"Expression"
+     ,"Language":"PL\/SQL"
+     ,"PL\/SQL Expression":"htmldb_lang.message(\u0027CONTACT_USE_CASE_HELP\u0027);"
+    }
+  }
+ ,{
+    "id":"17861931288444303702"
+   ,"Identification":{
+      "Item Name":"CREATE_MSG"
+    }
+   ,"Execution":{
+      "Sequence":10
+     ,"Point":"New Session"
+    }
+   ,"Computation":{
+      "Type":"Expression"
+     ,"Language":"PL\/SQL"
+     ,"PL\/SQL Expression":"htmldb_lang.message(\u0027CREATE\u0027);"
+    }
+  }
+ ,{
+    "id":"17864056983252366223"
+   ,"Identification":{
+      "Item Name":"UNLINK_CONFIRM_MSG"
+    }
+   ,"Execution":{
+      "Sequence":10
+     ,"Point":"New Session"
+    }
+   ,"Computation":{
+      "Type":"Expression"
+     ,"Language":"PL\/SQL"
+     ,"PL\/SQL Expression":"htmldb_lang.message(\u0027UNLINK_CONFIRMATION\u0027);"
+    }
+  }
+ ,{
+    "id":"17864790584229170200"
+   ,"Identification":{
+      "Item Name":"ACTIVE_MSG"
+    }
+   ,"Execution":{
+      "Sequence":10
+     ,"Point":"New Session"
+    }
+   ,"Computation":{
+      "Type":"Expression"
+     ,"Language":"PL\/SQL"
+     ,"PL\/SQL Expression":"htmldb_lang.message(\u0027ACTIVE\u0027);"
+    }
+  }
+ ,{
+    "id":"17864791293579172857"
+   ,"Identification":{
+      "Item Name":"INACTIVE_MSG"
+    }
+   ,"Execution":{
+      "Sequence":10
+     ,"Point":"New Session"
+    }
+   ,"Computation":{
+      "Type":"Expression"
+     ,"Language":"PL\/SQL"
+     ,"PL\/SQL Expression":"htmldb_lang.message(\u0027INACTIVE\u0027);"
+    }
+  }
+ ,{
+    "id":"17864814980700339438"
+   ,"Identification":{
+      "Item Name":"CATEGORY_HELP"
+    }
+   ,"Execution":{
+      "Sequence":10
+     ,"Point":"New Session"
+    }
+   ,"Computation":{
+      "Type":"Expression"
+     ,"Language":"PL\/SQL"
+     ,"PL\/SQL Expression":"htmldb_lang.message(\u0027CATEGORY_HELP\u0027);"
+    }
+  }
+ ,{
+    "id":"17864815695938343834"
+   ,"Identification":{
+      "Item Name":"CUSTOMER_STATUS_HELP"
+    }
+   ,"Execution":{
+      "Sequence":10
+     ,"Point":"New Session"
+    }
+   ,"Computation":{
+      "Type":"Expression"
+     ,"Language":"PL\/SQL"
+     ,"PL\/SQL Expression":"htmldb_lang.message(\u0027CUSTOMER_STATUS_HELP\u0027);"
+    }
+  }
+ ,{
+    "id":"17864816101479345427"
+   ,"Identification":{
+      "Item Name":"CONTACT_TYPES_HELP"
+    }
+   ,"Execution":{
+      "Sequence":10
+     ,"Point":"New Session"
+    }
+   ,"Computation":{
+      "Type":"Expression"
+     ,"Language":"PL\/SQL"
+     ,"PL\/SQL Expression":"htmldb_lang.message(\u0027CONTACT_TYPES_HELP\u0027);"
+    }
+  }
+]

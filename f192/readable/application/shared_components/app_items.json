@@ -1,0 +1,327 @@
+[
+  {
+    "id":"14766335445943730401"
+   ,"Identification":{
+      "Name":"APPLICATION_TITLE"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Checksum Required - Session Level"
+     ,"Escape special characters":true
+    }
+  }
+ ,{
+    "id":"14888640923526108795"
+   ,"Identification":{
+      "Name":"CUSTOMERS"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Restricted - May not be set from browser"
+     ,"Escape special characters":false
+    }
+  }
+ ,{
+    "id":"14888642659354168022"
+   ,"Identification":{
+      "Name":"PRODUCTS"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Restricted - May not be set from browser"
+     ,"Escape special characters":false
+    }
+  }
+ ,{
+    "id":"14888642919541173457"
+   ,"Identification":{
+      "Name":"CONTACTS"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Restricted - May not be set from browser"
+     ,"Escape special characters":true
+    }
+  }
+ ,{
+    "id":"14888706522959551095"
+   ,"Identification":{
+      "Name":"CUSTOMER"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Restricted - May not be set from browser"
+     ,"Escape special characters":false
+    }
+  }
+ ,{
+    "id":"14984250217525514393"
+   ,"Identification":{
+      "Name":"CNT_01"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Restricted - May not be set from browser"
+     ,"Escape special characters":true
+    }
+  }
+ ,{
+    "id":"14984250448137515371"
+   ,"Identification":{
+      "Name":"CNT_02"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Restricted - May not be set from browser"
+     ,"Escape special characters":true
+    }
+  }
+ ,{
+    "id":"14984250646196516208"
+   ,"Identification":{
+      "Name":"CNT_03"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Restricted - May not be set from browser"
+     ,"Escape special characters":true
+    }
+  }
+ ,{
+    "id":"14984271642343277754"
+   ,"Identification":{
+      "Name":"CNT_04"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Restricted - May not be set from browser"
+     ,"Escape special characters":true
+    }
+  }
+ ,{
+    "id":"14984271841265278277"
+   ,"Identification":{
+      "Name":"CNT_05"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Restricted - May not be set from browser"
+     ,"Escape special characters":true
+    }
+  }
+ ,{
+    "id":"14984272039971278842"
+   ,"Identification":{
+      "Name":"CNT_06"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Restricted - May not be set from browser"
+     ,"Escape special characters":true
+    }
+  }
+ ,{
+    "id":"14984272238677279446"
+   ,"Identification":{
+      "Name":"CNT_07"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Restricted - May not be set from browser"
+     ,"Escape special characters":true
+    }
+  }
+ ,{
+    "id":"14984272437598279965"
+   ,"Identification":{
+      "Name":"CNT_08"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Restricted - May not be set from browser"
+     ,"Escape special characters":true
+    }
+  }
+ ,{
+    "id":"14984272636520280423"
+   ,"Identification":{
+      "Name":"TZ"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Restricted - May not be set from browser"
+     ,"Escape special characters":false
+    }
+  }
+ ,{
+    "id":"14984290445244686666"
+   ,"Identification":{
+      "Name":"CNT_09"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Restricted - May not be set from browser"
+     ,"Escape special characters":true
+    }
+  }
+ ,{
+    "id":"15060258253619130512"
+   ,"Identification":{
+      "Name":"GET_ID"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Unrestricted"
+     ,"Escape special characters":false
+    }
+   ,"Comments":{
+      "Comments":"This is a generic item used to fetch things via ajax. Used for fetching image for customer Logos."
+    }
+  }
+ ,{
+    "id":"17030950333189249555"
+   ,"Identification":{
+      "Name":"CNT_10"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Restricted - May not be set from browser"
+     ,"Escape special characters":true
+    }
+  }
+ ,{
+    "id":"17030959996663212269"
+   ,"Identification":{
+      "Name":"CUSTOMER_TYPE_HELP"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Checksum Required - Session Level"
+     ,"Escape special characters":false
+    }
+  }
+ ,{
+    "id":"17155663013801761631"
+   ,"Identification":{
+      "Name":"CUSTOMER_USE_CASE_HELP"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Restricted - May not be set from browser"
+     ,"Escape special characters":false
+    }
+  }
+ ,{
+    "id":"17825252238717662965"
+   ,"Identification":{
+      "Name":"RETURN_URL"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Checksum Required - Session Level"
+     ,"Escape special characters":false
+    }
+  }
+ ,{
+    "id":"17849810804191876174"
+   ,"Identification":{
+      "Name":"LAST_VIEW"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Unrestricted"
+     ,"Escape special characters":true
+    }
+  }
+ ,{
+    "id":"17861930279786301179"
+   ,"Identification":{
+      "Name":"CREATE_MSG"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Checksum Required - Session Level"
+     ,"Escape special characters":false
+    }
+  }
+ ,{
+    "id":"17864056403207362601"
+   ,"Identification":{
+      "Name":"UNLINK_CONFIRM_MSG"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Checksum Required - Session Level"
+     ,"Escape special characters":false
+    }
+  }
+ ,{
+    "id":"17864787686045151770"
+   ,"Identification":{
+      "Name":"ACTIVE_MSG"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Checksum Required - Session Level"
+     ,"Escape special characters":true
+    }
+  }
+ ,{
+    "id":"17864788191586153395"
+   ,"Identification":{
+      "Name":"INACTIVE_MSG"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Checksum Required - Session Level"
+     ,"Escape special characters":false
+    }
+  }
+ ,{
+    "id":"17864813388188332102"
+   ,"Identification":{
+      "Name":"CATEGORY_HELP"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Checksum Required - Session Level"
+     ,"Escape special characters":false
+    }
+  }
+ ,{
+    "id":"17864813793383333649"
+   ,"Identification":{
+      "Name":"CUSTOMER_STATUS_HELP"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Checksum Required - Session Level"
+     ,"Escape special characters":false
+    }
+  }
+ ,{
+    "id":"17864814200309335678"
+   ,"Identification":{
+      "Name":"CONTACT_TYPES_HELP"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Checksum Required - Session Level"
+     ,"Escape special characters":false
+    }
+  }
+ ,{
+    "id":"18174771409622802888"
+   ,"Identification":{
+      "Name":"ACTIVITIES"
+     ,"Scope":"Application"
+    }
+   ,"Security":{
+      "Session State Protection":"Restricted - May not be set from browser"
+     ,"Escape special characters":true
+    }
+   ,"Configuration":{
+      "Build Option":"Activities (18167958259658546771)"
+    }
+  }
+]

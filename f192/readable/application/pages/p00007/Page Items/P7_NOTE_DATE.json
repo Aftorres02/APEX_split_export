@@ -1,0 +1,67 @@
+{
+    "id": "16663124717800525640",
+    "Identification": {
+        "Name": "P7_NOTE_DATE",
+        "Type": "Date Picker"
+    },
+    "Label": {
+        "Label": "Date",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Show Time": false,
+        "Display As": "Popup",
+        "Minimum Date": "None",
+        "Maximum Date": "None",
+        "Multiple Months": "No",
+        "Use Defaults": true
+    },
+    "Layout": {
+        "Sequence": 60,
+        "Region": "Maintain Update (16663122517901525634)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Optional (14888281543517691887)",
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "Format Mask": "&APP_DATE_FORMAT.",
+        "Width": 64
+    },
+    "Validation": {
+        "Value Required": false,
+        "Maximum Length": 2000
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Database Column",
+        "Database Column": "NOTE_DATE",
+        "Used": "Always, replacing any existing value in session state"
+    },
+    "Default": {
+        "Type": "Expression",
+        "Language": "PL/SQL",
+        "PL/SQL Expression": "case when :P7_ID is null then 'Y' end;"
+    },
+    "Session State": {
+        "Storage": "Per Session (Persistent)"
+    },
+    "Quick Picks": {
+        "Show Quick Picks": false
+    },
+    "Security": {
+        "Session State Protection": "Checksum Required - Session Level",
+        "Store value encrypted in session state": false,
+        "Restricted Characters": "All characters can be saved."
+    }
+}

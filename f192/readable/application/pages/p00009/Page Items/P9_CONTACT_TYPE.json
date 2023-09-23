@@ -1,0 +1,63 @@
+{
+    "id": "17829408303092640554",
+    "Identification": {
+        "Name": "P9_CONTACT_TYPE",
+        "Type": "Text Field"
+    },
+    "Label": {
+        "Label": "Contact Type",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Subtype": "Text",
+        "Trim Spaces": "None",
+        "Text Case": "NO CHANGE",
+        "Submit when Enter pressed": false,
+        "Disabled": false
+    },
+    "Layout": {
+        "Sequence": 20,
+        "Region": "Contact Type Details (17829406703193640495)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Required - Floating (295786634453769843)",
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "Width": 48
+    },
+    "Validation": {
+        "Value Required": true,
+        "Maximum Length": 60
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Database Column",
+        "Database Column": "CONTACT_TYPE",
+        "Used": "Always, replacing any existing value in session state"
+    },
+    "Session State": {
+        "Storage": "Per Session (Persistent)"
+    },
+    "Quick Picks": {
+        "Show Quick Picks": false
+    },
+    "Security": {
+        "Session State Protection": "Checksum Required - Session Level",
+        "Store value encrypted in session state": false,
+        "Restricted Characters": "All characters can be saved."
+    },
+    "Help": {
+        "Help Text": "Contact Types are used to categorize Contacts."
+    }
+}

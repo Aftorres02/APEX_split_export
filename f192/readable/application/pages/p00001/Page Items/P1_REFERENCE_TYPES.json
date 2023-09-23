@@ -1,0 +1,63 @@
+{
+    "id": "2074507902815780754",
+    "Identification": {
+        "Name": "P1_REFERENCE_TYPES",
+        "Type": "Checkbox Group"
+    },
+    "Label": {
+        "Label": "Reference Types (any)",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Number of Columns": 1
+    },
+    "Layout": {
+        "Sequence": 70,
+        "Region": "Filters (16935250319303139248)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Optional - Above (15050274849633028680)",
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "CSS Classes": [
+            "reference_types_checkbox"
+        ]
+    },
+    "Validation": {
+        "Value Required": false
+    },
+    "List of Values": {
+        "Type": "Shared Component",
+        "List of Values": "REFERENCE_TYPES (15670880632026549329)",
+        "Display Extra Values": false
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Null",
+        "Used": "Only when current value in session state is null"
+    },
+    "Session State": {
+        "Storage": "Per Session (Persistent)"
+    },
+    "Security": {
+        "Session State Protection": "Unrestricted",
+        "Store value encrypted in session state": false,
+        "Escape special characters": true,
+        "Restricted Characters": "All characters can be saved."
+    },
+    "Help": {
+        "Inline Help Text": "<button class=\"t-Button t-Button--small\" id=\"reference_check_box\" type=\"button\">Check All</button>",
+        "Help Text": "Check all the boxes you would like to see.  If any customers have any of the reference types selected you will see the customer."
+    }
+}

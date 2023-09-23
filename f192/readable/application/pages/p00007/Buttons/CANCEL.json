@@ -1,0 +1,32 @@
+{
+    "id": "16663122918662525637",
+    "Identification": {
+        "Button Name": "CANCEL",
+        "Label": "Cancel"
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Region": "Breadcrumb (16663127328211525644)",
+        "Position": "CLOSE",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Button Template": "Text (14888282487315691892)",
+        "Hot": false,
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Behavior": {
+        "Action": "Redirect to Page in this Application",
+        "Target": {
+            "url": "f?p=&APP_ID.:&LAST_VIEW.:&SESSION.::&DEBUG.:::",
+            "Page": "&LAST_VIEW."
+        },
+        "Warn on Unsaved Changes": "Do Not Check"
+    }
+}

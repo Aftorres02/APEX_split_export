@@ -1,0 +1,23 @@
+{
+    "id": "15091859832417304839",
+    "Identification": {
+        "Name": "P4_CATEGORY unique"
+    },
+    "Execution": {
+        "Sequence": 5
+    },
+    "Validation": {
+        "Type": "No Rows returned",
+        "SQL Query": "select null\nfrom eba_cust_categories\nwhere upper(category) = upper(:P4_CATEGORY)\n    and (:P4_ID is null\n        or id <> :P4_ID )",
+        "Always Execute": false
+    },
+    "Error": {
+        "Error Message": "#LABEL# already exists.",
+        "Display Location": "Inline with Field and in Notification",
+        "Associated Item": "P4_CATEGORY (17829379718367682896)"
+    },
+    "Server-side Condition": {
+        "Type": "Request is contained in Value",
+        "Value": "CREATE,SAVE"
+    }
+}

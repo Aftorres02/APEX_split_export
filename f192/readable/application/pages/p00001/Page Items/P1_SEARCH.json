@@ -1,0 +1,62 @@
+{
+    "id": "2074506349855780749",
+    "Identification": {
+        "Name": "P1_SEARCH",
+        "Type": "Text Field"
+    },
+    "Label": {
+        "Label": "Search",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Subtype": "Text",
+        "Trim Spaces": "Leading and Trailing",
+        "Text Case": "NO CHANGE",
+        "Submit when Enter pressed": false,
+        "Disabled": false
+    },
+    "Layout": {
+        "Sequence": 20,
+        "Region": "Filters (16935250319303139248)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Hidden (14888281412990691885)",
+        "Template Options": [
+            "#DEFAULT#",
+            "t-Form-fieldContainer--large"
+        ],
+        "Icon": "fa-search",
+        "Width": 64,
+        "Value Placeholder": "Search Customers"
+    },
+    "Validation": {
+        "Value Required": false,
+        "Maximum Length": 4000
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Null",
+        "Used": "Only when current value in session state is null"
+    },
+    "Session State": {
+        "Storage": "Per Session (Persistent)"
+    },
+    "Quick Picks": {
+        "Show Quick Picks": false
+    },
+    "Security": {
+        "Session State Protection": "Unrestricted",
+        "Store value encrypted in session state": false,
+        "Restricted Characters": "All characters can be saved."
+    }
+}

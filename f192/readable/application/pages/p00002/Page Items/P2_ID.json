@@ -1,0 +1,32 @@
+{
+    "id": "17829325318633140245",
+    "Identification": {
+        "Name": "P2_ID",
+        "Type": "Hidden"
+    },
+    "Settings": {
+        "Value Protected": true
+    },
+    "Layout": {
+        "Sequence": 20,
+        "Region": "Customer Details (17829324616828140228)",
+        "Position": "BODY"
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Database Column",
+        "Database Column": "ID",
+        "Used": "Always, replacing any existing value in session state"
+    },
+    "Session State": {
+        "Data Type": "VARCHAR2",
+        "Storage": "Per Session (Persistent)"
+    },
+    "Security": {
+        "Session State Protection": "Checksum Required - Session Level",
+        "Store value encrypted in session state": false,
+        "Restricted Characters": "All characters can be saved."
+    }
+}

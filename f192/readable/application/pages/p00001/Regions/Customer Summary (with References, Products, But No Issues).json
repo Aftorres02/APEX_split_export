@@ -1,0 +1,84 @@
+{
+    "id": "2595176700866390155",
+    "Identification": {
+        "Title": "Customer Summary (with References, Products, But No Issues)",
+        "Type": "Badge List"
+    },
+    "Source": {
+        "SQL Query": "select label, to_number(nvl(value,0),'999G999G990') value, url from (\nwith data as (\n    select count(*) total,\n        sum(decode(marquee_customer_yn,'Y',1,0)) marquee,\n        sum(decode(referencable,'Yes',1,0)) ref\n    from eba_cust_customers a,\n        eba_cust_categories b,\n        eba_cust_status c,\n        eba_cust_geographies d,\n        eba_cust_type e,\n        eba_cust_use_case f\n    where a.category_id = b.id(+)\n        and a.status_id = c.id(+)\n        and a.geography_id = d.id(+)\n        and a.type_id = e.id(+)\n        and a.use_case_id = f.id(+)\n        and (:P1_SEARCH is null or\n                instr(upper(a.customer_name),upper(:P1_SEARCH)) > 0 or\n                           instr(upper(a.summary),upper(:P1_SEARCH)) > 0 )\n        and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n        and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n        and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n        and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n        and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n        and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n        and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n        and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n        and (:P1_IMP_PARTNER is null\n            or exists ( select null\n                        from eba_cust_cust_partner_ref rf\n                        where rf.customer_id = a.id\n                            and rf.partner_id = :P1_IMP_PARTNER ))\n        and (:P1_COMPETITOR is null\n            or exists ( select null\n                        from eba_cust_cust_competitor_ref rf\n                        where rf.customer_id = a.id\n                            and rf.competitor_id = :P1_COMPETITOR ))\n        and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n        and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n        and (\n            exists (select 1 from eba_cust_customer_reftype_ref r\n            where r.customer_id = a.id and\n                  instr(':'||:P1_REFERENCE_TYPES||':',':'||reference_type_id||':') > 0)\n            or \n            :P1_REFERENCE_TYPES is null\n            )\n        and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P1_PRODUCT))\n), rws as (\n    select level r from dual connect by level < 4\n)\nselect rws.r display_order,\n    decode(rws.r, 1, 'Total',    2, 'Marquee',   3, 'Referenceable')  label,\n    decode(rws.r, 1, data.total, 2, data.marquee, 3, data.ref) value,\n    decode(rws.r, 1, apex_util.prepare_url('f?p='||:APP_ID||':59:'||:APP_SESSION||':::59,RIR:P59_MARQUEE_CUST,P59_INDUSTRY,P59_PRODUCT,P59_GEO,P59_REFERENCEABLE,P59_STATUS,P59_CATEGORY,P59_TYPE,P59_IMP_PARTNER,P59_COMPETITOR,P59_REFERENCE_TYPES:'||:P1_MARQUEE_CUST||','||:P1_INDUSTRY||','||:P1_PRODUCT||','||:P1_GEO||','||:P1_REFERENCEABLE||','||:P1_STATUS||','||:P1_CATEGORY||','||:P1_TYPE||','||:P1_IMP_PARTNER||','||:P1_COMPETITOR) || ',\\' || :P1_REFERENCE_TYPES || '\\:',\n                  2, apex_util.prepare_url('f?p='||:APP_ID||':59:'||:APP_SESSION||':::59,RIR:IR_MARQUEE_CUSTOMER,P59_MARQUEE_CUST,P59_INDUSTRY,P59_PRODUCT,P59_GEO,P59_REFERENCEABLE,P59_STATUS,P59_CATEGORY,P59_TYPE,P59_IMP_PARTNER,P59_COMPETITOR,P59_REFERENCE_TYPES:Yes,Y,'||:P1_INDUSTRY||','||:P1_PRODUCT||','||:P1_GEO||','||:P1_REFERENCEABLE||','||:P1_STATUS||','||:P1_CATEGORY||','||:P1_TYPE||','||:P1_IMP_PARTNER||','||:P1_COMPETITOR) || ',\\' || :P1_REFERENCE_TYPES || '\\:',\n                  3, apex_util.prepare_url('f?p='||:APP_ID||':59:'||:APP_SESSION||':::59,RIR:IR_REFERENCABLE,P59_INDUSTRY,P59_PRODUCT,P59_GEO,P59_REFERENCEABLE,P59_STATUS,P59_CATEGORY,P59_TYPE,P59_IMP_PARTNER,P59_COMPETITOR,P59_REFERENCE_TYPES:Yes,'||:P1_INDUSTRY||','||:P1_PRODUCT||','||:P1_GEO||',Yes,'||:P1_STATUS||','||:P1_CATEGORY||','||:P1_TYPE||','||:P1_IMP_PARTNER||','||:P1_COMPETITOR) || ',\\' || :P1_REFERENCE_TYPES || '\\:' ) url\nfrom data, rws\nunion all\nselect 4 as display_order,\n    'Products Referenced' label,\n    count(*) value,\n    apex_util.prepare_url('f?p='||:APP_ID||':44:'||:APP_SESSION||':::44,RIR:') url\nfrom eba_cust_products p\nwhere exists (   select 1\n    from eba_cust_product_uses u\n    where u.product_id = p.id\n)\n)\norder by display_order",
+        "Page Items to Submit": [
+            "P1_TYPE",
+            "P1_SEARCH",
+            "P1_USE_CASE",
+            "P1_MARQUEE_CUST",
+            "P1_PRODUCT",
+            "P1_IMP_PARTNER",
+            "P1_GEO",
+            "P1_COMPETITOR",
+            "P1_REFERENCEABLE",
+            "P1_SCP_CUST",
+            "P1_REFERENCE_TYPES",
+            "P1_COUNTRY",
+            "P1_STATUS",
+            "P1_INDUSTRY",
+            "P1_CATEGORY"
+        ]
+    },
+    "Layout": {
+        "Sequence": 26,
+        "Parent Region": "No Parent",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Standard (14888264683728691846)",
+        "Template Options": [
+            "#DEFAULT#",
+            "t-Region--noPadding",
+            "js-showMaximizeButton",
+            "t-Region--hideHeader",
+            "t-Region--hiddenOverflow"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Static ID": "CUST_SUM_W_REFS",
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Server-side Condition": {
+        "Type": "Expression",
+        "Language": "PL/SQL",
+        "PL/SQL Expression": "apex_util.get_build_option_status(\n                      p_application_id    => :APP_ID,\n                      p_build_option_name => 'Products and Services'\n                  ) = 'INCLUDE'\nand\napex_util.get_build_option_status(\n                      p_application_id    => :APP_ID,\n                      p_build_option_name => 'Issues'\n                  ) = 'EXCLUDE'"
+    },
+    "Security": {
+        "Escape special characters": true
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Not Customizable By End Users"
+    },
+    "Configuration": {
+        "Build Option": "Customer Referencability (14317354550591202996)"
+    },
+    "Attributes": {
+        "Settings": {
+            "Badge Style": "Default",
+            "Value": "VALUE",
+            "Bottom Label": "LABEL",
+            "Link Target": "&URL.",
+            "Layout": "4 columns",
+            "Color": "No"
+        }
+    }
+}

@@ -1,0 +1,1028 @@
+{
+  "id":"124"
+ ,"Identification":{
+    "Name":"Timeline"
+   ,"Alias":"TIMELINE"
+   ,"Title":"Timeline"
+  }
+ ,"Appearance":{
+    "Page Mode":"Normal"
+   ,"Page Template":"Left Side Column (14888224114215691787)"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"Do not focus cursor"
+   ,"Warn on Unsaved Changes":false
+  }
+ ,"JavaScript":{
+    "Execute when Page Loads":"\/\/$x(\u0027P10_SEARCH\u0027).focus();\n"
+  }
+ ,"CSS":{
+    "Inline":".t-Timeline-type.is-updated {\n    background-color: #cd4411;\n    color: #FFF;\n}"
+  }
+ ,"Security":{
+    "Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"On"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Always"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Help":{
+    "Help Text":"The \"Timeline\" page shows a history of application transactions. Use the filter controls on the left to change the results displayed on the right."
+  }
+ ,"Regions":[
+    {
+      "id":"7257486392938961193"
+     ,"Identification":{
+        "Title":"Timeline"
+       ,"Type":"Classic Report"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select\n    c.created SORT_COLUMN,\n    null EVENT_ATTRIBUTES,\n    null EVENT_MODIFIERS,\n    \u0027u-color-\u0027|| (ora_hash(c.created_by,44) + 1) USER_COLOR,\n    upper( decode(instr(replace(c.created_by,\u0027.\u0027,\u0027 \u0027),\u0027 \u0027),\n                0, \n                substr(c.created_by,1,2),\n                substr(c.created_by,1,1)||substr(c.created_by,instr(replace(c.created_by,\u0027.\u0027,\u0027 \u0027),\u0027 \u0027)+1,1)\n           ))  USER_AVATAR,\n    c.created_by as user_name,\n    c.created EVENT_DATE,\n    \u0027fa fa-user\u0027 EVENT_ICON,\n    \u0027is-new\u0027 EVENT_STATUS,\n    \u0027Customer Added\u0027 EVENT_TYPE,\n    c.customer_name EVENT_TITLE,\n    apex_escape.html(c.summary) EVENT_DESC,\n    apex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:50:\u0027||:APP_SESSION||\u0027:::50:P50_ID:\u0027||c.id) event_link\nfrom EBA_CUST_CUSTOMERS c\nwhere c.created \u003E (current_timestamp - :P124_TIMEFRAME)\n    and ( :P124_CUSTOMER is null or c.id = :P124_CUSTOMER )\n    and ( :P124_UPDATE_BY is null or lower(c.created_by) = lower(:P124_UPDATE_BY) )\nunion all\nselect\n    n.created SORT_COLUMN,\n    null EVENT_ATTRIBUTES,\n    null EVENT_MODIFIERS,\n    \u0027u-color-\u0027|| (ora_hash(n.created_by,44) + 1) USER_COLOR,\n    upper( decode(instr(replace(n.created_by,\u0027.\u0027,\u0027 \u0027),\u0027 \u0027),\n                0, \n                substr(n.created_by,1,2),\n                substr(n.created_by,1,1)||substr(n.created_by,instr(replace(n.created_by,\u0027.\u0027,\u0027 \u0027),\u0027 \u0027)+1,1)\n           ))  USER_AVATAR,\n    n.created_by as user_name,\n    n.created EVENT_DATE,\n    \u0027fa fa-file\u0027 EVENT_ICON,\n    \u0027is-new\u0027 EVENT_STATUS,\n    \u0027Customer Added Note\u0027 EVENT_TYPE,\n    (select customer_name from eba_cust_customers c where c.id = n.customer_id) EVENT_TITLE,\n    apex_escape.html(TO_CHAR(dbms_lob.substr(n.note, length(n.note), 1 ))) EVENT_DESC,\n    apex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:50:\u0027||:APP_SESSION||\u0027:::50:P50_ID:\u0027||n.customer_id) event_link\nfrom EBA_CUST_NOTES n\nwhere n.created \u003E (current_timestamp - :P124_TIMEFRAME)\n    and ( :P124_CUSTOMER is null or n.customer_id = :P124_CUSTOMER )\n    and ( :P124_UPDATE_BY is null or lower(n.created_by) = lower(:P124_UPDATE_BY) )\nunion all\nselect\n    c.created SORT_COLUMN,\n    null EVENT_ATTRIBUTES,\n    null EVENT_MODIFIERS,\n    \u0027u-color-\u0027|| (ora_hash(c.created_by,44) + 1) USER_COLOR,\n    upper( decode(instr(replace(c.created_by,\u0027.\u0027,\u0027 \u0027),\u0027 \u0027),\n                0, \n                substr(c.created_by,1,2),\n                substr(c.created_by,1,1)||substr(c.created_by,instr(replace(c.created_by,\u0027.\u0027,\u0027 \u0027),\u0027 \u0027)+1,1)\n           ))  USER_AVATAR,\n    c.created_by as user_name,\n    c.created EVENT_DATE,\n    \u0027fa fa-user\u0027 EVENT_ICON,\n    \u0027is-new\u0027 EVENT_STATUS,\n    \u0027Customer Added Contact\u0027 EVENT_TYPE,\n    (select customer_name from eba_cust_customers c where c.id = c.customer_id) EVENT_TITLE,\n    apex_escape.html(c.name) EVENT_DESC,\n    apex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:50:\u0027||:APP_SESSION||\u0027:::50:P50_ID:\u0027||c.customer_id) event_link\nfrom EBA_CUST_CONTACTS c\nwhere c.created \u003E (current_timestamp - :P124_TIMEFRAME)\n    and ( :P124_CUSTOMER is null or c.customer_id = :P124_CUSTOMER )\n    and ( :P124_UPDATE_BY is null or lower(c.created_by) = lower(:P124_UPDATE_BY) )\nunion all\nselect f.created SORT_COLUMN,\n    null EVENT_ATTRIBUTES,\n    null EVENT_MODIFIERS,\n    \u0027u-color-\u0027|| (ora_hash(f.created_by,44) + 1) USER_COLOR,\n    upper( decode(instr(replace(f.created_by,\u0027.\u0027,\u0027 \u0027),\u0027 \u0027),\n                0, \n                substr(f.created_by,1,2),\n                substr(f.created_by,1,1)||substr(f.created_by,instr(replace(f.created_by,\u0027.\u0027,\u0027 \u0027),\u0027 \u0027)+1,1)\n           ))  USER_AVATAR,\n    f.created_by as user_name,\n    f.created EVENT_DATE,\n    \u0027fa fa-paperclip\u0027 EVENT_ICON,\n    \u0027is-new\u0027 EVENT_STATUS,\n    \u0027Customer Added Attachment\u0027 EVENT_TYPE,\n    (select customer_name from eba_cust_customers c where c.id = f.customer_id) EVENT_TITLE,\n    apex_escape.html(substr(f.FILE_NAME,1,255) || \u0027 \u0027 || substr(f.FILE_COMMENTS,1,200)) EVENT_DESC,\n    apex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:50:\u0027||:APP_SESSION||\u0027:::50:P50_ID:\u0027||f.customer_id) event_link\nfrom EBA_CUST_FILES f\nwhere f.created \u003E (current_timestamp - :P124_TIMEFRAME)\n    and ( :P124_CUSTOMER is null or f.customer_id = :P124_CUSTOMER )\n    and ( :P124_UPDATE_BY is null or lower(f.created_by) = lower(:P124_UPDATE_BY) )\nunion all\nselect l.created SORT_COLUMN,\n    null EVENT_ATTRIBUTES,\n    null EVENT_MODIFIERS,\n    \u0027u-color-\u0027|| (ora_hash(l.created_by,44) + 1) USER_COLOR,\n    upper( decode(instr(replace(l.created_by,\u0027.\u0027,\u0027 \u0027),\u0027 \u0027),\n                0, \n                substr(l.created_by,1,2),\n                substr(l.created_by,1,1)||substr(l.created_by,instr(replace(l.created_by,\u0027.\u0027,\u0027 \u0027),\u0027 \u0027)+1,1)\n           ))  USER_AVATAR,\n    l.created_by as user_name,\n    l.created EVENT_DATE,\n    \u0027fa fa-external-link\u0027 EVENT_ICON,\n    \u0027is-new\u0027 EVENT_STATUS,\n    \u0027Customer Added Link\u0027 EVENT_TYPE,\n    (select customer_name from eba_cust_customers c where c.id = l.customer_id) EVENT_TITLE,\n    apex_escape.html(substr(nvl(LINK_DESC,LINK),1,255) || \u0027 \u0027||substr(link_comments,1,200)) EVENT_DESC,\n    apex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:50:\u0027||:APP_SESSION||\u0027:::50:P50_ID:\u0027||l.customer_id) event_link\nfrom EBA_CUST_LINKS l\nwhere l.created \u003E (current_timestamp - :P124_TIMEFRAME)\n    and ( :P124_CUSTOMER is null or l.customer_id = :P124_CUSTOMER )\n    and ( :P124_UPDATE_BY is null or lower(l.created_by) = lower(:P124_UPDATE_BY) )\nunion all\nselect h.change_date SORT_COLUMN,\n    null EVENT_ATTRIBUTES,\n    null EVENT_MODIFIERS,\n    \u0027u-color-\u0027|| (ora_hash(c.updated_by,44) + 1) USER_COLOR,\n    upper( decode(instr(replace(c.updated_by,\u0027.\u0027,\u0027 \u0027),\u0027 \u0027),\n                0, \n                substr(c.updated_by,1,2),\n                substr(c.updated_by,1,1)||substr(c.updated_by,instr(replace(c.updated_by,\u0027.\u0027,\u0027 \u0027),\u0027 \u0027)+1,1)\n           ))  USER_AVATAR,\n    h.changed_by as user_name,\n    h.change_date EVENT_DATE,\n    \u0027fa fa-archive\u0027 EVENT_ICON,\n    \u0027is-updated\u0027 EVENT_STATUS,\n    case when substr(h.table_name,-1) = \u0027S\u0027 then initcap(substr(h.table_name, 1, length(h.table_name) - 1)) else initcap(h.table_name) end || \u0027 Updated \u0027 || initcap(replace(replace(h.column_name,\u0027_ID\u0027,null),\u0027_\u0027,\u0027 \u0027)) EVENT_TYPE,\n    c.customer_name EVENT_TITLE,\n    case\n        when (substr(h.old_value, 3, 1) = \u0027-\u0027 and substr(h.old_value, 7, 1) = \u0027-\u0027 and length(h.old_value) \u003E 11) or\n             (substr(h.new_value, 3, 1) = \u0027-\u0027 and substr(h.new_value, 7, 1) = \u0027-\u0027 and length(h.new_value) \u003E 11) then\n            \u0027Changed from \u0027 || case when h.old_value is not null then \u0027\u003Cspan class=\"t-Comments-text--prevValue\"\u003E\u0027 else null end ||\n            apex_escape.html(substr(nvl(h.old_value, \u0027Unassigned\u0027), 1, 11)) || case when h.old_value is not null then \u0027\u003C\/span\u003E\u0027 else null end ||\n            \u0027 to \u003Cspan class=\"t-Comments-text--newValue\"\u003E\u0027||\n            apex_escape.html(substr(nvl(h.new_value, \u0027Unassigned\u0027), 1, 11))||\u0027\u003C\/span\u003E\u0027\n        else\n            \u0027Changed from \u0027 || case when h.old_value is not null then \u0027\u003Cspan class=\"t-Comments-text--prevValue\"\u003E\u0027 else null end ||\n            apex_escape.html(substr(nvl(h.old_value, \u0027Unassigned\u0027),1,255)) || case when h.old_value is not null then \u0027\u003C\/span\u003E\u0027 else null end ||\n            \u0027 to \u003Cspan class=\"t-Comments-text--newValue\"\u003E\u0027||\n            apex_escape.html(substr(nvl(h.new_value, \u0027Unassigned\u0027),1,255))||\u0027\u003C\/span\u003E\u0027\n    end as event_desc,\n    apex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:50:\u0027||:APP_SESSION||\u0027:::50:P50_ID:\u0027||c.id) event_link\nfrom EBA_CUST_HISTORY h, eba_cust_customers c\nwhere h.COMPONENT_ID = c.id\n    and h.change_date \u003E (current_timestamp - :P124_TIMEFRAME)\n    and ( :P124_CUSTOMER is null or c.id = :P124_CUSTOMER )\n    and ( :P124_UPDATE_BY is null or lower(h.changed_by) = lower(:P124_UPDATE_BY) )\nunion all\nselect h.change_date SORT_COLUMN,\n    null EVENT_ATTRIBUTES,\n    null EVENT_MODIFIERS,\n    \u0027u-color-\u0027|| (ora_hash(h.changed_by,44) + 1) USER_COLOR,\n    upper( decode(instr(replace(h.changed_by,\u0027.\u0027,\u0027 \u0027),\u0027 \u0027),\n                0, \n                substr(h.changed_by,1,2),\n                substr(h.changed_by,1,1)||substr(h.changed_by,instr(replace(h.changed_by,\u0027.\u0027,\u0027 \u0027),\u0027 \u0027)+1,1)\n           ))  USER_AVATAR,\n    h.changed_by as user_name,\n    h.change_date EVENT_DATE,\n    \u0027fa fa-trash-o\u0027 EVENT_ICON,\n    \u0027is-removed\u0027 EVENT_STATUS,\n    \u0027Customer Removed\u0027 EVENT_TYPE,\n    h.old_value EVENT_TITLE,\n    \u0027This customer has been removed. The \"Customer\" link will give a \"No Data Found\" error.\u0027 as event_desc,\n    apex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:50:\u0027||:APP_SESSION||\u0027:::50:P50_ID:\u0027||h.component_id) event_link\nfrom EBA_CUST_HISTORY h\nwhere h.column_name = \u0027CUSTOMER_REMOVED\u0027\n    and h.change_date \u003E (current_timestamp - :P124_TIMEFRAME)\n    and ( :P124_CUSTOMER is null or h.component_id = :P124_CUSTOMER )\n    and ( :P124_UPDATE_BY is null or lower(h.changed_by) = lower(:P124_UPDATE_BY) )\norder by 7 desc"
+       ,"Page Items to Submit":[
+          "P124_CUSTOMER"
+         ,"P124_UPDATE_BY"
+         ,"P124_TIMEFRAME"
+        ]
+      }
+     ,"Layout":{
+        "Sequence":60
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--noPadding"
+         ,"js-showMaximizeButton"
+         ,"t-Region--hideHeader"
+         ,"t-Region--scrollBody"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Layout":{
+          "Number of Rows Type":"Static Value"
+         ,"Number of Rows":250
+        }
+       ,"Appearance":{
+          "Template Type":"Theme"
+         ,"Template":"Timeline (13628279727725206304)"
+         ,"Template Options":[
+            "#DEFAULT#"
+          ]
+         ,"Show Null Values as":" - "
+        }
+       ,"Pagination":{
+          "Type":"Row Ranges X to Y (with next and previous links)"
+         ,"Display Position":"Bottom - Right"
+         ,"Partial Page Refresh":true
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+         ,"Maximum Rows to Process":500
+        }
+       ,"Messages":{
+          "When No Data Found":"No changes found"
+        }
+       ,"Break Formatting":{
+          "Break Columns":"No Break"
+        }
+       ,"Advanced":{
+          "Strip HTML":true
+         ,"Sort Nulls":"Last"
+        }
+       ,"Heading":{
+          "Type":"Custom Headings"
+        }
+       ,"Download":{
+          "CSV Export Enabled":false
+        }
+       ,"Printing":{
+          "Enabled":false
+        }
+      }
+     ,"Columns":[
+        {
+          "id":"2058827545173208345"
+         ,"Identification":{
+            "Column Name":"SORT_COLUMN"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Sort Column"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":12
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"2058827918643208347"
+         ,"Identification":{
+            "Column Name":"EVENT_ATTRIBUTES"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Event Attributes"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":1
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"2058828398738208347"
+         ,"Identification":{
+            "Column Name":"EVENT_MODIFIERS"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Event Modifiers"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":13
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"2058828783171208348"
+         ,"Identification":{
+            "Column Name":"USER_COLOR"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"User Color"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":2
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"2058829170051208348"
+         ,"Identification":{
+            "Column Name":"USER_AVATAR"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"User Avatar"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":3
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"2058829531677208349"
+         ,"Identification":{
+            "Column Name":"USER_NAME"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"User Name"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":4
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"2058829918435208349"
+         ,"Identification":{
+            "Column Name":"EVENT_DATE"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Event Date"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":5
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Appearance":{
+            "Format Mask":"SINCE"
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"2058830402684208350"
+         ,"Identification":{
+            "Column Name":"EVENT_ICON"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Event Icon"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":6
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"2058830727661208351"
+         ,"Identification":{
+            "Column Name":"EVENT_STATUS"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Event Status"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":7
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"2058831211452208351"
+         ,"Identification":{
+            "Column Name":"EVENT_TYPE"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Event Type"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":8
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"2058831542078208352"
+         ,"Identification":{
+            "Column Name":"EVENT_TITLE"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Event Title"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":9
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"2058831936225208352"
+         ,"Identification":{
+            "Column Name":"EVENT_DESC"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Event Desc"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":10
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":false
+          }
+        }
+       ,{
+          "id":"2058832408399208353"
+         ,"Identification":{
+            "Column Name":"EVENT_LINK"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Event Link"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":11
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"10895895648710374329"
+     ,"Identification":{
+        "Title":"Breadcrumb"
+       ,"Type":"Breadcrumb"
+      }
+     ,"Source":{
+        "Breadcrumb":"Breadcrumb (17869143586620226407)"
+      }
+     ,"Layout":{
+        "Sequence":100
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_01"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Title Bar (14888267217215691848)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-BreadcrumbRegion--useBreadcrumbTitle"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "Breadcrumb Template":"Breadcrumb (14888282717314691893)"
+         ,"Template Options":[
+            "#DEFAULT#"
+          ]
+        }
+      }
+    }
+   ,{
+      "id":"17003323972023353820"
+     ,"Identification":{
+        "Title":"Filter Controls"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_02"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--hideHeader"
+         ,"t-Region--scrollBody"
+         ,"t-Form--stretchInputs"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":true
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+  ]
+ ,"Page Items":[
+    {
+      "id":"2058833701322208373"
+     ,"Identification":{
+        "Name":"P124_CUSTOMER"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Customer"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Filter Controls (17003323972023353820)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"CUSTOMERS (16619949327825859798)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All -"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"2058834066409208382"
+     ,"Identification":{
+        "Name":"P124_UPDATE_BY"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Updated by"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Filter Controls (17003323972023353820)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"SQL Query"
+       ,"SQL Query":"select lower(username) d, lower(username) r\nfrom eba_cust_users\norder by lower(username)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":true
+       ,"Null Display Value":"- Anyone -"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"2058834445597208383"
+     ,"Identification":{
+        "Name":"P124_TIMEFRAME"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Timeframe"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Region":"Filter Controls (17003323972023353820)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Above (15050274849633028680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Static Values"
+       ,"Static Values":"STATIC2:Day;1,Week;7,30 Days;30,60 Days;60,Year;365"
+       ,"Display Extra Values":false
+       ,"Display Null Value":false
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"7"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"2058833229932208369"
+     ,"Identification":{
+        "Button Name":"P124_RESET"
+       ,"Label":"Reset"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Filter Controls (17003323972023353820)"
+       ,"Position":"CREATE"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text with Icon (14888281958145691891)"
+       ,"Hot":false
+       ,"Template Options":[
+          "t-Button--iconLeft"
+        ]
+       ,"Icon":"fa-undo-alt"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:124:\u0026SESSION.::\u0026DEBUG.:RP,RIR,124::"
+         ,"Page":"124"
+         ,"Clear Cache":"RP,RIR,124"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+  ]
+ ,"Dynamic Actions":[
+    {
+      "id":"2058837085113208412"
+     ,"Identification":{
+        "Name":"Update Filters"
+      }
+     ,"Execution":{
+        "Sequence":10
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CHANGE"
+       ,"Selection Type":"Item(s)"
+       ,"Item(s)":[
+          "P124_CUSTOMER"
+         ,"P124_UPDATE_BY"
+         ,"P124_TIMEFRAME"
+        ]
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"2058837572749208420"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Timeline (7257486392938961193)"
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Update Filters (2058837085113208412)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+  ]
+ ,"Computations":[
+    {
+      "id":"2058835531359208407"
+     ,"Identification":{
+        "Item Name":"APPLICATION_TITLE"
+      }
+     ,"Execution":{
+        "Sequence":30
+       ,"Point":"Before Header"
+      }
+     ,"Computation":{
+        "Type":"Function Body"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Function Body":"declare\n    l_app_name varchar2(255);\nbegin\n    select nvl(preference_value,:APP_NAME)\n      into l_app_name\n      from eba_proj_preferences\n     where preference_name = \u0027APPLICATION_TITLE\u0027;\n    return l_app_name;\nexception\n    when others then\n        return :APP_NAME;\nend;"
+      }
+     ,"Server-side Condition":{
+        "Type":"Item is NULL"
+       ,"Item":"APPLICATION_TITLE"
+      }
+    }
+   ,{
+      "id":"2058835912936208407"
+     ,"Identification":{
+        "Item Name":"LAST_VIEW"
+      }
+     ,"Execution":{
+        "Sequence":50
+       ,"Point":"Before Header"
+      }
+     ,"Computation":{
+        "Type":"Static Value"
+       ,"Static Value":"10"
+      }
+    }
+  ]
+ ,"Processes":[
+    {
+      "id":"2058836680403208408"
+     ,"Identification":{
+        "Name":"replace commas"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":":P124_SEARCH := replace(:P124_SEARCH,\u0027,\u0027,\u0027[comma]\u0027);"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Display Location":"Inline in Notification"
+      }
+    }
+  ]
+ ,"Branches":[
+    {
+      "id":"2058838052852208424"
+     ,"Identification":{
+        "Name":"Go To Page 8"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"After Processing"
+      }
+     ,"Behavior":{
+        "Type":"Page or URL (Redirect)"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:8:\u0026SESSION.::\u0026DEBUG.:RP,10:P8_SEARCH:\u0026P10_SEARCH."
+         ,"Page":"8"
+         ,"Clear Cache":"RP,10"
+         ,"Values":{
+            "P8_SEARCH":"\u0026P10_SEARCH."
+          }
+        }
+      }
+     ,"Comments":{
+        "Comments":"Created 07-OCT-2010 13:32 by MIKE"
+      }
+    }
+  ]
+}

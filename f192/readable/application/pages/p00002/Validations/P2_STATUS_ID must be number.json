@@ -1,0 +1,22 @@
+{
+    "id": "17829326103065140267",
+    "Identification": {
+        "Name": "P2_STATUS_ID must be number"
+    },
+    "Execution": {
+        "Sequence": 20
+    },
+    "Validation": {
+        "Type": "Item is numeric",
+        "Item": "P2_STATUS_ID",
+        "Always Execute": false
+    },
+    "Error": {
+        "Error Message": "Status Id must be number.",
+        "Display Location": "Inline with Field and in Notification",
+        "Associated Item": "P2_STATUS_ID (17829325901826140267)"
+    },
+    "Server-side Condition": {
+        "When Button Pressed": "SAVE (17829324905367140229)"
+    }
+}

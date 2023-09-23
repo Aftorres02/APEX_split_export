@@ -1,0 +1,18 @@
+{
+    "id": "17829324119731140129",
+    "Identification": {
+        "Name": "Go To Page 1"
+    },
+    "Execution": {
+        "Sequence": 30,
+        "Point": "After Processing"
+    },
+    "Behavior": {
+        "Type": "Page or URL (Redirect)",
+        "Target": {
+            "url": "f?p=&APP_ID.:1:&SESSION.",
+            "Page": "1"
+        },
+        "Save State before Branching": true
+    }
+}

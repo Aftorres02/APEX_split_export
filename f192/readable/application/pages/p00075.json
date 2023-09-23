@@ -1,0 +1,221 @@
+{
+  "id":"75"
+ ,"Identification":{
+    "Name":"Confirm Enabling Access"
+   ,"Alias":"CONFIRM-ENABLING-ACCESS"
+   ,"Title":"Confirm Enabling Access"
+   ,"Page Group":"Administration (14749179244941290086)"
+  }
+ ,"Appearance":{
+    "Page Mode":"Modal Dialog"
+   ,"Dialog Template":"Theme Default"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Dialog":{
+    "Chained":true
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"Do not focus cursor"
+   ,"Warn on Unsaved Changes":false
+  }
+ ,"CSS":{
+    "Inline":".acl-Info {\n  display: block;\n  overflow: hidden;\n}\n.acl-Info-statusBox,\n.acl-Info-usersBox {\n  display: block;\n  float: left;\n  width: 50%;\n}\n.acl-Info-statusBox {\n  text-align: center;\n}\n.acl-Info-heading {\n  display: block;\n  font-size: 16px;\n  margin: 16px 16px 8px 16px;\n  font-weight: bold;\n  color: #404040;\n}\n.acl-Info-heading span {\n  color: #707070;\n  font-weight: normal;\n}\n.acl-Info-status {\n  display: block;\n  width: 50%;\n  margin: 0 auto 8px auto;\n  padding: 12px 0;\n  border: 1px solid #D0D0D0;\n  border-radius: 2px;\n  font-size: 20px;\n  line-height: 20px;\n  color: #404040;\n  font-weight: bold;\n  background-color: #F0F0F0;\n}\n.authScheme .acl-Info-status {\n  font-size: 16px;\n  width: 70%\n}\n.acl-Info-status.is-enabled {\n  background-color: #40C230;\n  border-color: #37A62A;\n  color: #FFF;\n  text-shadow: 0 -1px 0 rgba(0,0,0,.25);\n}\n.acl-Info-status.is-disabled {\n  background-color: #DE3038;\n  border-color: #A0242A;\n  color: #FFF;\n  text-shadow: 0 -1px 0 rgba(0,0,0,.25);\n}\n.acl-Info-changeStatusLink {\n  display: inline-block;\n  padding: 8px 0;\n  color: #404040;\n  text-decoration: none;\n  font-size: 11px;\n  background-color: #F0F0F0;\n  border: 1px solid #D0D0D0;\n  margin: 0 16px 16px 16px;\n  border-radius: 2px;\n  width: 50%;\n}\n.acl-Info-changeStatusLink:hover {\n  background-color: #fff;\n  border-color: #C0C0C0;\n  box-shadow: 0 1px 1px rgba(0,0,0,.15);\n}\n.acl-Info-changeStatusLink:active {\n  background-color: #E0E0E0;\n  border-color: #C0C0C0;\n  box-shadow: 0 1px 1px rgba(0,0,0,.25) inset;\n}\n.acl-Info-users {\n  margin: 0;\n  list-style: none;\n  padding: 0;\n  margin: 0;\n  border-left: 1px solid #F0F0F0;\n}\n.acl-Info-user {\n  border-top: 1px solid #F0F0F0;\n}\n.acl-Info-userLink {\n  text-decoration: none;\n  display: block;\n  padding: 8px;\n}\n.acl-Info-userLink:hover {\n  background-color: #689AD8;\n}\n.acl-Info-user:first-child {\n  border-top: none;\n}\n.acl-Info-userType,\n.acl-Info-userCount {\n  display: block;\n  font-size: 14px;\n}\n.acl-Info-userType {\n  font-weight: bold;\n  float: left;\n  margin-right: 8px;\n  line-height: 32px;\n}\n.acl-Info-userLink:hover .acl-Info-userType {\n  color: #FFF;\n}\n.acl-Info-userCount {\n  display: block;\n  overflow: hidden;\n  text-align: right;\n}\n.acl-Info-userCount span {\n  display: inline-block;\n  padding: 8px;\n  background-color: #F8F8F8;\n  color: #404040;\n  line-height: 16px;\n  min-width: 36px;\n  text-decoration: none;\n  text-align: right;\n  border-radius: 2px;\n}\n.acl-Info-desc {\n    padding: 16px;\n    border-top: 1px solid #E0E0E0;\n    border-bottom: 1px solid #E0E0E0;\n    background: #F8F8F8;\n    font-size: 14px;\n    clear: both;\n}\n.acl-Info-desc\u003Ep:last-child {\n  margin-bottom: 0;\n}\n"
+  }
+ ,"Security":{
+    "Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"On"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Always"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Regions":[
+    {
+      "id":"14401699944680380553"
+     ,"Identification":{
+        "Title":"Confirm Enabling Access Control"
+       ,"Type":"Static Content"
+      }
+     ,"Source":{
+        "HTML Code":"\u003Cp\u003EEnabling Access Control allows access to the application and its features to be controlled by an Access Control List (ACL).  Until access control is enabled all authenticated users are administrators.\u003C\/p\u003E"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Wizard Container (14888267911512691851)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Wizard--hideStepsSmall"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Static ID":"confirmEnableACL"
+       ,"Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"14401700136066380553"
+     ,"Identification":{
+        "Title":"Buttons"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":true
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"14401700325917380554"
+     ,"Identification":{
+        "Button Name":"ENABLE_ACCESS_CONTROL"
+       ,"Label":"Enable Access Control"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Buttons (14401700136066380553)"
+       ,"Position":"CREATE"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Submit Page"
+       ,"Execute Validations":true
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+  ]
+ ,"Processes":[
+    {
+      "id":"14401700552773380555"
+     ,"Identification":{
+        "Name":"ENABLE_ACCESS_CONTROL"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":"-- Set AC flag\neba_cust_fw.set_preference_value(\u0027ACCESS_CONTROL_ENABLED\u0027,\u0027Y\u0027);\n\n-- Seed user table with current user as an administrator or set the current user as administrator\ndeclare\n   l_count number;\nbegin\n    select count(*)\n      into l_count\n      from eba_cust_users\n     where username = :APP_USER\n       and access_level_id = 3;\n    if l_count = 0 then\n        insert into eba_cust_users(username, access_level_id) values (:APP_USER, 3);\n    end if;\nend;"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Success Message":{
+        "Success Message":"Access Control enabled and the current user \u0027\u0026APP_USER.\u0027 has been set to be an Administrator. "
+      }
+     ,"Error":{
+        "Error Message":"Error"
+       ,"Display Location":"Inline in Notification"
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"ENABLE_ACCESS_CONTROL (14401700325917380554)"
+      }
+     ,"Security":{
+        "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+      }
+    }
+   ,{
+      "id":"14401700721568380556"
+     ,"Identification":{
+        "Name":"CLose Modal"
+       ,"Type":"Close Dialog"
+       ,"Execution Chain":"None"
+      }
+     ,"Execution":{
+        "Sequence":20
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Display Location":"Inline in Notification"
+      }
+    }
+  ]
+}

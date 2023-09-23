@@ -1,0 +1,223 @@
+{
+    "id": "13571870816771211098",
+    "Identification": {
+        "Title": "Customer Updates",
+        "Type": "Classic Report"
+    },
+    "Source": {
+        "Location": "Local Database",
+        "Type": "SQL Query",
+        "SQL Query": "select \n   'Note ' || dbms_lob.substr(n.note,100,1) || decode(greatest(length(n.note),100),100,null,'...') || ' Added - ' || a.customer_name detail,\n   n.created updated,\n   a.id customer_id\nfrom eba_cust_customers a,\n    eba_cust_categories b,\n    eba_cust_status c,\n    eba_cust_geographies d,\n    eba_cust_type e,\n    eba_cust_use_case f,\n    eba_cust_notes n\nwhere a.category_id = b.id(+)\n    and a.status_id = c.id(+)\n    and a.geography_id = d.id(+)\n    and a.type_id = e.id(+)\n    and a.use_case_id = f.id(+)\n    and a.id = n.customer_id\n    and (:P1_SEARCH is null or\n            instr(upper(a.customer_name),upper(:P1_SEARCH)) > 0 or\n                       instr(upper(a.summary),upper(:P1_SEARCH)) > 0 )\n    and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n    and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n    and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n    and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n    and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n    and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n    and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n    and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n    and (:P1_IMP_PARTNER is null\n        or exists ( select null\n                    from eba_cust_cust_partner_ref rf\n                    where rf.customer_id = a.id\n                        and rf.partner_id = :P1_IMP_PARTNER ))\n    and (:P1_COMPETITOR is null\n        or exists ( select null\n                    from eba_cust_cust_competitor_ref rf\n                    where rf.customer_id = a.id\n                        and rf.competitor_id = :P1_COMPETITOR ))\n    and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n    and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n    and (\n        exists (select 1 from eba_cust_customer_reftype_ref r\n        where r.customer_id = a.id and\n              instr(':'||:P1_REFERENCE_TYPES||':',':'||reference_type_id||':') > 0)\n        or \n        :P1_REFERENCE_TYPES is null\n        )\n    and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P1_PRODUCT))\nunion all\nselect \n   'Contact ' || t.name || ' Added - ' || a.customer_name detail,\n   t.created updated,\n   a.id customer_id\nfrom eba_cust_customers a,\n    eba_cust_categories b,\n    eba_cust_status c,\n    eba_cust_geographies d,\n    eba_cust_type e,\n    eba_cust_use_case f,\n    eba_cust_contacts t\nwhere a.category_id = b.id(+)\n    and a.status_id = c.id(+)\n    and a.geography_id = d.id(+)\n    and a.type_id = e.id(+)\n    and a.use_case_id = f.id(+)\n    and a.id = t.customer_id\n    and (:P1_SEARCH is null or\n            instr(upper(a.customer_name),upper(:P1_SEARCH)) > 0 or\n                       instr(upper(a.summary),upper(:P1_SEARCH)) > 0 )\n    and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n    and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n    and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n    and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n    and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n    and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n    and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n    and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n    and (:P1_IMP_PARTNER is null\n        or exists ( select null\n                    from eba_cust_cust_partner_ref rf\n                    where rf.customer_id = a.id\n                        and rf.partner_id = :P1_IMP_PARTNER ))\n    and (:P1_COMPETITOR is null\n        or exists ( select null\n                    from eba_cust_cust_competitor_ref rf\n                    where rf.customer_id = a.id\n                        and rf.competitor_id = :P1_COMPETITOR ))\n    and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n    and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n    and (\n        exists (select 1 from eba_cust_customer_reftype_ref r\n        where r.customer_id = a.id and\n              instr(':'||:P1_REFERENCE_TYPES||':',':'||reference_type_id||':') > 0)\n        or \n        :P1_REFERENCE_TYPES is null\n        )\n    and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P1_PRODUCT))\nunion all\nselect \n   'Attachment ' || f.file_name || ' Added - ' || a.customer_name detail,\n   f.created updated,\n   a.id customer_id\nfrom eba_cust_customers a,\n    eba_cust_categories b,\n    eba_cust_status c,\n    eba_cust_geographies d,\n    eba_cust_type e,\n    eba_cust_use_case u,\n    eba_cust_files f\nwhere a.category_id = b.id(+)\n    and a.status_id = c.id(+)\n    and a.geography_id = d.id(+)\n    and a.type_id = e.id(+)\n    and a.use_case_id = u.id(+)\n    and a.id = f.customer_id\n    and (:P1_SEARCH is null or\n            instr(upper(a.customer_name),upper(:P1_SEARCH)) > 0 or\n                       instr(upper(a.summary),upper(:P1_SEARCH)) > 0 )\n    and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n    and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n    and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n    and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n    and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n    and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n    and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n    and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n    and (:P1_IMP_PARTNER is null\n        or exists ( select null\n                    from eba_cust_cust_partner_ref rf\n                    where rf.customer_id = a.id\n                        and rf.partner_id = :P1_IMP_PARTNER ))\n    and (:P1_COMPETITOR is null\n        or exists ( select null\n                    from eba_cust_cust_competitor_ref rf\n                    where rf.customer_id = a.id\n                        and rf.competitor_id = :P1_COMPETITOR ))\n    and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n    and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n    and (\n        exists (select 1 from eba_cust_customer_reftype_ref r\n        where r.customer_id = a.id and\n              instr(':'||:P1_REFERENCE_TYPES||':',':'||reference_type_id||':') > 0)\n        or \n        :P1_REFERENCE_TYPES is null\n        )\n    and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P1_PRODUCT))\nunion all\nselect \n   'Link to \"' || nvl(l.link_desc, l.link) || '\" Added - '|| a.customer_name detail,\n   l.created updated,\n   a.id customer_id\nfrom eba_cust_customers a,\n    eba_cust_categories b,\n    eba_cust_status c,\n    eba_cust_geographies d,\n    eba_cust_type e,\n    eba_cust_use_case f,\n    eba_cust_links l\nwhere a.category_id = b.id(+)\n    and a.status_id = c.id(+)\n    and a.geography_id = d.id(+)\n    and a.type_id = e.id(+)\n    and a.use_case_id = f.id(+)\n    and a.id = l.customer_id\n    and (:P1_SEARCH is null or\n            instr(upper(a.customer_name),upper(:P1_SEARCH)) > 0 or\n                       instr(upper(a.summary),upper(:P1_SEARCH)) > 0 )\n    and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n    and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n    and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n    and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n    and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n    and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n    and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n    and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n    and (:P1_IMP_PARTNER is null\n        or exists ( select null\n                    from eba_cust_cust_partner_ref rf\n                    where rf.customer_id = a.id\n                        and rf.partner_id = :P1_IMP_PARTNER ))\n    and (:P1_COMPETITOR is null\n        or exists ( select null\n                    from eba_cust_cust_competitor_ref rf\n                    where rf.customer_id = a.id\n                        and rf.competitor_id = :P1_COMPETITOR ))\n    and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n    and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n    and (\n        exists (select 1 from eba_cust_customer_reftype_ref r\n        where r.customer_id = a.id and\n              instr(':'||:P1_REFERENCE_TYPES||':',':'||reference_type_id||':') > 0)\n        or \n        :P1_REFERENCE_TYPES is null\n        )\n    and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P1_PRODUCT))\nunion all\nselect x.detail || ' - ' || x.customer_name detail,\n       x.updated,\n       x.customer_id\nfrom (\n    select h.component_id customer_id,\n           a.customer_name,\n           initcap(replace(replace(h.COLUMN_NAME,'_ID',null),'_',' '))||' changed from \"'||h.OLD_VALUE||'\" to \"'||h.new_value||'\"' detail,\n           lower(h.CHANGED_BY) updated_by,\n           h.CHANGE_DATE updated\n    from eba_cust_customers a,\n        eba_cust_categories b,\n        eba_cust_status c,\n        eba_cust_geographies d,\n        eba_cust_type e,\n        eba_cust_use_case f,\n        eba_cust_history h\n    where a.category_id = b.id(+)\n        and a.status_id = c.id(+)\n        and a.geography_id = d.id(+)\n        and a.type_id = e.id(+)\n        and a.use_case_id = f.id(+)\n        and h.component_id = c.id\n        and (:P1_SEARCH is null or\n                instr(upper(a.customer_name),upper(:P1_SEARCH)) > 0 or\n                           instr(upper(a.summary),upper(:P1_SEARCH)) > 0 )\n        and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n        and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n        and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n        and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n        and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n        and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n        and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n        and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n        and (:P1_IMP_PARTNER is null\n            or exists ( select null\n                        from eba_cust_cust_partner_ref rf\n                        where rf.customer_id = a.id\n                            and rf.partner_id = :P1_IMP_PARTNER ))\n        and (:P1_COMPETITOR is null\n            or exists ( select null\n                        from eba_cust_cust_competitor_ref rf\n                        where rf.customer_id = a.id\n                            and rf.competitor_id = :P1_COMPETITOR ))\n        and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n        and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n        and (\n            exists (select 1 from eba_cust_customer_reftype_ref r\n            where r.customer_id = a.id and\n                  instr(':'||:P1_REFERENCE_TYPES||':',':'||reference_type_id||':') > 0)\n            or \n            :P1_REFERENCE_TYPES is null\n            )\n        and (NVL(:P1_PRODUCT,0) = 0 or exists (select 1 from eba_cust_product_uses u where u.CUSTOMER_ID = a.id and u.PRODUCT_ID = :P1_PRODUCT))\n) x\norder by 2 desc",
+        "Page Items to Submit": [
+            "P1_TYPE",
+            "P1_SEARCH",
+            "P1_USE_CASE",
+            "P1_MARQUEE_CUST",
+            "P1_PRODUCT",
+            "P1_IMP_PARTNER",
+            "P1_GEO",
+            "P1_COMPETITOR",
+            "P1_REFERENCEABLE",
+            "P1_SCP_CUST",
+            "P1_REFERENCE_TYPES",
+            "P1_COUNTRY",
+            "P1_STATUS",
+            "P1_INDUSTRY",
+            "P1_CATEGORY"
+        ]
+    },
+    "Layout": {
+        "Sequence": 106,
+        "Parent Region": "No Parent",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": false,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Standard (14888264683728691846)",
+        "Template Options": [
+            "#DEFAULT#",
+            "t-Region--noPadding",
+            "js-showMaximizeButton",
+            "i-h320",
+            "t-Region--hiddenOverflow"
+        ],
+        "CSS Classes": [
+            "scrollable-region"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Static ID": "CUST_UPDATES",
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Customizable and Shown By Default"
+    },
+    "Attributes": {
+        "Layout": {
+            "Number of Rows Type": "Static Value",
+            "Number of Rows": 20
+        },
+        "Appearance": {
+            "Template Type": "Theme",
+            "Template": "Value Attribute Pairs - Row (14888273059962691863)",
+            "Template Options": [
+                "#DEFAULT#",
+                "t-AVPList--rightAligned"
+            ],
+            "Show Null Values as": " - "
+        },
+        "Pagination": {
+            "Type": "No Pagination (Show All Rows)",
+            "Partial Page Refresh": true
+        },
+        "Performance": {
+            "Lazy Loading": false,
+            "Maximum Rows to Process": 20
+        },
+        "Messages": {
+            "When No Data Found": "no data found"
+        },
+        "Break Formatting": {
+            "Break Columns": "No Break"
+        },
+        "Advanced": {
+            "Strip HTML": true,
+            "Sort Nulls": "Last"
+        },
+        "Heading": {
+            "Type": "None"
+        },
+        "Download": {
+            "CSV Export Enabled": false
+        },
+        "Printing": {
+            "Enabled": false
+        }
+    },
+    "Columns": [
+        {
+            "id": "13571871131014211099",
+            "Identification": {
+                "Column Name": "DETAIL",
+                "Type": "Link"
+            },
+            "Heading": {
+                "Alignment": "start"
+            },
+            "Layout": {
+                "Sequence": 2,
+                "Column Alignment": "start"
+            },
+            "Accessibility": {
+                "Value Identifies Row": false
+            },
+            "Link": {
+                "Target": {
+                    "url": "f?p=&APP_ID.:50:&SESSION.::&DEBUG.:50:P50_ID:#CUSTOMER_ID#",
+                    "Page": "50",
+                    "Clear Cache": "50",
+                    "Values": {
+                        "P50_ID": "#CUSTOMER_ID#"
+                    }
+                },
+                "Link Text": "#DETAIL#",
+                "Link Attributes": "title=\"#DETAIL#\""
+            },
+            "Sorting": {
+                "Sortable": false
+            },
+            "Export / Printing": {
+                "Include In Export / Print": true
+            },
+            "Advanced": {
+                "Compute Sum": false
+            },
+            "UI Defaults Reference": {
+                "Table Owner": "Parsing Schema"
+            },
+            "Security": {
+                "Escape special characters": true
+            }
+        },
+        {
+            "id": "13571871539089211100",
+            "Identification": {
+                "Column Name": "UPDATED",
+                "Type": "Plain Text"
+            },
+            "Heading": {
+                "Alignment": "start"
+            },
+            "Layout": {
+                "Sequence": 3,
+                "Column Alignment": "start"
+            },
+            "Accessibility": {
+                "Value Identifies Row": false
+            },
+            "Appearance": {
+                "Format Mask": "SINCE"
+            },
+            "Sorting": {
+                "Sortable": false
+            },
+            "Export / Printing": {
+                "Include In Export / Print": true
+            },
+            "Advanced": {
+                "Compute Sum": false
+            },
+            "UI Defaults Reference": {
+                "Table Owner": "Parsing Schema"
+            },
+            "Security": {
+                "Escape special characters": true
+            }
+        },
+        {
+            "id": "13571871967552211100",
+            "Identification": {
+                "Column Name": "CUSTOMER_ID",
+                "Type": "Plain Text"
+            },
+            "Heading": {
+                "Alignment": "start"
+            },
+            "Layout": {
+                "Sequence": 1,
+                "Column Alignment": "start"
+            },
+            "Accessibility": {
+                "Value Identifies Row": false
+            },
+            "Sorting": {
+                "Sortable": false
+            },
+            "Export / Printing": {
+                "Include In Export / Print": true
+            },
+            "Advanced": {
+                "Compute Sum": false
+            },
+            "UI Defaults Reference": {
+                "Table Owner": "Parsing Schema"
+            },
+            "Security": {
+                "Escape special characters": true
+            }
+        }
+    ]
+}

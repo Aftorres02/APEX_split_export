@@ -1,0 +1,24 @@
+{
+    "id": "17829323901990140123",
+    "Identification": {
+        "Name": "Reset Pagination",
+        "Type": "Reset Pagination",
+        "Execution Chain": "None"
+    },
+    "Settings": {
+        "Target": "This Page"
+    },
+    "Execution": {
+        "Sequence": 10,
+        "Point": "Processing",
+        "Run Process": "Once Per Page Visit (default)"
+    },
+    "Error": {
+        "Error Message": "Unable to reset pagination.",
+        "Display Location": "On Error Page"
+    },
+    "Server-side Condition": {
+        "Type": "Request is contained in Value",
+        "Value": "Go,P1_REPORT_SEARCH,RESET"
+    }
+}

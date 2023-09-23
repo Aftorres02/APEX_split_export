@@ -1,0 +1,670 @@
+{
+  "id":"110"
+ ,"Identification":{
+    "Name":"Implementation Partner(s)"
+   ,"Alias":"IMPLEMENTATION-PARTNER-S"
+   ,"Title":"Implementation Partner(s)"
+   ,"Page Group":"Customers (14749179822908293214)"
+  }
+ ,"Appearance":{
+    "Page Mode":"Modal Dialog"
+   ,"Dialog Template":"Theme Default"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Dialog":{
+    "Chained":true
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"First item on page"
+   ,"Warn on Unsaved Changes":false
+  }
+ ,"JavaScript":{
+    "Function and Global Variable Declaration":"var htmldb_delete_message=\u0027\"DELETE_CONFIRM_MSG\"\u0027;"
+  }
+ ,"Security":{
+    "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+   ,"Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"On"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Always"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Help":{
+    "Help Text":"No help is available for this page."
+  }
+ ,"Regions":[
+    {
+      "id":"17775825070262192807"
+     ,"Identification":{
+        "Title":"Implementation Partner"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--hideHeader"
+         ,"t-Region--noBorder"
+         ,"t-Region--scrollBody"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"17775844238805192838"
+     ,"Identification":{
+        "Title":"Select Implementation Partners"
+       ,"Type":"Interactive Report"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select\n    apex_item.checkbox2(p_idx        =\u003E 1,\n                        p_value      =\u003E ip.id,\n                        p_attributes =\u003E case\n                                            when exists (   select null\n                                                            from eba_cust_cust_partner_ref rf\n                                                            where rf.customer_id = :P110_CUSTOMER_ID\n                                                                and rf.partner_id = ip.id )\n                                                then \u0027CHECKED\u0027\n                                        else\n                                            null\n                                        end,\n                        p_checked_values =\u003E null,\n                        p_item_id    =\u003E \u0027P110_PARTNER_IDS\u0027,    \n                        p_item_label =\u003E \u0027Select\/Unselect\u0027 || name) as partner_id,\n    ip.name,\n    ( select count(*) from eba_cust_cust_partner_ref rf where rf.partner_id = ip.id ) references\nfrom eba_cust_impl_partners ip\norder by ip.name"
+       ,"Page Items to Submit":[
+          "P110_CUSTOMER_ID"
+        ]
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"Implementation Partner (17775825070262192807)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Interactive Report (14888264240956691843)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-IRR-region--noBorders"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Static ID":"partnersIRR"
+       ,"Region Display Selector":true
+       ,"Exclude Title from Translation":false
+      }
+     ,"Header and Footer":{
+        "Header Text":"\u003Clabel for=\"P68_PRODUCT_IDS\"\u003ESelect applicable partners from the report below. Use the search field to find partners quickly.\u003C\/label\u003E"
+       ,"Footer Text":"\u003Cbr\u003E"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "id":"17775844620977192840"
+       ,"Link":{
+          "Link Column":"Exclude Link Column"
+        }
+       ,"Pagination":{
+          "Type":"None"
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+         ,"Maximum Rows to Process":1000000
+        }
+       ,"Search Bar":{
+          "Include Search Bar":true
+         ,"Search Field":true
+         ,"Finder Drop Down":true
+         ,"Reports Select List":true
+         ,"Rows Per Page Selector":false
+        }
+       ,"Actions Menu":{
+          "Include Actions Menu":false
+        }
+       ,"Heading":{
+          "Fixed To":"Page"
+        }
+       ,"Icon View":{
+          "Show":false
+        }
+       ,"Detail View":{
+          "Show":false
+        }
+       ,"Saved Reports":[
+          {
+            "id":"17775845529698192849"
+           ,"Identification":{
+              "Name":"Primary Report"
+             ,"Alias":"166897813"
+            }
+          }
+        ]
+       ,"Columns":[
+          {
+            "id":"15677993660503661603"
+           ,"Identification":{
+              "Column Name":"PARTNER_ID"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"\u003Cinput type=\"checkbox\" id=\"selectUnselectAll\" title=\"Select\/Unselect All\"\u003E"
+             ,"Alignment":"center"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":10
+             ,"Column Alignment":"center"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":false
+             ,"Sort":false
+             ,"Filter":false
+             ,"Highlight":false
+             ,"Control Break":false
+             ,"Aggregate":false
+             ,"Compute":false
+             ,"Chart":false
+             ,"Group By":false
+             ,"Pivot":false
+            }
+           ,"Security":{
+              "Escape special characters":false
+            }
+          }
+         ,{
+            "id":"15677993791445661604"
+           ,"Identification":{
+              "Column Name":"NAME"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"Name"
+             ,"Alignment":"start"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":20
+             ,"Column Alignment":"start"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+         ,{
+            "id":"17777736060491622172"
+           ,"Identification":{
+              "Column Name":"REFERENCES"
+             ,"Type":"Plain Text"
+            }
+           ,"Heading":{
+              "Heading":"References"
+             ,"Alignment":"end"
+            }
+           ,"Single Row View":{
+              "Use Column Heading":true
+            }
+           ,"Layout":{
+              "Sequence":30
+             ,"Column Alignment":"end"
+            }
+           ,"Accessibility":{
+              "Value Identifies Row":false
+            }
+           ,"Appearance":{
+              "Format Mask":"999G999G999G999G999G999G990"
+            }
+           ,"Source":{
+              "Primary Key":false
+            }
+           ,"Column Filter":{
+              "Type":"Default Based on Column Type"
+            }
+           ,"Enable Users To":{
+              "Hide":true
+             ,"Sort":true
+             ,"Filter":true
+             ,"Highlight":true
+             ,"Control Break":true
+             ,"Aggregate":true
+             ,"Compute":true
+             ,"Chart":true
+             ,"Group By":true
+             ,"Pivot":true
+            }
+           ,"Security":{
+              "Escape special characters":true
+            }
+          }
+        ]
+      }
+    }
+   ,{
+      "id":"17775846414603192854"
+     ,"Identification":{
+        "Title":"Buttons"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":50
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_03"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Buttons Container (14888251272274691825)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":true
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+  ]
+ ,"Page Items":[
+    {
+      "id":"2044146056980901738"
+     ,"Identification":{
+        "Name":"P110_REFRESHED"
+       ,"Type":"Hidden"
+      }
+     ,"Settings":{
+        "Value Protected":false
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Region":"Implementation Partner (17775825070262192807)"
+       ,"Position":"BODY"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"N"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"17775825873228192816"
+     ,"Identification":{
+        "Name":"P110_CUSTOMER_ID"
+       ,"Type":"Hidden"
+      }
+     ,"Settings":{
+        "Value Protected":true
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Implementation Partner (17775825070262192807)"
+       ,"Position":"BODY"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"17775847677189192858"
+     ,"Identification":{
+        "Button Name":"CANCEL"
+       ,"Label":"Cancel"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Buttons (17775846414603192854)"
+       ,"Position":"PREVIOUS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Defined by Dynamic Action"
+       ,"Execute Validations":true
+      }
+    }
+   ,{
+      "id":"17775848078935192858"
+     ,"Identification":{
+        "Button Name":"UPDATE_PARTNERS"
+       ,"Label":"Update Partner(s)"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Buttons (17775846414603192854)"
+       ,"Position":"CREATE"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--gapLeft"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Submit Page"
+       ,"Execute Validations":true
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+  ]
+ ,"Dynamic Actions":[
+    {
+      "id":"2044146185103901739"
+     ,"Identification":{
+        "Name":"Refresh Region"
+      }
+     ,"Execution":{
+        "Sequence":40
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.FAMEWORK.APEXAFTERREFRESH"
+       ,"Selection Type":"Region"
+       ,"Region":"Select Implementation Partners (17775844238805192838)"
+      }
+     ,"Client-side Condition":{
+        "Type":"Item = Value"
+       ,"Item":"P110_REFRESHED"
+       ,"Value":"N"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"2044146292823901740"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Select Implementation Partners (17775844238805192838)"
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Refresh Region (2044146185103901739)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":true
+          }
+        }
+       ,{
+          "id":"2044146345998901741"
+         ,"Identification":{
+            "Action":"Set Value"
+          }
+         ,"Settings":{
+            "Set Type":"Static Assignment"
+           ,"Value":"Y"
+           ,"Suppress Change Event":false
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P110_REFRESHED"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":20
+           ,"Event":"Refresh Region (2044146185103901739)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":true
+           ,"Stop Execution On Error":true
+           ,"Wait For Result":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"17775851441497192884"
+     ,"Identification":{
+        "Name":"cancel dialog"
+      }
+     ,"Execution":{
+        "Sequence":10
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CLICK"
+       ,"Selection Type":"Button"
+       ,"Button":"CANCEL (17775847677189192858)"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"17775851977466192886"
+         ,"Identification":{
+            "Action":"Cancel Dialog"
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"cancel dialog (17775851441497192884)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"17775852329898192888"
+     ,"Identification":{
+        "Name":"Select\/Unselect All Partners"
+      }
+     ,"Execution":{
+        "Sequence":30
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CHANGE"
+       ,"Selection Type":"jQuery Selector"
+       ,"jQuery Selector":"#selectUnselectAll"
+      }
+     ,"Execution":{
+        "Event Scope":"Dynamic"
+       ,"Static Container (jQuery Selector)":"#partnersIRR"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"17775852868800192889"
+         ,"Identification":{
+            "Action":"Execute JavaScript Code"
+          }
+         ,"Settings":{
+            "Code":"if ( $( \u0027#selectUnselectAll\u0027 ).is(\u0027:checked\u0027) ) {\n  $(\u0027input[type=checkbox][name=f01]\u0027).attr(\u0027checked\u0027,true);\n}\nelse {\n  $(\u0027input[type=checkbox][name=f01]\u0027).attr(\u0027checked\u0027,false);\n}"
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Select\/Unselect All Partners (17775852329898192888)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":true
+          }
+        }
+      ]
+    }
+  ]
+ ,"Processes":[
+    {
+      "id":"17775849606588192879"
+     ,"Identification":{
+        "Name":"Close Dialog"
+       ,"Type":"Close Dialog"
+       ,"Execution Chain":"None"
+      }
+     ,"Execution":{
+        "Sequence":40
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Display Location":"Inline in Notification"
+      }
+    }
+   ,{
+      "id":"17775851068716192882"
+     ,"Identification":{
+        "Name":"Update Partners"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":"declare\n    l_collection varchar2(30) := \u0027IMP_PARTNERS\u0027;\nbegin\n    apex_collection.create_or_truncate_collection( l_collection );\n\n    for i in 1..apex_application.g_f01.count loop\n        apex_collection.add_member( p_collection_name =\u003E l_collection,\n                                    p_n001 =\u003E to_number( apex_application.g_f01(i) ) );\n    end loop;\n\n    delete from eba_cust_cust_partner_ref rf\n    where rf.customer_id = :P110_CUSTOMER_ID\n        and not exists (select null\n                        from apex_collections c\n                        where c.collection_name = l_collection\n                            and c.n001 = rf.partner_id\n                        );\n\n\n    merge into eba_cust_cust_partner_ref rf using (\n        select :P110_CUSTOMER_ID customer_id,\n            c.n001 partner_id\n        from apex_collections c\n        where c.collection_name = l_collection\n    ) src\n        on ( rf.customer_id = src.customer_id and rf.partner_id = src.partner_id )\n    when not matched then\n        insert ( customer_id, partner_id )\n        values ( src.customer_id, src.partner_id );\n\n    apex_collection.delete_collection( l_collection );\nend;"
+      }
+     ,"Execution":{
+        "Sequence":20
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Display Location":"Inline in Notification"
+      }
+    }
+  ]
+}

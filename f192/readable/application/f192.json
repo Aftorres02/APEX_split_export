@@ -1,0 +1,164 @@
+{
+  "id":"192"
+ ,"Identification":{
+    "Name":"Customers"
+   ,"Alias":"CUSTOMERS"
+   ,"Version":"23.1.0"
+   ,"Application Group":"Starter Apps (193151433951443418)"
+  }
+ ,"Row Search":{
+    "Tokenize":false
+  }
+ ,"Availability":{
+    "Status":"Available with Developer Toolbar"
+   ,"Build Status":"Run and Build Application"
+  }
+ ,"Error Handling":{
+    "Default Display Location":"Inline with Field and in Notification"
+   ,"Error Handling Function":"eba_cust_fw.apex_error_handling"
+  }
+ ,"Report Printing":{
+    "Type":"Use Instance Settings"
+  }
+ ,"Advanced":{
+    "Friendly URLs":true
+   ,"Allow Feedback":false
+   ,"Logging":true
+   ,"Debugging":false
+   ,"Compatibility Mode":"21.2 \/ 22.1 \/ 22.2"
+   ,"Copyright Banner":"Name: #APP_NAME#\nCopyright (c)2012, #YEAR# Oracle and\/or its affiliates.\nLicensed under the Universal Permissive License v 1.0 as shown \nat https:\/\/oss.oracle.com\/licenses\/upl\/"
+  }
+ ,"Authentication":{
+    "Public User":"APEX_PUBLIC_USER"
+   ,"Authentication Scheme":"db (30559459007966855)"
+  }
+ ,"Authorization":{
+    "Authorization Scheme":"APPLICATION SENTRY (15995665447222190978)"
+   ,"Run on Public Pages":false
+   ,"Run on Background Job":true
+   ,"Source for Role or Group Schemes":"Access Control User Role Assignments"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Enabled for Public Sessions"
+   ,"Maximum Session Length":28800
+   ,"Maximum Session Idle Time":28800
+  }
+ ,"Session State Protection":{
+    "Enabled":true
+  }
+ ,"Security":{
+    "Deep Linking":"Enabled"
+   ,"Browser Cache":"Disabled"
+   ,"Embed in Frames":"Allow from same origin"
+   ,"Referrer Policy":"strict-origin"
+   ,"HTML Escaping Mode":"Extended"
+   ,"Runtime API Usage":[
+      "Modify This Application"
+    ]
+  }
+ ,"Advanced":{
+    "Pass ECID":"N"
+  }
+ ,"Database Session":{
+    "Parsing Schema":"DB_01"
+  }
+ ,"Globalization":{
+    "Primary Language":"English (United States) (en-us)"
+   ,"Document Direction":"Left-To-Right"
+   ,"Language Derived From":"Application Primary Language"
+   ,"Automatic Time Zone":false
+   ,"Automatic CSV Encoding":false
+  }
+ ,"Application Format Masks":{
+    "Date":"DS"
+   ,"Timestamp":"DS"
+  }
+ ,"Character Value Comparison":{
+    "Behavior":"Database session NLS setting (default)"
+  }
+ ,"Logo":{
+    "Type":"Text"
+   ,"Text":"\u0026APPLICATION_TITLE."
+  }
+ ,"Progressive Web App":{
+    "Enable":false
+  }
+ ,"Navigation":{
+    "Home URL":{
+      "url":"f?p=\u0026APP_ID.:59:\u0026SESSION."
+     ,"Page":"59"
+    }
+  }
+ ,"Navigation Menu":{
+    "List Template":"Side Navigation Menu (14888280526311691882)"
+   ,"Template Options":[
+      "#DEFAULT#"
+     ,"js-defaultCollapsed"
+     ,"js-navCollapsed--hidden"
+     ,"t-TreeNav--styleA"
+    ]
+   ,"List Position":"Side"
+   ,"List":"Application Navigation (14888372247988757513)"
+  }
+ ,"Navigation Bar":{
+    "Implementation":"List"
+   ,"List":"Navigation Bar (14902680077830421317)"
+   ,"List Template":"Navigation Bar (14888280312781691881)"
+  }
+ ,"JavaScript":{
+    "Include Deprecated or Desupported Javascript Functions":[
+      "Pre 18.1"
+     ,"18.x"
+    ]
+   ,"Include jQuery Migrate":false
+  }
+ ,"CSS":{
+    "File URLs":[
+      "#IMAGE_PREFIX#pkgapp_ui\/css\/5.0#MIN#.css"
+    ]
+  }
+ ,"Attributes":{
+    "Theme":"Universal Theme (42)"
+   ,"Global Page":"0"
+   ,"Enable End Users to choose Theme Style":true
+   ,"Add \"Built with APEX\" to Footer":true
+  }
+ ,"Substitutions":[
+    {
+      "id":"1"
+     ,"Identification":{
+        "Name":"APP_DATE_FORMAT"
+      }
+     ,"Value":{
+        "Static Value":"DD-MON-YYYY"
+      }
+    }
+   ,{
+      "id":"2"
+     ,"Identification":{
+        "Name":"GETTING_STARTED_URL"
+      }
+     ,"Value":{
+        "Static Value":"http:\/\/www.oracle.com\/technetwork\/developer-tools\/apex\/index.html"
+      }
+    }
+   ,{
+      "id":"3"
+     ,"Identification":{
+        "Name":"APP_DATETIME_FORMAT"
+      }
+     ,"Value":{
+        "Static Value":"DD-MON-YYYY HH24:MI"
+      }
+    }
+   ,{
+      "id":"4"
+     ,"Identification":{
+        "Name":"APP_NAME"
+      }
+     ,"Value":{
+        "Static Value":"Customers"
+      }
+    }
+  ]
+}

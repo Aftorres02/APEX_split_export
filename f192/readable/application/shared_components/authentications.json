@@ -1,0 +1,45 @@
+[
+  {
+    "id":"30559459007966855"
+   ,"Identification":{
+      "Name":"db"
+    }
+   ,"Settings":{
+      "Type":"Database Accounts"
+    }
+   ,"Session Not Valid":{
+      "Redirect to":"Login Page"
+    }
+   ,"Login Processing":{
+      "Switch in Session":false
+    }
+   ,"Real Application Security":{
+      "RAS Mode":"Disabled"
+    }
+  }
+ ,{
+    "id":"17829318602368139953"
+   ,"Identification":{
+      "Name":"Application Express Accounts"
+    }
+   ,"Settings":{
+      "Type":"Oracle APEX Accounts"
+    }
+   ,"Session Not Valid":{
+      "Redirect to":"Login Page"
+    }
+   ,"Login Processing":{
+      "Switch in Session":false
+    }
+   ,"Post-Logout URL":{
+      "Post-Logout URL":"f?p=\u0026APP_ID.:customers"
+    }
+   ,"Session Sharing":{
+      "Cookie Name":"ORA_WWV_PACKAGED_APPLICATIONS"
+     ,"Secure":false
+    }
+   ,"Real Application Security":{
+      "RAS Mode":"Disabled"
+    }
+  }
+]

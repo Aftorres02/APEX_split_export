@@ -1,0 +1,47 @@
+{
+    "id": "16663125125422525642",
+    "Identification": {
+        "Title": "Audit Information",
+        "Type": "Static Content"
+    },
+    "Layout": {
+        "Sequence": 20,
+        "Parent Region": "Maintain Update (16663122517901525634)",
+        "Position": "SUB_REGIONS",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": false,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Collapsible (14888261571832691840)",
+        "Template Options": [
+            "#DEFAULT#",
+            "is-collapsed",
+            "t-Region--noBorder",
+            "t-Region--scrollBody"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Not Customizable By End Users"
+    },
+    "Attributes": {
+        "Settings": {
+            "Output As": "HTML",
+            "Expand Shortcuts": false
+        }
+    }
+}

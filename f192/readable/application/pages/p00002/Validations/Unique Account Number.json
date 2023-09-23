@@ -1,0 +1,19 @@
+{
+    "id": "18489427033448201610",
+    "Identification": {
+        "Name": "Unique Account Number"
+    },
+    "Execution": {
+        "Sequence": 30
+    },
+    "Validation": {
+        "Type": "No Rows returned",
+        "SQL Query": "select null\nfrom eba_cust_customers\nwhere id <> :P2_ID\n    and customer_account_number = :P2_CUSTOMER_ACCOUNT_NUMBER",
+        "Always Execute": false
+    },
+    "Error": {
+        "Error Message": "#LABEL# already associated with another customer.",
+        "Display Location": "Inline with Field and in Notification",
+        "Associated Item": "P2_CUSTOMER_ACCOUNT_NUMBER (18489427007480201609)"
+    }
+}

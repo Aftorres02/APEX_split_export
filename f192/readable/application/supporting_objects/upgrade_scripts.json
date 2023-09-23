@@ -1,0 +1,636 @@
+[
+  {
+    "id":"440913622797222462"
+   ,"Identification":{
+      "Name":"TIMESTAMP Fix (BUGID: 31352674) "
+    }
+   ,"Execution":{
+      "Sequence":500
+    }
+   ,"Server-side Condition":{
+      "Type":"Rows returned"
+     ,"SQL Query":"select null from all_tab_cols where table_name like \u0027EBA_CUST_%\u0027 and data_type = \u0027TIMESTAMP(6) WITH LOCAL TIME ZONE\u0027"
+    }
+  }
+ ,{
+    "id":"854538733720370928"
+   ,"Identification":{
+      "Name":"Update countries region_ids"
+    }
+   ,"Execution":{
+      "Sequence":510
+    }
+   ,"Server-side Condition":{
+      "Type":"Rows returned"
+     ,"SQL Query":"select null from eba_cust_countries where region_id is null"
+    }
+  }
+ ,{
+    "id":"1183460251000840756"
+   ,"Identification":{
+      "Name":"Add total_contract_value \u0026 discount_level to Customers table"
+    }
+   ,"Execution":{
+      "Sequence":420
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tab_columns\nwhere table_name = \u0027EBA_CUST_CUSTOMERS\u0027\n    and column_name in (\u0027TOTAL_CONTRACT_VALUE\u0027, \u0027DISCOUNT_LEVEL\u0027)"
+    }
+  }
+ ,{
+    "id":"1193013331019574496"
+   ,"Identification":{
+      "Name":"Set First Run Preference"
+    }
+   ,"Execution":{
+      "Sequence":520
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\n  from eba_cust_preferences\n where preference_name = \u0027FIRST_RUN\u0027;"
+    }
+  }
+ ,{
+    "id":"1389552151934494401"
+   ,"Identification":{
+      "Name":"create eba_cust_acl_features"
+    }
+   ,"Execution":{
+      "Sequence":430
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tables\nwhere table_name = \u0027EBA_CUST_ACL_FEATURES\u0027;"
+    }
+  }
+ ,{
+    "id":"1389593995376501275"
+   ,"Identification":{
+      "Name":"Upgrade eba_cust spec and body"
+    }
+   ,"Execution":{
+      "Sequence":440
+    }
+  }
+ ,{
+    "id":"1389597231963584852"
+   ,"Identification":{
+      "Name":"populate eba_cust_acl_features"
+    }
+   ,"Execution":{
+      "Sequence":450
+    }
+   ,"Server-side Condition":{
+      "Type":"Function Body"
+     ,"Language":"PL\/SQL"
+     ,"PL\/SQL Function Body":"declare\n    l_cnt    pls_integer;\n    l_retval boolean := true;\nbegin\n    select count(*)\n      into l_cnt\n      from eba_cust_acl_features\n     where authorization_name in (\u0027EDIT_COMPETITORS\u0027, \u0027VIEW_COMPETITORS\u0027);\n\n    if l_cnt \u003E 0 then\n        l_retval := false;\n    end if;\n\n    return l_retval;\nend;"
+    }
+  }
+ ,{
+    "id":"2595600350205341677"
+   ,"Identification":{
+      "Name":"Issue Statuses"
+    }
+   ,"Execution":{
+      "Sequence":470
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tables\nwhere table_name = \u0027EBA_CUST_ISSUE_STATUSES\u0027"
+    }
+  }
+ ,{
+    "id":"2595600519052345014"
+   ,"Identification":{
+      "Name":"Issues"
+    }
+   ,"Execution":{
+      "Sequence":480
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tables\nwhere table_name = \u0027EBA_CUST_ISSUES\u0027"
+    }
+  }
+ ,{
+    "id":"4043518499143985329"
+   ,"Identification":{
+      "Name":"customer after delete trigger"
+    }
+   ,"Execution":{
+      "Sequence":490
+    }
+  }
+ ,{
+    "id":"14272464795248869497"
+   ,"Identification":{
+      "Name":"New Product Uses Columns"
+    }
+   ,"Execution":{
+      "Sequence":220
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tab_cols\nwhere table_name = \u0027EBA_CUST_PRODUCT_USES\u0027\n    and column_name = \u0027REFERENCE_TYPE_IDS\u0027"
+    }
+  }
+ ,{
+    "id":"14272593822420992178"
+   ,"Identification":{
+      "Name":"Drop product\/customer constraint in product uses"
+    }
+   ,"Execution":{
+      "Sequence":230
+    }
+   ,"Server-side Condition":{
+      "Type":"Rows returned"
+     ,"SQL Query":"select null\nfrom user_constraints\nwhere constraint_name = \u0027EBA_CUST_PRODUCT_USES_UK\u0027"
+    }
+  }
+ ,{
+    "id":"14272624360097011135"
+   ,"Identification":{
+      "Name":"drop index EBA_CUST_PRODUCT_USES_UK"
+    }
+   ,"Execution":{
+      "Sequence":240
+    }
+   ,"Server-side Condition":{
+      "Type":"Rows returned"
+     ,"SQL Query":"select *\nfrom user_indexes\nwhere index_name = \u0027EBA_CUST_PRODUCT_USES_UK\u0027"
+    }
+  }
+ ,{
+    "id":"14309330676036138422"
+   ,"Identification":{
+      "Name":"product statuses"
+    }
+   ,"Execution":{
+      "Sequence":260
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tables\nwhere table_name = \u0027EBA_CUST_PRODUCT_STATUSES\u0027"
+    }
+  }
+ ,{
+    "id":"14316036329517616431"
+   ,"Identification":{
+      "Name":"add eba_cust_prod_uses_contact_fk"
+    }
+   ,"Execution":{
+      "Sequence":250
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_constraints\nwhere constraint_name = \u0027EBA_CUST_PROD_USES_CONTACT_FK\u0027"
+    }
+  }
+ ,{
+    "id":"14495392445472979527"
+   ,"Identification":{
+      "Name":"add logo columns to customers table"
+    }
+   ,"Execution":{
+      "Sequence":270
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tab_cols\nwhere table_name = \u0027EBA_CUST_CUSTOMERS\u0027\n    and column_name = \u0027LOGO_BLOB\u0027"
+    }
+  }
+ ,{
+    "id":"14766336024518753620"
+   ,"Identification":{
+      "Name":"Framework Body"
+    }
+   ,"Execution":{
+      "Sequence":30
+    }
+  }
+ ,{
+    "id":"14844366038256612580"
+   ,"Identification":{
+      "Name":"Username Format Preference"
+    }
+   ,"Execution":{
+      "Sequence":50
+    }
+  }
+ ,{
+    "id":"14877356949781463814"
+   ,"Identification":{
+      "Name":"industry view"
+    }
+   ,"Execution":{
+      "Sequence":80
+    }
+  }
+ ,{
+    "id":"14878639729886566199"
+   ,"Identification":{
+      "Name":"add contact columns"
+    }
+   ,"Execution":{
+      "Sequence":90
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select column_name\nfrom user_tab_columns\nwhere table_name = \u0027EBA_CUST_CONTACTS\u0027\n    and column_name = \u0027FACEBOOK\u0027"
+    }
+  }
+ ,{
+    "id":"14883473831823300552"
+   ,"Identification":{
+      "Name":"Framework Package"
+    }
+   ,"Execution":{
+      "Sequence":10
+    }
+  }
+ ,{
+    "id":"14883474222257307257"
+   ,"Identification":{
+      "Name":"Remove Help Table"
+    }
+   ,"Execution":{
+      "Sequence":110
+    }
+   ,"Server-side Condition":{
+      "Type":"Rows returned"
+     ,"SQL Query":"select table_name\nfrom user_tables\nwhere table_name = \u0027EBA_CUST_HELP_PAGE\u0027"
+    }
+  }
+ ,{
+    "id":"14938850932334965351"
+   ,"Identification":{
+      "Name":"History Triggers"
+    }
+   ,"Execution":{
+      "Sequence":120
+    }
+  }
+ ,{
+    "id":"14962544219485123756"
+   ,"Identification":{
+      "Name":"Click Counting Table"
+    }
+   ,"Execution":{
+      "Sequence":130
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tables\nwhere table_name = \u0027EBA_CUST_CLICKS\u0027;"
+    }
+  }
+ ,{
+    "id":"14962982547679629436"
+   ,"Identification":{
+      "Name":"Content Validation Table"
+    }
+   ,"Execution":{
+      "Sequence":140
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tables\nwhere table_name = \u0027EBA_CUST_VERIFICATIONS\u0027;"
+    }
+  }
+ ,{
+    "id":"15007464147353942985"
+   ,"Identification":{
+      "Name":"eba_cust_customers trigger"
+    }
+   ,"Execution":{
+      "Sequence":150
+    }
+  }
+ ,{
+    "id":"15640397398537659049"
+   ,"Identification":{
+      "Name":"Reference Types"
+    }
+   ,"Execution":{
+      "Sequence":160
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tables\nwhere table_name = \u0027EBA_CUST_REFERENCE_TYPES\u0027"
+    }
+  }
+ ,{
+    "id":"15848148042391640125"
+   ,"Identification":{
+      "Name":"add phase table"
+    }
+   ,"Execution":{
+      "Sequence":170
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tables\nwhere table_name = \u0027EBA_CUST_REF_PHASE\u0027"
+    }
+  }
+ ,{
+    "id":"15848297521605328095"
+   ,"Identification":{
+      "Name":"add reference_phase_id"
+    }
+   ,"Execution":{
+      "Sequence":180
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tab_cols\nwhere table_name = \u0027EBA_CUST_CUSTOMERS\u0027\n    and column_name = \u0027REFERENCE_PHASE_ID\u0027"
+    }
+  }
+ ,{
+    "id":"15873056788458585386"
+   ,"Identification":{
+      "Name":"sales channel"
+    }
+   ,"Execution":{
+      "Sequence":190
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tables\nwhere table_name = \u0027EBA_CUST_SALES_CHANNEL\u0027"
+    }
+  }
+ ,{
+    "id":"15873057712325618772"
+   ,"Identification":{
+      "Name":"add sales channel"
+    }
+   ,"Execution":{
+      "Sequence":200
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tab_cols\nwhere table_name = \u0027EBA_CUST_CUSTOMERS\u0027\n    and column_name = \u0027SALES_CHANNEL_ID\u0027"
+    }
+  }
+ ,{
+    "id":"15873057918281620929"
+   ,"Identification":{
+      "Name":"recruitment owner"
+    }
+   ,"Execution":{
+      "Sequence":210
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tab_cols\nwhere table_name = \u0027EBA_CUST_CUSTOMERS\u0027\n    and column_name = \u0027REF_RECRUITMENT_OWNER\u0027"
+    }
+  }
+ ,{
+    "id":"16917129396872116417"
+   ,"Identification":{
+      "Name":"strategic_customer_program_yn"
+    }
+   ,"Execution":{
+      "Sequence":280
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tab_cols\nwhere table_name = \u0027EBA_CUST_CUSTOMERS\u0027\n    and column_name = \u0027STRATEGIC_CUSTOMER_PROGRAM_YN\u0027"
+    }
+  }
+ ,{
+    "id":"16959742748706202049"
+   ,"Identification":{
+      "Name":"country_id in customers table"
+    }
+   ,"Execution":{
+      "Sequence":290
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tab_cols\nwhere table_name = \u0027EBA_CUST_CUSTOMERS\u0027\n    and column_name = \u0027COUNTRY_ID\u0027"
+    }
+  }
+ ,{
+    "id":"17030577094299082282"
+   ,"Identification":{
+      "Name":"eba_cust_type"
+    }
+   ,"Execution":{
+      "Sequence":300
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tables\nwhere table_name = \u0027EBA_CUST_TYPE\u0027"
+    }
+  }
+ ,{
+    "id":"17030602790021139829"
+   ,"Identification":{
+      "Name":"type_id into customers table"
+    }
+   ,"Execution":{
+      "Sequence":310
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tab_cols\nwhere table_name = \u0027EBA_CUST_CUSTOMERS\u0027\n    and column_name = \u0027TYPE_ID\u0027"
+    }
+  }
+ ,{
+    "id":"17146637304539547294"
+   ,"Identification":{
+      "Name":"eba_cust_use_case"
+    }
+   ,"Execution":{
+      "Sequence":320
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tables\nwhere table_name = \u0027EBA_CUST_USE_CASE\u0027"
+    }
+  }
+ ,{
+    "id":"17146648026091503539"
+   ,"Identification":{
+      "Name":"use_case_id into customers table"
+    }
+   ,"Execution":{
+      "Sequence":330
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tab_cols\nwhere table_name = \u0027EBA_CUST_CUSTOMERS\u0027\n    and column_name = \u0027USE_CASE_ID\u0027"
+    }
+  }
+ ,{
+    "id":"17171869476130674720"
+   ,"Identification":{
+      "Name":"add party attributes"
+    }
+   ,"Execution":{
+      "Sequence":340
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tab_cols\nwhere table_name = \u0027EBA_CUST_CUSTOMERS\u0027\n    and column_name = \u0027PARTY_ID\u0027"
+    }
+  }
+ ,{
+    "id":"17196994924482081480"
+   ,"Identification":{
+      "Name":"region_id in countries"
+    }
+   ,"Execution":{
+      "Sequence":350
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tab_cols\nwhere table_name = \u0027EBA_CUST_COUNTRIES\u0027\n    and column_name = \u0027REGION_ID\u0027"
+    }
+  }
+ ,{
+    "id":"17742483108221699173"
+   ,"Identification":{
+      "Name":"Implementation Partners\/Competitors"
+    }
+   ,"Execution":{
+      "Sequence":60
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tables\nwhere table_name = \u0027EBA_CUST_IMPL_PARTNERS\u0027"
+    }
+  }
+ ,{
+    "id":"17785045181092756267"
+   ,"Identification":{
+      "Name":"Product Families"
+    }
+   ,"Execution":{
+      "Sequence":100
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tables\nwhere table_name = \u0027EBA_CUST_PRODUCT_FAMILIES\u0027"
+    }
+  }
+ ,{
+    "id":"18164840277520860102"
+   ,"Identification":{
+      "Name":"Activities"
+    }
+   ,"Execution":{
+      "Sequence":70
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tables\nwhere table_name = \u0027EBA_CUST_ACTIVITIES\u0027"
+    }
+  }
+ ,{
+    "id":"18759505591638302348"
+   ,"Identification":{
+      "Name":"Feedback Types DDL"
+    }
+   ,"Execution":{
+      "Sequence":360
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tables\nwhere table_name = \u0027EBA_CUST_FEEDBACK_TYPES\u0027"
+    }
+  }
+ ,{
+    "id":"18759668138181340373"
+   ,"Identification":{
+      "Name":"Feedback Types Data"
+    }
+   ,"Execution":{
+      "Sequence":370
+    }
+   ,"Server-side Condition":{
+      "Type":"Function Body"
+     ,"Language":"PL\/SQL"
+     ,"PL\/SQL Function Body":"declare\n    l_table_cnt number;\n    l_row_cnt   number;\nbegin\n    select count(*)\n      into l_table_cnt\n      from user_tables\n     where table_name = \u0027EBA_CUST_FEEDBACK_TYPES\u0027;\n    if l_table_cnt = 1 then\n        select count(*)\n          into l_row_cnt\n          from eba_cust_feedback_types;\n        if l_row_cnt = 0 then\n            return true;\n        end if;\n    end if;\n    return false;\nend;"
+    }
+  }
+ ,{
+    "id":"18759695103106298149"
+   ,"Identification":{
+      "Name":"Feedback DDL"
+    }
+   ,"Execution":{
+      "Sequence":380
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tables\nwhere table_name = \u0027EBA_CUST_FEEDBACK\u0027"
+    }
+  }
+ ,{
+    "id":"18762270901093814945"
+   ,"Identification":{
+      "Name":"Add parent_customer_id"
+    }
+   ,"Execution":{
+      "Sequence":20
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select column_name\nfrom user_tab_columns\nwhere table_name = \u0027EBA_CUST_CUSTOMERS\u0027\n    and column_name = \u0027PARENT_CUSTOMER_ID\u0027"
+    }
+  }
+ ,{
+    "id":"18763976855555323509"
+   ,"Identification":{
+      "Name":"Email Log DDL"
+    }
+   ,"Execution":{
+      "Sequence":390
+    }
+   ,"Server-side Condition":{
+      "Type":"No Rows returned"
+     ,"SQL Query":"select null\nfrom user_tables\nwhere table_name = \u0027EBA_CUST_EMAIL_LOG\u0027"
+    }
+  }
+ ,{
+    "id":"18764293081565352614"
+   ,"Identification":{
+      "Name":"eba_cust_email package spec"
+    }
+   ,"Execution":{
+      "Sequence":400
+    }
+  }
+ ,{
+    "id":"18764308188984406430"
+   ,"Identification":{
+      "Name":"eba_cust_email package body"
+    }
+   ,"Execution":{
+      "Sequence":410
+    }
+  }
+ ,{
+    "id":"20255825380756794359"
+   ,"Identification":{
+      "Name":"Allow NULL Preference Values"
+    }
+   ,"Execution":{
+      "Sequence":40
+    }
+   ,"Server-side Condition":{
+      "Type":"Rows returned"
+     ,"SQL Query":"select null\nfrom user_tab_cols\nwhere table_name = \u0027EBA_CUST_PREFERENCES\u0027\n    and column_name = \u0027PREFERENCE_VALUE\u0027\n    and nullable = \u0027N\u0027"
+    }
+  }
+ ,{
+    "id":"21450927885191360847"
+   ,"Identification":{
+      "Name":"Upgrade EBA_CUST_SAMPLE_DATA"
+    }
+   ,"Execution":{
+      "Sequence":460
+    }
+  }
+]

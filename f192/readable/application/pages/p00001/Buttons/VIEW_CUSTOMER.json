@@ -1,0 +1,40 @@
+{
+    "id": "13571864310638203240",
+    "Identification": {
+        "Button Name": "VIEW_CUSTOMER",
+        "Label": "View Customer"
+    },
+    "Layout": {
+        "Sequence": 40,
+        "Region": "Recently Updated Customers (13571862438541203236)",
+        "Position": "EDIT",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Button Template": "Icon (14888281684153691889)",
+        "Hot": false,
+        "Template Options": [
+            "#DEFAULT#",
+            "#DEFAULT#",
+            "t-Button--noUI"
+        ],
+        "Icon": "fa-chevron-right"
+    },
+    "Behavior": {
+        "Action": "Redirect to Page in this Application",
+        "Target": {
+            "url": "f?p=&APP_ID.:59:&SESSION.:IR_20424235:&DEBUG.:RP,59,RIR:P59_SORT:NEWFIRST",
+            "Page": "59",
+            "Request": "IR_20424235",
+            "Clear Cache": "RP,59,RIR",
+            "Values": {
+                "P59_SORT": "NEWFIRST"
+            }
+        },
+        "Warn on Unsaved Changes": "Do Not Check"
+    }
+}

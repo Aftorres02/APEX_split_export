@@ -1,0 +1,23 @@
+{
+    "id": "15091861738863332180",
+    "Identification": {
+        "Name": "P9_CONTACT_TYPE unique"
+    },
+    "Execution": {
+        "Sequence": 5
+    },
+    "Validation": {
+        "Type": "No Rows returned",
+        "SQL Query": "select null\nfrom eba_cust_contact_types\nwhere upper(contact_type) = upper(:P9_CONTACT_TYPE)\n    and ( :P9_ID is null or id <> :P9_ID )",
+        "Always Execute": false
+    },
+    "Error": {
+        "Error Message": "#LABEL# already exists.",
+        "Display Location": "Inline with Field and in Notification",
+        "Associated Item": "P9_CONTACT_TYPE (17829408303092640554)"
+    },
+    "Server-side Condition": {
+        "Type": "Request is contained in Value",
+        "Value": "CREATE,SAVE"
+    }
+}

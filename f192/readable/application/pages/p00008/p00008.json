@@ -1,0 +1,99 @@
+{
+    "id": "8",
+    "Identification": {
+        "Name": "Contact Types",
+        "Alias": "CONTACT-TYPES",
+        "Title": "Contact Types",
+        "Page Group": "Administration (14749179244941290086)"
+    },
+    "Appearance": {
+        "Page Mode": "Modal Dialog",
+        "Dialog Template": "Theme Default",
+        "Template Options": [
+            "#DEFAULT#",
+            "ui-dialog--stretch",
+            "t-Dialog--noPadding"
+        ]
+    },
+    "Dialog": {
+        "Chained": true
+    },
+    "Navigation Menu": {
+        "Override User Interface Level": false
+    },
+    "Navigation": {
+        "Cursor Focus": "First item on page",
+        "Warn on Unsaved Changes": false
+    },
+    "Security": {
+        "Authorization Scheme": "ADMINISTRATION RIGHTS (15704753031447651527)",
+        "Authentication": "Page Requires Authentication",
+        "Deep Linking": "Application Default",
+        "Page Access Protection": "Arguments Must Have Checksum",
+        "Form Auto Complete": "On",
+        "Browser Cache": "Application Default"
+    },
+    "Session Management": {
+        "Rejoin Sessions": "Application Default"
+    },
+    "Advanced": {
+        "Enable duplicate page submissions": "Yes - Enable page to be re-posted",
+        "Reload on Submit": "Always"
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Help": {
+        "Help Text": "&CONTACT_TYPES_HELP."
+    },
+    "Dynamic Actions": [
+        {
+            "id": "1646665664483158789",
+            "Identification": {
+                "Name": "Refresh Report"
+            },
+            "Execution": {
+                "Event Scope": "Static",
+                "Type": "Immediate"
+            },
+            "When": {
+                "Event": "EVENT.EVENT.FAMEWORK.APEXAFTERCLOSEDIALOG",
+                "Selection Type": "JavaScript Expression",
+                "JavaScript Expression": "window"
+            },
+            "Actions": [
+                {
+                    "id": "1646666047608158790",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "Region",
+                        "Region": "Contact Types (17835936263206776878)"
+                    },
+                    "Execution": {
+                        "Sequence": 10,
+                        "Event": "Refresh Report (1646665664483158789)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                },
+                {
+                    "id": "1646666600537158790",
+                    "Identification": {
+                        "Action": "Execute JavaScript Code"
+                    },
+                    "Settings": {
+                        "Code": "apex.message.showPageSuccess('Action Processed.');"
+                    },
+                    "Execution": {
+                        "Sequence": 20,
+                        "Event": "Refresh Report (1646665664483158789)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                }
+            ]
+        }
+    ]
+}

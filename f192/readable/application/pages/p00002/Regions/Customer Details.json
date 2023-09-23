@@ -1,0 +1,48 @@
+{
+    "id": "17829324616828140228",
+    "Identification": {
+        "Title": "Customer Details",
+        "Type": "Static Content"
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Parent Region": "No Parent",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Standard (14888264683728691846)",
+        "Template Options": [
+            "#DEFAULT#",
+            "t-Region--hideHeader",
+            "t-Region--scrollBody",
+            "t-Form--stretchInputs"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Static ID": "CUSTOMERS",
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Not Customizable By End Users"
+    },
+    "Attributes": {
+        "Settings": {
+            "Output As": "HTML",
+            "Expand Shortcuts": false
+        }
+    }
+}

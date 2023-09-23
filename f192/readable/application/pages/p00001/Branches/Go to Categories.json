@@ -1,0 +1,25 @@
+{
+    "id": "2044149649657901774",
+    "Identification": {
+        "Name": "Go to Categories"
+    },
+    "Execution": {
+        "Sequence": 20,
+        "Point": "After Processing"
+    },
+    "Behavior": {
+        "Type": "Page or URL (Redirect)",
+        "Target": {
+            "url": "f?p=&APP_ID.:32:&SESSION.::&DEBUG.:RP:P32_CATEGORY,P32_GEO:&P1_CATEGORY.,&P1_GEO.&success_msg=#SUCCESS_MSG#",
+            "Page": "32",
+            "Clear Cache": "RP",
+            "Values": {
+                "P32_CATEGORY": "&P1_CATEGORY.",
+                "P32_GEO": "&P1_GEO."
+            }
+        }
+    },
+    "Server-side Condition": {
+        "When Button Pressed": "VIEW_CATS (13571850900331197252)"
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "id": "17828815973243225117",
+    "Identification": {
+        "Name": "Load data",
+        "Type": "Execute Code",
+        "Execution Chain": "None"
+    },
+    "Source": {
+        "Location": "Local Database",
+        "Language": "PL/SQL",
+        "PL/SQL Code": "if :REQUEST = 'HOME' then\n   :LAST_VIEW := 100 ;\nelse\n   :LAST_VIEW := 8 ;\nend if;"
+    },
+    "Execution": {
+        "Sequence": 50,
+        "Point": "Before Header",
+        "Run Process": "Once Per Page Visit (default)"
+    }
+}

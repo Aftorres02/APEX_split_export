@@ -1,0 +1,22 @@
+{
+    "id": "17857396512015596213",
+    "Identification": {
+        "Name": "Check Dependencies"
+    },
+    "Execution": {
+        "Sequence": 20
+    },
+    "Validation": {
+        "Type": "No Rows returned",
+        "SQL Query": "Select 1 from eba_cust_customers where type_id = :P6_ID and rownum = 1",
+        "Always Execute": false
+    },
+    "Error": {
+        "Error Message": "Cannot Delete this Type, Customers exists with this Type.",
+        "Display Location": "Inline with Field and in Notification",
+        "Associated Item": "P6_TYPE (17829391912999720375)"
+    },
+    "Server-side Condition": {
+        "When Button Pressed": "DELETE (17829390826301720340)"
+    }
+}

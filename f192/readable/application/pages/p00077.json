@@ -1,0 +1,376 @@
+{
+  "id":"77"
+ ,"Identification":{
+    "Name":"Manage Sample Data"
+   ,"Alias":"MANAGE-SAMPLE-DATA"
+   ,"Title":"Manage Sample Data"
+   ,"Page Group":"Administration (14749179244941290086)"
+  }
+ ,"Appearance":{
+    "Page Mode":"Modal Dialog"
+   ,"Dialog Template":"Theme Default"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Dialog":{
+    "Chained":true
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"Do not focus cursor"
+   ,"Warn on Unsaved Changes":false
+  }
+ ,"Security":{
+    "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+   ,"Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"On"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Always"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Regions":[
+    {
+      "id":"15917794026716110878"
+     ,"Identification":{
+        "Title":"Manage Sample Data"
+       ,"Type":"Static Content"
+      }
+     ,"Source":{
+        "HTML Code":"\u003Cp\u003EThis application ships with sample data.  You can remove and recreate sample data using this page.  If the sample data is old recreating the data makes the dates more current.  Removing or adding sample data will not affect any decisions you created.\u003C\/p\u003E"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Alert (14888249258257691818)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Alert--wizard"
+         ,"t-Alert--defaultIcons"
+         ,"t-Alert--warning"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"15414938060604218331"
+     ,"Identification":{
+        "Button Name":"load_sample_data"
+       ,"Label":"Load Sample Data"
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Region":"Manage Sample Data (15917794026716110878)"
+       ,"Position":"NEXT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--large"
+         ,"t-Button--primary"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Submit Page"
+       ,"Execute Validations":true
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+     ,"Server-side Condition":{
+        "Type":"No Rows returned"
+       ,"SQL Query":"select null as value from eba_cust_links where id \u003C 100\nunion all\nselect null as value from eba_cust_notes where id \u003C 100\nunion all\nselect null as value from eba_cust_product_uses where id \u003C 100\nunion all\nselect null as value from eba_cust_products where id \u003C 100\nunion all\nselect null as value from eba_cust_contacts where id \u003C 100\nunion all\nselect null as value from eba_cust_customers where id \u003C 100;"
+      }
+    }
+   ,{
+      "id":"15414938390127218331"
+     ,"Identification":{
+        "Button Name":"remove_sample_data"
+       ,"Label":"Remove Sample Data"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Manage Sample Data (15917794026716110878)"
+       ,"Position":"NEXT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--large"
+         ,"t-Button--danger"
+         ,"t-Button--simple"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Submit Page"
+       ,"Execute Validations":true
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+     ,"Server-side Condition":{
+        "Type":"Rows returned"
+       ,"SQL Query":"select null as value from eba_cust_links where id \u003C 100\nunion all\nselect null as value from eba_cust_notes where id \u003C 100\nunion all\nselect null as value from eba_cust_product_uses where id \u003C 100\nunion all\nselect null as value from eba_cust_products where id \u003C 100\nunion all\nselect null as value from eba_cust_contacts where id \u003C 100\nunion all\nselect null as value from eba_cust_customers where id \u003C 100;"
+      }
+    }
+   ,{
+      "id":"15414938843944218331"
+     ,"Identification":{
+        "Button Name":"reset_data"
+       ,"Label":"Reset Data"
+      }
+     ,"Layout":{
+        "Sequence":40
+       ,"Region":"Manage Sample Data (15917794026716110878)"
+       ,"Position":"NEXT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--large"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Submit Page"
+       ,"Execute Validations":true
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+   ,{
+      "id":"15414939202873218332"
+     ,"Identification":{
+        "Button Name":"CANCEL"
+       ,"Label":"Cancel"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Manage Sample Data (15917794026716110878)"
+       ,"Position":"NEXT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--large"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Defined by Dynamic Action"
+       ,"Execute Validations":true
+      }
+    }
+  ]
+ ,"Dynamic Actions":[
+    {
+      "id":"363277069535191069"
+     ,"Identification":{
+        "Name":"CNX"
+      }
+     ,"Execution":{
+        "Sequence":10
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CLICK"
+       ,"Selection Type":"Button"
+       ,"Button":"CANCEL (15414939202873218332)"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"363277163888191070"
+         ,"Identification":{
+            "Action":"Cancel Dialog"
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"CNX (363277069535191069)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+  ]
+ ,"Processes":[
+    {
+      "id":"15414940650213218339"
+     ,"Identification":{
+        "Name":"reset data"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":"eba_cust_sample_data.remove_sample_data;\neba_cust_sample_data.create_sample_data;"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Success Message":{
+        "Success Message":"Sample data reset."
+      }
+     ,"Error":{
+        "Display Location":"Inline in Notification"
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"reset_data (15414938843944218331)"
+      }
+     ,"Security":{
+        "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+      }
+    }
+   ,{
+      "id":"15414941014610218341"
+     ,"Identification":{
+        "Name":"remove sample data"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":"eba_cust_sample_data.remove_sample_data;"
+      }
+     ,"Execution":{
+        "Sequence":20
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Success Message":{
+        "Success Message":"Sample Data Removed"
+      }
+     ,"Error":{
+        "Display Location":"Inline in Notification"
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"remove_sample_data (15414938390127218331)"
+      }
+     ,"Security":{
+        "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+      }
+    }
+   ,{
+      "id":"15414941428479218341"
+     ,"Identification":{
+        "Name":"Load Sample Data"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":"eba_cust_sample_data.create_sample_data;"
+      }
+     ,"Execution":{
+        "Sequence":30
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Success Message":{
+        "Success Message":"Sample Data Loaded."
+      }
+     ,"Error":{
+        "Display Location":"Inline in Notification"
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"load_sample_data (15414938060604218331)"
+      }
+     ,"Security":{
+        "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+      }
+    }
+  ]
+ ,"Branches":[
+    {
+      "id":"15414941893567218341"
+     ,"Identification":{
+        "Name":"Go To Administration"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"After Processing"
+      }
+     ,"Behavior":{
+        "Type":"Page or URL (Redirect)"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:settings:\u0026SESSION.::\u0026DEBUG.:::\u0026success_msg=#SUCCESS_MSG#"
+         ,"Page":"SETTINGS"
+        }
+      }
+     ,"Comments":{
+        "Comments":"Created 06-JAN-2012 15:08 by MIKE"
+      }
+    }
+  ]
+}

@@ -1,0 +1,722 @@
+{
+  "id":"47"
+ ,"Identification":{
+    "Name":"Customer Updates"
+   ,"Alias":"CUSTOMER-UPDATES"
+   ,"Title":"Customer Updates"
+   ,"Page Group":"Customers (14749179822908293214)"
+  }
+ ,"Appearance":{
+    "Page Mode":"Normal"
+   ,"Page Template":"Theme Default"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"Do not focus cursor"
+   ,"Warn on Unsaved Changes":false
+  }
+ ,"Security":{
+    "Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"On"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Always"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Regions":[
+    {
+      "id":"16452751248877943403"
+     ,"Identification":{
+        "Title":"Breadcrumb"
+       ,"Type":"Breadcrumb"
+      }
+     ,"Source":{
+        "Breadcrumb":"Breadcrumb (17869143586620226407)"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_01"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Title Bar (14888267217215691848)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-BreadcrumbRegion--useBreadcrumbTitle"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "Breadcrumb Template":"Breadcrumb (14888282717314691893)"
+         ,"Template Options":[
+            "#DEFAULT#"
+          ]
+        }
+      }
+    }
+   ,{
+      "id":"16628358348704124002"
+     ,"Identification":{
+        "Title":"Updates"
+       ,"Type":"Classic Report"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select \n        \u0027\u0027 class, --use grayComment for gray look\n        \u0027Note\u0027 note_type,\n        replace(apex_escape.html(dbms_lob.substr(n.note,2000,1)),chr(10),\u0027\u003Cbr \/\u003E\u0027) comment_text,\n        decode(c.name,null,\u0027\u0027,\u0027 \u003Cstrong\u003E[\u0027||apex_escape.html(c.name)||\u0027]\u003C\/strong\u003E\u0027) attribute_1,\n        \u0027\u0027 attribute_2,\n        \u0027\u0027 attribute_3,\n        \u0027\u0027 attribute_4,\n        lower(n.created_by) user_name,\n        substr(n.created_by,0,2) user_icon,\n        \u0027u-color-\u0027|| (ora_hash(n.created_by,44) + 1) icon_modifier,\n        apex_util.get_since(NVL(n.note_date, nvl(n.updated, n.created))) ||\u0027 - \u0027||to_char(NVL(n.note_date, nvl(n.updated, n.created)),\u0027Day DD-MON-YYYY HH24:MI\u0027) comment_date,\n        \u0027Edit\u0027 as link,\n        \u0027\u0027 as actions,\n        n.created,\n        n.id note_id\nfrom EBA_CUST_NOTES n\n,    EBA_CUST_CONTACTS c\nwhere n.CUSTOMER_ID = :P47_ID \nand   n.contact_id = c.id (+)\nunion all\nselect\n        \u0027grayComment\u0027 class, --use grayComment for gray look\n        \u0027Update\u0027 note_type,\n        initcap(replace(replace(COLUMN_NAME,\u0027_ID\u0027,null),\u0027_\u0027,\u0027 \u0027)) comment_text,\n        \u0027 changed from \"\u0027||apex_escape.html(OLD_VALUE)||\u0027\"\u0027 attribute_1,\n        \u0027 to \"\u0027||new_value||\u0027\"\u0027 attribute_2,\n        \u0027 \u0027 attribute_3,\n        \u0027 \u0027 attribute_4,\n        lower(changed_by) user_name,\n        substr(changed_by,0,2) user_icon,\n        \u0027u-color-\u0027|| (ora_hash(changed_by,44) + 1) icon_modifier,\n        apex_util.get_since(CHANGE_DATE)||\u0027 - \u0027||to_char(CHANGE_DATE,\u0027Day DD-MON-YYYY HH24:MI\u0027) comment_date,\n        \u0027 \u0027 as link,\n        \u0027 \u0027 as actions,\n        change_date as created,\n        null note_id\nfrom EBA_CUST_HISTORY f\nwhere component_id = :P47_ID\n    and table_name = \u0027CUSTOMERS\u0027\nunion all\nselect\n        \u0027grayComment\u0027 class, --use grayComment for gray look\n        \u0027Product Update\u0027 note_type,\n        initcap(replace(replace(COLUMN_NAME,\u0027_ID\u0027,null),\u0027_\u0027,\u0027 \u0027)) comment_text,\n        \u0027 changed from \"\u0027||apex_escape.html(OLD_VALUE)||\u0027\"\u0027 attribute_1,\n        \u0027 to \"\u0027||new_value||\u0027\"\u0027 attribute_2,\n        \u0027 \u0027 attribute_3,\n        \u0027 \u0027 attribute_4,\n        lower(changed_by) user_name,\n        substr(changed_by,0,2) user_icon,\n        \u0027u-color-\u0027|| (ora_hash(changed_by,44) + 1) icon_modifier,\n        apex_util.get_since(CHANGE_DATE)||\u0027 - \u0027||to_char(CHANGE_DATE,\u0027Day DD-MON-YYYY HH24:MI\u0027) comment_date,\n        \u0027 \u0027 as link,\n        \u0027 \u0027 as actions,\n        change_date as created,\n        null note_id\nfrom EBA_CUST_HISTORY f\nwhere component_id = :P47_ID\n    and table_name = \u0027PRODUCT_USES\u0027\nunion all\nselect\n        \u0027grayComment\u0027 class, --use grayComment for gray look\n        \u0027Contact Update\u0027 note_type,\n        decode(sign(eba_cust.get_authorization_level(:APP_USER)-1),\n            1, \u0027\u003Ca href=\"\u0027||apex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:37:\u0027||:APP_SESSION||\u0027::NO::P37_ID:\u0027||cc.id)\n                ||\u0027\"\u003E\u0027||apex_escape.html(cc.name)||\u0027\u003C\/a\u003E\u0027,\n            apex_escape.html(cc.name))\n            ||\u0027 \u0027||initcap(replace(replace(f.COLUMN_NAME,\u0027_ID\u0027,null),\u0027_\u0027,\u0027 \u0027)) comment_text,\n        \u0027 changed from \"\u0027||apex_escape.html(f.OLD_VALUE)||\u0027\"\u0027 attribute_1,\n        \u0027 to \"\u0027||f.new_value||\u0027\"\u0027 attribute_2,\n        \u0027 \u0027 attribute_3,\n        \u0027 \u0027 attribute_4,\n        lower(f.changed_by) user_name,\n        substr(f.changed_by,0,2) user_icon,\n        \u0027u-color-\u0027|| (ora_hash(f.changed_by,44) + 1) icon_modifier,\n        apex_util.get_since(f.CHANGE_DATE)||\u0027 - \u0027||to_char(f.CHANGE_DATE,\u0027Day DD-MON-YYYY HH24:MI\u0027) comment_date,\n        \u0027 \u0027 as link,\n        \u0027 \u0027 as actions,\n        f.change_date as created,\n        null as note_id\nfrom EBA_CUST_HISTORY f,\n    eba_cust_contacts cc\nwhere f.component_id = cc.id\n    and cc.customer_id = :P47_ID\n    and table_name = \u0027CONTACTS\u0027\norder by 11 desc"
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--scrollBody"
+         ,"t-Region--hideHeader"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Layout":{
+          "Number of Rows Type":"Static Value"
+         ,"Number of Rows":25
+        }
+       ,"Appearance":{
+          "Template Type":"Theme"
+         ,"Template":"Comments (14888270963898691857)"
+         ,"Template Options":[
+            "#DEFAULT#"
+           ,"t-Comments--chat"
+          ]
+        }
+       ,"Pagination":{
+          "Type":"Row Ranges X to Y (with next and previous links)"
+         ,"Display Position":"Bottom - Right"
+         ,"Partial Page Refresh":true
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+         ,"Maximum Rows to Process":500
+        }
+       ,"Messages":{
+          "When No Data Found":"No updates found"
+        }
+       ,"Break Formatting":{
+          "Break Columns":"No Break"
+        }
+       ,"Advanced":{
+          "Strip HTML":true
+         ,"Sort Nulls":"Last"
+        }
+       ,"Heading":{
+          "Type":"Column Names"
+        }
+       ,"Download":{
+          "CSV Export Enabled":false
+        }
+       ,"Printing":{
+          "Enabled":false
+        }
+      }
+     ,"Columns":[
+        {
+          "id":"13555803257586682507"
+         ,"Identification":{
+            "Column Name":"COMMENT_TEXT"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Comment Text"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":10
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":false
+          }
+        }
+       ,{
+          "id":"13555803346441682508"
+         ,"Identification":{
+            "Column Name":"USER_NAME"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"User Name"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":11
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"13555803442321682509"
+         ,"Identification":{
+            "Column Name":"USER_ICON"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"User Icon"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":12
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"13555803573331682510"
+         ,"Identification":{
+            "Column Name":"ICON_MODIFIER"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Icon Modifier"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":13
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"13555803630244682511"
+         ,"Identification":{
+            "Column Name":"COMMENT_DATE"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Comment Date"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":14
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"13555803794951682512"
+         ,"Identification":{
+            "Column Name":"ACTIONS"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Actions"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":15
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"16628358633349124012"
+         ,"Identification":{
+            "Column Name":"CLASS"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Class"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":1
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"16628358722320124012"
+         ,"Identification":{
+            "Column Name":"NOTE_TYPE"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Note Type"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":2
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"16628358947206124012"
+         ,"Identification":{
+            "Column Name":"ATTRIBUTE_1"
+           ,"Type":"Hidden Column"
+          }
+         ,"Layout":{
+            "Sequence":3
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":false
+          }
+        }
+       ,{
+          "id":"16628359025277124012"
+         ,"Identification":{
+            "Column Name":"ATTRIBUTE_2"
+           ,"Type":"Hidden Column"
+          }
+         ,"Layout":{
+            "Sequence":4
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"16628359129075124012"
+         ,"Identification":{
+            "Column Name":"ATTRIBUTE_3"
+           ,"Type":"Hidden Column"
+          }
+         ,"Layout":{
+            "Sequence":5
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"16628359233888124013"
+         ,"Identification":{
+            "Column Name":"ATTRIBUTE_4"
+           ,"Type":"Hidden Column"
+          }
+         ,"Layout":{
+            "Sequence":6
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"16628359646869124013"
+         ,"Identification":{
+            "Column Name":"CREATED"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Created"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":7
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"16648963120786329928"
+         ,"Identification":{
+            "Column Name":"LINK"
+           ,"Type":"Link"
+          }
+         ,"Heading":{
+            "Heading":"Link"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":8
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Link":{
+            "Target":{
+              "url":"f?p=\u0026APP_ID.:7:\u0026SESSION.:CUST_NOTE:\u0026DEBUG.:7:P7_ID:#NOTE_ID#"
+             ,"Page":"7"
+             ,"Request":"CUST_NOTE"
+             ,"Clear Cache":"7"
+             ,"Values":{
+                "P7_ID":"#NOTE_ID#"
+              }
+            }
+           ,"Link Text":"#LINK#"
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Server-side Condition":{
+            "Type":"Expression"
+           ,"Language":"PL\/SQL"
+           ,"PL\/SQL Expression":"\u0027#NOTE_ID#\u0027 is not null"
+          }
+         ,"Security":{
+            "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+           ,"Escape special characters":true
+          }
+        }
+       ,{
+          "id":"16663133821582788720"
+         ,"Identification":{
+            "Column Name":"NOTE_ID"
+           ,"Type":"Hidden Column"
+          }
+         ,"Layout":{
+            "Sequence":9
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+      ]
+    }
+  ]
+ ,"Page Items":[
+    {
+      "id":"16767260746370785829"
+     ,"Identification":{
+        "Name":"P47_ID"
+       ,"Type":"Hidden"
+      }
+     ,"Settings":{
+        "Value Protected":true
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Updates (16628358348704124002)"
+       ,"Position":"BODY"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"16663132941275766019"
+     ,"Identification":{
+        "Button Name":"POPNOTE"
+       ,"Label":"Add Update"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Breadcrumb (16452751248877943403)"
+       ,"Position":"CREATE"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Icon":"fa-plus"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:97:\u0026SESSION.::\u0026DEBUG.:RP,97:P97_CUSTOMER_ID:\u0026P47_ID."
+         ,"Page":"97"
+         ,"Clear Cache":"RP,97"
+         ,"Values":{
+            "P97_CUSTOMER_ID":"\u0026P47_ID."
+          }
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+     ,"Security":{
+        "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+      }
+    }
+  ]
+ ,"Dynamic Actions":[
+    {
+      "id":"13555803827953682513"
+     ,"Identification":{
+        "Name":"Refresh IRR on Close"
+      }
+     ,"Execution":{
+        "Sequence":10
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.FAMEWORK.APEXAFTERCLOSEDIALOG"
+       ,"Selection Type":"Button"
+       ,"Button":"POPNOTE (16663132941275766019)"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"13555803916124682514"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Updates (16628358348704124002)"
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Refresh IRR on Close (13555803827953682513)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+  ]
+}

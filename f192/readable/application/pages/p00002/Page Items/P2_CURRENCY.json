@@ -1,0 +1,67 @@
+{
+    "id": "1014571695852544950",
+    "Identification": {
+        "Name": "P2_CURRENCY",
+        "Type": "Text Field"
+    },
+    "Label": {
+        "Label": "Currency",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Subtype": "Text",
+        "Trim Spaces": "Leading and Trailing",
+        "Text Case": "NO CHANGE",
+        "Submit when Enter pressed": false,
+        "Disabled": false
+    },
+    "Layout": {
+        "Sequence": 190,
+        "Region": "Customer Details (17829324616828140228)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Optional (14888281543517691887)",
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "Width": 30
+    },
+    "Validation": {
+        "Value Required": false,
+        "Maximum Length": 20
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Database Column",
+        "Database Column": "CURRENCY",
+        "Used": "Always, replacing any existing value in session state"
+    },
+    "Default": {
+        "Type": "Static",
+        "Static Value": "USD"
+    },
+    "Session State": {
+        "Storage": "Per Session (Persistent)"
+    },
+    "Quick Picks": {
+        "Show Quick Picks": false
+    },
+    "Security": {
+        "Session State Protection": "Unrestricted",
+        "Store value encrypted in session state": false,
+        "Restricted Characters": "All characters can be saved."
+    },
+    "Help": {
+        "Help Text": "Monitory values are to be in this currency.  Default is United States Dollars (USD)."
+    }
+}

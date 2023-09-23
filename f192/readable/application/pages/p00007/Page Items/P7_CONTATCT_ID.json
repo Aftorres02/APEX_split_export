@@ -1,0 +1,70 @@
+{
+    "id": "16663124226939525640",
+    "Identification": {
+        "Name": "P7_CONTATCT_ID",
+        "Type": "Popup LOV"
+    },
+    "Label": {
+        "Label": "Contact",
+        "Alignment": "Right"
+    },
+    "Settings": {
+        "Display As": "Modal Dialog",
+        "Initial Fetch": "Automatic",
+        "Multiple Values": false,
+        "Manual Entry": false,
+        "Search as You Type": false
+    },
+    "Layout": {
+        "Sequence": 50,
+        "Region": "Maintain Update (16663122517901525634)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Optional (14888281543517691887)",
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "Width": 64
+    },
+    "Validation": {
+        "Value Required": false,
+        "Maximum Length": 255
+    },
+    "List of Values": {
+        "Type": "SQL Query",
+        "SQL Query": "select name d, id r\nfrom   eba_cust_contacts\nwhere customer_id = :P7_CUSTOMER_ID\norder by 1",
+        "Display Extra Values": false,
+        "Display Null Value": true,
+        "Null Display Value": "- Select -"
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Database Column",
+        "Database Column": "CONTACT_ID",
+        "Used": "Always, replacing any existing value in session state"
+    },
+    "Session State": {
+        "Storage": "Per Session (Persistent)"
+    },
+    "Quick Picks": {
+        "Show Quick Picks": false
+    },
+    "Security": {
+        "Session State Protection": "Checksum Required - Session Level",
+        "Store value encrypted in session state": false,
+        "Restricted Characters": "All characters can be saved."
+    },
+    "Help": {
+        "Help Text": "Enter short description."
+    }
+}

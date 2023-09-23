@@ -1,0 +1,28 @@
+{
+    "id": "16663128239535525654",
+    "Identification": {
+        "Name": "Process Row of EBA_CUST_NOTES",
+        "Type": "Automatic Row Processing (DML) [Legacy]",
+        "Execution Chain": "None"
+    },
+    "Settings": {
+        "Table Owner": "PARSING SCHEMA",
+        "Table Name": "EBA_CUST_NOTES",
+        "Primary Key Column ": "ID",
+        "Primary Key Item": "P7_ID",
+        "Lock Row": true,
+        "Supported Operations": "I:U:D"
+    },
+    "Execution": {
+        "Sequence": 20,
+        "Point": "Processing",
+        "Run Process": "Once Per Page Visit (default)"
+    },
+    "Success Message": {
+        "Success Message": "Action Processed."
+    },
+    "Error": {
+        "Error Message": "Unable to process row of table EBA_CUST_CATEGORIES.",
+        "Display Location": "On Error Page"
+    }
+}

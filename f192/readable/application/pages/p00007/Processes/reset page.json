@@ -1,0 +1,22 @@
+{
+    "id": "16663128430485525654",
+    "Identification": {
+        "Name": "reset page",
+        "Type": "Clear Session State",
+        "Execution Chain": "None"
+    },
+    "Settings": {
+        "Type": "Clear all Items on the Current Page"
+    },
+    "Execution": {
+        "Sequence": 30,
+        "Point": "Processing",
+        "Run Process": "Once Per Page Visit (default)"
+    },
+    "Error": {
+        "Display Location": "On Error Page"
+    },
+    "Server-side Condition": {
+        "When Button Pressed": "DELETE (16663123333821525637)"
+    }
+}

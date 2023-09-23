@@ -1,0 +1,72 @@
+{
+    "id": "16917893831560343816",
+    "Identification": {
+        "Name": "P2_COUNTRY_ID",
+        "Type": "Select List"
+    },
+    "Label": {
+        "Label": "Country",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Page Action on Selection": "None",
+        "Allow Multi Selection": false
+    },
+    "Layout": {
+        "Sequence": 90,
+        "Region": "Customer Details (17829324616828140228)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": false,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "1"
+    },
+    "Appearance": {
+        "Template": "Optional (14888281543517691887)",
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "Height": 1
+    },
+    "Validation": {
+        "Value Required": false
+    },
+    "List of Values": {
+        "Type": "Shared Component",
+        "List of Values": "COUNTRIES_P2 (17337855703088069091)",
+        "Display Extra Values": false,
+        "Display Null Value": true,
+        "Null Display Value": "- Select -"
+    },
+    "Cascading List of Values": {
+        "Parent Item(s)": [
+            "P2_GEOGRAPHY_ID"
+        ],
+        "Parent Required": true
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Database Column",
+        "Database Column": "COUNTRY_ID",
+        "Used": "Always, replacing any existing value in session state"
+    },
+    "Session State": {
+        "Storage": "Per Session (Persistent)"
+    },
+    "Quick Picks": {
+        "Show Quick Picks": false
+    },
+    "Security": {
+        "Session State Protection": "Unrestricted",
+        "Store value encrypted in session state": false,
+        "Restricted Characters": "All characters can be saved."
+    },
+    "Configuration": {
+        "Build Option": "Countries (16956786967740861701)"
+    }
+}

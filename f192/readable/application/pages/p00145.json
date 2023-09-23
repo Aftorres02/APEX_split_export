@@ -1,0 +1,1818 @@
+{
+  "id":"145"
+ ,"Identification":{
+    "Name":"\u0026P145_ACTIVITY."
+   ,"Alias":"ACTIVITY"
+   ,"Title":"\u0026P145_ACTIVITY."
+   ,"Page Group":"Activities (20140999852456966572)"
+  }
+ ,"Appearance":{
+    "Page Mode":"Normal"
+   ,"Page Template":"Marquee (14888234264824691800)"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"Do not focus cursor"
+   ,"Warn on Unsaved Changes":false
+  }
+ ,"JavaScript":{
+    "Function and Global Variable Declaration":"var htmldb_delete_message=\u0027\"DELETE_CONFIRM_MSG\"\u0027;"
+   ,"Execute when Page Loads":"$(\u0027dd.t-AVPList-value img\u0027).attr(\u0027style\u0027,\u0027max-height:250px;max-width:500px;\u0027);"
+  }
+ ,"CSS":{
+    "Inline":".js-dynamicHideShowRegion { display: none }\n.apex-rds { visibility: hidden }\n.t-Report--cleanBorders .t-Report-colHead { border-bottom: 1px solid rgba(0, 0, 0, .05); background-color: #fcfcfc; color: #707070; font-weight: normal; padding-bottom: .8rem; padding-top: .8rem }\n.t-Report--cleanBorders .js-stickyTableHeader.is-stuck .t-Report-colHead { border-bottom: 0; }\n.t-Report--cleanBorders .t-Report-cell { border-top: 1px solid #F4F4F4; }"
+  }
+ ,"Security":{
+    "Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"On"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Always"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Configuration":{
+    "Build Option":"Activities (18167958259658546771)"
+  }
+ ,"Regions":[
+    {
+      "id":"17990232177021668516"
+     ,"Identification":{
+        "Title":"References"
+       ,"Type":"Classic Report"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select rf.id,\n    c.id customer_id,\n    c.customer_name,\n    ct.name contact_name,\n    nvl(a.activity_date, rf.activity_date) activity_date,\n    nvl(a.owner, rf.owner) owner,\n    nvl(a.location, rf.location) location,\n    rf.contact_id\nfrom eba_cust_activities a,\n    eba_cust_activity_ref rf,\n    eba_cust_customers c,\n    eba_cust_contacts ct\nwhere a.id = :P145_ID\n    and rf.activity_id = a.id\n    and c.id = rf.customer_id\n    and ct.id(+) = rf.contact_id\norder by lower(c.customer_name), lower(ct.name)"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--noPadding"
+         ,"js-showMaximizeButton"
+         ,"t-Region--hiddenOverflow"
+        ]
+       ,"CSS Classes":[
+          "js-dynamicHideShowRegion"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":true
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Layout":{
+          "Number of Rows Type":"Static Value"
+         ,"Number of Rows":15
+        }
+       ,"Appearance":{
+          "Template Type":"Theme"
+         ,"Template":"Standard (14888271344395691859)"
+         ,"Template Options":[
+            "#DEFAULT#"
+           ,"t-Report--stretch"
+           ,"t-Report--altRowsDefault"
+           ,"t-Report--rowHighlight"
+           ,"t-Report--inline"
+          ]
+         ,"Show Null Values as":"-"
+        }
+       ,"Pagination":{
+          "Type":"Row Ranges 1-15 16-30 in select list (with pagination)"
+         ,"Display Position":"Bottom - Right"
+         ,"Partial Page Refresh":true
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+        }
+       ,"Break Formatting":{
+          "Break Columns":"No Break"
+        }
+       ,"Advanced":{
+          "Strip HTML":false
+         ,"Sort Nulls":"Last"
+        }
+       ,"Heading":{
+          "Type":"Custom Headings"
+        }
+       ,"Download":{
+          "CSV Export Enabled":false
+        }
+       ,"Printing":{
+          "Enabled":false
+        }
+      }
+     ,"Columns":[
+        {
+          "id":"17990232269996668517"
+         ,"Identification":{
+            "Column Name":"ID"
+           ,"Type":"Hidden Column"
+          }
+         ,"Layout":{
+            "Sequence":1
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"17990232377305668518"
+         ,"Identification":{
+            "Column Name":"CUSTOMER_ID"
+           ,"Type":"Hidden Column"
+          }
+         ,"Layout":{
+            "Sequence":2
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"17990232486845668519"
+         ,"Identification":{
+            "Column Name":"CUSTOMER_NAME"
+           ,"Type":"Link"
+          }
+         ,"Heading":{
+            "Heading":"Customer"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":3
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Link":{
+            "Target":{
+              "url":"f?p=\u0026APP_ID.:50:\u0026SESSION.::\u0026DEBUG.:RP:P50_ID:#CUSTOMER_ID#"
+             ,"Page":"50"
+             ,"Clear Cache":"RP"
+             ,"Values":{
+                "P50_ID":"#CUSTOMER_ID#"
+              }
+            }
+           ,"Link Text":"#CUSTOMER_NAME#"
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"17990232567257668520"
+         ,"Identification":{
+            "Column Name":"CONTACT_NAME"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Contact"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":4
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18197981312093673971"
+         ,"Identification":{
+            "Column Name":"ACTIVITY_DATE"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Activity date"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":7
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Appearance":{
+            "Format Mask":"fmDay, fmDD fmMonth, YYYY"
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Server-side Condition":{
+            "Type":"Rows returned"
+           ,"SQL Query":"select null\nfrom eba_cust_activities\nwhere id = :P145_ID\n    and activity_date is null"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18197981436888673972"
+         ,"Identification":{
+            "Column Name":"OWNER"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Owner"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":5
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Server-side Condition":{
+            "Type":"Rows returned"
+           ,"SQL Query":"select null\nfrom eba_cust_activities\nwhere id = :P145_ID\n    and owner is null"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18197981562873673973"
+         ,"Identification":{
+            "Column Name":"LOCATION"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Location"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":6
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Server-side Condition":{
+            "Type":"Rows returned"
+           ,"SQL Query":"select null\nfrom eba_cust_activities\nwhere id = :P145_ID\n    and location is null"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18197985735286674015"
+         ,"Identification":{
+            "Column Name":"CONTACT_ID"
+           ,"Type":"Hidden Column"
+          }
+         ,"Layout":{
+            "Sequence":8
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"18197139102601462014"
+     ,"Identification":{
+        "Title":"Page Actions"
+       ,"Type":"List"
+      }
+     ,"Source":{
+        "List":"Activity Actions (18203143845872251430)"
+      }
+     ,"Layout":{
+        "Sequence":120
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_03"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--noPadding"
+         ,"t-Region--hideHeader"
+         ,"t-Region--stacked"
+         ,"t-Region--hiddenOverflow"
+         ,"t-Form--stretchInputs"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Static ID":"listPageActions"
+       ,"Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "List Template":"Links List (14888276470713691870)"
+         ,"Template Options":[
+            "#DEFAULT#"
+           ,"t-LinksList--actions"
+           ,"t-LinksList--showIcons"
+          ]
+        }
+      }
+    }
+   ,{
+      "id":"18197139447897462016"
+     ,"Identification":{
+        "Title":"Region display selector"
+       ,"Type":"Region Display Selector"
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_02"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"None"
+       ,"Render Components":"Above Content"
+      }
+     ,"Advanced":{
+        "Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Mode":"View Single Region"
+         ,"Display Region Icons":false
+         ,"Include \u0027Show All\u0027":true
+         ,"Remember Selection":"No"
+        }
+      }
+    }
+   ,{
+      "id":"18197153489649462028"
+     ,"Identification":{
+        "Title":"Hidden Items"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_02"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Blank with Attributes (14888250988334691823)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"18197162582907462050"
+     ,"Identification":{
+        "Title":"Attachments"
+       ,"Type":"Classic Report"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select id,\n    \u0027\u003Ca href=\"\u0027||apex_util.get_blob_file_src(\u0027P64_FILE_BLOB\u0027,id)||\u0027\"\u003E\u0027||apex_escape.html(f.file_name)||\u0027\u003C\/a\u003E\u0027 file_name,\n    f.file_mimetype,\n    f.file_charset,\n    apex_util.filesize_mask(dbms_lob.getlength(f.file_blob)) f_len,\n    substr(f.file_comments,1,50)||decode(greatest(length(nvl(f.file_comments,\u0027 \u0027)),50),50,null,\u0027...\u0027) file_comments,\n    case when instr(upper(f.file_name),\u0027.PPT\u0027) \u003E 0or instr(upper(f.file_name),\u0027.PPTX\u0027) \u003E 0 then\n        \u0027uFileIcon powerpoint\u0027\n    when instr(upper(f.file_name),\u0027.XLS\u0027) \u003E 0 or instr(upper(f.file_name),\u0027.XLSX\u0027) \u003E 0 then\n        \u0027uFileIcon excel\u0027\n    when instr(upper(f.file_name),\u0027.DOC\u0027) \u003E 0 or instr(upper(f.file_name),\u0027.DOCX\u0027) \u003E 0 then\n        \u0027uFileIcon word\u0027\n    when instr(upper(f.file_name),\u0027.PDF\u0027) \u003E 0 then\n        \u0027uFileIcon pdf\u0027\n    when instr(upper(f.file_name),\u0027.GIF\u0027) \u003E 0 or\n         instr(upper(f.file_name),\u0027.PNG\u0027) \u003E 0 or\n         instr(upper(f.file_name),\u0027.TIFF\u0027) \u003E 0 or\n         instr(upper(f.file_name),\u0027.JPG\u0027) \u003E 0 then\n        \u0027uFileIcon image\u0027\n    else\n        \u0027uFileIcon generic\u0027\n    end file_type,\n    f.created,\n    lower(f.created_by) created_by\nfrom eba_cust_activity_files f\nwhere f.activity_id = :P145_ID\norder by f.created desc;"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--noPadding"
+         ,"js-showMaximizeButton"
+         ,"t-Region--hiddenOverflow"
+        ]
+       ,"CSS Classes":[
+          "js-dynamicHideShowRegion"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Static ID":"rptAttachments"
+       ,"Region Display Selector":true
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Layout":{
+          "Number of Rows Type":"Static Value"
+         ,"Number of Rows":15
+        }
+       ,"Appearance":{
+          "Template Type":"Theme"
+         ,"Template":"Standard (14888271344395691859)"
+         ,"Template Options":[
+            "#DEFAULT#"
+           ,"t-Report--stretch"
+           ,"t-Report--staticRowColors"
+           ,"t-Report--rowHighlight"
+           ,"t-Report--noBorders"
+          ]
+         ,"CSS Classes":[
+            "t-Report--cleanBorders"
+          ]
+         ,"Show Null Values as":" - "
+        }
+       ,"Pagination":{
+          "Type":"No Pagination (Show All Rows)"
+         ,"Partial Page Refresh":true
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+         ,"Maximum Rows to Process":500
+        }
+       ,"Messages":{
+          "When No Data Found":"No attachments found"
+        }
+       ,"Break Formatting":{
+          "Break Columns":"No Break"
+        }
+       ,"Advanced":{
+          "Strip HTML":true
+         ,"Sort Nulls":"Last"
+        }
+       ,"Heading":{
+          "Type":"Custom Headings"
+        }
+       ,"Download":{
+          "CSV Export Enabled":false
+        }
+       ,"Printing":{
+          "Enabled":false
+        }
+      }
+     ,"Columns":[
+        {
+          "id":"18197163007338462051"
+         ,"Identification":{
+            "Column Name":"ID"
+           ,"Type":"Link"
+          }
+         ,"Heading":{
+            "Heading":"\u003Cspan class=\"u-VisuallyHidden\"\u003EEdit\u003C\/span\u003E"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":1
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Link":{
+            "Target":{
+              "url":"f?p=\u0026APP_ID.:114:\u0026SESSION.::\u0026DEBUG.:RP,114:P114_ACTIVITY_ID,P114_ID:\u0026P50_ID.,#ID#"
+             ,"Page":"114"
+             ,"Clear Cache":"RP,114"
+             ,"Values":{
+                "P114_ACTIVITY_ID":"\u0026P50_ID."
+               ,"P114_ID":"#ID#"
+              }
+            }
+           ,"Link Text":"\u003Cimg src=\"#IMAGE_PREFIX#app_ui\/img\/icons\/apex-edit-pencil.png\" class=\"apex-edit-pencil\" alt=\"\"\u003E"
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18197163367062462052"
+         ,"Identification":{
+            "Column Name":"FILE_NAME"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Name"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":3
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":false
+          }
+        }
+       ,{
+          "id":"18197163783372462052"
+         ,"Identification":{
+            "Column Name":"FILE_MIMETYPE"
+           ,"Type":"Hidden Column"
+          }
+         ,"Layout":{
+            "Sequence":8
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18197164114703462052"
+         ,"Identification":{
+            "Column Name":"FILE_CHARSET"
+           ,"Type":"Hidden Column"
+          }
+         ,"Layout":{
+            "Sequence":9
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18197164570631462053"
+         ,"Identification":{
+            "Column Name":"F_LEN"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Size"
+           ,"Alignment":"end"
+          }
+         ,"Layout":{
+            "Sequence":4
+           ,"Column Alignment":"end"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18197164956064462053"
+         ,"Identification":{
+            "Column Name":"FILE_COMMENTS"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Description"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":5
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18197165338253462054"
+         ,"Identification":{
+            "Column Name":"FILE_TYPE"
+           ,"Type":"Hidden Column"
+          }
+         ,"Layout":{
+            "Sequence":2
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18197165807678462054"
+         ,"Identification":{
+            "Column Name":"CREATED"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Added"
+           ,"Alignment":"end"
+          }
+         ,"Layout":{
+            "Sequence":6
+           ,"Column Alignment":"end"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Appearance":{
+            "Format Mask":"SINCE"
+          }
+         ,"Column Formatting":{
+            "HTML Expression":"#CREATED# \u0026middot; #CREATED_BY#"
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18197166163815462054"
+         ,"Identification":{
+            "Column Name":"CREATED_BY"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Added By"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":7
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Server-side Condition":{
+            "Type":"Never"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"18197171001912462061"
+     ,"Identification":{
+        "Title":"Activity"
+       ,"Type":"Classic Report"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select a.id,\n    a.type_id,\n    a.name,\n    a.description,\n    a.activity_date,\n    a.owner,\n    a.location,\n    a.created,\n    lower(a.created_by) created_by,\n    a.updated,\n    lower(a.updated_by) updated_by,\n    (   select count(*)\n        from eba_cust_activity_ref rf\n        where rf.activity_id = a.id ) references\nfrom eba_cust_activities a\nwhere a.id = :P145_ID"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_02"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Blank with Attributes (14888250988334691823)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Static ID":"CUSTOMERS"
+       ,"Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Layout":{
+          "Number of Rows Type":"Static Value"
+         ,"Number of Rows":15
+        }
+       ,"Appearance":{
+          "Template Type":"Theme"
+         ,"Template":"Value Attribute Pairs - Column (14888273239684691865)"
+         ,"Template Options":[
+            "#DEFAULT#"
+           ,"t-AVPList--leftAligned"
+          ]
+         ,"CSS Classes":[
+            "t-Report--cleanBorders"
+          ]
+        }
+       ,"Pagination":{
+          "Type":"No Pagination (Show All Rows)"
+         ,"Partial Page Refresh":true
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+         ,"Maximum Rows to Process":500
+        }
+       ,"Messages":{
+          "When No Data Found":"no data found"
+        }
+       ,"Break Formatting":{
+          "Break Columns":"No Break"
+        }
+       ,"Advanced":{
+          "Strip HTML":false
+         ,"Sort Nulls":"Last"
+        }
+       ,"Heading":{
+          "Type":"Custom Headings"
+        }
+       ,"Download":{
+          "CSV Export Enabled":false
+        }
+       ,"Printing":{
+          "Enabled":false
+        }
+      }
+     ,"Columns":[
+        {
+          "id":"17990231468718668509"
+         ,"Identification":{
+            "Column Name":"NAME"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Name"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":6
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":true
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"17990231607544668510"
+         ,"Identification":{
+            "Column Name":"DESCRIPTION"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Description"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":7
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":true
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"17990231612274668511"
+         ,"Identification":{
+            "Column Name":"ACTIVITY_DATE"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Activity date"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":8
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":true
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Server-side Condition":{
+            "Type":"Rows returned"
+           ,"SQL Query":"select null\nfrom eba_cust_activities\nwhere id = :P145_ID\n    and activity_date is not null"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"17990231735016668512"
+         ,"Identification":{
+            "Column Name":"OWNER"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Owner"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":9
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":true
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Server-side Condition":{
+            "Type":"Rows returned"
+           ,"SQL Query":"select null\nfrom eba_cust_activities\nwhere id = :P145_ID\n    and owner is not null"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"17990231885200668513"
+         ,"Identification":{
+            "Column Name":"LOCATION"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Location"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":10
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":true
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Server-side Condition":{
+            "Type":"Rows returned"
+           ,"SQL Query":"select null\nfrom eba_cust_activities\nwhere id = :P145_ID\n    and location is not null"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"17990231999890668514"
+         ,"Identification":{
+            "Column Name":"CREATED_BY"
+           ,"Type":"Hidden Column"
+          }
+         ,"Layout":{
+            "Sequence":14
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"17990232012750668515"
+         ,"Identification":{
+            "Column Name":"REFERENCES"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"References"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":12
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":true
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18197174180185462077"
+         ,"Identification":{
+            "Column Name":"CREATED"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Created"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":13
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Appearance":{
+            "Format Mask":"SINCE"
+          }
+         ,"Column Formatting":{
+            "HTML Expression":"#CREATED# by \u003Ci\u003E#CREATED_BY#\u003C\/i\u003E"
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18197185676381462148"
+         ,"Identification":{
+            "Column Name":"ID"
+           ,"Type":"Hidden Column"
+          }
+         ,"Layout":{
+            "Sequence":1
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18197186436332462151"
+         ,"Identification":{
+            "Column Name":"TYPE_ID"
+           ,"Type":"Plain Text (based on List of Values)"
+          }
+         ,"Heading":{
+            "Heading":"Type"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":2
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"List of Values":{
+            "Type":"Shared Component"
+           ,"List of Values":"ACTIVITY TYPES (18174942197596899775)"
+          }
+         ,"Sorting":{
+            "Sortable":true
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18197187290838462154"
+         ,"Identification":{
+            "Column Name":"UPDATED"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Updated"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":15
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Appearance":{
+            "Format Mask":"Since"
+          }
+         ,"Column Formatting":{
+            "HTML Expression":"#UPDATED# by \u003Ci\u003E#UPDATED_BY#\u003C\/i\u003E\u003C!-- \u003Cbutton type=\"button\" class=\"t-Button t-Button--icon t-Button--small t-Button--iconRight\" onclick=\"f?p=\u0026APP_ID.:117:\u0026APP_SESSION.:::RP:P117_ID:#ID#\"\u003E\u003Cspan class=\"t-Button-label\"\u003EView History\u003C\/span\u003E\u003Cspan class=\"t-Icon t-Icon--right fa fa-external-link\" aria-hidden=\"true\"\u003E\u003C\/span\u003E\u003C\/button\u003E--\u003E"
+          }
+         ,"Sorting":{
+            "Sortable":true
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18197187671024462156"
+         ,"Identification":{
+            "Column Name":"UPDATED_BY"
+           ,"Type":"Hidden Column"
+          }
+         ,"Layout":{
+            "Sequence":16
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"18197189219569462161"
+     ,"Identification":{
+        "Title":"Breadcrumb"
+       ,"Type":"Breadcrumb"
+      }
+     ,"Source":{
+        "Breadcrumb":"Breadcrumb (17869143586620226407)"
+      }
+     ,"Layout":{
+        "Sequence":80
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_01"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Title Bar (14888267217215691848)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-BreadcrumbRegion--useBreadcrumbTitle"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "Breadcrumb Template":"Breadcrumb (14888282717314691893)"
+         ,"Template Options":[
+            "#DEFAULT#"
+          ]
+        }
+      }
+    }
+  ]
+ ,"Page Items":[
+    {
+      "id":"18197153827724462029"
+     ,"Identification":{
+        "Name":"P145_ID"
+       ,"Type":"Hidden"
+      }
+     ,"Settings":{
+        "Value Protected":true
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Hidden Items (18197153489649462028)"
+       ,"Position":"BODY"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"18197981708304673974"
+     ,"Identification":{
+        "Name":"P145_ACTIVITY"
+       ,"Type":"Hidden"
+      }
+     ,"Settings":{
+        "Value Protected":true
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Region":"Hidden Items (18197153489649462028)"
+       ,"Position":"BODY"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"SQL Query (return single value)"
+       ,"SQL Query":"select name\nfrom eba_cust_activities\nwhere id = :P145_ID"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"18197166530230462055"
+     ,"Identification":{
+        "Button Name":"POPATTACHMENT"
+       ,"Label":"Add Attachment"
+      }
+     ,"Layout":{
+        "Sequence":90
+       ,"Region":"Attachments (18197162582907462050)"
+       ,"Position":"EDIT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Icon (14888281684153691889)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--noUI"
+        ]
+       ,"Icon":"fa-plus"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:64:\u0026SESSION.::\u0026DEBUG.:RP,64:P64_CUSTOMER_ID:\u0026P145_ID."
+         ,"Page":"64"
+         ,"Clear Cache":"RP,64"
+         ,"Values":{
+            "P64_CUSTOMER_ID":"\u0026P145_ID."
+          }
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+     ,"Security":{
+        "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+      }
+    }
+   ,{
+      "id":"18197166991851462055"
+     ,"Identification":{
+        "Button Name":"VIEW_ATTACHMENTS"
+       ,"Label":"View Attachments"
+      }
+     ,"Layout":{
+        "Sequence":100
+       ,"Region":"Attachments (18197162582907462050)"
+       ,"Position":"EDIT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Icon (14888281684153691889)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--noUI"
+        ]
+       ,"Icon":"fa-chevron-right"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:52:\u0026SESSION.::\u0026DEBUG.:52:P52_ID:\u0026P145_ID."
+         ,"Page":"52"
+         ,"Clear Cache":"52"
+         ,"Values":{
+            "P52_ID":"\u0026P145_ID."
+          }
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+   ,{
+      "id":"18197189610112462162"
+     ,"Identification":{
+        "Button Name":"RELOAD"
+       ,"Label":"Reload"
+      }
+     ,"Layout":{
+        "Sequence":1
+       ,"Region":"Breadcrumb (18197189219569462161)"
+       ,"Position":"CREATE"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text with Icon (14888281958145691891)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--iconLeft"
+        ]
+       ,"Icon":"fa-undo"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:\u0026APP_PAGE_ID.:\u0026SESSION.::\u0026DEBUG.:RP::"
+         ,"Page":"\u0026APP_PAGE_ID."
+         ,"Clear Cache":"RP"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+   ,{
+      "id":"18197190103021462162"
+     ,"Identification":{
+        "Button Name":"EDIT"
+       ,"Label":"Edit Activity"
+      }
+     ,"Layout":{
+        "Sequence":110
+       ,"Region":"Breadcrumb (18197189219569462161)"
+       ,"Position":"CREATE"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:56:\u0026SESSION.::\u0026DEBUG.:RP,56:P56_ID:\u0026P145_ID."
+         ,"Page":"56"
+         ,"Clear Cache":"RP,56"
+         ,"Values":{
+            "P56_ID":"\u0026P145_ID."
+          }
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+     ,"Security":{
+        "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+      }
+    }
+  ]
+ ,"Dynamic Actions":[
+    {
+      "id":"18197215342375462210"
+     ,"Identification":{
+        "Name":"Handle Show \/ Hide Content Regions"
+      }
+     ,"Execution":{
+        "Sequence":10
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.READY"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+      }
+     ,"Actions":[
+        {
+          "id":"18197215869260462211"
+         ,"Identification":{
+            "Action":"Execute JavaScript Code"
+          }
+         ,"Settings":{
+            "Code":"(function() {\n  function toggleRegion() {\n      var $region = $(this)\n        noDataFound = $region.find(\u0027.nodatafound\u0027).length === 1;\n      \n      \/\/triggering after hide\/show because that what the RDS response to\n      if (noDataFound) {\n        $region.hide();\n        $region.trigger(\u0027apexafterhide\u0027);\n      } else {\n        $region.show();\n        $region.trigger(\u0027apexaftershow\u0027);\n      }\n  }\n  \n  function initHIdeShowRegions() {\n    var $regions = $(\u0027.js-dynamicHideShowRegion\u0027),\n      $rds = $(\u0027.apex-rds\u0027);\n\n    $regions\n      .each(toggleRegion)\n      .on(\u0027apexafterrefresh\u0027, toggleRegion);\n \n    \/\/using visiblity over display to avoid DOM movement issues\n    $rds.css(\u0027visibility\u0027, \u0027visible\u0027);\n  } \n\n  \/\/using load because document.ready here goes before the RDS has added its listeners\n  $(window).on(\u0027theme42ready\u0027,initHIdeShowRegions);\n}())"
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Handle Show \/ Hide Content Regions (18197215342375462210)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"18197218050964462214"
+     ,"Identification":{
+        "Name":"Refresh Page Regions on dialog close"
+      }
+     ,"Execution":{
+        "Sequence":110
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.FAMEWORK.APEXAFTERCLOSEDIALOG"
+       ,"Selection Type":"Region"
+       ,"Region":"Page Actions (18197139102601462014)"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"18197219041904462215"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Attachments (18197162582907462050)"
+          }
+         ,"Execution":{
+            "Sequence":20
+           ,"Event":"Refresh Page Regions on dialog close (18197218050964462214)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"18197222352723462218"
+     ,"Identification":{
+        "Name":"Refresh Attachments"
+      }
+     ,"Execution":{
+        "Sequence":80
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.FAMEWORK.APEXAFTERCLOSEDIALOG"
+       ,"Selection Type":"Region"
+       ,"Region":"Page Actions (18197139102601462014)"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"18197222852857462218"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Attachments (18197162582907462050)"
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Refresh Attachments (18197222352723462218)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"18197981774762673975"
+     ,"Identification":{
+        "Name":"Refresh Page"
+      }
+     ,"Execution":{
+        "Sequence":120
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.FAMEWORK.APEXAFTERCLOSEDIALOG"
+       ,"Selection Type":"Button"
+       ,"Button":"EDIT (18197190103021462162)"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"18197981846756673976"
+         ,"Identification":{
+            "Action":"Execute JavaScript Code"
+          }
+         ,"Settings":{
+            "Code":"location.reload();"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Breadcrumb (18197189219569462161)"
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Refresh Page (18197981774762673975)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+  ]
+ ,"Computations":[
+    {
+      "id":"18197211644405462198"
+     ,"Identification":{
+        "Item Name":"P145_ACTIVITY"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"Before Header"
+      }
+     ,"Computation":{
+        "Type":"SQL Query (return single value)"
+       ,"SQL Query":"select name\nfrom eba_cust_activities\nwhere id = :P145_ID"
+      }
+    }
+   ,{
+      "id":"18197212031934462200"
+     ,"Identification":{
+        "Item Name":"LAST_VIEW"
+      }
+     ,"Execution":{
+        "Sequence":20
+       ,"Point":"Before Header"
+      }
+     ,"Computation":{
+        "Type":"Static Value"
+       ,"Static Value":"145"
+      }
+    }
+  ]
+ ,"Processes":[
+    {
+      "id":"18197212740672462202"
+     ,"Identification":{
+        "Name":"Count Clicks"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":"insert into eba_cust_clicks (cust_id) values (:P145_ID);\ndelete from eba_cust_clicks where view_timestamp \u003C (sysdate - 90);\ncommit;"
+      }
+     ,"Execution":{
+        "Sequence":60
+       ,"Point":"Before Header"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+    }
+  ]
+}

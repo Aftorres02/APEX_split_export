@@ -1,0 +1,18 @@
+{
+    "id": "16663128947090525656",
+    "Identification": {
+        "Name": "Go To Page &LAST_VIEW."
+    },
+    "Execution": {
+        "Sequence": 10,
+        "Point": "After Processing"
+    },
+    "Behavior": {
+        "Type": "Page or URL (Redirect)",
+        "Target": {
+            "url": "f?p=&APP_ID.:&LAST_VIEW.:&SESSION.::&DEBUG.:::&success_msg=#SUCCESS_MSG#",
+            "Page": "&LAST_VIEW."
+        },
+        "Save State before Branching": true
+    }
+}

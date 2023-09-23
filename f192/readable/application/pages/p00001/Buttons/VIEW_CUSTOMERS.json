@@ -1,0 +1,36 @@
+{
+    "id": "13571862079600201500",
+    "Identification": {
+        "Button Name": "VIEW_CUSTOMERS",
+        "Label": "View Customers"
+    },
+    "Layout": {
+        "Sequence": 20,
+        "Region": "Customers by Product (13571861757080201500)",
+        "Position": "EDIT",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Button Template": "Icon (14888281684153691889)",
+        "Hot": false,
+        "Template Options": [
+            "#DEFAULT#",
+            "#DEFAULT#",
+            "t-Button--noUI"
+        ],
+        "Icon": "fa-chevron-right"
+    },
+    "Behavior": {
+        "Action": "Redirect to Page in this Application",
+        "Target": {
+            "url": "f?p=&APP_ID.:44:&SESSION.::&DEBUG.:RP,44,RIR::",
+            "Page": "44",
+            "Clear Cache": "RP,44,RIR"
+        },
+        "Warn on Unsaved Changes": "Do Not Check"
+    }
+}

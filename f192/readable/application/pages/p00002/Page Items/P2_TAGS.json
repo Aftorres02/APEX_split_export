@@ -1,0 +1,72 @@
+{
+    "id": "17825052557758425598",
+    "Identification": {
+        "Name": "P2_TAGS",
+        "Type": "Popup LOV"
+    },
+    "Label": {
+        "Label": "Tags",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Display As": "Inline Popup",
+        "Initial Fetch": "Automatic",
+        "Multiple Values": true,
+        "Separator": ",",
+        "Manual Entry": true,
+        "Search as You Type": true,
+        "Minimum Characters": "No minimum (0)"
+    },
+    "Layout": {
+        "Sequence": 170,
+        "Region": "Project (17742639201513739139)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": false,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "1"
+    },
+    "Appearance": {
+        "Template": "Optional (14888281543517691887)",
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "Width": 64
+    },
+    "Validation": {
+        "Value Required": false,
+        "Maximum Length": 4000
+    },
+    "List of Values": {
+        "Type": "SQL Query",
+        "SQL Query": "select tag\n  from eba_cust_tags_type_sum\n where content_type = 'CUSTOMER'\n order by 1\n",
+        "Display Extra Values": true,
+        "Display Null Value": true
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Database Column",
+        "Database Column": "TAGS",
+        "Used": "Always, replacing any existing value in session state"
+    },
+    "Session State": {
+        "Storage": "Per Session (Persistent)"
+    },
+    "Quick Picks": {
+        "Show Quick Picks": false
+    },
+    "Security": {
+        "Session State Protection": "Checksum Required - Session Level",
+        "Store value encrypted in session state": false,
+        "Restricted Characters": "All characters can be saved."
+    },
+    "Help": {
+        "Inline Help Text": "Enter tags separated by commas",
+        "Help Text": "Provide tags for this particular customers"
+    }
+}

@@ -1,0 +1,63 @@
+{
+    "id": "14495497799400037867",
+    "Identification": {
+        "Name": "P2_LOGO_BLOB",
+        "Type": "File Browse..."
+    },
+    "Label": {
+        "Label": "Image/File",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Display As": "Inline File Browse",
+        "Storage Type": "BLOB column specified in Item Source attribute",
+        "MIME Type Column": "LOGO_MIMETYPE",
+        "Filename Column": "LOGO_NAME",
+        "Character Set Column": "LOGO_CHARSET",
+        "BLOB Last Updated Column": "LOGO_LASTUPD",
+        "Display Download Link": true,
+        "Content Disposition": "Attachment"
+    },
+    "Layout": {
+        "Sequence": 450,
+        "Region": "Logo (14306877239126591513)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Optional (14888281543517691887)",
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "Width": 64
+    },
+    "Validation": {
+        "Value Required": false,
+        "Maximum Length": 255
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Database Column",
+        "Database Column": "LOGO_BLOB",
+        "Used": "Always, replacing any existing value in session state"
+    },
+    "Session State": {
+        "Storage": "Per Session (Persistent)"
+    },
+    "Security": {
+        "Session State Protection": "Checksum Required - Session Level",
+        "Restricted Characters": "All characters can be saved."
+    },
+    "Help": {
+        "Inline Help Text": "Attachments must be under 15M in size.",
+        "Help Text": "Select the logo image/file for this customer."
+    }
+}

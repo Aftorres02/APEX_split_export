@@ -1,0 +1,32 @@
+{
+    "id": "17857544090730753742",
+    "Identification": {
+        "Name": "P2_REQUEST",
+        "Type": "Hidden"
+    },
+    "Settings": {
+        "Value Protected": true
+    },
+    "Layout": {
+        "Sequence": 420,
+        "Region": "Breadcrumbs (17829329795439140303)",
+        "Position": "BODY"
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Item",
+        "Item": "P2_REQUEST",
+        "Used": "Always, replacing any existing value in session state"
+    },
+    "Session State": {
+        "Data Type": "VARCHAR2",
+        "Storage": "Per Session (Persistent)"
+    },
+    "Security": {
+        "Session State Protection": "Checksum Required - Session Level",
+        "Store value encrypted in session state": false,
+        "Restricted Characters": "All characters can be saved."
+    }
+}

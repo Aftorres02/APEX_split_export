@@ -1,0 +1,22 @@
+{
+    "id": "17857130887788224308",
+    "Identification": {
+        "Name": "Check for Dependencies"
+    },
+    "Execution": {
+        "Sequence": 30
+    },
+    "Validation": {
+        "Type": "No Rows returned",
+        "SQL Query": "select 1 from eba_cust_customers where category_id = :P4_ID and rownum = 1",
+        "Always Execute": false
+    },
+    "Error": {
+        "Error Message": "Cannot Delete this Category, Customers exists in this Category.",
+        "Display Location": "Inline with Field and in Notification",
+        "Associated Item": "P4_CATEGORY (17829379718367682896)"
+    },
+    "Server-side Condition": {
+        "When Button Pressed": "DELETE (17829378496467682829)"
+    }
+}

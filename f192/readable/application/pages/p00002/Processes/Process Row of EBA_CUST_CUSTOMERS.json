@@ -1,0 +1,32 @@
+{
+    "id": "17829329512448140296",
+    "Identification": {
+        "Name": "Process Row of EBA_CUST_CUSTOMERS",
+        "Type": "Automatic Row Processing (DML) [Legacy]",
+        "Execution Chain": "None"
+    },
+    "Settings": {
+        "Table Owner": "PARSING SCHEMA",
+        "Table Name": "EBA_CUST_CUSTOMERS",
+        "Primary Key Column ": "ID",
+        "Primary Key Item": "P2_ID",
+        "Return Key Into Item": "P2_ID",
+        "Lock Row": true,
+        "Supported Operations": "I:U:D"
+    },
+    "Execution": {
+        "Sequence": 20,
+        "Point": "Processing",
+        "Run Process": "Once Per Page Visit (default)"
+    },
+    "Success Message": {
+        "Success Message": "Action Processed."
+    },
+    "Error": {
+        "Error Message": "Unable to process row of table EBA_CUST_CUSTOMERS.",
+        "Display Location": "On Error Page"
+    },
+    "Security": {
+        "Authorization Scheme": "CONTRIBUTION RIGHTS (15995681224497193873)"
+    }
+}

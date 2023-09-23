@@ -1,0 +1,2350 @@
+{
+  "id":"125"
+ ,"Identification":{
+    "Name":"Data Load Source"
+   ,"Alias":"DATA-LOAD-SOURCE2"
+   ,"Title":"Data Load Source"
+   ,"Page Group":"Administration (14749179244941290086)"
+  }
+ ,"Appearance":{
+    "Page Mode":"Normal"
+   ,"Page Template":"Theme Default"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"Do not focus cursor"
+   ,"Warn on Unsaved Changes":false
+  }
+ ,"JavaScript":{
+    "Function and Global Variable Declaration":"function set_item()\n{\n$x(\u0027P125_COPY_PASTE\u0027).value= $v(\u0027P125_SAMPLE_DATA\u0027);\n$x(\u0027P125_SEPARATOR\u0027).value= \u0027,\u0027;\n$s(\u0027P125_FIRST_ROW\u0027, \u0027Y\u0027);\n}"
+  }
+ ,"Security":{
+    "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+   ,"Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"Off"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Always"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Help":{
+    "Help Text":"\u003Cp\u003EThis wizard allows the uploading of customer data into this application. Two options are provided to upload data, by uploading a comma separated file (.CSV), or to copy and paste data directly into the page.  The second step maps database column names with the uploaded data.  The third step, shows the data after lookups keys have been detected and validated.  Customer names that match are updated, new customers are added.  Statuses, types, and\/or categories that do not match are not inserted or updated. They are ignored.\u003C\/p\u003E "
+  }
+ ,"Regions":[
+    {
+      "id":"18164033296002700344"
+     ,"Identification":{
+        "Title":"Breadcrumb"
+       ,"Type":"Breadcrumb"
+      }
+     ,"Source":{
+        "Breadcrumb":"Breadcrumb (17869143586620226407)"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_01"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Title Bar (14888267217215691848)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-BreadcrumbRegion--useBreadcrumbTitle"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "Breadcrumb Template":"Breadcrumb (14888282717314691893)"
+         ,"Template Options":[
+            "#DEFAULT#"
+          ]
+        }
+      }
+    }
+   ,{
+      "id":"18164033847554700350"
+     ,"Identification":{
+        "Title":"Data Load Process Train"
+       ,"Type":"List"
+      }
+     ,"Source":{
+        "List":"Data Load Process Train - Customers (18164014268707697567)"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Wizard Container (14888267911512691851)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Wizard--hideStepsXSmall"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":true
+       ,"Exclude Title from Translation":true
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "List Template":"Wizard Progress (14888280721200691884)"
+        }
+      }
+    }
+   ,{
+      "id":"18164034118397700350"
+     ,"Identification":{
+        "Title":"Data Load Source"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"Data Load Process Train (18164033847554700350)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"None"
+       ,"Render Components":"Above Content"
+      }
+     ,"Advanced":{
+        "Custom Attributes":[
+          "style=\"width:100%;max-width:none;\""
+        ]
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"Text (escape special characters)"
+         ,"Show Line Breaks":true
+        }
+      }
+    }
+   ,{
+      "id":"18164042340209700368"
+     ,"Identification":{
+        "Title":"Globalization"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":40
+       ,"Parent Region":"Data Load Process Train (18164033847554700350)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Collapsible (14888261571832691840)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"is-collapsed"
+         ,"t-Region--noBorder"
+         ,"t-Region--scrollBody"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Custom Attributes":[
+          "style=\"width:100%;max-width:none;\""
+        ]
+       ,"Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"Text (escape special characters)"
+         ,"Show Line Breaks":true
+        }
+      }
+    }
+   ,{
+      "id":"18164151922901661128"
+     ,"Identification":{
+        "Title":"Loading Data From Spreadsheets"
+       ,"Type":"Static Content"
+      }
+     ,"Source":{
+        "HTML Code":"\u003Cp\u003ETo load or update customer data from a spreadsheet follow the following instructions.\u003C\/p\u003E \n\n\n\u003Col\u003E\n\u003Cli\u003EOrganize data in a spreadsheet with column headings of \"Customer Name\", \"Summary\", \"Category\", \"Status\", \"Type\", and so forth. \u003C\/li\u003E\n\n\u003Cli\u003EIf you have additional attributes you want to load you can load these into custom attributes.  Simply add these columns as well and you can map them to custom attributes in the next step of the data loading wizard.\u003C\/li\u003E\n\n\u003Cli\u003EEnsure the Categories and Status values match the categories defined in this application.  Administrators of this application can define categories and status values.  The current values are displayed on this page for reference.\u003C\/li\u003E\n\n\u003Cli\u003EOnce you have your data organized in your spreadsheet you can export the data to CSV format (recommended for larger data sets), or simply cut and paste the data (including column headings) into the text field on this page.\u003C\/li\u003E\n\n\u003Cli\u003EFollow the wizard and load your data.\u003C\/li\u003E\n\u003C\/ol\u003E\n\n\n\u003Cp\u003ECustom attribute data, data that this application does not natively track, can be loaded into custom attribute fields with character, number and date data types.  To have this data show about customers, Application administrators can define these custom attributes from the administration page.\u003C\/p\u003E"
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Parent Region":"Data Load Process Train (18164033847554700350)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Collapsible (14888261571832691840)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"is-expanded"
+         ,"t-Region--noBorder"
+         ,"t-Region--scrollBody"
+        ]
+       ,"CSS Classes":[
+          "infoTextRegion"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"18164159431571666435"
+     ,"Identification":{
+        "Title":"Valid Customer Categories"
+       ,"Type":"Classic Report"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select category,\n    description,\n    decode(is_active,\u0027Y\u0027,:ACTIVE_MSG,:INACTIVE_MSG) Status\nfrom eba_cust_categories\norder by upper(category)"
+      }
+     ,"Layout":{
+        "Sequence":80
+       ,"Parent Region":"Data Load Process Train (18164033847554700350)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Collapsible (14888261571832691840)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"is-collapsed"
+         ,"t-Region--noBorder"
+         ,"t-Region--scrollBody"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Header and Footer":{
+        "Header Text":"\u003Cp\u003ECustomer categories must be one of the valid values from the list below.  Application administrators can extend this list of values from the administrative console.\u003C\/p\u003E"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Layout":{
+          "Number of Rows Type":"Static Value"
+         ,"Number of Rows":1500
+        }
+       ,"Appearance":{
+          "Template Type":"Theme"
+         ,"Template":"Standard (14888271344395691859)"
+         ,"Template Options":[
+            "#DEFAULT#"
+           ,"t-Report--stretch"
+           ,"t-Report--altRowsDefault"
+           ,"t-Report--rowHighlight"
+          ]
+         ,"Show Null Values as":" - "
+        }
+       ,"Pagination":{
+          "Type":"No Pagination (Show All Rows)"
+         ,"Partial Page Refresh":true
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+        }
+       ,"Messages":{
+          "When No Data Found":"no data found"
+        }
+       ,"Break Formatting":{
+          "Break Columns":"No Break"
+        }
+       ,"Advanced":{
+          "Strip HTML":true
+         ,"Sort Nulls":"Last"
+        }
+       ,"Heading":{
+          "Type":"Custom Headings"
+        }
+       ,"Download":{
+          "CSV Export Enabled":false
+        }
+       ,"Printing":{
+          "Enabled":false
+        }
+      }
+     ,"Columns":[
+        {
+          "id":"18164159726618666437"
+         ,"Identification":{
+            "Column Name":"CATEGORY"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Category"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":1
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164160131455666439"
+         ,"Identification":{
+            "Column Name":"DESCRIPTION"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Description"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":2
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164160523818666440"
+         ,"Identification":{
+            "Column Name":"STATUS"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Status"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":3
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"18164161604254713019"
+     ,"Identification":{
+        "Title":"Loading Sample Data"
+       ,"Type":"Static Content"
+      }
+     ,"Source":{
+        "HTML Code":"\u003Cp\u003EClick the \u003Cstrong\u003ETry Sample Data\u003C\/strong\u003E button to test data loading functionality.  The sample data has 5 columns, 4 of which match the customer data structures.  The location can be used to demonstrate extensibility via flexible attributes.\u003C\/p\u003E \n\u003C\/p\u003E\n\n\u003Ctable summary=\"sample data\" class=\"uReport uReportStandard\"\u003E\n\u003Cthead\u003E\n\u003Ctr\u003E\n\u003Cth\u003ECustomer Name\u003C\/th\u003E\n\u003Cth\u003ESummary\u003C\/th\u003E\n\u003Cth\u003ECategory\u003C\/th\u003E\n\u003Cth\u003ELocation\u003C\/th\u003E\n\u003Cth\u003EStatus\u003C\/th\u003E\n\u003C\/tr\u003E\n\u003C\/thead\u003E\n\u003Ctbody\u003E\n\u003Ctr\u003E\n\u003Ctd\u003EAltiris\u003C\/td\u003E\n\u003Ctd\u003ESoftware\u003C\/td\u003E\n\u003Ctd\u003ECorporate\u003C\/td\u003E\n\u003Ctd\u003ENew York NY\u003C\/td\u003E\n\u003Ctd\u003EPartner\u003C\/td\u003E\n\u003C\/tr\u003E\n\n\u003Ctr\u003E\n\u003Ctd\u003ECephalon\u003C\/td\u003E\n\u003Ctd\u003Ebiotechnology\u003C\/td\u003E\n\u003Ctd\u003ECorporate\u003C\/td\u003E\n\u003Ctd\u003ESan Francisco\u003C\/td\u003E\n\u003Ctd\u003EUnknown\u003C\/td\u003E\n\u003C\/tr\u003E\n\n\u003Ctr\u003E\n\u003Ctd\u003EEuronet Worldwide\u003C\/td\u003E\n\u003Ctd\u003Ebanking software\u003C\/td\u003E\n\u003Ctd\u003ECorporate\u003C\/td\u003E\n\u003Ctd\u003E-\u003C\/td\u003E\n\u003Ctd\u003EUnknown\u003C\/td\u003E\n\u003C\/tr\u003E\n\n\u003Ctr\u003E\n\u003Ctd\u003EIllumina\u003C\/td\u003E\n\u003Ctd\u003Ebiotechnology equipment\u003C\/td\u003E\n\u003Ctd\u003ECorporate\u003C\/td\u003E\n\u003Ctd\u003E-\u003C\/td\u003E\n\u003Ctd\u003ECustomer\u003C\/td\u003E\n\u003C\/tr\u003E\n\u003C\/tbody\u003E\n\u003C\/table\u003E"
+      }
+     ,"Layout":{
+        "Sequence":50
+       ,"Parent Region":"Data Load Process Train (18164033847554700350)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Collapsible (14888261571832691840)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"is-collapsed"
+         ,"t-Region--noBorder"
+         ,"t-Region--scrollBody"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"18164164160086714834"
+     ,"Identification":{
+        "Title":"Valid Customer Types "
+       ,"Type":"Classic Report"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select type,\n    description,\n    decode(is_active,\u0027Y\u0027,:ACTIVE_MSG,:INACTIVE_MSG) status\nfrom eba_cust_type\norder by upper(type)"
+      }
+     ,"Layout":{
+        "Sequence":60
+       ,"Parent Region":"Data Load Process Train (18164033847554700350)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Collapsible (14888261571832691840)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"is-collapsed"
+         ,"t-Region--noBorder"
+         ,"t-Region--scrollBody"
+        ]
+       ,"CSS Classes":[
+          "infoTextRegion"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Header and Footer":{
+        "Header Text":"\u003Cp\u003ECustomer status values must be one of the valid status values listed below.  Administrators of this application can extend and modify customer status values from application administration.\u003C\/p\u003E"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Layout":{
+          "Number of Rows Type":"Static Value"
+         ,"Number of Rows":15
+        }
+       ,"Appearance":{
+          "Template Type":"Theme"
+         ,"Template":"Standard (14888271344395691859)"
+         ,"Template Options":[
+            "#DEFAULT#"
+           ,"t-Report--stretch"
+           ,"t-Report--altRowsDefault"
+           ,"t-Report--rowHighlight"
+          ]
+         ,"Show Null Values as":" - "
+        }
+       ,"Pagination":{
+          "Type":"No Pagination (Show All Rows)"
+         ,"Partial Page Refresh":true
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+         ,"Maximum Rows to Process":1500
+        }
+       ,"Messages":{
+          "When No Data Found":"no data found"
+        }
+       ,"Break Formatting":{
+          "Break Columns":"No Break"
+        }
+       ,"Advanced":{
+          "Strip HTML":true
+         ,"Sort Nulls":"Last"
+        }
+       ,"Heading":{
+          "Type":"Custom Headings"
+        }
+       ,"Download":{
+          "CSV Export Enabled":false
+        }
+       ,"Printing":{
+          "Enabled":false
+        }
+      }
+     ,"Columns":[
+        {
+          "id":"18164164424442714837"
+         ,"Identification":{
+            "Column Name":"DESCRIPTION"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Description"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":2
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164164866720714839"
+         ,"Identification":{
+            "Column Name":"STATUS"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Status"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":3
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164165282625714839"
+         ,"Identification":{
+            "Column Name":"TYPE"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Type"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":1
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"18164166604826715998"
+     ,"Identification":{
+        "Title":"Valid Customer Statuses "
+       ,"Type":"Classic Report"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select status customer_status,\n    description,\n    decode(is_active,\u0027Y\u0027,:ACTIVE_MSG,:INACTIVE_MSG) status\nfrom eba_cust_status\norder by upper(status)"
+      }
+     ,"Layout":{
+        "Sequence":70
+       ,"Parent Region":"Data Load Process Train (18164033847554700350)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Collapsible (14888261571832691840)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"is-collapsed"
+         ,"t-Region--noBorder"
+         ,"t-Region--scrollBody"
+        ]
+       ,"CSS Classes":[
+          "infoTextRegion"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Header and Footer":{
+        "Header Text":"\u003Cp\u003ECustomer status values must be one of the valid status values listed below.  Administrators of this application can extend and modify customer status values from application administration.\u003C\/p\u003E"
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Layout":{
+          "Number of Rows Type":"Static Value"
+         ,"Number of Rows":15
+        }
+       ,"Appearance":{
+          "Template Type":"Theme"
+         ,"Template":"Standard (14888271344395691859)"
+         ,"Template Options":[
+            "#DEFAULT#"
+           ,"t-Report--stretch"
+           ,"t-Report--altRowsDefault"
+           ,"t-Report--rowHighlight"
+          ]
+         ,"Show Null Values as":" - "
+        }
+       ,"Pagination":{
+          "Type":"No Pagination (Show All Rows)"
+         ,"Partial Page Refresh":true
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+         ,"Maximum Rows to Process":1500
+        }
+       ,"Messages":{
+          "When No Data Found":"no data found"
+        }
+       ,"Break Formatting":{
+          "Break Columns":"No Break"
+        }
+       ,"Advanced":{
+          "Strip HTML":true
+         ,"Sort Nulls":"Last"
+        }
+       ,"Heading":{
+          "Type":"Custom Headings"
+        }
+       ,"Download":{
+          "CSV Export Enabled":false
+        }
+       ,"Printing":{
+          "Enabled":false
+        }
+      }
+     ,"Columns":[
+        {
+          "id":"18164166858380716000"
+         ,"Identification":{
+            "Column Name":"CUSTOMER_STATUS"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Customer Status"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":1
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164167231760716000"
+         ,"Identification":{
+            "Column Name":"DESCRIPTION"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Description"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":2
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"18164167617264716001"
+         ,"Identification":{
+            "Column Name":"STATUS"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Status"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":3
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+      ]
+    }
+  ]
+ ,"Page Items":[
+    {
+      "id":"18164035427460700354"
+     ,"Identification":{
+        "Name":"P125_IMPORT_FROM"
+       ,"Type":"Radio Group"
+      }
+     ,"Label":{
+        "Label":"Import From"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Number of Columns":1
+       ,"Page Action on Selection":"None"
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Region":"Data Load Source (18164034118397700350)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Validation":{
+        "Value Required":true
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"DATA_LOAD_OPTION (15715462531865446697)"
+       ,"Display Extra Values":true
+       ,"Display Null Value":false
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"PASTE"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Escape special characters":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"18164035739980700356"
+     ,"Identification":{
+        "Name":"P125_FILE_NAME"
+       ,"Type":"File Browse..."
+      }
+     ,"Label":{
+        "Label":"File Name"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Display As":"Inline File Browse"
+       ,"Storage Type":"Table APEX_APPLICATION_TEMP_FILES"
+       ,"Purge File at":"End of Request"
+       ,"Allow Multiple Files":false
+      }
+     ,"Layout":{
+        "Sequence":40
+       ,"Region":"Data Load Source (18164034118397700350)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Required (14888281618892691888)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Name of the file to upload"
+      }
+    }
+   ,{
+      "id":"18164037128403700358"
+     ,"Identification":{
+        "Name":"P125_SEPARATOR"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"Separator"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Subtype":"Text"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":50
+       ,"Region":"Data Load Source (18164034118397700350)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Required (14888281618892691888)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":2
+      }
+     ,"Validation":{
+        "Value Required":true
+       ,"Maximum Length":2
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"\u005Ct"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Identify a column separator character. Use \u003Ccode\u003E\u005Ct\u003C\/code\u003E for tab separators."
+      }
+    }
+   ,{
+      "id":"18164038084083700361"
+     ,"Identification":{
+        "Name":"P125_ENCLOSED_BY"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"Optionally Enclosed By"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Subtype":"Text"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":60
+       ,"Region":"Data Load Source (18164034118397700350)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":2
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":2
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"\""
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Enter a delimiter character. You can use this character to delineate the starting and ending boundary of a data value. If you specify a delimiter character, Data Workshop ignores whitespace occurring before the starting and ending boundary of a data value. You can also use this option to enclose a data value with the specified delimiter character."
+      }
+    }
+   ,{
+      "id":"18164038987743700362"
+     ,"Identification":{
+        "Name":"P125_FIRST_ROW"
+       ,"Type":"Checkbox Group"
+      }
+     ,"Label":{
+        "Label":"First Row has Column Names"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Number of Columns":1
+      }
+     ,"Layout":{
+        "Sequence":70
+       ,"Region":"Data Load Source (18164034118397700350)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"FIRST_ROW_OPTION (15715465032349446703)"
+       ,"Display Extra Values":true
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"Y"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Escape special characters":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Select this box if your data contains column names in the first row."
+      }
+    }
+   ,{
+      "id":"18164039882937700363"
+     ,"Identification":{
+        "Name":"P125_APP_DATE_FORMAT"
+       ,"Type":"Checkbox Group"
+      }
+     ,"Label":{
+        "Label":"Use Application Date Format"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Number of Columns":1
+      }
+     ,"Layout":{
+        "Sequence":80
+       ,"Region":"Data Load Source (18164034118397700350)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"DATE_FORMAT_OPTION (18162509785260472619)"
+       ,"Display Extra Values":true
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"Y"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Escape special characters":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Select this box if you would like to use the application Date\/Timestamp formats during your data loading."
+      }
+    }
+   ,{
+      "id":"18164040723052700365"
+     ,"Identification":{
+        "Name":"P125_CHAR_SET"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"File Character Set"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Page Action on Selection":"None"
+       ,"Allow Multi Selection":false
+      }
+     ,"Layout":{
+        "Sequence":90
+       ,"Region":"Data Load Source (18164034118397700350)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":true
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"DATA_LOAD_CHARSET (18162511395233472627)"
+       ,"Display Extra Values":true
+       ,"Display Null Value":false
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"UTF-8"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"DATA_LOAD.CHAR_SET_ITEM_HELP"
+      }
+    }
+   ,{
+      "id":"18164041993007700366"
+     ,"Identification":{
+        "Name":"P125_COPY_PASTE"
+       ,"Type":"Textarea"
+      }
+     ,"Label":{
+        "Label":"Copy and Paste Delimited Data"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Resizable":true
+       ,"Auto-Height":false
+       ,"Character Counter":false
+       ,"Trim Spaces":"None"
+      }
+     ,"Layout":{
+        "Sequence":110
+       ,"Region":"Data Load Source (18164034118397700350)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Required (14888281618892691888)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":80
+       ,"Height":10
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"18164042814476700368"
+     ,"Identification":{
+        "Name":"P125_CURRENCY"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"Currency Symbol"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Subtype":"Text"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Globalization (18164042340209700368)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":2
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":2
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"SQL Query (return single value)"
+       ,"SQL Query":"select value\n  from nls_session_parameters\n where parameter = \u0027NLS_CURRENCY\u0027"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"$"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"If your data contains international currency symbol, enter it here. For example, if your data has \"\u0026euro;1,234.56\" or \"\u0026yen;1,234.56\", enter \"\u0026euro;\" or \"\u0026yen;\".  Otherwise the data will not load correctly."
+      }
+    }
+   ,{
+      "id":"18164043767491700369"
+     ,"Identification":{
+        "Name":"P125_GROUP_SEPARATOR"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"Group Separator"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Subtype":"Text"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Globalization (18164042340209700368)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":2
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":2
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"apex_application.get_nls_group_separator"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"\u003Cp\u003EA group separator is a character that separates integer groups, for example to show thousands and millions.\u003C\/p\u003E\n\u003Cp\u003EAny character can be the group separator. The character specified must be single-byte, and the group separator must be different from any other decimal character. The character can be a space, but cannot be a numeric character or any of the following:\u003C\/p\u003E\n\u003Cul class=\"noIndent\"\u003E\n\u003Cli\u003Eplus (+)\u003C\/li\u003E\n\u003Cli\u003Ehyphen (-)\u003C\/li\u003E \n\u003Cli\u003Eless than sign (\u003C)\u003C\/li\u003E\n\u003Cli\u003Egreater than sign (\u003E)\u003C\/li\u003E \n\u003C\/ul\u003E"
+      }
+    }
+   ,{
+      "id":"18164044649350700370"
+     ,"Identification":{
+        "Name":"P125_DECIMAL_CHARACTER"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"Decimal Character"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Subtype":"Text"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Region":"Globalization (18164042340209700368)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":2
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":2
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"apex_application.get_nls_decimal_separator"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"\u003Cp\u003EThe decimal character separates the integer and decimal parts of a number.\u003C\/p\u003E\n\u003Cp\u003E Any character can be the decimal character. The character specified must be single-byte, and the decimal character must be different from group separator. The character can be a space, but cannot be any numeric character or any of the following characters:\u003C\/p\u003E\n\u003Cul class=\"noIndent\"\u003E\n\u003Cli\u003Eplus (+)\u003C\/li\u003E\n\u003Cli\u003Ehyphen (-)\u003C\/li\u003E \n\u003Cli\u003Eless than sign (\u003C)\u003C\/li\u003E\n\u003Cli\u003Egreater than sign (\u003E)\u003C\/li\u003E \n\u003C\/ul\u003E"
+      }
+    }
+   ,{
+      "id":"18164161860038713022"
+     ,"Identification":{
+        "Name":"P125_SAMPLE_DATA"
+       ,"Type":"Hidden"
+      }
+     ,"Settings":{
+        "Value Protected":true
+      }
+     ,"Layout":{
+        "Sequence":110
+       ,"Region":"Loading Sample Data (18164161604254713019)"
+       ,"Position":"BODY"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Static Value"
+       ,"Static Value":"\"Customer Name\",\"Summary\",\"Category ID\",\"Location\",\"Type ID\" \n\"Customer 1\",\"Software.\",\"Corporate\",\"New York NY\",\"Partner\" \n\"Customer 2\",\"biotechnology.\",\"Corporate\",\"San Francisco\",\"Unknown\" \n\"Euronet Worldwide\",\"banking software.\",\"Corporate\",\"-\",\"Unknown\" \n\"Customer 3\",\"biotechnology equipment\",\"Corporate\",\"-\",\"Customer\""
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"18174591797439810078"
+     ,"Identification":{
+        "Name":"P125_ORIG_COPY_PASTE"
+       ,"Type":"Hidden"
+      }
+     ,"Settings":{
+        "Value Protected":false
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Data Load Source (18164034118397700350)"
+       ,"Position":"BODY"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"18164034566455700351"
+     ,"Identification":{
+        "Button Name":"CANCEL"
+       ,"Label":"Cancel"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Data Load Process Train (18164033847554700350)"
+       ,"Position":"PREVIOUS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--large"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:12:\u0026SESSION.::\u0026DEBUG."
+         ,"Page":"12"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+   ,{
+      "id":"18164034992453700353"
+     ,"Identification":{
+        "Button Name":"NEXT"
+       ,"Label":"Next"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Data Load Process Train (18164033847554700350)"
+       ,"Position":"NEXT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text with Icon (14888281958145691891)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--large"
+         ,"t-Button--iconRight"
+        ]
+       ,"Icon":"fa-chevron-right"
+      }
+     ,"Behavior":{
+        "Action":"Defined by Dynamic Action"
+       ,"Execute Validations":true
+      }
+    }
+   ,{
+      "id":"18164230074518737829"
+     ,"Identification":{
+        "Button Name":"TRY_SAMPLE_DATA"
+       ,"Label":"Try Sample Data"
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Region":"Breadcrumb (18164033296002700344)"
+       ,"Position":"CREATE"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--primary"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Redirect to URL"
+       ,"Target":"javascript:set_item();"
+       ,"Execute Validations":true
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+  ]
+ ,"Dynamic Actions":[
+    {
+      "id":"18164045478346700370"
+     ,"Identification":{
+        "Name":"Import From Copy and Paste"
+      }
+     ,"Execution":{
+        "Sequence":10
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CHANGE"
+       ,"Selection Type":"Item(s)"
+       ,"Item(s)":[
+          "P125_IMPORT_FROM"
+        ]
+      }
+     ,"Client-side Condition":{
+        "Type":"Item = Value"
+       ,"Item":"P125_IMPORT_FROM"
+       ,"Value":"PASTE"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"18164045967893700371"
+         ,"Identification":{
+            "Action":"Show"
+          }
+         ,"Settings":{
+            "Show all on the same line":true
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P125_COPY_PASTE"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":30
+           ,"Event":"Import From Copy and Paste (18164045478346700370)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":true
+          }
+        }
+       ,{
+          "id":"18164046466245700372"
+         ,"Identification":{
+            "Action":"Hide"
+          }
+         ,"Settings":{
+            "Hide all page items on the same line":true
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P125_COPY_PASTE"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":20
+           ,"Event":"Import From Copy and Paste (18164045478346700370)"
+           ,"Fire When Event Result Is":"False"
+           ,"Fire on Initialization":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"18164046889655700372"
+     ,"Identification":{
+        "Name":"Import from File"
+      }
+     ,"Execution":{
+        "Sequence":20
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CHANGE"
+       ,"Selection Type":"Item(s)"
+       ,"Item(s)":[
+          "P125_IMPORT_FROM"
+        ]
+      }
+     ,"Client-side Condition":{
+        "Type":"Item = Value"
+       ,"Item":"P125_IMPORT_FROM"
+       ,"Value":"UPLOAD"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"18164047317036700373"
+         ,"Identification":{
+            "Action":"Show"
+          }
+         ,"Settings":{
+            "Show all on the same line":true
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P125_FILE_NAME"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":30
+           ,"Event":"Import from File (18164046889655700372)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":true
+          }
+        }
+       ,{
+          "id":"18164047873652700374"
+         ,"Identification":{
+            "Action":"Hide"
+          }
+         ,"Settings":{
+            "Hide all page items on the same line":true
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P125_FILE_NAME"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":20
+           ,"Event":"Import from File (18164046889655700372)"
+           ,"Fire When Event Result Is":"False"
+           ,"Fire on Initialization":true
+          }
+        }
+       ,{
+          "id":"18174593301473810093"
+         ,"Identification":{
+            "Action":"Show"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Loading Data From Spreadsheets (18164151922901661128)"
+          }
+         ,"Execution":{
+            "Sequence":40
+           ,"Event":"Import from File (18164046889655700372)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":true
+          }
+        }
+       ,{
+          "id":"18174593336691810094"
+         ,"Identification":{
+            "Action":"Hide"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Loading Data From Spreadsheets (18164151922901661128)"
+          }
+         ,"Execution":{
+            "Sequence":30
+           ,"Event":"Import from File (18164046889655700372)"
+           ,"Fire When Event Result Is":"False"
+           ,"Fire on Initialization":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"18174424395336750882"
+     ,"Identification":{
+        "Name":"Set copy and paste textarea with sample data"
+      }
+     ,"Execution":{
+        "Sequence":30
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CLICK"
+       ,"Selection Type":"Button"
+       ,"Button":"TRY_SAMPLE_DATA (18164230074518737829)"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"18174424768515750885"
+         ,"Identification":{
+            "Action":"Set Value"
+          }
+         ,"Settings":{
+            "Set Type":"Static Assignment"
+           ,"Value":"\u0026P125_SAMPLE_DATA."
+           ,"Suppress Change Event":false
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P125_COPY_PASTE"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":20
+           ,"Event":"Set copy and paste textarea with sample data (18174424395336750882)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+           ,"Stop Execution On Error":true
+           ,"Wait For Result":true
+          }
+        }
+       ,{
+          "id":"18174425294251750886"
+         ,"Identification":{
+            "Action":"Set Value"
+          }
+         ,"Settings":{
+            "Set Type":"Static Assignment"
+           ,"Value":"Y"
+           ,"Suppress Change Event":false
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P125_FIRST_ROW"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":50
+           ,"Event":"Set copy and paste textarea with sample data (18174424395336750882)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+           ,"Stop Execution On Error":true
+           ,"Wait For Result":true
+          }
+        }
+       ,{
+          "id":"18174425721322750887"
+         ,"Identification":{
+            "Action":"Execute Server-side Code"
+          }
+         ,"Settings":{
+            "Language":"PE.PROPERTY.SOURCE_SNIPPET_LANG.LOV.PLSQL.D"
+           ,"PL\/SQL Code":"null;"
+           ,"Items to Submit":[
+              "P125_COPY_PASTE"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":30
+           ,"Event":"Set copy and paste textarea with sample data (18174424395336750882)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+           ,"Stop Execution On Error":true
+           ,"Wait For Result":true
+          }
+        }
+       ,{
+          "id":"18174426216186750887"
+         ,"Identification":{
+            "Action":"Set Value"
+          }
+         ,"Settings":{
+            "Set Type":"Static Assignment"
+           ,"Value":"PASTE"
+           ,"Suppress Change Event":false
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P125_IMPORT_FROM"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Set copy and paste textarea with sample data (18174424395336750882)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":true
+           ,"Stop Execution On Error":true
+           ,"Wait For Result":true
+          }
+        }
+       ,{
+          "id":"18174426744194750887"
+         ,"Identification":{
+            "Action":"Set Value"
+          }
+         ,"Settings":{
+            "Set Type":"Static Assignment"
+           ,"Value":","
+           ,"Suppress Change Event":false
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P125_SEPARATOR"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":40
+           ,"Event":"Set copy and paste textarea with sample data (18174424395336750882)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+           ,"Stop Execution On Error":true
+           ,"Wait For Result":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"18174591902430810079"
+     ,"Identification":{
+        "Name":"set orig copy paste value and submit"
+      }
+     ,"Execution":{
+        "Sequence":40
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CLICK"
+       ,"Selection Type":"Button"
+       ,"Button":"NEXT (18164034992453700353)"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"18174591968940810080"
+         ,"Identification":{
+            "Action":"Set Value"
+          }
+         ,"Settings":{
+            "Set Type":"JavaScript Expression"
+           ,"JavaScript Expression":"$v(\u0027P125_COPY_PASTE\u0027)"
+           ,"Suppress Change Event":false
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P125_ORIG_COPY_PASTE"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"set orig copy paste value and submit (18174591902430810079)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+           ,"Stop Execution On Error":true
+           ,"Wait For Result":true
+          }
+        }
+       ,{
+          "id":"18174592078057810081"
+         ,"Identification":{
+            "Action":"Execute Server-side Code"
+          }
+         ,"Settings":{
+            "Language":"PE.PROPERTY.SOURCE_SNIPPET_LANG.LOV.PLSQL.D"
+           ,"PL\/SQL Code":"null;"
+           ,"Items to Submit":[
+              "P125_ORIG_COPY_PASTE"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":20
+           ,"Event":"set orig copy paste value and submit (18174591902430810079)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+           ,"Stop Execution On Error":true
+           ,"Wait For Result":true
+          }
+        }
+       ,{
+          "id":"18174592125262810082"
+         ,"Identification":{
+            "Action":"Execute JavaScript Code"
+          }
+         ,"Settings":{
+            "Code":"apex.widget.textareaClob.upload(\u0027P125_COPY_PASTE\u0027, \u0027NEXT\u0027);"
+          }
+         ,"Execution":{
+            "Sequence":30
+           ,"Event":"set orig copy paste value and submit (18174591902430810079)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"18174593452011810095"
+     ,"Identification":{
+        "Name":"Set Import From"
+      }
+     ,"Execution":{
+        "Sequence":50
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.READY"
+      }
+     ,"Client-side Condition":{
+        "Type":"JavaScript expression"
+       ,"JavaScript Expression":"$(\u0027li.htmldbStdErr\u0027).html() \u0026\u0026 $(\u0027li.htmldbStdErr\u0027).html().substr(0, 30) == \u0027File Name must have some value\u0027"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+      }
+     ,"Actions":[
+        {
+          "id":"18174593508828810096"
+         ,"Identification":{
+            "Action":"Set Value"
+          }
+         ,"Settings":{
+            "Set Type":"Static Assignment"
+           ,"Value":"UPLOAD"
+           ,"Suppress Change Event":false
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P125_IMPORT_FROM"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Set Import From (18174593452011810095)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":true
+           ,"Stop Execution On Error":true
+           ,"Wait For Result":true
+          }
+        }
+      ]
+    }
+  ]
+ ,"Validations":[
+    {
+      "id":"17951654407773282217"
+     ,"Identification":{
+        "Name":"Paste cannot be Null"
+      }
+     ,"Execution":{
+        "Sequence":20
+      }
+     ,"Validation":{
+        "Type":"Item is NOT NULL"
+       ,"Item":"P125_ORIG_COPY_PASTE"
+       ,"Always Execute":false
+      }
+     ,"Error":{
+        "Error Message":"#LABEL# must have some value."
+       ,"Display Location":"Inline with Field and in Notification"
+       ,"Associated Item":"P125_COPY_PASTE (18164041993007700366)"
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"NEXT (18164034992453700353)"
+       ,"Type":"Item = Value"
+       ,"Item":"P125_IMPORT_FROM"
+       ,"Value":"PASTE"
+      }
+    }
+   ,{
+      "id":"18164036734063700357"
+     ,"Identification":{
+        "Name":"Filename is not null"
+      }
+     ,"Execution":{
+        "Sequence":10
+      }
+     ,"Validation":{
+        "Type":"Item is NOT NULL"
+       ,"Item":"P125_FILE_NAME"
+       ,"Always Execute":false
+      }
+     ,"Error":{
+        "Error Message":"#LABEL# must have some value."
+       ,"Display Location":"Inline with Field and in Notification"
+       ,"Associated Item":"P125_FILE_NAME (18164035739980700356)"
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"NEXT (18164034992453700353)"
+       ,"Type":"Item = Value"
+       ,"Item":"P125_IMPORT_FROM"
+       ,"Value":"UPLOAD"
+      }
+    }
+  ]
+ ,"Computations":[
+    {
+      "id":"18174593085372810091"
+     ,"Identification":{
+        "Item Name":"P125_IMPORT_FROM"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"Before Regions"
+      }
+     ,"Computation":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"nvl(:P125_LAST_IMPORT_FROM,\u0027PASTE\u0027)"
+      }
+    }
+  ]
+ ,"Processes":[
+    {
+      "id":"18164048350369700374"
+     ,"Identification":{
+        "Name":"Parse Uploaded Data"
+       ,"Type":"Parse Uploaded Data [Legacy]"
+       ,"Execution Chain":"None"
+      }
+     ,"Settings":{
+        "Data Load Definition":"Customers (18164010502528697558)"
+       ,"Import From Item":"P125_IMPORT_FROM"
+       ,"Separator Item":"P125_SEPARATOR"
+       ,"Enclosed By Item":"P125_ENCLOSED_BY"
+       ,"First Row Item":"P125_FIRST_ROW"
+       ,"Currency Symbol Item":"P125_CURRENCY"
+       ,"Group Separator Item":"P125_GROUP_SEPARATOR"
+       ,"Decimal Character Item":"P125_DECIMAL_CHARACTER"
+       ,"File Name Item":"P125_FILE_NAME"
+       ,"Copy and Paste Item":"P125_COPY_PASTE"
+       ,"Character Set Item":"P125_CHAR_SET"
+       ,"Date Format Item":"P125_APP_DATE_FORMAT"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Display Location":"Inline in Notification"
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"NEXT (18164034992453700353)"
+      }
+    }
+  ]
+ ,"Branches":[
+    {
+      "id":"18164048779818700375"
+     ,"Identification":{
+        "Name":"Go To Page 126"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"After Processing"
+      }
+     ,"Behavior":{
+        "Type":"Page or URL (Redirect)"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:126:\u0026SESSION.\u0026success_msg=#SUCCESS_MSG#"
+         ,"Page":"126"
+        }
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"NEXT (18164034992453700353)"
+      }
+    }
+  ]
+}

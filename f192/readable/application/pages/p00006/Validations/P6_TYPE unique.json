@@ -1,0 +1,23 @@
+{
+    "id": "15091861024210323782",
+    "Identification": {
+        "Name": "P6_TYPE unique"
+    },
+    "Execution": {
+        "Sequence": 10
+    },
+    "Validation": {
+        "Type": "No Rows returned",
+        "SQL Query": "select null\nfrom eba_cust_type\nwhere upper(type) = upper(:P6_TYPE)\n    and (:P6_ID is null or id <> :P6_ID )",
+        "Always Execute": false
+    },
+    "Error": {
+        "Error Message": "#LABEL# already exists.",
+        "Display Location": "Inline with Field and in Notification",
+        "Associated Item": "P6_TYPE (17829391912999720375)"
+    },
+    "Server-side Condition": {
+        "Type": "Request is contained in Value",
+        "Value": "CREATE,SAVE"
+    }
+}

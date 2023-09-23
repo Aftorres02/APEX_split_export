@@ -1,0 +1,1595 @@
+{
+  "id":"60"
+ ,"Identification":{
+    "Name":"Data Load Source"
+   ,"Alias":"DATA-LOAD-SOURCE"
+   ,"Title":"Data Load Source"
+   ,"Page Group":"Contacts (14749179925332293830)"
+  }
+ ,"Appearance":{
+    "Page Mode":"Normal"
+   ,"Page Template":"Standard (14888221571271691783)"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"Do not focus cursor"
+   ,"Warn on Unsaved Changes":false
+  }
+ ,"Security":{
+    "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+   ,"Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"Off"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Always"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Help":{
+    "Help Text":"No help is available for this page."
+  }
+ ,"Regions":[
+    {
+      "id":"15916754429662932152"
+     ,"Identification":{
+        "Title":"Breadcrumb"
+       ,"Type":"Breadcrumb"
+      }
+     ,"Source":{
+        "Breadcrumb":"Breadcrumb (17869143586620226407)"
+      }
+     ,"Layout":{
+        "Sequence":50
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_01"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Title Bar (14888267217215691848)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-BreadcrumbRegion--useBreadcrumbTitle"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "Breadcrumb Template":"Breadcrumb (14888282717314691893)"
+         ,"Template Options":[
+            "#DEFAULT#"
+          ]
+        }
+      }
+    }
+   ,{
+      "id":"15916754839391932155"
+     ,"Identification":{
+        "Title":"Data Load Process Train"
+       ,"Type":"List"
+      }
+     ,"Source":{
+        "List":"Data Load Process Train - contacts (15916752444946932145)"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":false
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Wizard Container (14888267911512691851)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Wizard--hideStepsSmall"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":true
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "List Template":"Wizard Progress (14888280721200691884)"
+         ,"Template Options":[
+            "#DEFAULT#"
+           ,"t-WizardSteps--displayLabels"
+          ]
+        }
+      }
+    }
+   ,{
+      "id":"15916754930595932156"
+     ,"Identification":{
+        "Title":"Data Load Source"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Parent Region":"Data Load Process Train (15916754839391932155)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":false
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"None"
+       ,"Render Components":"Above Content"
+      }
+     ,"Advanced":{
+        "Custom Attributes":[
+          "style=\"width:100%;max-width:none;\""
+        ]
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"15916758348514932168"
+     ,"Identification":{
+        "Title":"Globalization"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":40
+       ,"Parent Region":"Data Load Source (15916754930595932156)"
+       ,"Position":"SUB_REGIONS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":false
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Collapsible (14888261571832691840)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"is-collapsed"
+         ,"t-Region--noBorder"
+         ,"t-Region--scrollBody"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Custom Attributes":[
+          "style=\"width:100%;max-width:none;\""
+        ]
+       ,"Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"16693498248888898229"
+     ,"Identification":{
+        "Title":"Information"
+       ,"Type":"Static Content"
+      }
+     ,"Source":{
+        "HTML Code":"\u003Cp\u003EThis is  a 3-step wizard that allows the user to upload the existing data into a specified table. \nThe user will have two options to upload data by copy and paste to the above textarea or choosing the \nfile that contains the Customer contacts list.\nBoth of the above will take the user to second step that allows \nthe user to map the columns of the columns with the column names of the uploaded data.\nThe third step, is straight forward step, it shows the data after lookups keys have been \nfetched and allows the user to review the data before the final submit. \nThe last step will  allow the user to see the outcome of the submitted data, will show the report of inserted\/updated and failed records. The failed records are displayed with the error message showing what caused the issue. \n\u003C\/p\u003E\n"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":false
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Blank with Attributes (14888250988334691823)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+  ]
+ ,"Page Items":[
+    {
+      "id":"15916755640723932162"
+     ,"Identification":{
+        "Name":"P60_IMPORT_FROM"
+       ,"Type":"Radio Group"
+      }
+     ,"Label":{
+        "Label":"Import From"
+       ,"Alignment":"Right top"
+      }
+     ,"Settings":{
+        "Number of Columns":1
+       ,"Page Action on Selection":"None"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Data Load Source (15916754930595932156)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Validation":{
+        "Value Required":true
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"DATA_LOAD_OPTION (15715462531865446697)"
+       ,"Display Extra Values":true
+       ,"Display Null Value":false
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"PASTE"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Escape special characters":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"15916755749400932162"
+     ,"Identification":{
+        "Name":"P60_FILE_NAME"
+       ,"Type":"File Browse..."
+      }
+     ,"Label":{
+        "Label":"File Name"
+       ,"Alignment":"Right"
+      }
+     ,"Settings":{
+        "Display As":"Inline File Browse"
+       ,"Storage Type":"Table APEX_APPLICATION_TEMP_FILES"
+       ,"Purge File at":"End of Request"
+       ,"Allow Multiple Files":false
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Region":"Data Load Source (15916754930595932156)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Required (14888281618892691888)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Name of the file to upload"
+      }
+    }
+   ,{
+      "id":"15916756529915932165"
+     ,"Identification":{
+        "Name":"P60_SEPARATOR"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"Separator"
+       ,"Alignment":"Right"
+       ,"Table Cell Attributes":[
+          "nowrap=\"nowrap\""
+        ]
+      }
+     ,"Settings":{
+        "Subtype":"Text"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":40
+       ,"Region":"Data Load Source (15916754930595932156)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Required (14888281618892691888)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":2
+      }
+     ,"Validation":{
+        "Value Required":true
+       ,"Maximum Length":2
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"\u005Ct"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Identify a column separator character. Use \u003Ccode\u003E\u005Ct\u003C\/code\u003E for tab separators."
+      }
+    }
+   ,{
+      "id":"15916757039896932166"
+     ,"Identification":{
+        "Name":"P60_ENCLOSED_BY"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"Optionally Enclosed By"
+       ,"Alignment":"Right"
+       ,"Table Cell Attributes":[
+          "nowrap=\"nowrap\""
+        ]
+      }
+     ,"Settings":{
+        "Subtype":"Text"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":50
+       ,"Region":"Data Load Source (15916754930595932156)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":2
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":2
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"\""
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Enter a delimiter character. You can use this character to delineate the starting and ending boundary of a data value. If you specify a delimiter character, Data Workshop ignores whitespace occurring before the starting and ending boundary of a data value. You can also use this option to enclose a data value with the specified delimiter character."
+      }
+    }
+   ,{
+      "id":"15916757534479932168"
+     ,"Identification":{
+        "Name":"P60_FIRST_ROW"
+       ,"Type":"Checkbox Group"
+      }
+     ,"Label":{
+        "Label":"First Row has Column Names"
+       ,"Alignment":"Right"
+      }
+     ,"Settings":{
+        "Number of Columns":1
+      }
+     ,"Layout":{
+        "Sequence":60
+       ,"Region":"Data Load Source (15916754930595932156)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left center"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"FIRST_ROW_OPTION (15715465032349446703)"
+       ,"Display Extra Values":true
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Escape special characters":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Select this box if your data contains column names in the first row."
+      }
+    }
+   ,{
+      "id":"15916758042535932168"
+     ,"Identification":{
+        "Name":"P60_STOP_START_TABLE"
+       ,"Type":"Stop and Start Grid Layout [Deprecated]"
+      }
+     ,"Label":{
+        "Alignment":"Right"
+      }
+     ,"Layout":{
+        "Sequence":70
+       ,"Region":"Data Load Source (15916754930595932156)"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"15916758124972932168"
+     ,"Identification":{
+        "Name":"P60_COPY_PASTE"
+       ,"Type":"Textarea"
+      }
+     ,"Label":{
+        "Label":"Copy and Paste Delimited Data"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Resizable":false
+       ,"Auto-Height":false
+       ,"Character Counter":false
+       ,"Trim Spaces":"None"
+      }
+     ,"Layout":{
+        "Sequence":80
+       ,"Region":"Data Load Source (15916754930595932156)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Required (14888281618892691888)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":80
+       ,"Height":10
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"\u0026P60_ORIG_COPY_PASTE."
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"Copy and Paste your data here"
+      }
+    }
+   ,{
+      "id":"15916758624064932169"
+     ,"Identification":{
+        "Name":"P60_CURRENCY"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"Currency Symbol"
+       ,"Alignment":"Right"
+       ,"Table Cell Attributes":[
+          "nowrap=\"nowrap\""
+        ]
+      }
+     ,"Settings":{
+        "Subtype":"Text"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":90
+       ,"Region":"Globalization (15916758348514932168)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":2
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":2
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"SQL Query (return single value)"
+       ,"SQL Query":"select value\n  from nls_session_parameters\n where parameter = \u0027NLS_CURRENCY\u0027"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"$"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"If your data contains international currency symbol, enter it here. For example, if your data has \"\u0026euro;1,234.56\" or \"\u0026yen;1,234.56\", enter \"\u0026euro;\" or \"\u0026yen;\".  Otherwise the data will not load correctly."
+      }
+    }
+   ,{
+      "id":"15916759148506932170"
+     ,"Identification":{
+        "Name":"P60_GROUP_SEPARATOR"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"Group Separator"
+       ,"Alignment":"Right"
+       ,"Table Cell Attributes":[
+          "nowrap=\"nowrap\""
+        ]
+      }
+     ,"Settings":{
+        "Subtype":"Text"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":100
+       ,"Region":"Globalization (15916758348514932168)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":2
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":2
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"apex_application.get_nls_group_separator"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"\u003Cp\u003EA group separator is a character that separates integer groups, for example to show thousands and millions.\u003C\/p\u003E\n\u003Cp\u003EAny character can be the group separator. The character specified must be single-byte, and the group separator must be different from any other decimal character. The character can be a space, but cannot be a numeric character or any of the following:\u003C\/p\u003E\n\u003Cul class=\"noIndent\"\u003E\n\u003Cli\u003Eplus (+)\u003C\/li\u003E\n\u003Cli\u003Ehyphen (-)\u003C\/li\u003E \n\u003Cli\u003Eless than sign (\u003C)\u003C\/li\u003E\n\u003Cli\u003Egreater than sign (\u003E)\u003C\/li\u003E \n\u003C\/ul\u003E"
+      }
+    }
+   ,{
+      "id":"15916759635315932170"
+     ,"Identification":{
+        "Name":"P60_DECIMAL_CHARACTER"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"Decimal Character"
+       ,"Alignment":"Right"
+       ,"Table Cell Attributes":[
+          "nowrap=\"nowrap\""
+        ]
+      }
+     ,"Settings":{
+        "Subtype":"Text"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":false
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":110
+       ,"Region":"Globalization (15916758348514932168)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Width":2
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":2
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"apex_application.get_nls_decimal_separator"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Help Text":"\u003Cp\u003EThe decimal character separates the integer and decimal parts of a number.\u003C\/p\u003E\n\u003Cp\u003E Any character can be the decimal character. The character specified must be single-byte, and the decimal character must be different from group separator. The character can be a space, but cannot be any numeric character or any of the following characters:\u003C\/p\u003E\n\u003Cul class=\"noIndent\"\u003E\n\u003Cli\u003Eplus (+)\u003C\/li\u003E\n\u003Cli\u003Ehyphen (-)\u003C\/li\u003E \n\u003Cli\u003Eless than sign (\u003C)\u003C\/li\u003E\n\u003Cli\u003Egreater than sign (\u003E)\u003C\/li\u003E \n\u003C\/ul\u003E"
+      }
+    }
+   ,{
+      "id":"16693498946942907094"
+     ,"Identification":{
+        "Name":"P60_SAMPLE_DATA"
+       ,"Type":"Hidden"
+      }
+     ,"Settings":{
+        "Value Protected":true
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Information (16693498248888898229)"
+       ,"Position":"BODY"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Static Value"
+       ,"Static Value":"\"Customer ID\",\"Name\",\"Title\",\"Contact Type ID\",\"Phone\",\"Email\"\n\n\"Illumina\",\"David Yvan\",\"CFO\",\"Other\",\"-\",\"-\"\n\n\"Massive Mashups\",\"DesChamps Dio\",\"CEO\",\"Other\",\"-\",\"-\"\n\n\"Synergy Sales Solutions\",\"Isha Ben\",\"CFO\",\"Other\",\"-\",\"-\"\n\n\"Monolithic Power Systems\",\"Kevin Eggan\",\"CFO\",\"Other\",\"-\",\"-\"\n\n\"Monolithic Power Systems\",\"Fabrice Inan\",\"CFO\",\"Other\",\"-\",\"-\"\n\n\"Altiris\",\"Thomas Lin\",\"Executive Director\",\"Other\",\"-\",\"-\"\n\n\"Martek Biosciences\",\"Josh Tenenbaum\",\"Executive Director\",\"Other\",\"-\",\"-\""
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+   ,{
+      "id":"17951654589134282219"
+     ,"Identification":{
+        "Name":"P60_ORIG_COPY_PASTE"
+       ,"Type":"Hidden"
+      }
+     ,"Settings":{
+        "Value Protected":false
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Data Load Source (15916754930595932156)"
+       ,"Position":"BODY"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"15916755236847932158"
+     ,"Identification":{
+        "Button Name":"CANCEL"
+       ,"Label":"Cancel"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Data Load Process Train (15916754839391932155)"
+       ,"Position":"PREVIOUS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--large"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:18:\u0026SESSION.::\u0026DEBUG.:::"
+         ,"Page":"18"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+   ,{
+      "id":"15916755326034932160"
+     ,"Identification":{
+        "Button Name":"NEXT"
+       ,"Label":"Next"
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Region":"Data Load Process Train (15916754839391932155)"
+       ,"Position":"NEXT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text with Icon (14888281958145691891)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--iconRight"
+         ,"t-Button--large"
+        ]
+       ,"Icon":"fa-chevron-right"
+      }
+     ,"Behavior":{
+        "Action":"Defined by Dynamic Action"
+       ,"Execute Validations":true
+      }
+    }
+   ,{
+      "id":"16693498533436903185"
+     ,"Identification":{
+        "Button Name":"TRY_SAMPLE_DATA"
+       ,"Label":"Try Sample Data"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Breadcrumb (15916754429662932152)"
+       ,"Position":"CREATE"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--primary"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Defined by Dynamic Action"
+       ,"Execute Validations":true
+      }
+    }
+  ]
+ ,"Dynamic Actions":[
+    {
+      "id":"15916760027559932170"
+     ,"Identification":{
+        "Name":"Import From Copy and Paste"
+      }
+     ,"Execution":{
+        "Sequence":10
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CHANGE"
+       ,"Selection Type":"Item(s)"
+       ,"Item(s)":[
+          "P60_IMPORT_FROM"
+        ]
+      }
+     ,"Client-side Condition":{
+        "Type":"Item = Value"
+       ,"Item":"P60_IMPORT_FROM"
+       ,"Value":"PASTE"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"15916760338069932171"
+         ,"Identification":{
+            "Action":"Show"
+          }
+         ,"Settings":{
+            "Show all on the same line":true
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P60_COPY_PASTE"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Import From Copy and Paste (15916760027559932170)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":true
+          }
+        }
+       ,{
+          "id":"15916760531802932172"
+         ,"Identification":{
+            "Action":"Hide"
+          }
+         ,"Settings":{
+            "Hide all page items on the same line":true
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P60_COPY_PASTE"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Import From Copy and Paste (15916760027559932170)"
+           ,"Fire When Event Result Is":"False"
+           ,"Fire on Initialization":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"15916760621574932172"
+     ,"Identification":{
+        "Name":"Import from File"
+      }
+     ,"Execution":{
+        "Sequence":20
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CHANGE"
+       ,"Selection Type":"Item(s)"
+       ,"Item(s)":[
+          "P60_IMPORT_FROM"
+        ]
+      }
+     ,"Client-side Condition":{
+        "Type":"Item = Value"
+       ,"Item":"P60_IMPORT_FROM"
+       ,"Value":"UPLOAD"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"15916760943639932172"
+         ,"Identification":{
+            "Action":"Show"
+          }
+         ,"Settings":{
+            "Show all on the same line":true
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P60_FILE_NAME"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Import from File (15916760621574932172)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":true
+          }
+        }
+       ,{
+          "id":"15916761148192932172"
+         ,"Identification":{
+            "Action":"Hide"
+          }
+         ,"Settings":{
+            "Hide all page items on the same line":true
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P60_FILE_NAME"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Import from File (15916760621574932172)"
+           ,"Fire When Event Result Is":"False"
+           ,"Fire on Initialization":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"17951653717461282211"
+     ,"Identification":{
+        "Name":"Set copy and paste textarea with sample data"
+      }
+     ,"Execution":{
+        "Sequence":30
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CLICK"
+       ,"Selection Type":"Button"
+       ,"Button":"TRY_SAMPLE_DATA (16693498533436903185)"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"1336080472336062663"
+         ,"Identification":{
+            "Action":"Set Value"
+          }
+         ,"Settings":{
+            "Set Type":"Static Assignment"
+           ,"Value":"\""
+           ,"Suppress Change Event":false
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P60_ENCLOSED_BY"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":50
+           ,"Event":"Set copy and paste textarea with sample data (17951653717461282211)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":true
+           ,"Stop Execution On Error":true
+           ,"Wait For Result":true
+          }
+        }
+       ,{
+          "id":"17951653821799282212"
+         ,"Identification":{
+            "Action":"Set Value"
+          }
+         ,"Settings":{
+            "Set Type":"Static Assignment"
+           ,"Value":"\u0026P60_SAMPLE_DATA."
+           ,"Suppress Change Event":false
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P60_COPY_PASTE"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":20
+           ,"Event":"Set copy and paste textarea with sample data (17951653717461282211)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+           ,"Stop Execution On Error":true
+           ,"Wait For Result":true
+          }
+        }
+       ,{
+          "id":"17951653990627282213"
+         ,"Identification":{
+            "Action":"Set Value"
+          }
+         ,"Settings":{
+            "Set Type":"Static Assignment"
+           ,"Value":","
+           ,"Suppress Change Event":false
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P60_SEPARATOR"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":40
+           ,"Event":"Set copy and paste textarea with sample data (17951653717461282211)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+           ,"Stop Execution On Error":true
+           ,"Wait For Result":true
+          }
+        }
+       ,{
+          "id":"17951654048668282214"
+         ,"Identification":{
+            "Action":"Set Value"
+          }
+         ,"Settings":{
+            "Set Type":"Static Assignment"
+           ,"Value":"Y"
+           ,"Suppress Change Event":false
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P60_FIRST_ROW"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":60
+           ,"Event":"Set copy and paste textarea with sample data (17951653717461282211)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+           ,"Stop Execution On Error":true
+           ,"Wait For Result":true
+          }
+        }
+       ,{
+          "id":"17951654152881282215"
+         ,"Identification":{
+            "Action":"Execute Server-side Code"
+          }
+         ,"Settings":{
+            "Language":"PE.PROPERTY.SOURCE_SNIPPET_LANG.LOV.PLSQL.D"
+           ,"PL\/SQL Code":"null;"
+           ,"Items to Submit":[
+              "P60_COPY_PASTE"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":30
+           ,"Event":"Set copy and paste textarea with sample data (17951653717461282211)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+           ,"Stop Execution On Error":true
+           ,"Wait For Result":true
+          }
+        }
+       ,{
+          "id":"17951654477584282218"
+         ,"Identification":{
+            "Action":"Set Value"
+          }
+         ,"Settings":{
+            "Set Type":"Static Assignment"
+           ,"Value":"PASTE"
+           ,"Suppress Change Event":false
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P60_IMPORT_FROM"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Set copy and paste textarea with sample data (17951653717461282211)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":true
+           ,"Stop Execution On Error":true
+           ,"Wait For Result":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"18174591336840810074"
+     ,"Identification":{
+        "Name":"Set orig cut paste value and submit"
+      }
+     ,"Execution":{
+        "Sequence":40
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CLICK"
+       ,"Selection Type":"Button"
+       ,"Button":"NEXT (15916755326034932160)"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"18174591457972810075"
+         ,"Identification":{
+            "Action":"Set Value"
+          }
+         ,"Settings":{
+            "Set Type":"JavaScript Expression"
+           ,"JavaScript Expression":"$v(\u0027P60_COPY_PASTE\u0027)"
+           ,"Suppress Change Event":false
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P60_ORIG_COPY_PASTE"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Set orig cut paste value and submit (18174591336840810074)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+           ,"Stop Execution On Error":true
+           ,"Wait For Result":true
+          }
+        }
+       ,{
+          "id":"18174591535205810076"
+         ,"Identification":{
+            "Action":"Execute Server-side Code"
+          }
+         ,"Settings":{
+            "Language":"PE.PROPERTY.SOURCE_SNIPPET_LANG.LOV.PLSQL.D"
+           ,"PL\/SQL Code":"null;"
+           ,"Items to Submit":[
+              "P60_ORIG_COPY_PASTE"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":20
+           ,"Event":"Set orig cut paste value and submit (18174591336840810074)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+           ,"Stop Execution On Error":true
+           ,"Wait For Result":true
+          }
+        }
+       ,{
+          "id":"18174591703322810077"
+         ,"Identification":{
+            "Action":"Execute JavaScript Code"
+          }
+         ,"Settings":{
+            "Code":"\napex.widget.textareaClob.upload(\u0027P60_COPY_PASTE\u0027, \u0027NEXT\u0027);"
+          }
+         ,"Execution":{
+            "Sequence":30
+           ,"Event":"Set orig cut paste value and submit (18174591336840810074)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"18174593662636810097"
+     ,"Identification":{
+        "Name":"Reset Import From For Upload"
+      }
+     ,"Execution":{
+        "Sequence":50
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.READY"
+      }
+     ,"Client-side Condition":{
+        "Type":"JavaScript expression"
+       ,"JavaScript Expression":"$(\u0027li.htmldbStdErr\u0027).html() \u0026\u0026 $(\u0027li.htmldbStdErr\u0027).html().substring(0, 30) == \u0027File Name must have some value\u0027"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+      }
+     ,"Actions":[
+        {
+          "id":"18174593750964810098"
+         ,"Identification":{
+            "Action":"Set Value"
+          }
+         ,"Settings":{
+            "Set Type":"Static Assignment"
+           ,"Value":"UPLOAD"
+           ,"Suppress Change Event":false
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P60_IMPORT_FROM"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Reset Import From For Upload (18174593662636810097)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":true
+           ,"Stop Execution On Error":true
+           ,"Wait For Result":true
+          }
+        }
+      ]
+    }
+  ]
+ ,"Validations":[
+    {
+      "id":"15916756337474932164"
+     ,"Identification":{
+        "Name":"Filename is not null"
+      }
+     ,"Execution":{
+        "Sequence":10
+      }
+     ,"Validation":{
+        "Type":"Item is NOT NULL"
+       ,"Item":"P60_FILE_NAME"
+       ,"Always Execute":false
+      }
+     ,"Error":{
+        "Error Message":"#LABEL# must have some value."
+       ,"Display Location":"Inline with Field and in Notification"
+       ,"Associated Item":"P60_FILE_NAME (15916755749400932162)"
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"NEXT (15916755326034932160)"
+       ,"Type":"Item = Value"
+       ,"Item":"P60_IMPORT_FROM"
+       ,"Value":"UPLOAD"
+      }
+    }
+   ,{
+      "id":"17951654280015282216"
+     ,"Identification":{
+        "Name":"Paste Content before continuing"
+      }
+     ,"Execution":{
+        "Sequence":20
+      }
+     ,"Validation":{
+        "Type":"Item is NOT NULL"
+       ,"Item":"P60_ORIG_COPY_PASTE"
+       ,"Always Execute":false
+      }
+     ,"Error":{
+        "Error Message":"#LABEL# must have some value."
+       ,"Display Location":"Inline with Field and in Notification"
+       ,"Associated Item":"P60_COPY_PASTE (15916758124972932168)"
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"NEXT (15916755326034932160)"
+       ,"Type":"Item = Value"
+       ,"Item":"P60_IMPORT_FROM"
+       ,"Value":"PASTE"
+      }
+    }
+  ]
+ ,"Processes":[
+    {
+      "id":"15916761348278932174"
+     ,"Identification":{
+        "Name":"Parse Uploaded Data"
+       ,"Type":"Parse Uploaded Data [Legacy]"
+       ,"Execution Chain":"None"
+      }
+     ,"Settings":{
+        "Data Load Definition":"contacts (15916751929173932126)"
+       ,"Import From Item":"P60_IMPORT_FROM"
+       ,"Separator Item":"P60_SEPARATOR"
+       ,"Enclosed By Item":"P60_ENCLOSED_BY"
+       ,"First Row Item":"P60_FIRST_ROW"
+       ,"Currency Symbol Item":"P60_CURRENCY"
+       ,"Group Separator Item":"P60_GROUP_SEPARATOR"
+       ,"Decimal Character Item":"P60_DECIMAL_CHARACTER"
+       ,"File Name Item":"P60_FILE_NAME"
+       ,"Copy and Paste Item":"P60_COPY_PASTE"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Display Location":"Inline in Notification"
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"NEXT (15916755326034932160)"
+      }
+    }
+  ]
+ ,"Branches":[
+    {
+      "id":"15916761532209932174"
+     ,"Identification":{
+        "Name":"Go To Page 61"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"After Processing"
+      }
+     ,"Behavior":{
+        "Type":"Page or URL (Redirect)"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:61:\u0026SESSION.\u0026success_msg=#SUCCESS_MSG#"
+         ,"Page":"61"
+        }
+      }
+     ,"Server-side Condition":{
+        "When Button Pressed":"NEXT (15916755326034932160)"
+      }
+    }
+  ]
+}

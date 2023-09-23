@@ -1,0 +1,1599 @@
+[
+  {
+    "id":"367930506465669677"
+   ,"Identification":{
+      "Name":"ACCESS CONTROL SCOPE1"
+    }
+   ,"Source":{
+      "Location":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"367930816424669678"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Readers"
+         ,"Return":"PUBLIC_READONLY"
+        }
+      }
+     ,{
+        "id":"367931295533669678"
+       ,"Entry":{
+          "Sequence":2
+         ,"Display":"Contributors"
+         ,"Return":"PUBLIC_CONTRIBUTE"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"1179212359942687121"
+   ,"Identification":{
+      "Name":"HOMEPAGE_DISPLAY_AS"
+    }
+   ,"Source":{
+      "Location":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"1179212545678687122"
+       ,"Entry":{
+          "Sequence":10
+         ,"Display":"Cards View"
+         ,"Return":"CARDS"
+        }
+       ,"Globalization":{
+          "Template":"\u003Cspan class=\"t-Icon fa fa-cards\" title=\"#DISPLAY_VALUE#\"\u003E\u003C\/span\u003E\u003Cspan class=\"u-VisuallyHidden\"\u003E#DISPLAY_VALUE#\u003C\/span\u003E"
+        }
+      }
+     ,{
+        "id":"1179212998783687123"
+       ,"Entry":{
+          "Sequence":30
+         ,"Display":"Report View"
+         ,"Return":"REPORT"
+        }
+       ,"Globalization":{
+          "Template":"\u003Cspan class=\"t-Icon fa fa-table\" title=\"#DISPLAY_VALUE#\"\u003E\u003C\/span\u003E\u003Cspan class=\"u-VisuallyHidden\"\u003E#DISPLAY_VALUE#\u003C\/span\u003E"
+        }
+      }
+     ,{
+        "id":"1179213341886687123"
+       ,"Entry":{
+          "Sequence":20
+         ,"Display":"Logo View"
+         ,"Return":"LOGOS"
+        }
+       ,"Globalization":{
+          "Template":"\u003Cspan class=\"t-Icon fa fa-tiles-2x2\" title=\"#DISPLAY_VALUE#\"\u003E\u003C\/span\u003E\u003Cspan class=\"u-VisuallyHidden\"\u003E#DISPLAY_VALUE#\u003C\/span\u003E"
+        }
+       ,"Server-side Condition":{
+          "Type":"Expression"
+         ,"Language":"PL\/SQL"
+         ,"PL\/SQL Expression":"APEX_AUTHORIZATION.IS_AUTHORIZED(p_authorization_name =\u003E \u0027CONTRIBUTION RIGHTS\u0027)"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"2595172517899348267"
+   ,"Identification":{
+      "Name":"ISSUE TYPES"
+    }
+   ,"Source":{
+      "Location":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"2595172858128348268"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Bug"
+         ,"Return":"BUG"
+        }
+      }
+     ,{
+        "id":"2595173262964348270"
+       ,"Entry":{
+          "Sequence":2
+         ,"Display":"Enhancement Request"
+         ,"Return":"ER"
+        }
+      }
+     ,{
+        "id":"2595173659381348270"
+       ,"Entry":{
+          "Sequence":3
+         ,"Display":"Other"
+         ,"Return":"OTHER"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"2595469920190603366"
+   ,"Identification":{
+      "Name":"ISSUE STATUSES"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select name as d,\n       id as r\n  from eba_cust_issue_statuses\n order by 1"
+    }
+  }
+ ,{
+    "id":"14275668654261537138"
+   ,"Identification":{
+      "Name":"P68_PROD_USE_EXTERNAL_CONTACT"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select \u0027- New Contact -\u0027 d, -1 r\n  from dual\nunion all\nselect decode( email, null, name, name || \u0027 (\u0027 || email || \u0027)\u0027 ) d, id r\n  from eba_cust_contacts\n where customer_id = :P68_CUSTOMER_ID\n order by 1"
+    }
+  }
+ ,{
+    "id":"14310205121636427513"
+   ,"Identification":{
+      "Name":"PRODUCT STATUSES"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select status as d,\n       id as r\n  from eba_cust_product_statuses\n order by 1"
+    }
+  }
+ ,{
+    "id":"14317076022345134772"
+   ,"Identification":{
+      "Name":"IS ACTIVE"
+    }
+   ,"Source":{
+      "Location":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"14317076221320134776"
+       ,"Entry":{
+          "Sequence":10
+         ,"Display":"Active"
+         ,"Return":"Y"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"14787832928789100513"
+   ,"Identification":{
+      "Name":"REFERENCABLE"
+    }
+   ,"Source":{
+      "Location":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"14787833136020100517"
+       ,"Entry":{
+          "Sequence":10
+         ,"Display":"Yes"
+         ,"Return":"Yes"
+        }
+      }
+     ,{
+        "id":"14787833436755100521"
+       ,"Entry":{
+          "Sequence":20
+         ,"Display":"No"
+         ,"Return":"No"
+        }
+      }
+     ,{
+        "id":"14787833727633100521"
+       ,"Entry":{
+          "Sequence":30
+         ,"Display":"Potentially"
+         ,"Return":"Potentially"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"14787835144719105135"
+   ,"Identification":{
+      "Name":"MARQUEE"
+    }
+   ,"Source":{
+      "Location":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"14787835343686105135"
+       ,"Entry":{
+          "Sequence":10
+         ,"Display":"Yes"
+         ,"Return":"Y"
+        }
+      }
+     ,{
+        "id":"14787835624566105135"
+       ,"Entry":{
+          "Sequence":20
+         ,"Display":"No"
+         ,"Return":"N"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"14844370324666635129"
+   ,"Identification":{
+      "Name":"USERNAME_FORMAT"
+    }
+   ,"Source":{
+      "Location":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"14844370630963635130"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Email Address"
+         ,"Return":"EMAIL"
+        }
+      }
+     ,{
+        "id":"14844370936525635130"
+       ,"Entry":{
+          "Sequence":2
+         ,"Display":"Non-Email Address"
+         ,"Return":"STRING"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"14852869838645090511"
+   ,"Identification":{
+      "Name":"P2_INDUSTRY_ID LOOKUP"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select INDUSTRY_NAME display_value, ID return_value \nfrom EBA_CUST_INDUSTRIES\norder by 1"
+    }
+  }
+ ,{
+    "id":"14882154328909319059"
+   ,"Identification":{
+      "Name":"LABEL_TEMPLATES"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select\n    template_name || \u0027 (\u0027 || decode(theme_number, 50, \u0027Mobile Theme\u0027, 42, \u0027Desktop Theme\u0027, theme_number) || \u0027)\u0027  dv,\n    label_template_id rv\nfrom apex_application_temp_label\nwhere application_id = :APP_ID\nand theme_number = 42\norder by 1"
+    }
+  }
+ ,{
+    "id":"14893785263994968434"
+   ,"Identification":{
+      "Name":"GEOGRAPHY"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select GEOGRAPHY_NAME display_value, ID return_value \nfrom EBA_CUST_GEOGRAPHIES\norder by 1"
+    }
+  }
+ ,{
+    "id":"14893788503901989125"
+   ,"Identification":{
+      "Name":"CAT"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select category d, id r\n  from EBA_CUST_CATEGORIES\n where is_active = \u0027Y\u0027\n order by 1"
+    }
+  }
+ ,{
+    "id":"14893828822030133361"
+   ,"Identification":{
+      "Name":"MAX ROWS"
+    }
+   ,"Source":{
+      "Location":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"14893828985659133363"
+       ,"Entry":{
+          "Sequence":10
+         ,"Display":"20"
+         ,"Return":"20"
+        }
+      }
+     ,{
+        "id":"14893829323322133367"
+       ,"Entry":{
+          "Sequence":20
+         ,"Display":"50"
+         ,"Return":"50"
+        }
+      }
+     ,{
+        "id":"14893829595470133367"
+       ,"Entry":{
+          "Sequence":30
+         ,"Display":"100"
+         ,"Return":"100"
+        }
+      }
+     ,{
+        "id":"14893829915554133367"
+       ,"Entry":{
+          "Sequence":40
+         ,"Display":"200"
+         ,"Return":"200"
+        }
+      }
+     ,{
+        "id":"14893830234053133367"
+       ,"Entry":{
+          "Sequence":50
+         ,"Display":"500"
+         ,"Return":"500"
+        }
+      }
+     ,{
+        "id":"14893830494358133367"
+       ,"Entry":{
+          "Sequence":60
+         ,"Display":"1000"
+         ,"Return":"1000"
+        }
+      }
+     ,{
+        "id":"14893830798620133367"
+       ,"Entry":{
+          "Sequence":70
+         ,"Display":"All"
+         ,"Return":"100000000"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"14893834441176237959"
+   ,"Identification":{
+      "Name":"STATUS "
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select status d, id r\nfrom   EBA_CUST_STATUS\nwhere is_active = \u0027Y\u0027\norder by 1"
+    }
+  }
+ ,{
+    "id":"14985162724557285263"
+   ,"Identification":{
+      "Name":"TIMEFRAME (4 WEEKS)"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select wwv_flow_lang.system_message(\u0027N_MINUTES\u0027,\u002715\u0027) d, \ntrim(to_char(15\/(24*60),\u002700000.99999999999\u0027,\u0027NLS_NUMERIC_CHARACTERS=\u0027\u0027.,\u0027\u0027\u0027)) t from dual\nunion all \nselect wwv_flow_lang.system_message(\u0027N_MINUTES\u0027,\u002730\u0027) d, \ntrim(to_char(30\/(24*60),\u002700000.99999999999\u0027,\u0027NLS_NUMERIC_CHARACTERS=\u0027\u0027.,\u0027\u0027\u0027)) t from dual\nunion all \nselect wwv_flow_lang.system_message(\u0027N_HOUR\u0027,\u00271\u0027) d, \ntrim(to_char(1\/24,\u002700000.99999999999\u0027,\u0027NLS_NUMERIC_CHARACTERS=\u0027\u0027.,\u0027\u0027\u0027)) t from dual\nunion all \nselect wwv_flow_lang.system_message(\u0027N_MINUTES\u0027,\u002790\u0027) d, \ntrim(to_char(90\/(24*60),\u002700000.99999999999\u0027,\u0027NLS_NUMERIC_CHARACTERS=\u0027\u0027.,\u0027\u0027\u0027)) t from dual\nunion all \nselect wwv_flow_lang.system_message(\u0027N_HOURS\u0027,\u00272\u0027) d, \ntrim(to_char(1\/12,\u002700000.99999999999\u0027,\u0027NLS_NUMERIC_CHARACTERS=\u0027\u0027.,\u0027\u0027\u0027))  t from dual\nunion all \nselect wwv_flow_lang.system_message(\u0027N_HOURS\u0027,\u00273\u0027) d, \ntrim(to_char(3\/24,\u002700000.99999999999\u0027,\u0027NLS_NUMERIC_CHARACTERS=\u0027\u0027.,\u0027\u0027\u0027))  t from dual\nunion all \nselect wwv_flow_lang.system_message(\u0027N_HOURS\u0027,\u00274\u0027) d, \ntrim(to_char(4\/24,\u002700000.99999999999\u0027,\u0027NLS_NUMERIC_CHARACTERS=\u0027\u0027.,\u0027\u0027\u0027))  t from dual\nunion all \nselect wwv_flow_lang.system_message(\u0027N_HOURS\u0027,\u00275\u0027) d, \ntrim(to_char(5\/24,\u002700000.99999999999\u0027,\u0027NLS_NUMERIC_CHARACTERS=\u0027\u0027.,\u0027\u0027\u0027))  t from dual\nunion all \nselect wwv_flow_lang.system_message(\u0027N_HOURS\u0027,\u00276\u0027) d, \ntrim(to_char(6\/24,\u002700000.99999999999\u0027,\u0027NLS_NUMERIC_CHARACTERS=\u0027\u0027.,\u0027\u0027\u0027)) t from dual\nunion all \nselect wwv_flow_lang.system_message(\u0027N_HOURS\u0027,\u00278\u0027) d, \ntrim(to_char(8\/24,\u002700000.99999999999\u0027,\u0027NLS_NUMERIC_CHARACTERS=\u0027\u0027.,\u0027\u0027\u0027)) t from dual\nunion all \nselect wwv_flow_lang.system_message(\u0027N_HOURS\u0027,\u002710\u0027) d, \ntrim(to_char(10\/24,\u002700000.99999999999\u0027,\u0027NLS_NUMERIC_CHARACTERS=\u0027\u0027.,\u0027\u0027\u0027)) t from dual\nunion all \nselect wwv_flow_lang.system_message(\u0027N_HOURS\u0027,\u002712\u0027) d, \ntrim(to_char(12\/24,\u002700000.99999999999\u0027,\u0027NLS_NUMERIC_CHARACTERS=\u0027\u0027.,\u0027\u0027\u0027)) t from dual\nunion all \nselect wwv_flow_lang.system_message(\u0027N_HOURS\u0027,\u002716\u0027) d, \ntrim(to_char(16\/24,\u002700000.9999999999\u0027,\u0027NLS_NUMERIC_CHARACTERS=\u0027\u0027.,\u0027\u0027\u0027)) t from dual\nunion all \nselect wwv_flow_lang.system_message(\u0027N_DAY\u0027,\u00271\u0027) d, trim(to_char(1,\u002700000.9999999999\u0027)) t from dual\nunion all \nselect wwv_flow_lang.system_message(\u0027N_DAYS\u0027,\u00272\u0027) d, trim(to_char(2,\u002700000.9999999999\u0027)) t from dual\nunion all \nselect wwv_flow_lang.system_message(\u0027N_DAYS\u0027,\u00273\u0027) d, trim(to_char(3,\u002700000.9999999999\u0027)) t from dual\nunion all \nselect wwv_flow_lang.system_message(\u0027N_DAYS\u0027,\u00274\u0027) d, trim(to_char(4,\u002700000.9999999999\u0027)) t from dual\nunion all \nselect wwv_flow_lang.system_message(\u0027N_DAYS\u0027,\u00275\u0027) d, trim(to_char(5,\u002700000.9999999999\u0027)) t from dual\nunion all \nselect wwv_flow_lang.system_message(\u0027N_WEEK\u0027,\u00271\u0027) d, trim(to_char(7,\u002700000.9999999999\u0027)) t from dual\nunion all \nselect wwv_flow_lang.system_message(\u0027N_WEEKS\u0027,\u00272\u0027) d, trim(to_char(14,\u002700000.9999999999\u0027)) t from dual\nunion all \nselect wwv_flow_lang.system_message(\u0027N_WEEKS\u0027,\u00273\u0027) d, trim(to_char(21,\u002700000.9999999999\u0027)) t from dual\nunion all \nselect wwv_flow_lang.system_message(\u0027N_WEEKS\u0027,\u00274\u0027) d, trim(to_char(28,\u002700000.9999999999\u0027)) t from dual\norder by 2"
+    }
+  }
+ ,{
+    "id":"15073149819818168241"
+   ,"Identification":{
+      "Name":"LOGO SIZES"
+    }
+   ,"Source":{
+      "Location":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"15073150116012168243"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Small"
+         ,"Return":"S"
+        }
+      }
+     ,{
+        "id":"15073150518740168244"
+       ,"Entry":{
+          "Sequence":2
+         ,"Display":"Medium"
+         ,"Return":"M"
+        }
+      }
+     ,{
+        "id":"15073150964200168245"
+       ,"Entry":{
+          "Sequence":3
+         ,"Display":"Large"
+         ,"Return":"L"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"15670880632026549329"
+   ,"Identification":{
+      "Name":"REFERENCE_TYPES"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select reference_type d, id r\nfrom eba_cust_reference_types\nwhere is_active = \u0027Y\u0027\norder by upper(reference_type)"
+    }
+  }
+ ,{
+    "id":"15715462531865446697"
+   ,"Identification":{
+      "Name":"DATA_LOAD_OPTION"
+    }
+   ,"Source":{
+      "Location":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"15715462817312446698"
+       ,"Entry":{
+          "Sequence":10
+         ,"Display":"Upload file, comma separated (*.csv) or tab delimited"
+         ,"Return":"UPLOAD"
+        }
+      }
+     ,{
+        "id":"15715463018372446699"
+       ,"Entry":{
+          "Sequence":20
+         ,"Display":"Copy and Paste"
+         ,"Return":"PASTE"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"15715465032349446703"
+   ,"Identification":{
+      "Name":"FIRST_ROW_OPTION"
+    }
+   ,"Source":{
+      "Location":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"15715465336690446703"
+       ,"Entry":{
+          "Sequence":10
+         ,"Display":"Yes"
+         ,"Return":"Y"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"15719670033206442554"
+   ,"Identification":{
+      "Name":"ACCESS_LEVELS"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select access_level d, id r\n  from eba_cust_access_levels\n order by 1"
+    }
+  }
+ ,{
+    "id":"15828686316774935897"
+   ,"Identification":{
+      "Name":"LOV_DATALOAD_CUSTOMERS"
+    }
+   ,"Source":{
+      "Location":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"15828687186764935904"
+       ,"Entry":{
+          "Sequence":30
+         ,"Display":"Category"
+         ,"Return":"CATEGORY_ID"
+        }
+      }
+     ,{
+        "id":"15828695228805935910"
+       ,"Entry":{
+          "Sequence":10
+         ,"Display":"Customer Name"
+         ,"Return":"CUSTOMER_NAME"
+        }
+      }
+     ,{
+        "id":"15828696457247935910"
+       ,"Entry":{
+          "Sequence":250
+         ,"Display":"Customer Profile"
+         ,"Return":"CUSTOMER_PROFILE"
+        }
+      }
+     ,{
+        "id":"15828697248727935911"
+       ,"Entry":{
+          "Sequence":210
+         ,"Display":"DUNS #"
+         ,"Return":"DUNS"
+        }
+      }
+     ,{
+        "id":"15828697610921935911"
+       ,"Entry":{
+          "Sequence":250
+         ,"Display":"Facebook"
+         ,"Return":"FACEBOOK"
+        }
+      }
+     ,{
+        "id":"15828697995403935911"
+       ,"Entry":{
+          "Sequence":40
+         ,"Display":"Geography"
+         ,"Return":"GEOGRAPHY_ID"
+        }
+      }
+     ,{
+        "id":"15828698465337935912"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Unique ID"
+         ,"Return":"ID"
+        }
+      }
+     ,{
+        "id":"15828698841483935912"
+       ,"Entry":{
+          "Sequence":50
+         ,"Display":"Industry"
+         ,"Return":"INDUSTRY_ID"
+        }
+      }
+     ,{
+        "id":"15828699219402935914"
+       ,"Entry":{
+          "Sequence":240
+         ,"Display":"LinkedIn"
+         ,"Return":"LINKEDIN"
+        }
+      }
+     ,{
+        "id":"15828699588329935914"
+       ,"Entry":{
+          "Sequence":80
+         ,"Display":"Marque Customer Y\/N"
+         ,"Return":"MARQUEE_CUSTOMER_YN"
+        }
+      }
+     ,{
+        "id":"15828699997514935914"
+       ,"Entry":{
+          "Sequence":90
+         ,"Display":"Number of Users"
+         ,"Return":"NUMBER_OF_USERS"
+        }
+      }
+     ,{
+        "id":"15828700453920935914"
+       ,"Entry":{
+          "Sequence":70
+         ,"Display":"Referenceable Y\/N"
+         ,"Return":"REFERENCABLE"
+        }
+      }
+     ,{
+        "id":"15828701665506935916"
+       ,"Entry":{
+          "Sequence":220
+         ,"Display":"SIC"
+         ,"Return":"SIC"
+        }
+      }
+     ,{
+        "id":"15828702019722935916"
+       ,"Entry":{
+          "Sequence":20
+         ,"Display":"Status"
+         ,"Return":"STATUS_ID"
+        }
+      }
+     ,{
+        "id":"15828702472751935916"
+       ,"Entry":{
+          "Sequence":200
+         ,"Display":"Stock Symbol"
+         ,"Return":"STOCK_SYMBOL"
+        }
+      }
+     ,{
+        "id":"15828702838321935917"
+       ,"Entry":{
+          "Sequence":100
+         ,"Display":"Summary"
+         ,"Return":"SUMMARY"
+        }
+      }
+     ,{
+        "id":"15828703271894935917"
+       ,"Entry":{
+          "Sequence":60
+         ,"Display":"Tags"
+         ,"Return":"TAGS"
+        }
+      }
+     ,{
+        "id":"15828703625439935917"
+       ,"Entry":{
+          "Sequence":260
+         ,"Display":"Twitter"
+         ,"Return":"TWITTER"
+        }
+      }
+     ,{
+        "id":"15828704827973935918"
+       ,"Entry":{
+          "Sequence":230
+         ,"Display":"Web Site"
+         ,"Return":"WEB_SITE"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"15873219333768154393"
+   ,"Identification":{
+      "Name":"REFERENCE PHASE"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select status||\u0027 - \u0027||description, id \nfrom EBA_CUST_REF_PHASE order by 1"
+    }
+  }
+ ,{
+    "id":"16338249332828059050"
+   ,"Identification":{
+      "Name":"ROWS"
+    }
+   ,"Source":{
+      "Location":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"16338249644555059053"
+       ,"Entry":{
+          "Sequence":10
+         ,"Display":"5"
+         ,"Return":"5"
+        }
+      }
+     ,{
+        "id":"16338249840750059056"
+       ,"Entry":{
+          "Sequence":20
+         ,"Display":"10"
+         ,"Return":"10"
+        }
+      }
+     ,{
+        "id":"16338250025739059056"
+       ,"Entry":{
+          "Sequence":30
+         ,"Display":"15"
+         ,"Return":"15"
+        }
+      }
+     ,{
+        "id":"16338250223502059056"
+       ,"Entry":{
+          "Sequence":40
+         ,"Display":"20"
+         ,"Return":"20"
+        }
+      }
+     ,{
+        "id":"16338250439814059056"
+       ,"Entry":{
+          "Sequence":50
+         ,"Display":"50"
+         ,"Return":"50"
+        }
+      }
+     ,{
+        "id":"16338250638450059056"
+       ,"Entry":{
+          "Sequence":60
+         ,"Display":"100"
+         ,"Return":"100"
+        }
+      }
+     ,{
+        "id":"16338250830574059056"
+       ,"Entry":{
+          "Sequence":70
+         ,"Display":"500"
+         ,"Return":"500"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"16376109230207865019"
+   ,"Identification":{
+      "Name":"NOTIFICATION TYPE"
+    }
+   ,"Source":{
+      "Location":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"16376109522239865021"
+       ,"Entry":{
+          "Sequence":10
+         ,"Display":"Alert (Yellow)"
+         ,"Return":"YELLOW"
+        }
+      }
+     ,{
+        "id":"16376109747869865022"
+       ,"Entry":{
+          "Sequence":20
+         ,"Display":"Error (Red)"
+         ,"Return":"RED"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"16614853248884942104"
+   ,"Identification":{
+      "Name":"ACCESS CONTROL SCOPE"
+    }
+   ,"Source":{
+      "Location":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"14810043427063185373"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Reader access for any authenticated user"
+         ,"Return":"PUBLIC_READONLY"
+        }
+      }
+     ,{
+        "id":"14810043740521185373"
+       ,"Entry":{
+          "Sequence":2
+         ,"Display":"Contributor access for any authenticated user"
+         ,"Return":"PUBLIC_CONTRIBUTE"
+        }
+      }
+     ,{
+        "id":"14810044047679185373"
+       ,"Entry":{
+          "Sequence":3
+         ,"Display":"Restricted to users defined in access control list"
+         ,"Return":"ACL_ONLY"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"16619116140105219120"
+   ,"Identification":{
+      "Name":"CONTACTS"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select name d, id r\nfrom   eba_cust_contacts\norder by 1"
+    }
+  }
+ ,{
+    "id":"16619949327825859798"
+   ,"Identification":{
+      "Name":"CUSTOMERS"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select customer_name d, id r \nfrom EBA_CUST_CUSTOMERS\norder by upper(customer_name)"
+    }
+  }
+ ,{
+    "id":"16623025042683606204"
+   ,"Identification":{
+      "Name":"AVAILABLE_PRODUCTS"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select product_name d, id r\nfrom   eba_cust_products\norder by 1"
+    }
+  }
+ ,{
+    "id":"16623882927817297243"
+   ,"Identification":{
+      "Name":"CONTACT TYPES"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select contact_type d, id r\n  from EBA_CUST_CONTACT_TYPES\n where is_active = \u0027Y\u0027\norder by 1"
+    }
+  }
+ ,{
+    "id":"16624480522320142367"
+   ,"Identification":{
+      "Name":"P50_PRODUCT"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select product_name d, id r\nfrom   eba_cust_products\nwhere id not in (select product_id\nfrom eba_cust_product_uses\nwhere customer_id = :P50_ID)\norder by 1"
+    }
+  }
+ ,{
+    "id":"16624497227477191119"
+   ,"Identification":{
+      "Name":"P68_PRODUCT"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select product_name d, id r\nfrom   eba_cust_products\nwhere id = :P68_PRODUCT_ID\norder by 1"
+    }
+  }
+ ,{
+    "id":"16901712926620851452"
+   ,"Identification":{
+      "Name":"COUNTRIES"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select country_name as d,\n       id as r\n  from EBA_CUST_COUNTRIES\n where display_yn = \u0027Y\u0027\n order by 1"
+    }
+  }
+ ,{
+    "id":"16960032275999277784"
+   ,"Identification":{
+      "Name":"PRODUCTS"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select product_name as d,\n       id as r\n  from EBA_CUST_PRODUCTS\n order by 1"
+    }
+  }
+ ,{
+    "id":"17070263972513584655"
+   ,"Identification":{
+      "Name":"TYPE"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select type d, id r\nfrom   EBA_CUST_TYPE\nwhere is_active = \u0027Y\u0027\norder by 1"
+    }
+  }
+ ,{
+    "id":"17156523483716946751"
+   ,"Identification":{
+      "Name":"USE_CASE"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select use_case d, id r\nfrom   EBA_CUST_USE_CASE\nwhere is_active = \u0027Y\u0027\norder by 1"
+    }
+  }
+ ,{
+    "id":"17337855703088069091"
+   ,"Identification":{
+      "Name":"COUNTRIES_P2"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select country_name as d,\n       id as r\n  from EBA_CUST_COUNTRIES\n where display_yn = \u0027Y\u0027\n   and region_id = :P2_GEOGRAPHY_ID\n order by 1"
+    }
+  }
+ ,{
+    "id":"17422725866108985090"
+   ,"Identification":{
+      "Name":"COUNTRIES_P59"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select country_name as d,\n       id as r\n  from EBA_CUST_COUNTRIES\n where display_yn = \u0027Y\u0027\n   and (\n           (nvl(:P59_GEO,0) = 0 and id is not null)\n           or\n           (nvl(:P59_GEO,0)  \u003E 0 and region_id = :P59_GEO)\n       )\n order by 1"
+    }
+  }
+ ,{
+    "id":"17791747518383030377"
+   ,"Identification":{
+      "Name":"PRODUCT FAMILIES"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select name d, id r\nfrom eba_cust_product_families\norder by lower(name)"
+    }
+  }
+ ,{
+    "id":"17824103258041495635"
+   ,"Identification":{
+      "Name":"UPLOAD_ACTION"
+    }
+   ,"Source":{
+      "Location":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"17824103451399495639"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Insert"
+         ,"Return":"INSERT"
+        }
+      }
+     ,{
+        "id":"17824103638958495644"
+       ,"Entry":{
+          "Sequence":2
+         ,"Display":"Update"
+         ,"Return":"UPDATE"
+        }
+      }
+     ,{
+        "id":"17824103846691495644"
+       ,"Entry":{
+          "Sequence":3
+         ,"Display":"No Change"
+         ,"Return":"NOTHING"
+        }
+       ,"Server-side Condition":{
+          "Type":"Current Page != Page"
+         ,"Page":"35"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"17829320124639140050"
+   ,"Identification":{
+      "Name":"Report Row Per Page"
+    }
+   ,"Source":{
+      "Location":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"17829320210146140064"
+       ,"Entry":{
+          "Sequence":10
+         ,"Display":"10"
+         ,"Return":"10"
+        }
+      }
+     ,{
+        "id":"17829320315806140068"
+       ,"Entry":{
+          "Sequence":20
+         ,"Display":"15"
+         ,"Return":"15"
+        }
+      }
+     ,{
+        "id":"17829320409370140068"
+       ,"Entry":{
+          "Sequence":30
+         ,"Display":"20"
+         ,"Return":"20"
+        }
+      }
+     ,{
+        "id":"17829320507664140068"
+       ,"Entry":{
+          "Sequence":40
+         ,"Display":"30"
+         ,"Return":"30"
+        }
+      }
+     ,{
+        "id":"17829320613145140068"
+       ,"Entry":{
+          "Sequence":50
+         ,"Display":"50"
+         ,"Return":"50"
+        }
+      }
+     ,{
+        "id":"17829320697778140070"
+       ,"Entry":{
+          "Sequence":60
+         ,"Display":"100"
+         ,"Return":"100"
+        }
+      }
+     ,{
+        "id":"17829320807755140070"
+       ,"Entry":{
+          "Sequence":70
+         ,"Display":"200"
+         ,"Return":"200"
+        }
+      }
+     ,{
+        "id":"17829320910696140070"
+       ,"Entry":{
+          "Sequence":80
+         ,"Display":"500"
+         ,"Return":"500"
+        }
+      }
+     ,{
+        "id":"17829321000830140070"
+       ,"Entry":{
+          "Sequence":90
+         ,"Display":"1000"
+         ,"Return":"1000"
+        }
+      }
+     ,{
+        "id":"17829321102600140070"
+       ,"Entry":{
+          "Sequence":100
+         ,"Display":"5000"
+         ,"Return":"5000"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"17829340821431652279"
+   ,"Identification":{
+      "Name":"STATUSES"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select status d, id r\nfrom   EBA_CUST_STATUS\norder by 1"
+    }
+  }
+ ,{
+    "id":"17831456739552151139"
+   ,"Identification":{
+      "Name":"Y_OR_N"
+    }
+   ,"Source":{
+      "Location":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"17831456947736151149"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Yes"
+         ,"Return":"Y"
+        }
+      }
+     ,{
+        "id":"17831457157938151158"
+       ,"Entry":{
+          "Sequence":2
+         ,"Display":"No"
+         ,"Return":"N"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"17832479541011107091"
+   ,"Identification":{
+      "Name":"DATA_LOAD_TAB_STATUS"
+    }
+   ,"Source":{
+      "Location":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"17832479750193107098"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Enable"
+         ,"Return":"ENABLE"
+        }
+      }
+     ,{
+        "id":"17832479936443107104"
+       ,"Entry":{
+          "Sequence":2
+         ,"Display":"Disable"
+         ,"Return":"DISABLE"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"17832848554693498941"
+   ,"Identification":{
+      "Name":"EBA_CUST_TABLES"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select table_name d, table_name r\nfrom   user_tables\nwhere table_name like \u0027EBA_CUST_%\u0027\norder by 1"
+    }
+  }
+ ,{
+    "id":"17857011566090988621"
+   ,"Identification":{
+      "Name":"ACTIVE_CATEGORIES_P2"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select category d, id r\n  from EBA_CUST_CATEGORIES\n where is_active = \u0027Y\u0027\n    or ID = :P2_CATEGORY_ID\n order by 1"
+    }
+  }
+ ,{
+    "id":"17857011963707988621"
+   ,"Identification":{
+      "Name":"ACTIVE_CONTACT_TYPES_P20"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select contact_type d, id r\n  from EBA_CUST_CONTACT_TYPES\n where is_active = \u0027Y\u0027\n    or ID = :P20_CONTACT_TYPE_ID\norder by 1"
+    }
+  }
+ ,{
+    "id":"17857012151281988621"
+   ,"Identification":{
+      "Name":"ACTIVE_STATUSES_P2"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select status d, id r\nfrom   EBA_CUST_STATUS\nwhere is_active = \u0027Y\u0027\n   or id = :P2_STATUS_ID\norder by 1"
+    }
+  }
+ ,{
+    "id":"17857973409214235626"
+   ,"Identification":{
+      "Name":"LINK_TYPES"
+    }
+   ,"Source":{
+      "Location":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"17826819870665770573"
+       ,"Entry":{
+          "Sequence":10
+         ,"Display":"Other"
+         ,"Return":"OTH"
+        }
+      }
+     ,{
+        "id":"17857973697583235639"
+       ,"Entry":{
+          "Sequence":5
+         ,"Display":"Word Document"
+         ,"Return":"DOC"
+        }
+      }
+     ,{
+        "id":"17857973899262235639"
+       ,"Entry":{
+          "Sequence":3
+         ,"Display":"PDF Document"
+         ,"Return":"PDF"
+        }
+      }
+     ,{
+        "id":"17857974089213235639"
+       ,"Entry":{
+          "Sequence":2
+         ,"Display":"HTML Page"
+         ,"Return":"HTM"
+        }
+      }
+     ,{
+        "id":"17857974290646235639"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Excel Worksheet"
+         ,"Return":"EXL"
+        }
+      }
+     ,{
+        "id":"17857974505918235639"
+       ,"Entry":{
+          "Sequence":4
+         ,"Display":"Text Document"
+         ,"Return":"TXT"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"17978748397321288278"
+   ,"Identification":{
+      "Name":"SHOW CUSTOMER VIEWS CHECKBOX"
+    }
+   ,"Source":{
+      "Location":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"17978748806740288282"
+       ,"Entry":{
+          "Sequence":10
+         ,"Display":"Show Customer Views"
+         ,"Return":"Y"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"18162509785260472619"
+   ,"Identification":{
+      "Name":"DATE_FORMAT_OPTION"
+    }
+   ,"Source":{
+      "Location":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"18162510117468472622"
+       ,"Entry":{
+          "Sequence":10
+         ,"Display":"Yes"
+         ,"Return":"Y"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"18162511395233472627"
+   ,"Identification":{
+      "Name":"DATA_LOAD_CHARSET"
+    }
+   ,"Source":{
+      "Location":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"18162511805855472628"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Unicode UTF-16 Little Endian"
+         ,"Return":"utf-16le"
+        }
+      }
+     ,{
+        "id":"18162512166831472628"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Unicode UTF-16 Big Endian"
+         ,"Return":"utf-16be"
+        }
+      }
+     ,{
+        "id":"18162512550894472628"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"US-ASCII"
+         ,"Return":"us-ascii"
+        }
+      }
+     ,{
+        "id":"18162512952552472629"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Arabic ISO-8859-6"
+         ,"Return":"iso-8859-6"
+        }
+      }
+     ,{
+        "id":"18162513385920472629"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Arabic Windows 1256"
+         ,"Return":"windows-1256"
+        }
+      }
+     ,{
+        "id":"18162513738303472629"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Chinese Big5"
+         ,"Return":"big5"
+        }
+      }
+     ,{
+        "id":"18162514118194472629"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Chinese GBK"
+         ,"Return":"gbk"
+        }
+      }
+     ,{
+        "id":"18162514557089472630"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Cyrilic ISO-8859-5"
+         ,"Return":"iso-8859-5"
+        }
+      }
+     ,{
+        "id":"18162514938560472630"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Cyrilic KOI8-R"
+         ,"Return":"koi8-r"
+        }
+      }
+     ,{
+        "id":"18162515353539472630"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Cyrilic KOI8-U"
+         ,"Return":"koi8-u"
+        }
+      }
+     ,{
+        "id":"18162515786882472631"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Cyrilic Windows 1251"
+         ,"Return":"windows-1251"
+        }
+      }
+     ,{
+        "id":"18162516189373472631"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Eastern European ISO-8859-2"
+         ,"Return":"iso-8859-2"
+        }
+      }
+     ,{
+        "id":"18162516538640472631"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Eastern European Windows 1250"
+         ,"Return":"windows-1250"
+        }
+      }
+     ,{
+        "id":"18162516948635472631"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Greek ISO-8859-7"
+         ,"Return":"iso-8859-7"
+        }
+      }
+     ,{
+        "id":"18162517372617472632"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Greek Windows 1253"
+         ,"Return":"windows-1253"
+        }
+      }
+     ,{
+        "id":"18162517737690472632"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Hebrew ISO-8859-8-i"
+         ,"Return":"iso-8859-8-i"
+        }
+      }
+     ,{
+        "id":"18162518118393472632"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Hebrew Windows 1255"
+         ,"Return":"windows-1255"
+        }
+      }
+     ,{
+        "id":"18162518588859472632"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Japanese EUC"
+         ,"Return":"euc-jp"
+        }
+      }
+     ,{
+        "id":"18162518916262472633"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Japanese Shift JIS"
+         ,"Return":"shift_jis"
+        }
+      }
+     ,{
+        "id":"18162519368919472633"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Korean EUC"
+         ,"Return":"euc-kr"
+        }
+      }
+     ,{
+        "id":"18162519800730472633"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Northern European ISO-8859-4"
+         ,"Return":"iso-8859-4"
+        }
+      }
+     ,{
+        "id":"18162520193679472634"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Northern European Windows 1257"
+         ,"Return":"windows-1257"
+        }
+      }
+     ,{
+        "id":"18162520592023472634"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Southern European ISO-8859-3"
+         ,"Return":"iso-8859-3"
+        }
+      }
+     ,{
+        "id":"18162520981928472635"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Thai TIS-620"
+         ,"Return":"tis-620"
+        }
+      }
+     ,{
+        "id":"18162521389060472635"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Turkish ISO-8859-9"
+         ,"Return":"iso-8859-9"
+        }
+      }
+     ,{
+        "id":"18162521724860472636"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Turkish Windows 1254"
+         ,"Return":"windows-1254"
+        }
+      }
+     ,{
+        "id":"18162522188644472636"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Unicode UTF-8"
+         ,"Return":"utf-8"
+        }
+      }
+     ,{
+        "id":"18162522528235472636"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Vietnamese Windows 1258"
+         ,"Return":"windows-1258"
+        }
+      }
+     ,{
+        "id":"18162522962353472636"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Western European ISO-8859-1"
+         ,"Return":"iso-8859-1"
+        }
+      }
+     ,{
+        "id":"18162523396594472637"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"Western European Windows 1252"
+         ,"Return":"windows-1252"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"18174942197596899775"
+   ,"Identification":{
+      "Name":"ACTIVITY TYPES"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select name d, id r\nfrom eba_cust_activity_types\norder by lower(name)"
+    }
+  }
+ ,{
+    "id":"18174950931240903913"
+   ,"Identification":{
+      "Name":"ACTIVITIES"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select name d, id r\nfrom eba_cust_activities\norder by lower(name)"
+    }
+  }
+ ,{
+    "id":"18759788739499379691"
+   ,"Identification":{
+      "Name":"FEEDBACK TYPES"
+    }
+   ,"Source":{
+      "Location":"Local Database"
+     ,"Type":"Legacy SQL Query"
+     ,"SQL Query":"select type, id from eba_cust_feedback_types order by id"
+    }
+  }
+ ,{
+    "id":"18760732513670574180"
+   ,"Identification":{
+      "Name":"FEEDBACK STATUSES"
+    }
+   ,"Source":{
+      "Location":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"18760732829163574187"
+       ,"Entry":{
+          "Sequence":1
+         ,"Display":"In Progress"
+         ,"Return":"IN_PROGRESS"
+        }
+      }
+     ,{
+        "id":"18760733232508574190"
+       ,"Entry":{
+          "Sequence":2
+         ,"Display":"No Action"
+         ,"Return":"NO_ACTION"
+        }
+      }
+     ,{
+        "id":"18760733663243574190"
+       ,"Entry":{
+          "Sequence":3
+         ,"Display":"Open"
+         ,"Return":"OPEN"
+        }
+      }
+     ,{
+        "id":"18760734092901574191"
+       ,"Entry":{
+          "Sequence":4
+         ,"Display":"Resolved"
+         ,"Return":"RESOLVED"
+        }
+      }
+    ]
+  }
+]

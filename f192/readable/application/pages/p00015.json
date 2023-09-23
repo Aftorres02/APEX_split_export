@@ -1,0 +1,467 @@
+{
+  "id":"15"
+ ,"Identification":{
+    "Name":"Search Results"
+   ,"Alias":"SEARCH-RESULTS"
+   ,"Title":"Search Results"
+   ,"Page Group":"Home (14749179447365290820)"
+  }
+ ,"Appearance":{
+    "Page Mode":"Normal"
+   ,"Page Template":"Left Side Column (14888224114215691787)"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"Do not focus cursor"
+   ,"Warn on Unsaved Changes":false
+  }
+ ,"HTML Header":{
+    "HTML Header":"\u003Cstyle\u003E\nul.sSearchResultsReport span.title span.highlight {\n  background-color: #FFEA87;\n  text-decoration: underline\n  }\nul.sSearchResultsReport span.highlight {\n  background-color: #FFEA87;\n  }\n\u003C\/style\u003E"
+  }
+ ,"Security":{
+    "Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"Off"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Always"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Regions":[
+    {
+      "id":"16338247024736059038"
+     ,"Identification":{
+        "Title":"Search"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_02"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--hideHeader"
+         ,"t-Region--hiddenOverflow"
+         ,"t-Form--labelsAbove"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"16338248429577059043"
+     ,"Identification":{
+        "Title":"Search"
+       ,"Type":"PL\/SQL Dynamic Content [Legacy]"
+      }
+     ,"Source":{
+        "PL\/SQL Code":"declare\n   c pls_integer := 0;\n   l_detail varchar2(4000);\n   i pls_integer;\n   l pls_integer;\n   l_max_rows    integer;\nbegin\nl_max_rows := nvl(:P15_ROWS,10);\nif :P15_SEARCH is null\nand :P15_STATUS is null then\n   sys.htp.p(\u0027\u003Cp\u003EPlease enter at least one search condition.\u003C\/p\u003E\u0027);\nelse\n  --\n  -- PUT YOUR QUERY HERE\n  --\n  for c1 in (\nselect\n    ROW_KEY,\n    ID,\n    CUSTOMER_NAME,\n    STATUS,\n    CATEGORY,\n    GEOGRAPHY_NAME,\n    REFERENCABLE,\n    NUMBER_OF_USERS,\n    SUMMARY,\n    WEB_SITE,\n    PRODUCT_USES,\n    industry,\n    TAGS,\n    CREATED,\n    CREATED_BY,\n    UPDATED,\n    UPDATED_BY\nfrom EBA_CUST_CUSTOMERS_V\nwhere  (nvl(:P15_STATUS,0) = 0 or status_id = :P15_STATUS)\n  and (   instr(upper(CUSTOMER_NAME),upper(:P15_SEARCH)) \u003E 0 \n       or instr(upper(CATEGORY),upper(:P15_SEARCH)) \u003E 0 \n       or instr(upper(GEOGRAPHY_NAME),upper(:P15_SEARCH)) \u003E 0 \n       or instr(upper(industry),upper(:P15_SEARCH)) \u003E 0 \n       or instr(upper(SUMMARY),upper(:P15_SEARCH)) \u003E 0\n       or instr(upper(PRODUCT_USES),upper(:P15_SEARCH)) \u003E 0\n       or instr(upper(WEB_SITE),upper(:P15_SEARCH)) \u003E 0\n       or instr(upper(tags),upper(:P15_SEARCH)) \u003E 0\n       or instr(upper(status),upper(:P15_SEARCH)) \u003E 0\n       or :P15_SEARCH is null\n      )\n  ) \n  loop\n    c := c + 1;\n    if c = 1 then\n       sys.htp.p(\u0027\u003Cul class=\"sSearchResultsReport\"\u003E\u0027);\n    end if;\n    sys.htp.p(\u0027\u003Cli\u003E\u0027);\n    sys.htp.prn(\u0027\u003Cspan class=\"title\"\u003E\u0027);\n    --\n    -- DEFINE DRILL DOWN LINK HERE\n    --\n    sys.htp.prn(\u0027\u003Ca href=\"\u0027|| apex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:50:\u0027||:APP_SESSION||\u0027:::50:P50_ID:\u0027||c1.id)||\u0027\"\u003E\u0027 );\n\n    --\n    -- ASSIGN PRIMAY ATTRIBUTE HERE, REFERENCE QUERY COLUMN\n    --\n    l_detail := c1.CUSTOMER_NAME;\n    --\n    i := instr(upper(l_detail),upper(:P15_SEARCH));\n    if  i \u003E 0 then\n       l := length(:P15_SEARCH);\n       l_detail := apex_escape.html(substr(l_detail,1,i-1))||\n          \u0027\u003Cspan class=\"highlight\"\u003E\u0027||\n          apex_escape.html(substr(l_detail,i,l))||\u0027\u003C\/span\u003E\u0027||\n          apex_escape.html(substr(l_detail,i+l));\n    else\n        l_detail := apex_escape.html(l_detail);\n    end if;\n    sys.htp.prn(l_detail);                \n    sys.htp.prn(\u0027\u003C\/a\u003E\u003C\/span\u003E\u003Cbr\u003E\u0027);\n    --\n    --\n    sys.htp.prn(\u0027\u003Cspan class=\"description\"\u003E\u0027);\n    --\n    -- ASSIGN SECONDARY ATTRIBUTE HERE, REFERENCE QUERY COLUMN\n    -- \n    l_detail := \u0027Category: \u0027 || c1.CATEGORY;\n    --\n    i := instr(upper(l_detail),upper(:P15_SEARCH));\n    if  i \u003E 0 then\n       l := length(:P15_SEARCH);\n       l_detail := apex_escape.html(substr(l_detail,1,i-1))||\n          \u0027\u003Cspan class=\"highlight\"\u003E\u0027||\n          apex_escape.html(substr(l_detail,i,l))||\u0027\u003C\/span\u003E\u0027||\n          apex_escape.html(substr(l_detail,i+l));\n    else\n        l_detail := apex_escape.html(l_detail);\n    end if;\n    sys.htp.prn(l_detail);\n    sys.htp.prn(\u0027\u003C\/span\u003E\u0027);\n    --\n    -- DEFINE ADDITIONAL QUERY COLUMNS FOR SEARCH BELOW\n    --\n    sys.htp.p(\u0027\u003Cbr \/\u003E\u003Cspan class=\"type\"\u003E\u0027);\n    sys.htp.prn(\u0027Geography: \u0027);\n    sys.htp.prn(apex_escape.html(c1.GEOGRAPHY_NAME));\n    sys.htp.prn(\u0027\u003C\/span\u003E\u0027);\n    sys.htp.p(\u0027\u003Cbr \/\u003E\u003Cspan class=\"type\"\u003E\u0027);\n    sys.htp.prn(\u0027Industry: \u0027);\n    sys.htp.prn(apex_escape.html(c1.industry));\n    sys.htp.prn(\u0027\u003C\/span\u003E\u0027);\n    --\n    sys.htp.p(\u0027\u003Cbr \/\u003E\u003Cspan class=\"type\"\u003E\u0027);\n    sys.htp.prn(\u0027Status: \u0027);\n    sys.htp.prn(apex_escape.html(c1.status));\n    sys.htp.prn(\u0027\u003C\/span\u003E\u0027);\n    --\n    if c1.SUMMARY is not null then\n    sys.htp.p(\u0027\u003Cbr \/\u003E\u003Cspan class=\"type\"\u003E\u0027);\n    sys.htp.prn(\u0027Summary: \u0027);\n    sys.htp.prn(apex_escape.html(substr(c1.SUMMARY,1,300)));\n    sys.htp.prn(\u0027\u003C\/span\u003E\u0027);\n    end if;\n    --\n    if c1.PRODUCT_USES is not null then\n    sys.htp.p(\u0027\u003Cbr \/\u003E\u003Cspan class=\"type\"\u003E\u0027);\n    sys.htp.prn(\u0027Products: \u0027);\n    sys.htp.prn(apex_escape.html(c1.PRODUCT_USES));\n    sys.htp.prn(\u0027\u003C\/span\u003E\u0027);\n    end if;\n    \n    --\n    if c1.tags is not null then\n    sys.htp.p(\u0027\u003Cbr \/\u003E\u003Cspan class=\"type\"\u003E\u0027);\n    sys.htp.prn(\u0027Tags: \u0027);\n    sys.htp.prn(apex_escape.html(c1.tags));\n    sys.htp.prn(\u0027\u003C\/span\u003E\u0027);\n    end if;\n    --\n    if c1.WEB_SITE is not null then\n    sys.htp.p(\u0027\u003Cbr \/\u003E\u003Cspan class=\"type\"\u003E\u0027);\n    sys.htp.prn(\u0027Web Site: \u0027);\n    sys.htp.prn(apex_escape.html(c1.WEB_SITE));\n    sys.htp.prn(\u0027\u003C\/span\u003E\u0027);\n    end if;\n    --\n    sys.htp.prn(\u0027\u003C\/li\u003E\u0027);\n    if c = l_max_rows then\n       exit;\n    end if;\n\n  end loop;\n  if c \u003E 0 then \n    sys.htp.p(\u0027\u003C\/ul\u003E\u0027);\n    sys.htp.p(\u0027\u003Cspan class=\"infoTextRegion\"\u003E\u003Cp\u003E\u0027||c||\u0027 customer(s) found.\u003C\/p\u003E\u003C\/span\u003E\u0027);\n  else \n    sys.htp.p(\u0027\u003Cspan class=\"infoTextRegion\"\u003E\u003Cp\u003ENo customers found.\u003C\/p\u003E\u003C\/span\u003E\u0027);\n  end if;\nend if;\nend;\n\ndeclare\n   c pls_integer := 0;\n   l_detail varchar2(4000);\n   i pls_integer;\n   l pls_integer;\n   l_max_rows    integer;\nbegin\nl_max_rows := nvl(:P15_ROWS,100);\nif :P15_SEARCH is not null then\n  --\n  -- PUT YOUR QUERY HERE\n  --\n  for c1 in (\nselect \n\"ID\",\ncustomer_id,\n\"NAME\",\n\"TITLE\",\n\"PHONE\",\n\"EMAIL\",\ntags,\n\"COMPANY\",\n(select contact_type from eba_cust_contact_types t where t.id = a.contact_type_id) \"CONTACT_TYPE\",\n\"CITY\",\n\"STATE\",\n\"COUNTRY\",\nA.\"CREATED\",\nA.\"CREATED_BY\",\nA.\"UPDATED\",\nA.\"UPDATED_BY\",\n(select customer_name from eba_cust_customers c where c.id = a.customer_id) customer_name\n from   \"EBA_CUST_CONTACTS\" A  \nwhere instr(upper(NAME),upper(:P15_SEARCH)) \u003E 0 \n       or instr(upper(TITLE),upper(:P15_SEARCH)) \u003E 0 \n       or instr(upper(PHONE),upper(:P15_SEARCH)) \u003E 0\n       or instr(upper(EMAIL),upper(:P15_SEARCH)) \u003E 0\n       or instr(upper(tags),upper(:P15_SEARCH)) \u003E 0\n       or instr(upper(tags),upper(:P15_SEARCH)) \u003E 0\n       or instr(upper(COMPANY),upper(:P15_SEARCH)) \u003E 0\n       or :P15_SEARCH is null\n      )\n\n  loop\n    c := c + 1;\n    if c = 1 then\n       sys.htp.p(\u0027\u003Cul class=\"sSearchResultsReport\"\u003E\u0027);\n    end if;\n    sys.htp.p(\u0027\u003Cli\u003E\u0027);\n    sys.htp.prn(\u0027\u003Cspan class=\"title\"\u003E\u0027);\n    --\n    -- DEFINE DRILL DOWN LINK HERE\n    --\n    sys.htp.prn(\u0027\u003Ca href=\"\u0027|| apex_util.prepare_url(\u0027f?p=\u0027||:APP_ID||\u0027:50:\u0027||:APP_SESSION||\u0027:::50:P50_ID:\u0027||c1.id)||\u0027\"\u003E\u0027 );\n\n    --\n    -- ASSIGN PRIMAY ATTRIBUTE HERE, REFERENCE QUERY COLUMN\n    --\n    l_detail := c1.NAME;\n    --\n    i := instr(upper(l_detail),upper(:P15_SEARCH));\n    if  i \u003E 0 then\n       l := length(:P15_SEARCH);\n       l_detail := apex_escape.html(substr(l_detail,1,i-1))||\n          \u0027\u003Cspan class=\"highlight\"\u003E\u0027||\n          apex_escape.html(substr(l_detail,i,l))||\u0027\u003C\/span\u003E\u0027||\n          apex_escape.html(substr(l_detail,i+l));\n    else\n        l_detail := apex_escape.html(l_detail);\n    end if;\n    sys.htp.prn(l_detail);                \n    sys.htp.prn(\u0027\u003C\/a\u003E\u003C\/span\u003E\u0027);\n    --\n    --\n    sys.htp.prn(\u0027\u003Cspan class=\"description\"\u003E\u0027);\n    --\n    -- ASSIGN SECONDARY ATTRIBUTE HERE, REFERENCE QUERY COLUMN\n    -- \n    l_detail := c1.COMPANY;\n    --\n    i := instr(upper(l_detail),upper(:P15_SEARCH));\n    if  i \u003E 0 then\n       l := length(:P15_SEARCH);\n       l_detail := apex_escape.html(substr(l_detail,1,i-1))||\n          \u0027\u003Cspan class=\"highlight\"\u003E\u0027||\n          apex_escape.html(substr(l_detail,i,l))||\u0027\u003C\/span\u003E\u0027||\n          apex_escape.html(substr(l_detail,i+l));\n    else\n        l_detail := apex_escape.html(l_detail);\n    end if;\n    sys.htp.prn(l_detail);\n    sys.htp.prn(\u0027\u003C\/span\u003E\u0027);\n    --\n    -- DEFINE ADDITIONAL QUERY COLUMNS FOR SEARCH BELOW\n    --\n    sys.htp.p(\u0027\u003Cspan class=\"type\"\u003E\u0027);\n    sys.htp.prn(\u0027Email: \u0027);\n    sys.htp.prn(apex_escape.html(c1.email));\n    sys.htp.prn(\u0027\u003C\/span\u003E\u0027);\n    --\n    sys.htp.p(\u0027\u003Cbr \/\u003E\u003Cspan class=\"type\"\u003E\u0027);\n    sys.htp.prn(\u0027Title: \u0027);\n    sys.htp.prn(apex_escape.html(c1.TITLE));\n    sys.htp.prn(\u0027\u003C\/span\u003E\u0027);\n    --\n    if c1.phone is not null then\n    sys.htp.p(\u0027\u003Cbr \/\u003E\u003Cspan class=\"type\"\u003E\u0027);\n    sys.htp.prn(\u0027Phone: \u0027);\n    sys.htp.prn(apex_escape.html(c1.phone));\n    sys.htp.prn(\u0027\u003C\/span\u003E\u0027);\n    end if;\n    --\n    if c1.tags is not null then\n    sys.htp.p(\u0027\u003Cbr \/\u003E\u003Cspan class=\"type\"\u003E\u0027);\n    sys.htp.prn(\u0027Tags: \u0027);\n    sys.htp.prn(apex_escape.html(c1.tags));\n    sys.htp.prn(\u0027\u003C\/span\u003E\u0027);\n    end if;\n    --\n    if c1.contact_type is not null then\n    sys.htp.p(\u0027\u003Cbr \/\u003E\u003Cspan class=\"type\"\u003E\u0027);\n    sys.htp.prn(\u0027Contact Type: \u0027);\n    sys.htp.prn(apex_escape.html(c1.contact_type));\n    sys.htp.prn(\u0027\u003C\/span\u003E\u0027);\n    end if;\n    --\n    sys.htp.prn(\u0027\u003C\/li\u003E\u0027);\n    if c = l_max_rows then\n       exit;\n    end if;\n\n  end loop;\n  if c \u003E 0 then \n    sys.htp.p(\u0027\u003C\/ul\u003E\u0027);\n    sys.htp.p(\u0027\u003Cspan class=\"infoTextRegion\"\u003E\u003Cp\u003E\u0027||c||\u0027 contact(s) found.\u003C\/p\u003E\u003C\/span\u003E\u0027);\n  else \n    sys.htp.p(\u0027\u003Cspan class=\"infoTextRegion\"\u003E\u003Cp\u003ENo contacts found.\u003C\/p\u003E\u003C\/span\u003E\u0027);\n  end if;\nend if;\nend;"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (14888264683728691846)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--hideHeader"
+         ,"t-Region--hiddenOverflow"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+    }
+   ,{
+      "id":"16338248635034059044"
+     ,"Identification":{
+        "Title":"Breadcrumb"
+       ,"Type":"Breadcrumb"
+      }
+     ,"Source":{
+        "Breadcrumb":"Breadcrumb (17869143586620226407)"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_01"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Title Bar (14888267217215691848)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-BreadcrumbRegion--useBreadcrumbTitle"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":true
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "Breadcrumb Template":"Breadcrumb (14888282717314691893)"
+         ,"Template Options":[
+            "#DEFAULT#"
+          ]
+        }
+      }
+    }
+  ]
+ ,"Page Items":[
+    {
+      "id":"16338247646486059040"
+     ,"Identification":{
+        "Name":"P15_ROWS"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Results"
+       ,"Alignment":"Above "
+      }
+     ,"Settings":{
+        "Page Action on Selection":"Submit Page"
+       ,"Execute Validations":true
+      }
+     ,"Layout":{
+        "Sequence":40
+       ,"Region":"Search (16338247024736059038)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left center"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"ROWS (16338249332828059050)"
+       ,"Display Extra Values":false
+       ,"Display Null Value":false
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Static Value"
+       ,"Static Value":"100"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Default":{
+        "Type":"Static"
+       ,"Static Value":"100"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"Blocklist HTML command characters (\u003C\u003E\")"
+      }
+    }
+   ,{
+      "id":"16338248023317059042"
+     ,"Identification":{
+        "Name":"P15_SEARCH"
+       ,"Type":"Text Field"
+      }
+     ,"Label":{
+        "Label":"Search"
+       ,"Alignment":"Above "
+      }
+     ,"Settings":{
+        "Subtype":"Text"
+       ,"Trim Spaces":"None"
+       ,"Text Case":"NO CHANGE"
+       ,"Submit when Enter pressed":true
+       ,"Disabled":false
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Search (16338247024736059038)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left center"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Hidden (14888281412990691885)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Form-fieldContainer--large"
+        ]
+       ,"Icon":"fa-search"
+       ,"Width":64
+       ,"Value Placeholder":"Search"
+      }
+     ,"Validation":{
+        "Value Required":false
+       ,"Maximum Length":4000
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Static Value"
+       ,"Static Value":"\u0026P100_SEARCH."
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"Blocklist HTML command characters (\u003C\u003E\")"
+      }
+    }
+   ,{
+      "id":"16338248243875059042"
+     ,"Identification":{
+        "Name":"P15_STATUS"
+       ,"Type":"Select List"
+      }
+     ,"Label":{
+        "Label":"Status"
+       ,"Alignment":"Above "
+      }
+     ,"Settings":{
+        "Page Action on Selection":"Submit Page"
+       ,"Execute Validations":true
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Region":"Search (16338247024736059038)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left center"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional (14888281543517691887)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Height":1
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"STATUSES (17829340821431652279)"
+       ,"Display Extra Values":true
+       ,"Display Null Value":true
+       ,"Null Display Value":"- All Status Codes -"
+       ,"Null Return Value":"0"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Null"
+       ,"Used":"Only when current value in session state is null"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Quick Picks":{
+        "Show Quick Picks":false
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"Blocklist HTML command characters (\u003C\u003E\")"
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"16338247244927059038"
+     ,"Identification":{
+        "Button Name":"SEARCH"
+       ,"Label":"Search"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Breadcrumb (16338248635034059044)"
+       ,"Position":"NEXT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Submit Page"
+       ,"Execute Validations":true
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+   ,{
+      "id":"16338247420929059040"
+     ,"Identification":{
+        "Button Name":"RESET_REPORT"
+       ,"Label":"Reset"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Breadcrumb (16338248635034059044)"
+       ,"Position":"NEXT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text with Icon (14888281958145691891)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--iconLeft"
+        ]
+       ,"Icon":"fa-undo-alt"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:15:\u0026SESSION.::\u0026DEBUG.:2,1,15::"
+         ,"Page":"15"
+         ,"Clear Cache":"2,1,15"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+  ]
+ ,"Branches":[
+    {
+      "id":"16338249246161059048"
+     ,"Identification":{
+        "Name":"Go To Page 15"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"After Processing"
+      }
+     ,"Behavior":{
+        "Type":"Page or URL (Redirect)"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:15:\u0026SESSION.::\u0026DEBUG.:::"
+         ,"Page":"15"
+        }
+      }
+     ,"Comments":{
+        "Comments":"Created 14-DEC-2011 09:16 by SHAKEEB"
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+    "id": "2",
+    "Identification": {
+        "Name": "Customer Details",
+        "Alias": "CUSTOMER-DETAILS",
+        "Title": "Customer Details",
+        "Page Group": "Customers (14749179822908293214)"
+    },
+    "Appearance": {
+        "Page Mode": "Normal",
+        "Page Template": "Standard (14888221571271691783)",
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Navigation Menu": {
+        "Override User Interface Level": false
+    },
+    "Navigation": {
+        "Cursor Focus": "First item on page",
+        "Warn on Unsaved Changes": false
+    },
+    "HTML Header": {
+        "HTML Header": "<script language=\"JavaScript\" type=\"text/javascript\">\n<!--\n\n htmldb_delete_message='\"DELETE_CONFIRM_MSG\"';\n\nfunction open_url(url) {\n    window.open(url);\n    return ;\n}\n\n//-->\n</script>\n<style>\n.shuttle select {width: 350px}\n</style>"
+    },
+    "Security": {
+        "Authorization Scheme": "CONTRIBUTION RIGHTS (15995681224497193873)",
+        "Authentication": "Page Requires Authentication",
+        "Deep Linking": "Application Default",
+        "Page Access Protection": "Arguments Must Have Checksum",
+        "Form Auto Complete": "Off",
+        "Browser Cache": "Application Default"
+    },
+    "Session Management": {
+        "Rejoin Sessions": "Application Default"
+    },
+    "Advanced": {
+        "Enable duplicate page submissions": "Yes - Enable page to be re-posted",
+        "Reload on Submit": "Always"
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Help": {
+        "Help Text": "No help is available for this page."
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "id": "13571865375286207233",
+    "Identification": {
+        "Button Name": "VIEW_GEO",
+        "Label": "View Geographies"
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Region": "Customers by Geography (1134985930100235234)",
+        "Position": "EDIT",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Button Template": "Icon (14888281684153691889)",
+        "Hot": false,
+        "Template Options": [
+            "#DEFAULT#",
+            "t-Button--noUI"
+        ],
+        "Icon": "fa-chevron-right"
+    },
+    "Behavior": {
+        "Action": "Submit Page",
+        "Execute Validations": true,
+        "Warn on Unsaved Changes": "Do Not Check"
+    }
+}

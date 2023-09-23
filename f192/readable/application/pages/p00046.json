@@ -1,0 +1,157 @@
+{
+  "id":"46"
+ ,"Identification":{
+    "Name":"Application Activity"
+   ,"Alias":"APPLICATION-ACTIVITY"
+   ,"Title":"Application Activity"
+   ,"Page Group":"Reports (14749179718753291941)"
+  }
+ ,"Appearance":{
+    "Page Mode":"Normal"
+   ,"Page Template":"Theme Default"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"Do not focus cursor"
+   ,"Warn on Unsaved Changes":false
+  }
+ ,"Security":{
+    "Authorization Scheme":"CONTRIBUTION RIGHTS (15995681224497193873)"
+   ,"Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"On"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Always"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Help":{
+    "Help Text":"This is a monthly calendar of application activity, reporting distinct number of users and number of page views by day. Click the \u003Cstrong\u003E\u003C\u003C\/strong\u003E button to go to the previous month and the \u003Cstrong\u003E\u003E\u003C\/strong\u003E button to go forward a month. Switch between the calendar view to the list view by clicking the \u003Cstrong\u003Elist\u003C\/strong\u003E button."
+  }
+ ,"Regions":[
+    {
+      "id":"14995285031281094581"
+     ,"Identification":{
+        "Title":"Application Activity"
+       ,"Type":"Calendar"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"SQL Query"
+       ,"SQL Query":"select to_char(distinct_users) ||\u0027 Users \/ \u0027||\n       trim(to_char(page_events,\u0027999G999G999G990\u0027)) ||\u0027 Views\u0027  Page_Events,\n       log_day the_day\n  from apex_workspace_log_archive\n where application_id = :app_id\n union all\nselect to_char(count( distinct USERID) ) ||\u0027 Users \/ \u0027||\n       trim(to_char(count(*),\u0027999G999G999G990\u0027)) ||\u0027 Views\u0027  Page_Events,\n       trunc(time_stamp) the_day\n  from apex_activity_log l\n where flow_id = :app_id \n   and userid is not null \n   and time_stamp \u003E trunc(sysdate)\n group by trunc(time_stamp)\n"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Blank with Attributes (14888250988334691823)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Security":{
+        "Escape special characters":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Display Column":"PAGE_EVENTS"
+         ,"Start Date Column":"THE_DAY"
+         ,"Show Time":false
+         ,"Multiple Line Events":true
+         ,"Show Tooltip":true
+         ,"Additional Calendar Views":"list:navigation"
+         ,"Maximum Events \/ Day":10
+         ,"Show Weekend":true
+        }
+       ,"Performance":{
+          "Lazy Loading":true
+        }
+      }
+    }
+   ,{
+      "id":"14995287044852094599"
+     ,"Identification":{
+        "Title":"Breadcrumb"
+       ,"Type":"Breadcrumb"
+      }
+     ,"Source":{
+        "Breadcrumb":"Breadcrumb (17869143586620226407)"
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_01"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Title Bar (14888267217215691848)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-BreadcrumbRegion--useBreadcrumbTitle"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "Breadcrumb Template":"Breadcrumb (14888282717314691893)"
+         ,"Template Options":[
+            "#DEFAULT#"
+          ]
+        }
+      }
+    }
+  ]
+}

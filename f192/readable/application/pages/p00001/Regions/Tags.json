@@ -1,0 +1,69 @@
+{
+    "id": "13571873041366212727",
+    "Identification": {
+        "Title": "Tags",
+        "Type": "Tag Cloud"
+    },
+    "Source": {
+        "SQL Query": "select t.tag, t.tag_count\n  from eba_cust_tags_type_sum t\n where t.content_type = 'CUSTOMER'\n   and t.tag_count > 0\n   and exists (\n                   select null\n                     from eba_cust_customers a,\n                          eba_cust_categories b,\n                          eba_cust_status c,\n                          eba_cust_geographies d,\n                          eba_cust_type e,\n                          eba_cust_use_case f\n                    where a.category_id = b.id(+)\n                      and a.status_id = c.id(+)\n                      and a.geography_id = d.id(+)\n                      and a.type_id = e.id(+)\n                      and a.use_case_id = f.id(+)\n                      and instr(a.tags, t.tag) > 0\n                      and (:P1_SEARCH is null or\n                              instr(upper(a.customer_name),upper(:P1_SEARCH)) > 0 or\n                                         instr(upper(a.summary),upper(:P1_SEARCH)) > 0 )\n                      and (NVL(:P1_GEO,0) = 0 or :P1_GEO = a.geography_id)\n                      and (NVL(:P1_COUNTRY,0) = 0 or :P1_COUNTRY = a.country_id)\n                      and (NVL(:P1_INDUSTRY,0) = 0 or  :P1_INDUSTRY = a.industry_id)\n                      and (NVL(:P1_CATEGORY,0) = 0 or :P1_CATEGORY = a.category_id)\n                      and (NVL(:P1_STATUS,0) = 0 or :P1_STATUS = a.status_id)\n                      and (NVL(:P1_TYPE,0) = 0 or :P1_TYPE = a.type_id)\n                      and (NVL(:P1_USE_CASE,0) = 0 or :P1_USE_CASE = a.use_case_id)\n                      and (:P1_MARQUEE_CUST is null or :P1_MARQUEE_CUST = a.marquee_customer_yn)\n                      and (:P1_IMP_PARTNER is null\n                          or exists ( select null\n                                      from eba_cust_cust_partner_ref rf\n                                      where rf.customer_id = a.id\n                                          and rf.partner_id = :P1_IMP_PARTNER ))\n                      and (:P1_COMPETITOR is null\n                          or exists ( select null\n                                      from eba_cust_cust_competitor_ref rf\n                                      where rf.customer_id = a.id\n                                          and rf.competitor_id = :P1_COMPETITOR ))\n                      and (:P1_REFERENCEABLE is null or :P1_REFERENCEABLE = a.referencable)\n                      and (:P1_SCP_CUST is null or :P1_SCP_CUST = a.strategic_customer_program_yn)\n                      and (\n                          exists (select 1 from eba_cust_customer_reftype_ref r\n                          where r.customer_id = a.id and\n                                instr(':'||:P1_REFERENCE_TYPES||':',':'||reference_type_id||':') > 0)\n                          or \n                          :P1_REFERENCE_TYPES is null\n                          )\n                      and (NVL(:P1_PRODUCT,0) = 0 or exists (select null\n                                                               from eba_cust_product_uses u\n                                                              where u.CUSTOMER_ID = a.id\n                                                                and u.PRODUCT_ID = :P1_PRODUCT)\n                          )\n              )\norder by t.tag_count desc"
+    },
+    "Layout": {
+        "Sequence": 116,
+        "Parent Region": "No Parent",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Standard (14888264683728691846)",
+        "Template Options": [
+            "#DEFAULT#",
+            "js-showMaximizeButton",
+            "t-Region--hiddenOverflow"
+        ],
+        "CSS Classes": [
+            "scrollable-region"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Static ID": "CUST_TAGS",
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Server-side Condition": {
+        "Type": "Rows returned",
+        "SQL Query": "select null\n  from eba_cust_tags_type_sum\n where content_type = 'CUSTOMER'\n   and tag_count > 0"
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Not Customizable By End Users"
+    },
+    "Attributes": {
+        "Settings": {
+            "Link Target": {
+                "url": "f?p=&APP_ID.:59:&SESSION.::&DEBUG.:59,RIR:IRC_TAGS,P59_DISPLAY_AS:#TAG#,REPORT",
+                "Page": "59",
+                "Clear Cache": "59,RIR",
+                "Values": {
+                    "IRC_TAGS": "#TAG#",
+                    "P59_DISPLAY_AS": "REPORT"
+                }
+            },
+            "Maximum Tags": 35,
+            "Show Count": true
+        },
+        "Messages": {
+            "When No Data Found": "No tags found."
+        }
+    }
+}

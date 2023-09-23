@@ -1,0 +1,764 @@
+{
+  "id":"130"
+ ,"Identification":{
+    "Name":"Access Control Configuration"
+   ,"Alias":"ACCESS-CONTROL-CONFIGURATION2"
+   ,"Title":"Access Control Configuration"
+  }
+ ,"Appearance":{
+    "Page Mode":"Modal Dialog"
+   ,"Dialog Template":"Theme Default"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Dialog":{
+    "Chained":true
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"Do not focus cursor"
+   ,"Warn on Unsaved Changes":false
+  }
+ ,"Security":{
+    "Authorization Scheme":"ADMINISTRATION RIGHTS (15704753031447651527)"
+   ,"Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"Off"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Always"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Regions":[
+    {
+      "id":"1013116986131486550"
+     ,"Identification":{
+        "Title":"Buttons"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_03"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Buttons Container (14888251272274691825)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":true
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"2897821424865397842"
+     ,"Identification":{
+        "Title":"Access Control Configuration"
+       ,"Type":"Static Content"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Blank with Attributes (14888250988334691823)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+  ]
+ ,"Page Items":[
+    {
+      "id":"367921107790669651"
+     ,"Identification":{
+        "Name":"P130_AC_ENABLED"
+       ,"Type":"Switch"
+      }
+     ,"Label":{
+        "Label":"Any authenticated user may access this application"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Use Defaults":true
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Access Control Configuration (2897821424865397842)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Floating (295787000362769848)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Validation":{
+        "Value Required":true
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Function Body"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Function Body":"return eba_cust_fw.get_preference_value(\u0027ACCESS_CONTROL_ENABLED\u0027);"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Inline Help Text":"Choose \u003Cstrong\u003ENo\u003C\/strong\u003E if all users are defined in the access control list. Choose \u003Cstrong\u003EYes\u003C\/strong\u003E if authenticated users not in the access control list may also use this application."
+      }
+    }
+   ,{
+      "id":"367921458577669653"
+     ,"Identification":{
+        "Name":"P130_ACCESS_CONTROL_SCOPE"
+       ,"Type":"Radio Group"
+      }
+     ,"Label":{
+        "Label":"Treat authenticated users not in ACL as"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Number of Columns":2
+       ,"Page Action on Selection":"None"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Access Control Configuration (2897821424865397842)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Floating (295787000362769848)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Form-fieldContainer--radioButtonGroup"
+        ]
+      }
+     ,"Validation":{
+        "Value Required":false
+      }
+     ,"List of Values":{
+        "Type":"Shared Component"
+       ,"List of Values":"ACCESS CONTROL SCOPE1 (367930506465669677)"
+       ,"Display Extra Values":true
+       ,"Display Null Value":false
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"eba_cust_fw.get_preference_value(\u0027ACCESS_CONTROL_SCOPE\u0027);"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Escape special characters":true
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Inline Help Text":"This option determines the role of users that are not defined in the Access Control List (ACL).  A user with \u003Cstrong\u003EReader\u003C\/strong\u003E role can only read application data. A user with \u003Cstrong\u003EContributor\u003C\/strong\u003E role can read \u003Cstrong\u003Eand write\u003C\/strong\u003E application data."
+      }
+    }
+   ,{
+      "id":"367921856376669653"
+     ,"Identification":{
+        "Name":"P130_USERNAME_FORMAT"
+       ,"Type":"Switch"
+      }
+     ,"Label":{
+        "Label":"Use Email for Usernames"
+       ,"Alignment":"Left"
+      }
+     ,"Settings":{
+        "Use Defaults":true
+      }
+     ,"Layout":{
+        "Sequence":30
+       ,"Region":"Access Control Configuration (2897821424865397842)"
+       ,"Position":"BODY"
+       ,"Alignment":"Left"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+       ,"Label Column Span":"Page Template Default"
+      }
+     ,"Appearance":{
+        "Template":"Optional - Floating (295787000362769848)"
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Validation":{
+        "Value Required":true
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Function Body"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Function Body":"if (eba_cust_fw.get_preference_value(\u0027USERNAME_FORMAT\u0027) = \u0027EMAIL\u0027) then \n  return \u0027Y\u0027;\nelse\n  return \u0027N\u0027;\nend if;"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Unrestricted"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+     ,"Help":{
+        "Inline Help Text":"This option determines whether to use email addresses as the username format for users in the Access Control List (ACL).  This is useful when using Single Sign-On or LDAP authentication."
+      }
+    }
+   ,{
+      "id":"367922218827669657"
+     ,"Identification":{
+        "Name":"P130_HIDDEN_AC_ENABLED"
+       ,"Type":"Hidden"
+      }
+     ,"Settings":{
+        "Value Protected":true
+      }
+     ,"Layout":{
+        "Sequence":40
+       ,"Region":"Access Control Configuration (2897821424865397842)"
+       ,"Position":"BODY"
+      }
+     ,"Advanced":{
+        "Warn on Unsaved Changes":"Page Default"
+      }
+     ,"Source":{
+        "Type":"Function Body"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Function Body":"return eba_cust_fw.get_preference_value(\u0027ACCESS_CONTROL_ENABLED\u0027);"
+       ,"Used":"Always, replacing any existing value in session state"
+      }
+     ,"Session State":{
+        "Data Type":"VARCHAR2"
+       ,"Storage":"Per Session (Persistent)"
+      }
+     ,"Security":{
+        "Session State Protection":"Checksum Required - Session Level"
+       ,"Store value encrypted in session state":false
+       ,"Restricted Characters":"All characters can be saved."
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"367919939578669650"
+     ,"Identification":{
+        "Button Name":"CANCEL"
+       ,"Label":"Cancel"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Buttons (1013116986131486550)"
+       ,"Position":"PREVIOUS"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Defined by Dynamic Action"
+       ,"Execute Validations":true
+      }
+    }
+   ,{
+      "id":"367920391553669651"
+     ,"Identification":{
+        "Button Name":"SAVE"
+       ,"Label":"Apply Changes"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Region":"Buttons (1013116986131486550)"
+       ,"Position":"CREATE"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (14888282487315691892)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--gapLeft"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Defined by Dynamic Action"
+       ,"Execute Validations":true
+      }
+    }
+  ]
+ ,"Dynamic Actions":[
+    {
+      "id":"367924570563669670"
+     ,"Identification":{
+        "Name":"ENABLE ACCESS CONTROL CHANGED"
+      }
+     ,"Execution":{
+        "Sequence":10
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CHANGE"
+       ,"Selection Type":"Item(s)"
+       ,"Item(s)":[
+          "P130_AC_ENABLED"
+        ]
+      }
+     ,"Client-side Condition":{
+        "Type":"Item = Value"
+       ,"Item":"P130_AC_ENABLED"
+       ,"Value":"Y"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"367925017183669671"
+         ,"Identification":{
+            "Action":"Hide"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P130_ACCESS_CONTROL_SCOPE"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"ENABLE ACCESS CONTROL CHANGED (367924570563669670)"
+           ,"Fire When Event Result Is":"False"
+           ,"Fire on Initialization":true
+          }
+        }
+       ,{
+          "id":"367925520935669671"
+         ,"Identification":{
+            "Action":"Show"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P130_ACCESS_CONTROL_SCOPE"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"ENABLE ACCESS CONTROL CHANGED (367924570563669670)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"367925996232669671"
+     ,"Identification":{
+        "Name":"Cancel Dialog"
+      }
+     ,"Execution":{
+        "Sequence":40
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CLICK"
+       ,"Selection Type":"Button"
+       ,"Button":"CANCEL (367919939578669650)"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"367926442913669671"
+         ,"Identification":{
+            "Action":"Cancel Dialog"
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Cancel Dialog (367925996232669671)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"367926833865669672"
+     ,"Identification":{
+        "Name":"APPLY CHANGES WHEN AC ENABLED"
+      }
+     ,"Execution":{
+        "Sequence":10
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CLICK"
+       ,"Selection Type":"Button"
+       ,"Button":"SAVE (367920391553669651)"
+      }
+     ,"Client-side Condition":{
+        "Type":"JavaScript expression"
+       ,"JavaScript Expression":"($v(\u0027P130_HIDDEN_AC_ENABLED\u0027) !== $v(\u0027P130_AC_ENABLED\u0027) \u0026\u0026\n $v(\u0027P130_AC_ENABLED\u0027) === \u0027Y\u0027)"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"367927318592669672"
+         ,"Identification":{
+            "Action":"Submit Page"
+          }
+         ,"Settings":{
+            "Request \/ Button Name":"APPLY_CHANGES_AC_ENABLED"
+           ,"Show Processing":true
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"APPLY CHANGES WHEN AC ENABLED (367926833865669672)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"367927745005669672"
+     ,"Identification":{
+        "Name":"APPLY CHANGES WHEN AC DISABLED"
+      }
+     ,"Execution":{
+        "Sequence":20
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CLICK"
+       ,"Selection Type":"Button"
+       ,"Button":"SAVE (367920391553669651)"
+      }
+     ,"Client-side Condition":{
+        "Type":"JavaScript expression"
+       ,"JavaScript Expression":"($v(\u0027P130_HIDDEN_AC_ENABLED\u0027) !== $v(\u0027P130_AC_ENABLED\u0027) \u0026\u0026\n $v(\u0027P130_AC_ENABLED\u0027) === \u0027N\u0027)"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"367928250548669672"
+         ,"Identification":{
+            "Action":"Confirm"
+          }
+         ,"Settings":{
+            "Message":"Disabling Access Control means that all application features are available to any user who can authenticate. Are you sure you want to disable Access Control?"
+           ,"Style":"Default"
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"APPLY CHANGES WHEN AC DISABLED (367927745005669672)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+       ,{
+          "id":"367928735706669673"
+         ,"Identification":{
+            "Action":"Submit Page"
+          }
+         ,"Settings":{
+            "Request \/ Button Name":"APPLY_CHANGES_AC_DISABLED"
+           ,"Show Processing":true
+          }
+         ,"Execution":{
+            "Sequence":20
+           ,"Event":"APPLY CHANGES WHEN AC DISABLED (367927745005669672)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"367929112969669673"
+     ,"Identification":{
+        "Name":"APPLY CHANGES WHEN AC UNCHANGED"
+      }
+     ,"Execution":{
+        "Sequence":30
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CLICK"
+       ,"Selection Type":"Button"
+       ,"Button":"SAVE (367920391553669651)"
+      }
+     ,"Client-side Condition":{
+        "Type":"JavaScript expression"
+       ,"JavaScript Expression":"($v(\u0027P130_HIDDEN_AC_ENABLED\u0027) === $v(\u0027P130_AC_ENABLED\u0027))"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"367929625310669673"
+         ,"Identification":{
+            "Action":"Submit Page"
+          }
+         ,"Settings":{
+            "Request \/ Button Name":"APPLY_CHANGES_AC_UNCHANGED"
+           ,"Show Processing":true
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"APPLY CHANGES WHEN AC UNCHANGED (367929112969669673)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+  ]
+ ,"Processes":[
+    {
+      "id":"367922996650669669"
+     ,"Identification":{
+        "Name":"Set Username Format"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":"eba_cust_fw.set_preference_value (\n    p_preference_name  =\u003E \u0027USERNAME_FORMAT\u0027,\n    p_preference_value =\u003E case nvl(:P130_USERNAME_FORMAT,\u0027N\u0027) \n                            when \u0027Y\u0027 then \u0027EMAIL\u0027\n                            when \u0027N\u0027 then \u0027STRING\u0027 \n                          end);"
+      }
+     ,"Execution":{
+        "Sequence":50
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Error":{
+        "Display Location":"Inline in Notification"
+      }
+    }
+   ,{
+      "id":"367923387011669669"
+     ,"Identification":{
+        "Name":"ACCESS CONTROL ENABLED"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":"begin\n    eba_cust_fw.set_preference_value (\n        p_preference_name  =\u003E \u0027ACCESS_CONTROL_ENABLED\u0027,\n        p_preference_value =\u003E :P130_AC_ENABLED);\n    eba_cust_fw.set_preference_value (\n        p_preference_name  =\u003E \u0027ACCESS_CONTROL_SCOPE\u0027,\n        p_preference_value =\u003E (case \n                                   when :P130_AC_ENABLED = \u0027Y\u0027 then :P130_ACCESS_CONTROL_SCOPE\n                                   else \u0027ACL_ONLY\u0027 \n                               end) );\n\n    -- Seed user table with current user as an administrator or set the current user as administrator\n    declare\n       l_count number;\n    begin\n        select count(*) \n            into l_count \n        from eba_cust_users\n        where username = :APP_USER;\n        if l_count = 0 then\n            insert into eba_cust_users(username, access_level_id) values (:APP_USER, 3);   \n        else\n            update eba_cust_users\n            set access_level_id = 3\n            where username = :APP_USER;\n        end if;\n    end;\nend;"
+      }
+     ,"Execution":{
+        "Sequence":20
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Success Message":{
+        "Success Message":"Access Control enabled. Access to the application and its features are defined by an administrator in the \u003Ca href=\"f?p=\u0026APP_ID.:MANAGE_ACL:\u0026APP_SESSION.:::RP::\"\u003EAccess Control List\u003C\/a\u003E."
+      }
+     ,"Error":{
+        "Error Message":"Error trying to enable Access Control."
+       ,"Display Location":"Inline in Notification"
+      }
+     ,"Server-side Condition":{
+        "Type":"Request = Value"
+       ,"Value":"APPLY_CHANGES_AC_ENABLED"
+      }
+    }
+   ,{
+      "id":"367923804278669669"
+     ,"Identification":{
+        "Name":"ACCESS CONTROL DISABLED"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":"begin\n    eba_cust_fw.set_preference_value (\n        p_preference_name  =\u003E \u0027ACCESS_CONTROL_ENABLED\u0027,\n        p_preference_value =\u003E :P130_AC_ENABLED);\n    eba_cust_fw.set_preference_value (\n        p_preference_name  =\u003E \u0027ACCESS_CONTROL_SCOPE\u0027,\n        p_preference_value =\u003E (case \n                                   when :P130_AC_ENABLED = \u0027Y\u0027 then :P130_ACCESS_CONTROL_SCOPE\n                                   else \u0027ACL_ONLY\u0027 \n                               end) );\nend;"
+      }
+     ,"Execution":{
+        "Sequence":30
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Success Message":{
+        "Success Message":"Access Control disabled. All application features are now available to any user who can authenticate."
+      }
+     ,"Error":{
+        "Error Message":"Error trying to disable Access Control."
+       ,"Display Location":"Inline in Notification"
+      }
+     ,"Server-side Condition":{
+        "Type":"Request = Value"
+       ,"Value":"APPLY_CHANGES_AC_DISABLED"
+      }
+    }
+   ,{
+      "id":"367924170862669670"
+     ,"Identification":{
+        "Name":"ACCESS CONTROL UNCHANGED"
+       ,"Type":"Execute Code"
+       ,"Execution Chain":"None"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Code":"begin\n    eba_cust_fw.set_preference_value (\n        p_preference_name  =\u003E \u0027ACCESS_CONTROL_ENABLED\u0027,\n        p_preference_value =\u003E :P130_AC_ENABLED);\n    eba_cust_fw.set_preference_value (\n        p_preference_name  =\u003E \u0027ACCESS_CONTROL_SCOPE\u0027,\n        p_preference_value =\u003E (case \n                                   when :P130_AC_ENABLED = \u0027Y\u0027 then :P130_ACCESS_CONTROL_SCOPE\n                                   else \u0027ACL_ONLY\u0027 \n                               end) );\nend;"
+      }
+     ,"Execution":{
+        "Sequence":40
+       ,"Point":"Processing"
+       ,"Run Process":"Once Per Page Visit (default)"
+      }
+     ,"Success Message":{
+        "Success Message":"Access Control Configuration saved."
+      }
+     ,"Error":{
+        "Error Message":"Error trying to save Access Control Configuration."
+       ,"Display Location":"Inline in Notification"
+      }
+     ,"Server-side Condition":{
+        "Type":"Request = Value"
+       ,"Value":"APPLY_CHANGES_AC_UNCHANGED"
+      }
+    }
+  ]
+ ,"Branches":[
+    {
+      "id":"367930137623669674"
+     ,"Identification":{
+        "Name":"Back to Admin"
+      }
+     ,"Execution":{
+        "Sequence":10
+       ,"Point":"After Processing"
+      }
+     ,"Behavior":{
+        "Type":"Page or URL (Redirect)"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:12:\u0026SESSION.::\u0026DEBUG.:RP::\u0026success_msg=#SUCCESS_MSG#"
+         ,"Page":"12"
+         ,"Clear Cache":"RP"
+        }
+      }
+    }
+  ]
+}

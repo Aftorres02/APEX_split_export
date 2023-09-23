@@ -1,0 +1,324 @@
+[
+  {
+    "id":"1192161017685814451"
+   ,"Identification":{
+      "Name":"Display Row Key"
+    }
+   ,"Status":{
+      "Status":"Exclude"
+     ,"Default on Export":"Exclude"
+     ,"On Upgrade Keep Status":true
+    }
+   ,"Comments":{
+      "Comments":"Row Keys are alphanumeric unique identifiers that can be used to easily identify a specific customer.  If you wish to see these unique identifiers in the application set to Include; if you do not wish to see these unique identifiers in the application set to exclude."
+    }
+  }
+ ,{
+    "id":"1192243193879888093"
+   ,"Identification":{
+      "Name":"Discount Percentage"
+    }
+   ,"Status":{
+      "Status":"Include"
+     ,"Default on Export":"Same as Current Status"
+     ,"On Upgrade Keep Status":true
+    }
+   ,"Comments":{
+      "Comments":"Include a customer attribute that tracks discount percentage at the customer level.  Including the discount will allow this value to be displayed and edited within the application.  Excluding this attribute will hide this feature from the application."
+    }
+  }
+ ,{
+    "id":"1192243477436894204"
+   ,"Identification":{
+      "Name":"Total Contract Value (TCV)"
+    }
+   ,"Status":{
+      "Status":"Include"
+     ,"Default on Export":"Same as Current Status"
+     ,"On Upgrade Keep Status":true
+    }
+   ,"Comments":{
+      "Comments":"A status of include will expose an Total Contract Value (TCV) attribute of customers.  A status of exclude will hide the attribute."
+    }
+  }
+ ,{
+    "id":"1192244601459920962"
+   ,"Identification":{
+      "Name":"Annual Recurring Revenue (ARR)"
+    }
+   ,"Status":{
+      "Status":"Include"
+     ,"Default on Export":"Same as Current Status"
+     ,"On Upgrade Keep Status":true
+    }
+   ,"Comments":{
+      "Comments":"A status of include will expose an Annual Recurring Revenue attribute of customers.  A status of exclude will hide the attribute."
+    }
+  }
+ ,{
+    "id":"1365880821184671587"
+   ,"Identification":{
+      "Name":"Competitors"
+    }
+   ,"Status":{
+      "Status":"Include"
+     ,"Default on Export":"Same as Current Status"
+     ,"On Upgrade Keep Status":true
+    }
+   ,"Comments":{
+      "Comments":"This feature allows the tracking of competitors, and which customers they are competing against you on."
+    }
+  }
+ ,{
+    "id":"1369032409088696269"
+   ,"Identification":{
+      "Name":"Partners"
+    }
+   ,"Status":{
+      "Status":"Include"
+     ,"Default on Export":"Same as Current Status"
+     ,"On Upgrade Keep Status":true
+    }
+   ,"Comments":{
+      "Comments":"This feature allows the tracking of partners, and which customers they are working with you on."
+    }
+  }
+ ,{
+    "id":"2595223701453778803"
+   ,"Identification":{
+      "Name":"Issues"
+    }
+   ,"Status":{
+      "Status":"Include"
+     ,"Default on Export":"Same as Current Status"
+     ,"On Upgrade Keep Status":true
+    }
+   ,"Comments":{
+      "Comments":"This feature allows end-users to capture and record customer issues."
+    }
+  }
+ ,{
+    "id":"14317354550591202996"
+   ,"Identification":{
+      "Name":"Customer Referencability"
+    }
+   ,"Status":{
+      "Status":"Include"
+     ,"Default on Export":"Same as Current Status"
+     ,"On Upgrade Keep Status":true
+    }
+   ,"Comments":{
+      "Comments":"Support reference attributes at the customer level."
+    }
+  }
+ ,{
+    "id":"14317412967320277148"
+   ,"Identification":{
+      "Name":"Product Referencability"
+    }
+   ,"Status":{
+      "Status":"Include"
+     ,"Default on Export":"Same as Current Status"
+     ,"On Upgrade Keep Status":true
+    }
+   ,"Comments":{
+      "Comments":"Support reference attributes at the customer product level."
+    }
+  }
+ ,{
+    "id":"14904495615565772763"
+   ,"Identification":{
+      "Name":"Number_of_users"
+    }
+   ,"Status":{
+      "Status":"Include"
+     ,"Default on Export":"Same as Current Status"
+     ,"On Upgrade Keep Status":true
+    }
+   ,"Comments":{
+      "Comments":"Expose the number of users attribute"
+    }
+  }
+ ,{
+    "id":"14965804743347306896"
+   ,"Identification":{
+      "Name":"Content Completeness Widget"
+    }
+   ,"Status":{
+      "Status":"Include"
+     ,"Default on Export":"Same as Current Status"
+     ,"On Upgrade Keep Status":true
+    }
+   ,"Comments":{
+      "Comments":"This build option controls whether the \"Content Completeness\" plugin region is displayed on the Customer details page or not."
+    }
+  }
+ ,{
+    "id":"14965804936661310013"
+   ,"Identification":{
+      "Name":"Validations Widget"
+    }
+   ,"Status":{
+      "Status":"Include"
+     ,"Default on Export":"Same as Current Status"
+     ,"On Upgrade Keep Status":true
+    }
+   ,"Comments":{
+      "Comments":"This build option controls whether the \"Validations\" plugin region is displayed on the Customer details page or not."
+    }
+  }
+ ,{
+    "id":"14985171647776348081"
+   ,"Identification":{
+      "Name":"Geography"
+    }
+   ,"Status":{
+      "Status":"Include"
+     ,"Default on Export":"Same as Current Status"
+     ,"On Upgrade Keep Status":true
+    }
+   ,"Comments":{
+      "Comments":"Including will allow reporting and management of geography by customer.  Excluding will not show the geography attribute for customers."
+    }
+  }
+ ,{
+    "id":"14985194932254613518"
+   ,"Identification":{
+      "Name":"Products and Services"
+    }
+   ,"Status":{
+      "Status":"Include"
+     ,"Default on Export":"Same as Current Status"
+     ,"On Upgrade Keep Status":true
+    }
+   ,"Comments":{
+      "Comments":"Use this build option to enable or disable products and services application functionality."
+    }
+  }
+ ,{
+    "id":"14985202220127679969"
+   ,"Identification":{
+      "Name":"Contacts"
+    }
+   ,"Status":{
+      "Status":"Include"
+     ,"Default on Export":"Same as Current Status"
+     ,"On Upgrade Keep Status":true
+    }
+   ,"Comments":{
+      "Comments":"Use this build option to enable or disable tracking of customer contacts."
+    }
+  }
+ ,{
+    "id":"14985268924324738425"
+   ,"Identification":{
+      "Name":"Reports"
+    }
+   ,"Status":{
+      "Status":"Include"
+     ,"Default on Export":"Same as Current Status"
+     ,"On Upgrade Keep Status":true
+    }
+   ,"Comments":{
+      "Comments":"Enable or disable the application reporting tab that provides summary reporting of application data.  Disable this option to keep the application more terse and focused, enable this option to enable additional reporting functionality."
+    }
+  }
+ ,{
+    "id":"14985346744154458184"
+   ,"Identification":{
+      "Name":"Customer Data Loading"
+    }
+   ,"Status":{
+      "Status":"Include"
+     ,"Default on Export":"Same as Current Status"
+     ,"On Upgrade Keep Status":true
+    }
+   ,"Comments":{
+      "Comments":"Allow application contributors to load customer data from CSV files or cut and paste via a data loading wizard."
+    }
+  }
+ ,{
+    "id":"16917422310656199607"
+   ,"Identification":{
+      "Name":"Strategic Customer Program"
+    }
+   ,"Status":{
+      "Status":"Exclude"
+     ,"Default on Export":"Exclude"
+     ,"On Upgrade Keep Status":true
+    }
+   ,"Comments":{
+      "Comments":"Support tracking whether a customer is a \"Strategic Customer Program\" customer or not."
+    }
+  }
+ ,{
+    "id":"16956786967740861701"
+   ,"Identification":{
+      "Name":"Countries"
+    }
+   ,"Status":{
+      "Status":"Exclude"
+     ,"Default on Export":"Exclude"
+     ,"On Upgrade Keep Status":true
+    }
+   ,"Comments":{
+      "Comments":"Including will allow reporting and management of countries by customer. Excluding will not show the country attribute for customers."
+    }
+  }
+ ,{
+    "id":"17146729199024533840"
+   ,"Identification":{
+      "Name":"Customer Use Case"
+    }
+   ,"Status":{
+      "Status":"Exclude"
+     ,"Default on Export":"Exclude"
+     ,"On Upgrade Keep Status":true
+    }
+   ,"Comments":{
+      "Comments":"Support a use case status attribute at the customer level (development, test\/stage, production, etc...)."
+    }
+  }
+ ,{
+    "id":"17168530605040612062"
+   ,"Identification":{
+      "Name":"Customer Status"
+    }
+   ,"Status":{
+      "Status":"Include"
+     ,"Default on Export":"Include"
+     ,"On Upgrade Keep Status":true
+    }
+   ,"Comments":{
+      "Comments":"Support a status attribute at the customer level."
+    }
+  }
+ ,{
+    "id":"18167958259658546771"
+   ,"Identification":{
+      "Name":"Activities"
+    }
+   ,"Status":{
+      "Status":"Include"
+     ,"Default on Export":"Same as Current Status"
+     ,"On Upgrade Keep Status":true
+    }
+   ,"Comments":{
+      "Comments":"This feature allows the tracking of contacts who have attended various events."
+    }
+  }
+ ,{
+    "id":"18760340844679500439"
+   ,"Identification":{
+      "Name":"Feedback"
+    }
+   ,"Status":{
+      "Status":"Include"
+     ,"Default on Export":"Same as Current Status"
+     ,"On Upgrade Keep Status":true
+    }
+   ,"Comments":{
+      "Comments":"This feature allows end-users to submit feedback about the application that can be emailed and viewed by application administrators."
+    }
+  }
+]

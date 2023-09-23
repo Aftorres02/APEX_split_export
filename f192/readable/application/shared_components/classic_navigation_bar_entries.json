@@ -1,0 +1,14 @@
+[
+  {
+    "id":"16648974727178568328"
+   ,"Label":{
+      "Label":"Logout"
+    }
+   ,"Layout":{
+      "Sequence":10
+    }
+   ,"Link":{
+      "Target":"\u0026LOGOUT_URL."
+    }
+  }
+]

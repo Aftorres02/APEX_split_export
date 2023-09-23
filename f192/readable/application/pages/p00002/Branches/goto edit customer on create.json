@@ -1,0 +1,24 @@
+{
+    "id": "15097002322758906850",
+    "Identification": {
+        "Name": "goto edit customer on create"
+    },
+    "Execution": {
+        "Sequence": 20,
+        "Point": "After Processing"
+    },
+    "Behavior": {
+        "Type": "Page or URL (Redirect)",
+        "Target": {
+            "url": "f?p=&APP_ID.:50:&SESSION.::&DEBUG.:RP,50:P50_ID:&P2_ID.",
+            "Page": "50",
+            "Clear Cache": "RP,50",
+            "Values": {
+                "P50_ID": "&P2_ID."
+            }
+        }
+    },
+    "Server-side Condition": {
+        "When Button Pressed": "CREATE (17829324999803140229)"
+    }
+}

@@ -1,0 +1,691 @@
+[
+  {
+    "id":"14815245436599093138"
+   ,"Identification":{
+      "Name":"BAU_STRING_INSTRUCTIONS"
+    }
+   ,"Message":{
+      "Text":"Enter or copy and paste usernames separated by commas, semicolons, or whitespace. All usernames provided will be added as the selected role. Existing or duplicate usernames will be ignored."
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"14815245833580094493"
+   ,"Identification":{
+      "Name":"BAU_EMAIL_INSTRUCTIONS"
+    }
+   ,"Message":{
+      "Text":"Enter or copy and paste email addresses separated by commas, semicolons, or new lines. Note that if you copy and paste email addresses from email messages, extraneous text will be filtered out. All email users provided will be added as the selected role. Existing or duplicate email addresses will be ignored."
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"14815246030776095804"
+   ,"Identification":{
+      "Name":"MISSING_DOT"
+    }
+   ,"Message":{
+      "Text":"Missing dot"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"14815246927541097355"
+   ,"Identification":{
+      "Name":"MISSING_AT_SIGN"
+    }
+   ,"Message":{
+      "Text":"Missing @ sign"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"14815247124522098703"
+   ,"Identification":{
+      "Name":"USERNAME_TOO_LONG"
+    }
+   ,"Message":{
+      "Text":"Username too long"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"14815247322365099714"
+   ,"Identification":{
+      "Name":"DUPLICATE_USER"
+    }
+   ,"Message":{
+      "Text":"Duplicate user in list"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"14815247619777100933"
+   ,"Identification":{
+      "Name":"ALREADY_IN_ACL"
+    }
+   ,"Message":{
+      "Text":"User is already in Access Control List"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"14815247817405101987"
+   ,"Identification":{
+      "Name":"INVALID_USERS_NOT_CREATED"
+    }
+   ,"Message":{
+      "Text":"Note that %0 string(s) were invalid usernames."
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"14815248147801103091"
+   ,"Identification":{
+      "Name":"ABOUT_TO_CREATE"
+    }
+   ,"Message":{
+      "Text":"Please confirm adding the following %0 \u003Cstrong\u003E%1\u003C\/strong\u003E user(s) to your access control list."
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"14859824028055260698"
+   ,"Identification":{
+      "Name":"ABOUT_TO_CREATE_WITH_INVALIDS"
+    }
+   ,"Message":{
+      "Text":"Please confirm adding the following %0 \u003Cstrong\u003E%1\u003C\/strong\u003E user(s) to your access control list. Note that %2 string(s) were invalid usernames."
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"14883470320851254985"
+   ,"Identification":{
+      "Name":"HELP_SIDEBAR"
+    }
+   ,"Message":{
+      "Text":"\u003Ch1 class=\"appNameHeader\"\u003E\n    \u003Cimg src=\"%0f_spacer.gif\" class=\"appIcon %1\" alt=\"\" \/\u003E\n    %2\n\u003C\/h1\u003E\n\u003Cul class=\"vapList\"\u003E\n    \u003Cli\u003E\n        \u003Cspan class=\"vLabel\"\u003EApp Version\u003C\/span\u003E\n        \u003Cspan class=\"vValue\"\u003E%3\u003C\/span\u003E\n    \u003C\/li\u003E\n    \u003Cli\u003E\n        \u003Cspan class=\"vLabel\"\u003EPages\u003C\/span\u003E\n        \u003Cspan class=\"vValue\"\u003E%4\u003C\/span\u003E\n    \u003C\/li\u003E\n    \u003Cli\u003E\n        \u003Cspan class=\"vLabel\"\u003EVendor\u003C\/span\u003E\n        \u003Cspan class=\"vValue\"\u003E%5 \u003C\/span\u003E\n    \u003C\/li\u003E\n\u003C\/ul\u003E"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"14883470517185256729"
+   ,"Identification":{
+      "Name":"HELP_SUPPORT"
+    }
+   ,"Message":{
+      "Text":"\u003Cdiv class=\"textRegion\"\u003E\n\u003Ch2\u003EAdditional Information\u003C\/h2\u003E\n\u003Cp\u003EIf you have questions, ask them on the \u003Ca href=\"%0\" target=\"_blank\"\u003E%1\u003C\/a\u003E.\n\u003C\/p\u003E\n\u003C\/div\u003E"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"14883470739170261665"
+   ,"Identification":{
+      "Name":"HELP_ABOUT"
+    }
+   ,"Message":{
+      "Text":"\u003Cdiv class=\"aboutApp\"\u003E\n\u003Ch2\u003EAbout this Application\u003C\/h2\u003E\n\u003Cp\u003ECustomers helps you improve your customer interactions by offering a centralized repository of information.\u003C\/p\u003E\n\u003Cp\u003EEach customer can have multiple contacts and be associated with multiple products.  Each contact has a variety of standard attributes, such as category, geography, industry and status, as well as the ability to add tags to a customer for further ad hoc classification.  You can indicate the reference status for a customer and enter free form text as a customer profile.\u003C\/p\u003E\n\u003Cp\u003EYou can create activity records to log interactions with each customer.  Customers includes a variety of reports which let you view recent activities, status changes and tags.  You can also use interactive reports to give your users the ability to filter and shape customer, contact, activity and interaction data.\u003C\/p\u003E\n\u003Cp\u003ECustomers gives you the ability to define your own standards for attributes such as categories, statuses, customer and activity types, and products, allowing you to create a customized version of Customers to meet your own needs.\u003C\/p\u003E\n\u003C\/div\u003E"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"14883471228171266754"
+   ,"Identification":{
+      "Name":"HELP_GETTING_STARTED"
+    }
+   ,"Message":{
+      "Text":"\u003Cdiv class=\"textRegion\"\u003E\n\u003Ch2\u003EGetting Started\u003C\/h2\u003E\n   \u003Cp\u003E1. Create Customer\u003C\/p\u003E\n   \u003Cul\u003E\n   \u003Cli\u003EClick the Customers tab\u003C\/li\u003E\n   \u003Cli\u003EClick the Add Customer button\u003C\/li\u003E\n   \u003Cli\u003EAdd your customer details\u003C\/li\u003E\n   \u003C\/ul\u003E\n   \u003Cp\u003E2. Define your Contacts:\u003C\/p\u003E\n   \u003Cul\u003E\n   \u003Cli\u003EClick the Contacts tab\u003C\/li\u003E\n   \u003Cli\u003EClick the Create Contact button\u003C\/li\u003E\n   \u003Cli\u003ESelect the customer the contact is associated with\u003C\/li\u003E\n   \u003Cli\u003EAdd your contact details\u003C\/li\u003E\n   \u003C\/ul\u003E\n   \u003Cp\u003E3. Define your Products:\u003C\/p\u003E\n   \u003Cul\u003E\n   \u003Cli\u003EClick the Administration link\u003C\/li\u003E\n   \u003Cli\u003EClick the Manage Products list entry\u003C\/li\u003E\n   \u003Cli\u003EClick the Create Product button\u003C\/li\u003E\n   \u003Cli\u003EAdd your product details\u003C\/li\u003E\n   \u003C\/ul\u003E\n   \u003Cp\u003E4. Associate Products to Customers:\u003C\/p\u003E\n   \u003Cul\u003E\n   \u003Cli\u003EClick the Customers tab\u003C\/li\u003E\n   \u003Cli\u003ESelect the Customer you wish to add products for\u003C\/li\u003E\n   \u003Cli\u003EClick the \u0027\u0027+\u0027\u0027 button on the Products region\u003C\/li\u003E\n   \u003Cli\u003ESelect your product\u003C\/li\u003E\n   \u003C\/ul\u003E\n\u003C\/div\u003E"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"14883471419545270775"
+   ,"Identification":{
+      "Name":"HELP_FEATURES"
+    }
+   ,"Message":{
+      "Text":"\u003Cdiv class=\"textRegion\"\u003E\n\u003Ch2\u003EFeatures\u003C\/h2\u003E\n\u003Cul\u003E\n\u003Cli\u003ETrack and Manage Customers\u003C\/li\u003E\n\u003Cli\u003EFlexible and updateable customer contacts\u003C\/li\u003E\n\u003Cli\u003EFlexible and updateable procucts\u003C\/li\u003E\n\u003Cli\u003ERobust Reporting\u003C\/li\u003E\n\u003Cli\u003ELink, Note, and File Attachments\u003C\/li\u003E\n\u003Cli\u003EMobile Interface\u003C\/li\u003E\n\u003Cli\u003EFlexible Access Control (reader, contributor, administrator model)\u003C\/li\u003E\n\u003C\/ul\u003E\n\u003C\/div\u003E"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"14911906209772993360"
+   ,"Identification":{
+      "Name":"ACCESS_CONTROL_IS_DISABLED"
+    }
+   ,"Message":{
+      "Text":"Access control for this application is currently disabled. All users are currently Administrators. Navigate to \u003Ca href=\"%0\"\u003Eapplication administration\u003C\/a\u003E to enable access control."
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"14940505721094224780"
+   ,"Identification":{
+      "Name":"EMAIL_USERNAME_FORMAT_MSG"
+    }
+   ,"Message":{
+      "Text":"This application is currently using an \u003Cstrong\u003Eemail address\u003C\/strong\u003E username format (e.g. xyz@xyz.com). \u003Ca href=\"f?p=%0:%1:%2:\"\u003EChange Username Format\u003C\/a\u003E"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"14940506349765226645"
+   ,"Identification":{
+      "Name":"STRING_USERNAME_FORMAT_MSG"
+    }
+   ,"Message":{
+      "Text":"This application is currently using a \u003Cstrong\u003Enon-email address\u003C\/strong\u003E username format (e.g. JOHNDOE). \u003Ca href=\"f?p=%0:%1:%2:\"\u003EChange Username Format\u003C\/a\u003E"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"14959669831655641014"
+   ,"Identification":{
+      "Name":"ANY_AUTHENTICATED_USER"
+    }
+   ,"Message":{
+      "Text":"Any Authenticated User"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"14959670027126643136"
+   ,"Identification":{
+      "Name":"ACL_PUBLIC_READONLY"
+    }
+   ,"Message":{
+      "Text":"\u003Cp\u003EAll authenticated users have \u003Cstrong\u003EReader\u003C\/strong\u003E access.\u003C\/p\u003E\u003Cp\u003EContributors and Administrators are restricted by the Access Control List.\u003C\/p\u003E"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"14959670223891644634"
+   ,"Identification":{
+      "Name":"ACL_PUBLIC_CONTRIBUTE"
+    }
+   ,"Message":{
+      "Text":"\u003Cp\u003EAll authenticated users have \u003Cstrong\u003EReader\u003C\/strong\u003E and \u003Cstrong\u003EContributor\u003C\/strong\u003E access.\u003C\/p\u003E\u003Cp\u003EAdministrators are restricted by the Access Control List.\u003C\/p\u003E"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"14959670421087645971"
+   ,"Identification":{
+      "Name":"ACL_ENABLED"
+    }
+   ,"Message":{
+      "Text":"\u003Cp\u003EOnly users defined in the Access Control List have access to this application.\u003C\/p\u003E"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"14959671117852647483"
+   ,"Identification":{
+      "Name":"ACL_DISABLED"
+    }
+   ,"Message":{
+      "Text":"\u003Cp\u003EAll users are currently \u003Cstrong\u003EAdministrators\u003C\/strong\u003E. Please enable Access Control to restrict user access to this application.\u003C\/p\u003E"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"14960120844305867671"
+   ,"Identification":{
+      "Name":"PAGES_WITH_CUSTOM_AUTH"
+    }
+   ,"Message":{
+      "Text":"Authorization Protected"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"14960121041501868927"
+   ,"Identification":{
+      "Name":"PUBLIC_PAGES"
+    }
+   ,"Message":{
+      "Text":"Public Pages"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"14960121238266870510"
+   ,"Identification":{
+      "Name":"AUTHENTICATION_REQUIRED_PAGES"
+    }
+   ,"Message":{
+      "Text":"Login Required Pages"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"15008944617219320873"
+   ,"Identification":{
+      "Name":"N_DAY"
+    }
+   ,"Message":{
+      "Text":"%0 day"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"15008944847831321923"
+   ,"Identification":{
+      "Name":"N_DAYS"
+    }
+   ,"Message":{
+      "Text":"%0 days"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"15008945045674322863"
+   ,"Identification":{
+      "Name":"N_HOUR"
+    }
+   ,"Message":{
+      "Text":"%0 hour"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"15008945243949323673"
+   ,"Identification":{
+      "Name":"N_HOURS"
+    }
+   ,"Message":{
+      "Text":"%0 hours"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"15008945440714325206"
+   ,"Identification":{
+      "Name":"N_MINUTES"
+    }
+   ,"Message":{
+      "Text":"%0 minutes"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"15008945638342326317"
+   ,"Identification":{
+      "Name":"N_WEEK"
+    }
+   ,"Message":{
+      "Text":"%0 week"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"15008945836617327087"
+   ,"Identification":{
+      "Name":"N_WEEKS"
+    }
+   ,"Message":{
+      "Text":"%0 weeks"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"15670831313348366719"
+   ,"Identification":{
+      "Name":"REFERENCE_TYPES_HELP"
+    }
+   ,"Message":{
+      "Text":"Reference Types are used for indicating how references are willing to be used. The Reference Type will be available when you Add, Modify or Search for a Contact. Reference Types can be made Active or Inactive but only active Reference Types will be shown when adding or modifying a Contact."
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"15913895928397900519"
+   ,"Identification":{
+      "Name":"HELP"
+    }
+   ,"Message":{
+      "Text":"Help"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"15995305231844101371"
+   ,"Identification":{
+      "Name":"ACL_CONFIGURATION_INFO"
+    }
+   ,"Message":{
+      "Text":"\u003Cp\u003E\u003Cstrong\u003EEnabling Access Control\u003C\/strong\u003E allows the application and its features to be controlled by the \u003Cstrong\u003EAccess Control List\u003C\/strong\u003E, as defined by the application administrator. This application has 3 access levels available that can be granted to a user; Administrator, Contributor and Reader. Please see the Manage Access Control List page for further details on what each level provides.\u003C\/p\u003E\n\n\u003Cp\u003EIn addition, if you want to make every authenticated user a \u0027Reader\u0027 of your application, you can select Reader access for any authenticated user from the Access Control Scope configuration option. Similarly, selecting Contributor access for any authenticated user will provide contributor access to any user who can authenticate into your application.\u003C\/p\u003E\n\n\u003Cbr\u003E\n\u003Cp\u003E\u003Cb\u003EDisabling Access Control\u003C\/b\u003E means that access to the application and all of its features including Administration are open to any user who can authenticate to the application.\u003C\/p\u003E\n\u003Cbr\u003E\n\u003Cp\u003ENote: Irrespective of whether Access Control is enabled or disabled, a user still has to authenticate successfully into the application.\u003C\/p\u003E"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"16032758347905046511"
+   ,"Identification":{
+      "Name":"ACCESS_CONTROL_INFO"
+    }
+   ,"Message":{
+      "Text":"\u003Cp\u003EWhen Access Control is enabled, Administrators have the ability to restrict access to certain application features, for authenticated users. Customers supports the following 3 access levels; Reader, Contributor and Administrator.\n  \u003Cb\u003EReader\u0027s\u003C\/b\u003E have read-only access and can also view reports.\n  \u003Cb\u003EContributor\u0027s\u003C\/b\u003E can create, edit, delete and view reports.\n  \u003Cb\u003EAdministrator\u0027s\u003C\/b\u003E, in addition to Contributor\u0027s capability, can also perform Customers administration, including configuration of access control, managing application look-up data and installing or uninstalling sample data.\u003C\/p\u003E \n"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"16398896237009890971"
+   ,"Identification":{
+      "Name":"ADMINISTRATION"
+    }
+   ,"Message":{
+      "Text":"Administration"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"16398923145667893522"
+   ,"Identification":{
+      "Name":"MOBILE"
+    }
+   ,"Message":{
+      "Text":"Mobile"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"16398927249476894626"
+   ,"Identification":{
+      "Name":"USER"
+    }
+   ,"Message":{
+      "Text":"User"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"16693602827163699233"
+   ,"Identification":{
+      "Name":"ADDITIONAL_INFORMATION"
+    }
+   ,"Message":{
+      "Text":"Additional Information"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"16693603029934699994"
+   ,"Identification":{
+      "Name":"FEATURES"
+    }
+   ,"Message":{
+      "Text":"Features"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"16693603334436701351"
+   ,"Identification":{
+      "Name":"GETTING_STARTED"
+    }
+   ,"Message":{
+      "Text":"Getting Started"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"16693603537206702091"
+   ,"Identification":{
+      "Name":"ABOUT_THIS_APPLICATION"
+    }
+   ,"Message":{
+      "Text":"About this Application"
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"17031028786433279263"
+   ,"Identification":{
+      "Name":"CUSTOMER_TYPE_HELP"
+    }
+   ,"Message":{
+      "Text":"Types are used for identifying the type of Customer. The Type will be available when you Add, Modify or Search for a Customer. Type can be made Active or Inactive but only active Types will be shown when adding or modifying a Customer."
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"17155622435210702117"
+   ,"Identification":{
+      "Name":"CUSTOMER_USE_CASE_HELP"
+    }
+   ,"Message":{
+      "Text":"Use Cases are used for identifying the type of Customer. The Use Case will be available when you Add, Modify or Search for a Customer. Use Case can be made Active or Inactive but only active Use Cases will be shown when adding or modifying a Customer."
+    }
+   ,"Attributes":{
+      "Language":"English (en)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"17861927693030286043"
+   ,"Identification":{
+      "Name":"CREATE"
+    }
+   ,"Message":{
+      "Text":"Create"
+    }
+   ,"Attributes":{
+      "Language":"English (United States) (en-us)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"17864053497619332532"
+   ,"Identification":{
+      "Name":"UNLINK_CONFIRMATION"
+    }
+   ,"Message":{
+      "Text":"This will remove the Contact from the Customer\u0027s Contact list but will not delete the Contact."
+    }
+   ,"Attributes":{
+      "Language":"English (United States) (en-us)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"17864789207170157915"
+   ,"Identification":{
+      "Name":"ACTIVE"
+    }
+   ,"Message":{
+      "Text":"Active"
+    }
+   ,"Attributes":{
+      "Language":"English (United States) (en-us)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"17864789689293162146"
+   ,"Identification":{
+      "Name":"INACTIVE"
+    }
+   ,"Message":{
+      "Text":"Inactive"
+    }
+   ,"Attributes":{
+      "Language":"English (United States) (en-us)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"17864811991043314087"
+   ,"Identification":{
+      "Name":"CATEGORY_HELP"
+    }
+   ,"Message":{
+      "Text":"Categories are used for grouping Customers. The Category will be available when you Add, Modify or Search for a Customer. Category can be made Active or Inactive but only active Categories will be shown when adding or modifying a Customer."
+    }
+   ,"Attributes":{
+      "Language":"English (United States) (en-us)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"17864812387364322444"
+   ,"Identification":{
+      "Name":"CUSTOMER_STATUS_HELP"
+    }
+   ,"Message":{
+      "Text":"Statuses are used for identifying the current Status of a Customer. The Status will be available when you Add, Modify or Search for a Customer.  Status can be made Active or Inactive but only active Statuses will be shown when adding or modifying a Customer."
+    }
+   ,"Attributes":{
+      "Language":"English (United States) (en-us)"
+     ,"Used in JavaScript":false
+    }
+  }
+ ,{
+    "id":"17864812779530329684"
+   ,"Identification":{
+      "Name":"CONTACT_TYPES_HELP"
+    }
+   ,"Message":{
+      "Text":"Contact Types are used for grouping Contacts. The Contact Type will be available when you Add, Modify or Search for a Contact. Contact Types can be made Active or Inactive but only active Contact Types will be shown when adding or modifying a Contact."
+    }
+   ,"Attributes":{
+      "Language":"English (United States) (en-us)"
+     ,"Used in JavaScript":false
+    }
+  }
+]
