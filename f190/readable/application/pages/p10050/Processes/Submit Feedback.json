@@ -1,0 +1,102 @@
+{
+    "id": "35861768519881156",
+    "Identification": {
+        "Name": "Submit Feedback",
+        "Type": "Invoke API",
+        "Execution Chain": "None"
+    },
+    "Settings": {
+        "Type": "PL/SQL Package",
+        "Owner": "PARSING SCHEMA",
+        "Package": "APEX_UTIL",
+        "Procedure or Function": "SUBMIT_FEEDBACK"
+    },
+    "Execution": {
+        "Sequence": 10,
+        "Point": "Processing",
+        "Run Process": "Once Per Page Visit (default)"
+    },
+    "Success Message": {
+        "Success Message": "Feedback Submitted"
+    },
+    "Error": {
+        "Display Location": "Inline in Notification"
+    },
+    "Server-side Condition": {
+        "When Button Pressed": "SUBMIT (35853985412881150)"
+    },
+    "Parameters": [
+        {
+            "id": "35862220252881156",
+            "Identification": {
+                "Name": "p_comment"
+            },
+            "Parameter": {
+                "Direction": "In",
+                "Data Type": "VARCHAR2",
+                "Has Default": true
+            },
+            "Value": {
+                "Type": "Item",
+                "Item": "P10050_FEEDBACK"
+            },
+            "Advanced": {
+                "Display Sequence": 1
+            }
+        },
+        {
+            "id": "35862799566881156",
+            "Identification": {
+                "Name": "p_application_id"
+            },
+            "Parameter": {
+                "Direction": "In",
+                "Data Type": "VARCHAR2",
+                "Has Default": true
+            },
+            "Value": {
+                "Type": "Item",
+                "Item": "APP_ID"
+            },
+            "Advanced": {
+                "Display Sequence": 2
+            }
+        },
+        {
+            "id": "35863248653881157",
+            "Identification": {
+                "Name": "p_page_id"
+            },
+            "Parameter": {
+                "Direction": "In",
+                "Data Type": "VARCHAR2",
+                "Has Default": true
+            },
+            "Value": {
+                "Type": "Item",
+                "Item": "P10050_PAGE_ID"
+            },
+            "Advanced": {
+                "Display Sequence": 3
+            }
+        },
+        {
+            "id": "35863794319881157",
+            "Identification": {
+                "Name": "p_rating"
+            },
+            "Parameter": {
+                "Direction": "In",
+                "Data Type": "NUMBER",
+                "Has Default": true
+            },
+            "Value": {
+                "Type": "Item",
+                "Item": "P10050_RATING"
+            },
+            "Advanced": {
+                "Display Sequence": 4
+            }
+        }
+    ]
+}

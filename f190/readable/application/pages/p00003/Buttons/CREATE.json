@@ -1,0 +1,33 @@
+{
+    "id": "35681633238880000",
+    "Identification": {
+        "Button Name": "CREATE",
+        "Label": "Create"
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Region": "Employees (35674225168879976)",
+        "Position": "EDIT",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Button Template": "Text (35539149230879730)",
+        "Hot": true,
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Behavior": {
+        "Action": "Redirect to Page in this Application",
+        "Target": {
+            "url": "f?p=&APP_ID.:4:&APP_SESSION.::&DEBUG.:4::",
+            "Page": "4",
+            "Clear Cache": "4"
+        },
+        "Warn on Unsaved Changes": "Do Not Check"
+    }
+}

@@ -1,0 +1,47 @@
+{
+    "id": "35892177687881185",
+    "Identification": {
+        "Title": "Search Dialog",
+        "Type": "Dynamic Content"
+    },
+    "Source": {
+        "Language": "PL/SQL",
+        "PL/SQL Function Body returning a CLOB": "for l_page in ( select page_title,\n                       help_text\n                  from apex_application_pages\n                 where application_id = :APP_ID\n                   and page_id = :P10061_PAGE_ID )\nloop\n    if l_page.help_text is null then\n        return 'No help is available for this page.';\n    else\n        return case when substr(l_page.help_text, 1, 3) != '<p>' then '<p>' end ||\n               apex_application.do_substitutions(l_page.help_text) ||\n               case when substr(trim(l_page.help_text), -4) != '</p>' then '</p>' end;\n    end if;\nend loop;"
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Parent Region": "No Parent",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Blank with Attributes (35399394620879641)",
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Not Customizable By End Users"
+    },
+    "Attributes": {
+        "Performance": {
+            "Lazy Loading": false
+        }
+    }
+}

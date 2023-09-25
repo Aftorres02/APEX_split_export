@@ -1,0 +1,33 @@
+{
+    "id": "35703953048880858",
+    "Identification": {
+        "Button Name": "CREATE",
+        "Label": "Create"
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Region": "Departments (35702187586880852)",
+        "Position": "RIGHT_OF_IR_SEARCH_BAR",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Button Template": "Text (35539149230879730)",
+        "Hot": true,
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Behavior": {
+        "Action": "Redirect to Page in this Application",
+        "Target": {
+            "url": "f?p=&APP_ID.:6:&APP_SESSION.::&DEBUG.:6::",
+            "Page": "6",
+            "Clear Cache": "6"
+        },
+        "Warn on Unsaved Changes": "Do Not Check"
+    }
+}

@@ -1,0 +1,1088 @@
+{
+  "id":"3"
+ ,"Identification":{
+    "Name":"Employees"
+   ,"Alias":"EMPLOYEES"
+   ,"Title":"Employees"
+  }
+ ,"Appearance":{
+    "Page Mode":"Normal"
+   ,"Page Template":"Left Side Column (35366362252879617)"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"Navigation Menu":{
+    "Override User Interface Level":false
+  }
+ ,"Navigation":{
+    "Cursor Focus":"Do not focus cursor"
+   ,"Warn on Unsaved Changes":true
+  }
+ ,"Security":{
+    "Authentication":"Page Requires Authentication"
+   ,"Deep Linking":"Application Default"
+   ,"Page Access Protection":"Arguments Must Have Checksum"
+   ,"Form Auto Complete":"Off"
+   ,"Browser Cache":"Application Default"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Application Default"
+  }
+ ,"Advanced":{
+    "Enable duplicate page submissions":"Yes - Enable page to be re-posted"
+   ,"Reload on Submit":"Only for Success"
+  }
+ ,"Server Cache":{
+    "Caching":"Disabled"
+  }
+ ,"Regions":[
+    {
+      "id":"35674225168879976"
+     ,"Identification":{
+        "Title":"Employees"
+       ,"Type":"Classic Report"
+      }
+     ,"Source":{
+        "Location":"Local Database"
+       ,"Type":"Table \/ View"
+       ,"Table Owner":"Parsing Schema"
+       ,"Table Name":"EMP"
+       ,"Include ROWID Column":false
+      }
+     ,"Order By":{
+        "Type":"None"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Standard (35465975937879680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--noPadding"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Layout":{
+          "Number of Rows Type":"Static Value"
+         ,"Number of Rows":50
+        }
+       ,"Appearance":{
+          "Template Type":"Theme"
+         ,"Template":"Standard (35504143370879704)"
+         ,"Template Options":[
+            "#DEFAULT#"
+           ,"t-Report--stretch"
+           ,"t-Report--staticRowColors"
+           ,"t-Report--rowHighlight"
+           ,"t-Report--inline"
+           ,"t-Report--hideNoPagination"
+          ]
+        }
+       ,"Pagination":{
+          "Type":"Row Ranges X to Y (with next and previous links)"
+         ,"Display Position":"Bottom - Right"
+         ,"Partial Page Refresh":true
+        }
+       ,"Performance":{
+          "Lazy Loading":false
+         ,"Maximum Rows to Process":100000
+        }
+       ,"Messages":{
+          "When No Data Found":"no data found"
+        }
+       ,"Break Formatting":{
+          "Break Columns":"No Break"
+        }
+       ,"Advanced":{
+          "Strip HTML":false
+         ,"Sort Nulls":"Last"
+        }
+       ,"Heading":{
+          "Type":"Custom Headings"
+        }
+       ,"Download":{
+          "CSV Export Enabled":false
+        }
+       ,"Printing":{
+          "Enabled":false
+        }
+      }
+     ,"Columns":[
+        {
+          "id":"35678341654879998"
+         ,"Identification":{
+            "Column Name":"EMPNO"
+           ,"Type":"Link"
+          }
+         ,"Heading":{
+            "Heading":"\u003Cspan class=\"u-VisuallyHidden\"\u003EEdit\u003C\/span\u003E"
+           ,"Alignment":"center"
+          }
+         ,"Layout":{
+            "Sequence":0
+           ,"Column Alignment":"center"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Link":{
+            "Target":{
+              "url":"f?p=\u0026APP_ID.:4:\u0026APP_SESSION.::\u0026DEBUG.:RP:P4_EMPNO:\u005C#EMPNO#\u005C"
+             ,"Page":"4"
+             ,"Clear Cache":"RP"
+             ,"Values":{
+                "P4_EMPNO":"#EMPNO#"
+              }
+            }
+           ,"Link Text":"\u003Cspan role=\"img\" aria-label=\"Edit\"\u003E\u003Cspan class=\"fa fa-edit\" aria-hidden=\"true\" title=\"Edit\"\u003E\u003C\/span\u003E\u003C\/span\u003E"
+          }
+         ,"Sorting":{
+            "Sortable":false
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":false
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Authorization Scheme":"Contribution Rights (35652257643879900)"
+           ,"Escape special characters":true
+          }
+        }
+       ,{
+          "id":"35678730401879998"
+         ,"Identification":{
+            "Column Name":"ENAME"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Employee Name"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":2
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":true
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"35679143333879998"
+         ,"Identification":{
+            "Column Name":"JOB"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Job"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":3
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":true
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"35679555016879999"
+         ,"Identification":{
+            "Column Name":"MGR"
+           ,"Type":"Plain Text (based on List of Values)"
+          }
+         ,"Heading":{
+            "Heading":"Manager"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":4
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"List of Values":{
+            "Type":"Shared Component"
+           ,"List of Values":"EMP.ENAME (35675809656879986)"
+          }
+         ,"Sorting":{
+            "Sortable":true
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"35679942826879999"
+         ,"Identification":{
+            "Column Name":"HIREDATE"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Hired"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":5
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Sorting":{
+            "Sortable":true
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"35680370731879999"
+         ,"Identification":{
+            "Column Name":"SAL"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Salary"
+           ,"Alignment":"end"
+          }
+         ,"Layout":{
+            "Sequence":6
+           ,"Column Alignment":"end"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Appearance":{
+            "Format Mask":"999G999G999G999G999G999G999G999G999G990"
+          }
+         ,"Sorting":{
+            "Sortable":true
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"35680758710880000"
+         ,"Identification":{
+            "Column Name":"COMM"
+           ,"Type":"Plain Text"
+          }
+         ,"Heading":{
+            "Heading":"Commission"
+           ,"Alignment":"end"
+          }
+         ,"Layout":{
+            "Sequence":7
+           ,"Column Alignment":"end"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"Appearance":{
+            "Format Mask":"9990"
+          }
+         ,"Sorting":{
+            "Sortable":true
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+       ,{
+          "id":"35681184914880000"
+         ,"Identification":{
+            "Column Name":"DEPTNO"
+           ,"Type":"Plain Text (based on List of Values)"
+          }
+         ,"Heading":{
+            "Heading":"Department"
+           ,"Alignment":"start"
+          }
+         ,"Layout":{
+            "Sequence":8
+           ,"Column Alignment":"start"
+          }
+         ,"Accessibility":{
+            "Value Identifies Row":false
+          }
+         ,"List of Values":{
+            "Type":"Shared Component"
+           ,"List of Values":"DEPT.DNAME (35675121171879981)"
+          }
+         ,"Sorting":{
+            "Sortable":true
+          }
+         ,"Export \/ Printing":{
+            "Include In Export \/ Print":true
+          }
+         ,"Advanced":{
+            "Compute Sum":false
+          }
+         ,"UI Defaults Reference":{
+            "Table Owner":"Parsing Schema"
+          }
+         ,"Security":{
+            "Escape special characters":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"35674342275879976"
+     ,"Identification":{
+        "Title":"Search"
+       ,"Type":"Faceted Search"
+      }
+     ,"Source":{
+        "Filtered Region":"Employees (35674225168879976)"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_02"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"4"
+      }
+     ,"Appearance":{
+        "Template":"Standard (35465975937879680)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Region--noPadding"
+         ,"t-Region--hideHeader"
+         ,"t-Region--scrollBody"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+       ,"Landmark Label":"Filters"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Batch Facet Changes":false
+         ,"Compact Numbers Threshold":10000
+         ,"Show Current Facets":"Selector"
+         ,"Current Facets Selector":"#active_facets"
+         ,"Show Total Row Count":"Yes"
+         ,"Show Charts":"Dialog"
+         ,"Display Chart for Top N Values":10
+        }
+      }
+     ,"Facets":[
+        {
+          "id":"35674802642879977"
+         ,"Identification":{
+            "Name":"P3_SEARCH"
+           ,"Type":"Search"
+          }
+         ,"Label":{
+            "Label":"Search"
+          }
+         ,"Settings":{
+            "Search Type":"Row Search"
+           ,"Input Field":"Top of Faceted Search Region"
+          }
+         ,"Layout":{
+            "Sequence":10
+          }
+         ,"Source":{
+            "Database Column(s)":"ENAME,JOB,MGR,DEPTNO"
+          }
+         ,"Security":{
+            "Store value encrypted in session state":true
+          }
+        }
+       ,{
+          "id":"35675595186879986"
+         ,"Identification":{
+            "Name":"P3_DEPTNO"
+           ,"Type":"Checkbox Group"
+          }
+         ,"Label":{
+            "Label":"Department"
+           ,"Show Label for Current Facet":true
+          }
+         ,"Layout":{
+            "Sequence":20
+          }
+         ,"List of Values":{
+            "Type":"Shared Component"
+           ,"List of Values":"DEPT.DNAME (35675121171879981)"
+           ,"Include Null Option":false
+          }
+         ,"List Entries":{
+            "Compute Counts":true
+           ,"Show Counts":true
+           ,"Zero Count Entries":"Hide"
+           ,"Sort By Top Counts":true
+           ,"Show Selected First":false
+           ,"Maximum Displayed Entries":7
+           ,"Display Filter Initially":false
+          }
+         ,"Actions Menu":{
+            "Filter":true
+           ,"Chart":true
+          }
+         ,"Advanced":{
+            "Show Chart Initially":false
+           ,"Display Toggling":false
+           ,"Collapsible":false
+          }
+         ,"Source":{
+            "Database Column":"DEPTNO"
+           ,"Data Type":"NUMBER"
+          }
+         ,"Multiple Values":{
+            "Type":"No"
+          }
+         ,"Security":{
+            "Store value encrypted in session state":true
+           ,"Escape special characters":true
+          }
+        }
+       ,{
+          "id":"35676190140879986"
+         ,"Identification":{
+            "Name":"P3_MGR"
+           ,"Type":"Checkbox Group"
+          }
+         ,"Label":{
+            "Label":"Manager"
+           ,"Show Label for Current Facet":true
+          }
+         ,"Layout":{
+            "Sequence":30
+          }
+         ,"List of Values":{
+            "Type":"Shared Component"
+           ,"List of Values":"EMP.ENAME (35675809656879986)"
+           ,"Include Null Option":false
+          }
+         ,"List Entries":{
+            "Compute Counts":true
+           ,"Show Counts":true
+           ,"Zero Count Entries":"Hide"
+           ,"Sort By Top Counts":true
+           ,"Show Selected First":false
+           ,"Maximum Displayed Entries":7
+           ,"Display Filter Initially":false
+          }
+         ,"Actions Menu":{
+            "Filter":true
+           ,"Chart":true
+          }
+         ,"Advanced":{
+            "Show Chart Initially":false
+           ,"Display Toggling":false
+           ,"Collapsible":false
+          }
+         ,"Source":{
+            "Database Column":"MGR"
+           ,"Data Type":"NUMBER"
+          }
+         ,"Multiple Values":{
+            "Type":"No"
+          }
+         ,"Security":{
+            "Store value encrypted in session state":true
+           ,"Escape special characters":true
+          }
+        }
+       ,{
+          "id":"35676569572879987"
+         ,"Identification":{
+            "Name":"P3_JOB"
+           ,"Type":"Checkbox Group"
+          }
+         ,"Label":{
+            "Label":"Job"
+           ,"Show Label for Current Facet":true
+          }
+         ,"Layout":{
+            "Sequence":40
+          }
+         ,"List of Values":{
+            "Type":"Distinct Values"
+           ,"Include Null Option":false
+          }
+         ,"List Entries":{
+            "Compute Counts":true
+           ,"Show Counts":true
+           ,"Zero Count Entries":"Hide"
+           ,"Sort By Top Counts":true
+           ,"Show Selected First":false
+           ,"Maximum Displayed Entries":7
+           ,"Display Filter Initially":false
+          }
+         ,"Actions Menu":{
+            "Filter":true
+           ,"Chart":true
+          }
+         ,"Advanced":{
+            "Show Chart Initially":false
+           ,"Display Toggling":false
+           ,"Collapsible":false
+          }
+         ,"Source":{
+            "Database Column":"JOB"
+           ,"Data Type":"VARCHAR2"
+          }
+         ,"Multiple Values":{
+            "Type":"No"
+          }
+         ,"Security":{
+            "Store value encrypted in session state":true
+           ,"Escape special characters":true
+          }
+        }
+       ,{
+          "id":"35676925054879988"
+         ,"Identification":{
+            "Name":"P3_SAL"
+           ,"Type":"Range"
+          }
+         ,"Label":{
+            "Label":"Salary"
+           ,"Show Label for Current Facet":true
+          }
+         ,"Settings":{
+            "Select Multiple":true
+           ,"Manual Entry":false
+          }
+         ,"Layout":{
+            "Sequence":50
+          }
+         ,"List of Values":{
+            "Type":"Static Values"
+           ,"Static Values":"STATIC2:\u003C900;|900,900 - 1#G#300;900|1300,1#G#300 - 2#G#000;1300|2000,2#G#000 - 2#G#500;2000|2500,\u003E=2#G#500;2500|"
+          }
+         ,"List Entries":{
+            "Compute Counts":true
+           ,"Show Counts":true
+           ,"Zero Count Entries":"Hide"
+           ,"Show Selected First":false
+           ,"Maximum Displayed Entries":7
+           ,"Display Filter Initially":false
+          }
+         ,"Actions Menu":{
+            "Filter":true
+           ,"Chart":true
+          }
+         ,"Advanced":{
+            "Show Chart Initially":false
+           ,"Display Toggling":false
+           ,"Collapsible":false
+          }
+         ,"Source":{
+            "Database Column":"SAL"
+           ,"Data Type":"NUMBER"
+          }
+         ,"Security":{
+            "Store value encrypted in session state":true
+          }
+        }
+      ]
+     ,"Filters":[
+        {
+          "id":"35674802642879977"
+         ,"Identification":{
+            "Name":"P3_SEARCH"
+           ,"Type":"Search"
+          }
+         ,"Label":{
+            "Label":"Search"
+          }
+         ,"Settings":{
+            "Search Type":"Row Search"
+           ,"Collapsed Search Field":false
+          }
+         ,"Layout":{
+            "Sequence":10
+          }
+         ,"Source":{
+            "Database Column(s)":"ENAME,JOB,MGR,DEPTNO"
+          }
+         ,"Security":{
+            "Store value encrypted in session state":true
+          }
+        }
+       ,{
+          "id":"35675595186879986"
+         ,"Identification":{
+            "Name":"P3_DEPTNO"
+           ,"Type":"Checkbox Group"
+          }
+         ,"Label":{
+            "Label":"Department"
+          }
+         ,"Layout":{
+            "Sequence":20
+          }
+         ,"List of Values":{
+            "Type":"Shared Component"
+           ,"List of Values":"DEPT.DNAME (35675121171879981)"
+           ,"Include Null Option":false
+          }
+         ,"List Entries":{
+            "Compute Counts":true
+           ,"Show Counts":true
+           ,"Zero Count Entries":"Hide"
+           ,"Sort By Top Counts":true
+           ,"Show Selected First":false
+           ,"Client-Side Filtering":false
+          }
+         ,"Suggestions":{
+            "Type":"None"
+          }
+         ,"Source":{
+            "Database Column":"DEPTNO"
+           ,"Data Type":"NUMBER"
+          }
+         ,"Multiple Values":{
+            "Type":"No"
+          }
+         ,"Security":{
+            "Store value encrypted in session state":true
+           ,"Escape special characters":true
+          }
+        }
+       ,{
+          "id":"35676190140879986"
+         ,"Identification":{
+            "Name":"P3_MGR"
+           ,"Type":"Checkbox Group"
+          }
+         ,"Label":{
+            "Label":"Manager"
+          }
+         ,"Layout":{
+            "Sequence":30
+          }
+         ,"List of Values":{
+            "Type":"Shared Component"
+           ,"List of Values":"EMP.ENAME (35675809656879986)"
+           ,"Include Null Option":false
+          }
+         ,"List Entries":{
+            "Compute Counts":true
+           ,"Show Counts":true
+           ,"Zero Count Entries":"Hide"
+           ,"Sort By Top Counts":true
+           ,"Show Selected First":false
+           ,"Client-Side Filtering":false
+          }
+         ,"Suggestions":{
+            "Type":"None"
+          }
+         ,"Source":{
+            "Database Column":"MGR"
+           ,"Data Type":"NUMBER"
+          }
+         ,"Multiple Values":{
+            "Type":"No"
+          }
+         ,"Security":{
+            "Store value encrypted in session state":true
+           ,"Escape special characters":true
+          }
+        }
+       ,{
+          "id":"35676569572879987"
+         ,"Identification":{
+            "Name":"P3_JOB"
+           ,"Type":"Checkbox Group"
+          }
+         ,"Label":{
+            "Label":"Job"
+          }
+         ,"Layout":{
+            "Sequence":40
+          }
+         ,"List of Values":{
+            "Type":"Distinct Values"
+           ,"Include Null Option":false
+          }
+         ,"List Entries":{
+            "Compute Counts":true
+           ,"Show Counts":true
+           ,"Zero Count Entries":"Hide"
+           ,"Sort By Top Counts":true
+           ,"Show Selected First":false
+           ,"Client-Side Filtering":false
+          }
+         ,"Suggestions":{
+            "Type":"None"
+          }
+         ,"Source":{
+            "Database Column":"JOB"
+           ,"Data Type":"VARCHAR2"
+          }
+         ,"Multiple Values":{
+            "Type":"No"
+          }
+         ,"Security":{
+            "Store value encrypted in session state":true
+           ,"Escape special characters":true
+          }
+        }
+       ,{
+          "id":"35676925054879988"
+         ,"Identification":{
+            "Name":"P3_SAL"
+           ,"Type":"Range"
+          }
+         ,"Label":{
+            "Label":"Salary"
+          }
+         ,"Settings":{
+            "Select Multiple":true
+           ,"Manual Entry":false
+          }
+         ,"Layout":{
+            "Sequence":50
+          }
+         ,"List of Values":{
+            "Type":"Static Values"
+           ,"Static Values":"STATIC2:\u003C900;|900,900 - 1#G#300;900|1300,1#G#300 - 2#G#000;1300|2000,2#G#000 - 2#G#500;2000|2500,\u003E=2#G#500;2500|"
+          }
+         ,"List Entries":{
+            "Compute Counts":true
+           ,"Show Counts":true
+           ,"Zero Count Entries":"Hide"
+           ,"Show Selected First":false
+           ,"Client-Side Filtering":false
+          }
+         ,"Suggestions":{
+            "Type":"None"
+          }
+         ,"Source":{
+            "Database Column":"SAL"
+           ,"Data Type":"NUMBER"
+          }
+         ,"Security":{
+            "Store value encrypted in session state":true
+          }
+        }
+      ]
+    }
+   ,{
+      "id":"35677288743879989"
+     ,"Identification":{
+        "Title":"Button Bar"
+       ,"Type":"Static Content"
+      }
+     ,"Source":{
+        "HTML Code":"\u003Cdiv id=\"active_facets\"\u003E\u003C\/div\u003E"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Parent Region":"No Parent"
+       ,"Position":"BODY"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Buttons Container (35402165491879642)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-ButtonRegion--noPadding"
+         ,"t-ButtonRegion--noUI"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Settings":{
+          "Output As":"HTML"
+         ,"Expand Shortcuts":false
+        }
+      }
+    }
+   ,{
+      "id":"35682969519880004"
+     ,"Identification":{
+        "Title":"Breadcrumb"
+       ,"Type":"Breadcrumb"
+      }
+     ,"Source":{
+        "Breadcrumb":"Breadcrumb (35362663304879600)"
+      }
+     ,"Layout":{
+        "Sequence":20
+       ,"Parent Region":"No Parent"
+       ,"Position":"REGION_POSITION_01"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Template":"Title Bar (35478338380879687)"
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-BreadcrumbRegion--useBreadcrumbTitle"
+        ]
+       ,"Render Components":"Above Content"
+      }
+     ,"Accessibility":{
+        "Use Landmark":true
+       ,"Landmark Type":"Template Default"
+      }
+     ,"Advanced":{
+        "Region Display Selector":false
+       ,"Exclude Title from Translation":false
+      }
+     ,"Server Cache":{
+        "Caching":"Disabled"
+      }
+     ,"Customization":{
+        "Customizable":"Not Customizable By End Users"
+      }
+     ,"Attributes":{
+        "Appearance":{
+          "Breadcrumb Template":"Breadcrumb (35540713575879731)"
+         ,"Template Options":[
+            "#DEFAULT#"
+          ]
+        }
+      }
+    }
+  ]
+ ,"Buttons":[
+    {
+      "id":"35677744211879990"
+     ,"Identification":{
+        "Button Name":"RESET"
+       ,"Label":"Reset"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Button Bar (35677288743879989)"
+       ,"Position":"NEXT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text with Icon (35539275789879730)"
+       ,"Hot":false
+       ,"Template Options":[
+          "#DEFAULT#"
+         ,"t-Button--noUI"
+         ,"t-Button--iconLeft"
+        ]
+       ,"Icon":"fa-undo"
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:3:\u0026APP_SESSION.::\u0026DEBUG.:RR,3::"
+         ,"Page":"3"
+         ,"Clear Cache":"RR,3"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+   ,{
+      "id":"35681633238880000"
+     ,"Identification":{
+        "Button Name":"CREATE"
+       ,"Label":"Create"
+      }
+     ,"Layout":{
+        "Sequence":10
+       ,"Region":"Employees (35674225168879976)"
+       ,"Position":"EDIT"
+       ,"Start New Layout":false
+       ,"Start New Row":true
+       ,"Column":"Automatic"
+       ,"New Column":true
+       ,"Column Span":"Automatic"
+      }
+     ,"Appearance":{
+        "Button Template":"Text (35539149230879730)"
+       ,"Hot":true
+       ,"Template Options":[
+          "#DEFAULT#"
+        ]
+      }
+     ,"Behavior":{
+        "Action":"Redirect to Page in this Application"
+       ,"Target":{
+          "url":"f?p=\u0026APP_ID.:4:\u0026APP_SESSION.::\u0026DEBUG.:4::"
+         ,"Page":"4"
+         ,"Clear Cache":"4"
+        }
+       ,"Warn on Unsaved Changes":"Do Not Check"
+      }
+    }
+  ]
+ ,"Dynamic Actions":[
+    {
+      "id":"35681990520880001"
+     ,"Identification":{
+        "Name":"Edit Report - Dialog Closed"
+      }
+     ,"Execution":{
+        "Sequence":10
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.FAMEWORK.APEXAFTERCLOSEDIALOG"
+       ,"Selection Type":"Region"
+       ,"Region":"Employees (35674225168879976)"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"35682441021880003"
+         ,"Identification":{
+            "Action":"Refresh"
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Region"
+           ,"Region":"Employees (35674225168879976)"
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"Edit Report - Dialog Closed (35681990520880001)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+    "id": "35723225114880915",
+    "Identification": {
+        "Title": "Page Navigation",
+        "Type": "List"
+    },
+    "Source": {
+        "List": "Page Navigation (35721764645880913)"
+    },
+    "Layout": {
+        "Sequence": 30,
+        "Parent Region": "No Parent",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Blank with Attributes (35399394620879641)",
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Not Customizable By End Users"
+    },
+    "Attributes": {
+        "Appearance": {
+            "List Template": "Cards (35514992723879713)",
+            "Template Options": [
+                "#DEFAULT#",
+                "u-colors",
+                "t-Cards--featured t-Cards--block force-fa-lg",
+                "t-Cards--displayIcons",
+                "t-Cards--4cols",
+                "t-Cards--hideBody",
+                "t-Cards--animColorFill"
+            ]
+        }
+    }
+}

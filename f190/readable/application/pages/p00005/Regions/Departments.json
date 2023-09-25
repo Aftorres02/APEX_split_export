@@ -1,0 +1,267 @@
+{
+    "id": "35702187586880852",
+    "Identification": {
+        "Title": "Departments",
+        "Type": "Interactive Report"
+    },
+    "Source": {
+        "Location": "Local Database",
+        "Type": "Table / View",
+        "Table Owner": "Parsing Schema",
+        "Table Name": "DEPT",
+        "Include ROWID Column": false
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Parent Region": "No Parent",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "None",
+        "Render Components": "Above Content"
+    },
+    "Advanced": {
+        "Exclude Title from Translation": false
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Not Customizable By End Users"
+    },
+    "Attributes": {
+        "id": "35702271957880852",
+        "Link": {
+            "Link Column": "Link to Custom Target",
+            "Target": {
+                "url": "f?p=&APP_ID.:6:&APP_SESSION.::&DEBUG.:RP:P6_DEPTNO:\\#DEPTNO#\\",
+                "Page": "6",
+                "Clear Cache": "RP",
+                "Values": {
+                    "P6_DEPTNO": "#DEPTNO#"
+                }
+            },
+            "Link Icon": "<span role=\"img\" aria-label=\"Edit\"><span class=\"fa fa-edit\" aria-hidden=\"true\" title=\"Edit\"></span></span>",
+            "Authorization Scheme": "Contribution Rights (35652257643879900)"
+        },
+        "Pagination": {
+            "Type": "Row Ranges X to Y",
+            "Display Position": "Bottom - Right"
+        },
+        "Performance": {
+            "Lazy Loading": false
+        },
+        "Messages": {
+            "When No Data Found": "No data found.",
+            "When More Data Found": "The maximum row count for this report is #MAX_ROW_COUNT# rows.  Please apply a filter to reduce the number of records in your query."
+        },
+        "Search Bar": {
+            "Include Search Bar": true,
+            "Search Field": true,
+            "Finder Drop Down": true,
+            "Reports Select List": true,
+            "Rows Per Page Selector": false
+        },
+        "Actions Menu": {
+            "Include Actions Menu": true,
+            "Filter": true,
+            "Select Columns": true,
+            "Rows Per Page": true,
+            "Sort": true,
+            "Control Break": true,
+            "Highlight": true,
+            "Compute": true,
+            "Aggregate": true,
+            "Chart": true,
+            "Group By": true,
+            "Pivot": true,
+            "Flashback": true,
+            "Save Report": true,
+            "Save Public Report": false,
+            "Reset": true,
+            "Help": true,
+            "Download": true,
+            "Subscription": true
+        },
+        "Download": {
+            "Formats": [
+                "CSV",
+                "HTML",
+                "Excel",
+                "PDF"
+            ],
+            "Send as Email": true
+        },
+        "Heading": {
+            "Fixed To": "Page"
+        },
+        "Icon View": {
+            "Show": false
+        },
+        "Detail View": {
+            "Show": false
+        },
+        "Saved Reports": [
+            {
+                "id": "35716247709880902",
+                "Identification": {
+                    "Name": "Primary Report",
+                    "Alias": "357163"
+                }
+            }
+        ],
+        "Columns": [
+            {
+                "id": "35702661439880854",
+                "Identification": {
+                    "Column Name": "DEPTNO",
+                    "Type": "Hidden Column"
+                },
+                "Heading": {
+                    "Heading": "Deptno"
+                },
+                "Layout": {
+                    "Sequence": 0
+                },
+                "Source": {
+                    "Primary Key": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35703041784880857",
+                "Identification": {
+                    "Column Name": "DNAME",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Department",
+                    "Alignment": "start"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 2,
+                    "Column Alignment": "start"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35703444491880858",
+                "Identification": {
+                    "Column Name": "LOC",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Location",
+                    "Alignment": "start"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 3,
+                    "Column Alignment": "start"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            }
+        ],
+        "Printing": {
+            "Output": {
+                "View File As": "Attachment"
+            },
+            "Page": {
+                "Size": "Letter",
+                "Orientation": "Landscape",
+                "Units": "Inches",
+                "Width": 11,
+                "Height": 8.5,
+                "Border Width": 0.5,
+                "Border Color": "#666666"
+            },
+            "Page Header": {
+                "Font": "Helvetica",
+                "Font Weight": "Normal",
+                "Font Size": 12,
+                "Font Color": "#000000",
+                "Alignment": "center",
+                "Page Header Text": "Departments"
+            },
+            "Column Headings": {
+                "Font": "Helvetica",
+                "Font Weight": "Bold",
+                "Font Size": 10,
+                "Font Color": "#000000",
+                "Background Color": "#EEEEEE"
+            },
+            "Columns": {
+                "Font": "Helvetica",
+                "Font Weight": "Normal",
+                "Font Size": 10,
+                "Font Color": "#000000",
+                "Background Color": "#FFFFFF"
+            },
+            "Page Footer": {
+                "Font": "Helvetica",
+                "Font Weight": "Normal",
+                "Font Size": 12,
+                "Font Color": "#000000",
+                "Alignment": "center"
+            }
+        }
+    }
+}

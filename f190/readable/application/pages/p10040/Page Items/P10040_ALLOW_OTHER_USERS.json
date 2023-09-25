@@ -1,0 +1,55 @@
+{
+    "id": "35822618356881109",
+    "Identification": {
+        "Name": "P10040_ALLOW_OTHER_USERS",
+        "Type": "Switch"
+    },
+    "Label": {
+        "Label": "Any authenticated user may access this application",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Use Defaults": true
+    },
+    "Layout": {
+        "Sequence": 30,
+        "Region": "Access Control Configuration (35819372881881105)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "3"
+    },
+    "Appearance": {
+        "Template": "Optional (35536490510879726)",
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Validation": {
+        "Value Required": true
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Function Body",
+        "Language": "PL/SQL",
+        "PL/SQL Function Body": "if apex_app_setting.get_value( p_name => 'ACCESS_CONTROL_SCOPE' ) = 'ACL_ONLY' then\n    return 'N';\nelse\n    return 'Y';\nend if;",
+        "Used": "Only when current value in session state is null"
+    },
+    "Session State": {
+        "Storage": "Per Session (Persistent)"
+    },
+    "Security": {
+        "Session State Protection": "Unrestricted",
+        "Store value encrypted in session state": true,
+        "Restricted Characters": "All characters can be saved."
+    },
+    "Help": {
+        "Inline Help Text": "Choose <strong>No</strong> if all users are defined in the access control list. Choose <strong>Yes</strong> if authenticated users not in the access control list may also use this application."
+    }
+}

@@ -1,0 +1,55 @@
+{
+    "id": "35904137008881196",
+    "Identification": {
+        "Title": "Configuration",
+        "Type": "List"
+    },
+    "Source": {
+        "List": "Application Configuration (35897834647881191)"
+    },
+    "Layout": {
+        "Sequence": 40,
+        "Parent Region": "Column 1 (35903754610881195)",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Standard (35465975937879680)",
+        "Template Options": [
+            "#DEFAULT#",
+            "t-Region--noPadding",
+            "t-Region--scrollBody"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Not Customizable By End Users"
+    },
+    "Configuration": {
+        "Build Option": "Feature: Configuration Options (35649769132879894)"
+    },
+    "Attributes": {
+        "Appearance": {
+            "List Template": "Media List (35522132375879717)",
+            "Template Options": [
+                "#DEFAULT#",
+                "u-colors"
+            ]
+        }
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "id": "35755120176880984",
+    "Identification": {
+        "Button Name": "VIEW_RECENT_ERRORS",
+        "Label": "View Details"
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Region": "Recent Errors (35739153773880956)",
+        "Position": "EDIT",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Button Template": "Icon (35538400866879729)",
+        "Hot": false,
+        "Template Options": [
+            "#DEFAULT#",
+            "t-Button--noUI"
+        ],
+        "Icon": "fa-angle-right"
+    },
+    "Behavior": {
+        "Action": "Redirect to Page in this Application",
+        "Target": {
+            "url": "f?p=&APP_ID.:10032:&APP_SESSION.::&DEBUG.:RP,10032::",
+            "Page": "10032",
+            "Clear Cache": "RP,10032"
+        },
+        "Warn on Unsaved Changes": "Do Not Check"
+    }
+}

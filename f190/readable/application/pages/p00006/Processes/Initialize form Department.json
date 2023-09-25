@@ -1,0 +1,14 @@
+{
+    "id": "35700705374880851",
+    "Identification": {
+        "Name": "Initialize form Department",
+        "Type": "Form - Initialization",
+        "Execution Chain": "None",
+        "Form Region": "Department (35695393557880685)"
+    },
+    "Execution": {
+        "Sequence": 10,
+        "Point": "Before Header",
+        "Run Process": "Once Per Page Visit (default)"
+    }
+}

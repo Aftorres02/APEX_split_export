@@ -1,0 +1,63 @@
+{
+    "id": "35834286383881123",
+    "Identification": {
+        "Name": "P10042_USER_NAME",
+        "Type": "Text Field"
+    },
+    "Label": {
+        "Label": "Username",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Subtype": "Text",
+        "Trim Spaces": "Leading and Trailing",
+        "Text Case": "NO CHANGE",
+        "Submit when Enter pressed": false,
+        "Disabled": false
+    },
+    "Layout": {
+        "Sequence": 30,
+        "Region": "Form on Manage User Access (35829831333881120)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Required - Floating (35537942848879728)",
+        "Width": 60
+    },
+    "Validation": {
+        "Value Required": true,
+        "Maximum Length": 255
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Form Region": "Form on Manage User Access (35829831333881120)",
+        "Column": "USER_NAME",
+        "Data Type": "VARCHAR2",
+        "Query Only": false,
+        "Primary Key": false
+    },
+    "Session State": {
+        "Storage": "Per Request (Memory Only)"
+    },
+    "Quick Picks": {
+        "Show Quick Picks": false
+    },
+    "Read Only": {
+        "Type": "Item is NOT NULL",
+        "Item": "P10042_ID"
+    },
+    "Security": {
+        "Session State Protection": "Unrestricted",
+        "Store value encrypted in session state": true,
+        "Restricted Characters": "All characters can be saved."
+    }
+}

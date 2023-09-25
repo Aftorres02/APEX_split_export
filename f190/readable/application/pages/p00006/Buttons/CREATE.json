@@ -1,0 +1,34 @@
+{
+    "id": "35700336498880851",
+    "Identification": {
+        "Button Name": "CREATE",
+        "Label": "Create"
+    },
+    "Layout": {
+        "Sequence": 40,
+        "Region": "Buttons (35697768350880849)",
+        "Position": "NEXT",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Button Template": "Text (35539149230879730)",
+        "Hot": true,
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Behavior": {
+        "Action": "Submit Page",
+        "Execute Validations": true,
+        "Warn on Unsaved Changes": "Do Not Check",
+        "Database Action": "SQL INSERT action"
+    },
+    "Server-side Condition": {
+        "Type": "Item is NULL",
+        "Item": "P6_DEPTNO"
+    }
+}

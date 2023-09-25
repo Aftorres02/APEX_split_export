@@ -1,0 +1,74 @@
+{
+    "id": "3",
+    "Identification": {
+        "Name": "Employees",
+        "Alias": "EMPLOYEES",
+        "Title": "Employees"
+    },
+    "Appearance": {
+        "Page Mode": "Normal",
+        "Page Template": "Left Side Column (35366362252879617)",
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Navigation Menu": {
+        "Override User Interface Level": false
+    },
+    "Navigation": {
+        "Cursor Focus": "Do not focus cursor",
+        "Warn on Unsaved Changes": true
+    },
+    "Security": {
+        "Authentication": "Page Requires Authentication",
+        "Deep Linking": "Application Default",
+        "Page Access Protection": "Arguments Must Have Checksum",
+        "Form Auto Complete": "Off",
+        "Browser Cache": "Application Default"
+    },
+    "Session Management": {
+        "Rejoin Sessions": "Application Default"
+    },
+    "Advanced": {
+        "Enable duplicate page submissions": "Yes - Enable page to be re-posted",
+        "Reload on Submit": "Only for Success"
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Dynamic Actions": [
+        {
+            "id": "35681990520880001",
+            "Identification": {
+                "Name": "Edit Report - Dialog Closed"
+            },
+            "Execution": {
+                "Event Scope": "Static",
+                "Type": "Immediate"
+            },
+            "When": {
+                "Event": "EVENT.EVENT.FAMEWORK.APEXAFTERCLOSEDIALOG",
+                "Selection Type": "Region",
+                "Region": "Employees (35674225168879976)"
+            },
+            "Actions": [
+                {
+                    "id": "35682441021880003",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "Region",
+                        "Region": "Employees (35674225168879976)"
+                    },
+                    "Execution": {
+                        "Sequence": 10,
+                        "Event": "Edit Report - Dialog Closed (35681990520880001)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                }
+            ]
+        }
+    ]
+}

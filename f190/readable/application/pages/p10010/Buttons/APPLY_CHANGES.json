@@ -1,0 +1,29 @@
+{
+    "id": "35731687283880935",
+    "Identification": {
+        "Button Name": "APPLY_CHANGES",
+        "Label": "Apply Changes"
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Region": "Buttons (35723685377880916)",
+        "Position": "NEXT",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Button Template": "Text (35539149230879730)",
+        "Hot": true,
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Behavior": {
+        "Action": "Submit Page",
+        "Execute Validations": true,
+        "Warn on Unsaved Changes": "Do Not Check"
+    }
+}

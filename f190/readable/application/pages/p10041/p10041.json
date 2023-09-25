@@ -1,0 +1,87 @@
+{
+    "id": "10041",
+    "Identification": {
+        "Name": "Manage User Access",
+        "Alias": "MANAGE-USER-ACCESS",
+        "Title": "Manage User Access",
+        "Page Group": "Administration (35653627005879909)"
+    },
+    "Appearance": {
+        "Page Mode": "Modal Dialog",
+        "Dialog Template": "Modal Dialog (35384037603879629)",
+        "Template Options": [
+            "#DEFAULT#",
+            "ui-dialog--stretch",
+            "t-Dialog--noPadding"
+        ]
+    },
+    "Dialog": {
+        "Chained": true
+    },
+    "Navigation Menu": {
+        "Override User Interface Level": false
+    },
+    "Navigation": {
+        "Cursor Focus": "Do not focus cursor",
+        "Warn on Unsaved Changes": false
+    },
+    "Security": {
+        "Authorization Scheme": "Administration Rights (35652037807879900)",
+        "Authentication": "Page Requires Authentication",
+        "Deep Linking": "Application Default",
+        "Page Access Protection": "Arguments Must Have Checksum",
+        "Form Auto Complete": "Off",
+        "Browser Cache": "Application Default"
+    },
+    "Session Management": {
+        "Rejoin Sessions": "Application Default"
+    },
+    "Advanced": {
+        "Enable duplicate page submissions": "Yes - Enable page to be re-posted",
+        "Reload on Submit": "Only for Success"
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Help": {
+        "Help Text": "<p>This page shows a report of the application users and the access level granted.</p>\n<p>Click on the column headings to sort and filter data, or click on the <strong>Actions</strong> button to customize column display and many additional advanced features.<br>\nClick the <strong>Reset</strong> button to reset the interactive report back to the default settings.</p>\n<p>Click the edit icon (yellow pencil) to edit the user details and access level, or to delete the user.</p>\n<p>Click <strong>Add User</strong>, at the top of the report, to add a new user and their access level.</p>"
+    },
+    "Configuration": {
+        "Build Option": "Feature: Access Control (35649324938879894)"
+    },
+    "Dynamic Actions": [
+        {
+            "id": "35823556667881111",
+            "Identification": {
+                "Name": "Refresh Report"
+            },
+            "Execution": {
+                "Event Scope": "Static",
+                "Type": "Immediate"
+            },
+            "When": {
+                "Event": "EVENT.EVENT.FAMEWORK.APEXAFTERCLOSEDIALOG",
+                "Selection Type": "Region",
+                "Region": "Manage User Access (35823453189881111)"
+            },
+            "Actions": [
+                {
+                    "id": "35829365074881119",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "Region",
+                        "Region": "Manage User Access (35823453189881111)"
+                    },
+                    "Execution": {
+                        "Sequence": 10,
+                        "Event": "Refresh Report (35823556667881111)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                }
+            ]
+        }
+    ]
+}

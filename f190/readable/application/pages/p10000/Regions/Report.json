@@ -1,0 +1,159 @@
+{
+    "id": "35912300378881209",
+    "Identification": {
+        "Title": "Report",
+        "Type": "Classic Report"
+    },
+    "Source": {
+        "Location": "Local Database",
+        "Type": "SQL Query",
+        "SQL Query": "select l.display_value feedback_status, \n(select count(*) from apex_team_feedback f where f.application_id = :APP_ID and f.feedback_status = l.return_value) feedback_count \nfrom apex_application_lov_entries l\nwhere l.application_id = :APP_ID\nand l.list_of_values_name = 'FEEDBACK_STATUS'\norder by 2 desc, 1"
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Parent Region": "Feedback (35911957714881208)",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Standard (35465975937879680)",
+        "Template Options": [
+            "#DEFAULT#",
+            "t-Region--removeHeader",
+            "t-Region--stacked",
+            "t-Region--scrollBody",
+            "t-Region--noPadding"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Not Customizable By End Users"
+    },
+    "Attributes": {
+        "Layout": {
+            "Number of Rows Type": "Static Value",
+            "Number of Rows": 15
+        },
+        "Appearance": {
+            "Template Type": "Theme",
+            "Template": "Value Attribute Pairs - Row (35509127496879708)",
+            "Template Options": [
+                "#DEFAULT#",
+                "t-AVPList--rightAligned"
+            ]
+        },
+        "Pagination": {
+            "Type": "No Pagination (Show All Rows)",
+            "Partial Page Refresh": true
+        },
+        "Performance": {
+            "Lazy Loading": false,
+            "Maximum Rows to Process": 500
+        },
+        "Messages": {
+            "When No Data Found": "no data found"
+        },
+        "Break Formatting": {
+            "Break Columns": "No Break"
+        },
+        "Advanced": {
+            "Strip HTML": true,
+            "Sort Nulls": "Last"
+        },
+        "Heading": {
+            "Type": "Custom Headings"
+        },
+        "Download": {
+            "CSV Export Enabled": false
+        },
+        "Printing": {
+            "Enabled": false
+        }
+    },
+    "Columns": [
+        {
+            "id": "35913000560881214",
+            "Identification": {
+                "Column Name": "FEEDBACK_STATUS",
+                "Type": "Plain Text"
+            },
+            "Heading": {
+                "Heading": "Feedback Status",
+                "Alignment": "center"
+            },
+            "Layout": {
+                "Sequence": 1,
+                "Column Alignment": "start"
+            },
+            "Accessibility": {
+                "Value Identifies Row": false
+            },
+            "Sorting": {
+                "Sortable": false
+            },
+            "Export / Printing": {
+                "Include In Export / Print": true
+            },
+            "Advanced": {
+                "Compute Sum": false
+            },
+            "UI Defaults Reference": {
+                "Table Owner": "Parsing Schema"
+            },
+            "Security": {
+                "Escape special characters": true
+            }
+        },
+        {
+            "id": "35913432631881214",
+            "Identification": {
+                "Column Name": "FEEDBACK_COUNT",
+                "Type": "Plain Text"
+            },
+            "Heading": {
+                "Heading": "Feedback Count",
+                "Alignment": "center"
+            },
+            "Layout": {
+                "Sequence": 2,
+                "Column Alignment": "start"
+            },
+            "Accessibility": {
+                "Value Identifies Row": false
+            },
+            "Appearance": {
+                "Format Mask": "999G999G999G999G999G999G990"
+            },
+            "Sorting": {
+                "Sortable": false
+            },
+            "Export / Printing": {
+                "Include In Export / Print": true
+            },
+            "Advanced": {
+                "Compute Sum": false
+            },
+            "UI Defaults Reference": {
+                "Table Owner": "Parsing Schema"
+            },
+            "Security": {
+                "Escape special characters": true
+            }
+        }
+    ]
+}

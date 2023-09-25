@@ -1,0 +1,56 @@
+{
+    "id": "35683821851880007",
+    "Identification": {
+        "Title": "Employee",
+        "Type": "Form"
+    },
+    "Source": {
+        "Location": "Local Database",
+        "Type": "Table / View",
+        "Table Owner": "Parsing Schema",
+        "Table Name": "EMP",
+        "Include ROWID Column": false
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Parent Region": "No Parent",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Blank with Attributes (35399394620879641)",
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Not Customizable By End Users"
+    },
+    "Attributes": {
+        "Edit": {
+            "Enabled": true,
+            "Allowed Operations": [
+                "Add Row",
+                "Update Row",
+                "Delete Row"
+            ],
+            "Lost Update Type": "Row Values"
+        }
+    }
+}

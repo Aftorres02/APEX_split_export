@@ -1,0 +1,52 @@
+{
+    "id": "10010",
+    "Identification": {
+        "Name": "Configuration Options",
+        "Alias": "CONFIGURATION-OPTIONS",
+        "Title": "Configuration Options",
+        "Page Group": "Administration (35653627005879909)"
+    },
+    "Appearance": {
+        "Page Mode": "Modal Dialog",
+        "Dialog Template": "Modal Dialog (35384037603879629)",
+        "Template Options": [
+            "#DEFAULT#",
+            "ui-dialog--stretch",
+            "t-Dialog--noPadding"
+        ]
+    },
+    "Dialog": {
+        "Chained": true
+    },
+    "Navigation Menu": {
+        "Override User Interface Level": false
+    },
+    "Navigation": {
+        "Cursor Focus": "Do not focus cursor",
+        "Warn on Unsaved Changes": false
+    },
+    "Security": {
+        "Authorization Scheme": "Administration Rights (35652037807879900)",
+        "Authentication": "Page Requires Authentication",
+        "Deep Linking": "Application Default",
+        "Page Access Protection": "Arguments Must Have Checksum",
+        "Form Auto Complete": "Off",
+        "Browser Cache": "Application Default"
+    },
+    "Session Management": {
+        "Rejoin Sessions": "Application Default"
+    },
+    "Advanced": {
+        "Enable duplicate page submissions": "Yes - Enable page to be re-posted",
+        "Reload on Submit": "Only for Success"
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Help": {
+        "Help Text": "<p>Configuration settings allow you to make specific functionality either available (enabled) or unavailable (disabled) to end users.</p>\n<p>If a specific function is not 100% ready, or needs to be temporarily removed, click <strong>Disabled</strong>. \nOnce it should be made available, simply click <strong>Enabled</strong>.</p>\n<p><em><strong>Note:</strong> Changes made here will not be reflected for individual end users currently running the application. Once the end user signs out and then signs back in the revised feature settings will be invoked.</em></p>"
+    },
+    "Configuration": {
+        "Build Option": "Feature: Configuration Options (35649769132879894)"
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "id": "35858651177881154",
+    "Identification": {
+        "Name": "P10050_PAGE_ID",
+        "Type": "Hidden"
+    },
+    "Settings": {
+        "Value Protected": true
+    },
+    "Layout": {
+        "Sequence": 20,
+        "Region": "Form on Feedback (35853764848881150)",
+        "Position": "BODY"
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Null",
+        "Used": "Always, replacing any existing value in session state"
+    },
+    "Session State": {
+        "Data Type": "VARCHAR2",
+        "Storage": "Per Session (Persistent)"
+    },
+    "Security": {
+        "Session State Protection": "Checksum Required - Session Level",
+        "Store value encrypted in session state": true,
+        "Restricted Characters": "All characters can be saved."
+    }
+}

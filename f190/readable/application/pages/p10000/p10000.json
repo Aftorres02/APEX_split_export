@@ -1,0 +1,79 @@
+{
+    "id": "10000",
+    "Identification": {
+        "Name": "Administration",
+        "Alias": "ADMIN",
+        "Title": "Administration",
+        "Page Group": "Administration (35653627005879909)"
+    },
+    "Appearance": {
+        "Page Mode": "Normal",
+        "Page Template": "Theme Default",
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Navigation Menu": {
+        "Override User Interface Level": false
+    },
+    "Navigation": {
+        "Cursor Focus": "Do not focus cursor",
+        "Warn on Unsaved Changes": true
+    },
+    "Security": {
+        "Authorization Scheme": "Administration Rights (35652037807879900)",
+        "Authentication": "Page Requires Authentication",
+        "Deep Linking": "Disabled",
+        "Page Access Protection": "Arguments Must Have Checksum",
+        "Form Auto Complete": "Off",
+        "Browser Cache": "Application Default"
+    },
+    "Session Management": {
+        "Rejoin Sessions": "Application Default"
+    },
+    "Advanced": {
+        "Enable duplicate page submissions": "Yes - Enable page to be re-posted",
+        "Reload on Submit": "Only for Success"
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Help": {
+        "Help Text": "<p>The administration page allows application owners (Administrators) to configure the application and maintain common data used across the application.\nBy selecting one of the available settings, administrators can potentially change how the application is displayed and/or features available to the end users.</p>\n<p>Access to this page should be limited to Administrators only.</p>"
+    },
+    "Dynamic Actions": [
+        {
+            "id": "35910689514881207",
+            "Identification": {
+                "Name": "Refresh Report"
+            },
+            "Execution": {
+                "Event Scope": "Static",
+                "Type": "Immediate"
+            },
+            "When": {
+                "Event": "EVENT.EVENT.FAMEWORK.APEXAFTERCLOSEDIALOG",
+                "Selection Type": "Button",
+                "Button": "ADD_USER (35906145590881197)"
+            },
+            "Actions": [
+                {
+                    "id": "35911182383881208",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "Region",
+                        "Region": "User Counts Report (35906999693881198)"
+                    },
+                    "Execution": {
+                        "Sequence": 10,
+                        "Event": "Refresh Report (35910689514881207)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                }
+            ]
+        }
+    ]
+}

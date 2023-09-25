@@ -1,0 +1,24 @@
+{
+    "id": "35823048813881111",
+    "Identification": {
+        "Name": "Set Access Control",
+        "Type": "Execute Code",
+        "Execution Chain": "None"
+    },
+    "Source": {
+        "Location": "Local Database",
+        "Language": "PL/SQL",
+        "PL/SQL Code": "begin\n    if :P10040_ALLOW_OTHER_USERS = 'Y' then\n        apex_app_setting.set_value (\n            p_name  => 'ACCESS_CONTROL_SCOPE',\n            p_value => 'ALL_USERS');\n    else\n        apex_app_setting.set_value (\n            p_name  => 'ACCESS_CONTROL_SCOPE',\n            p_value => 'ACL_ONLY');\n    end if;\nend;"
+    },
+    "Execution": {
+        "Sequence": 10,
+        "Point": "Processing",
+        "Run Process": "Once Per Page Visit (default)"
+    },
+    "Success Message": {
+        "Success Message": "Access Control settings saved."
+    },
+    "Error": {
+        "Display Location": "Inline in Notification"
+    }
+}

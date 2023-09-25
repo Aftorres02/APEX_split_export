@@ -1,0 +1,19 @@
+{
+    "id": "35835955244881130",
+    "Identification": {
+        "Name": "Cannot remove yourself from administrator"
+    },
+    "Execution": {
+        "Sequence": 10
+    },
+    "Validation": {
+        "Type": "Function Body (returning Boolean)",
+        "Language": "PL/SQL",
+        "PL/SQL Function Body": "if :P10042_USER_NAME = :APP_USER and\n    apex_acl.is_role_removed_from_user (\n        p_application_id => :APP_ID,\n        p_user_name      => :APP_USER,\n        p_role_static_id => 'ADMINISTRATOR',\n        p_role_ids       => apex_string.split_numbers(\n                                p_str => case when :REQUEST = 'DELETE' then\n                                             null\n                                         else\n                                             :P10042_ROLE_IDS\n                                         end,\n                                p_sep => ':') ) then\n    return false;\nelse\n    return true;\nend if;",
+        "Always Execute": false
+    },
+    "Error": {
+        "Error Message": "You cannot remove administrator role from yourself.",
+        "Display Location": "Inline in Notification"
+    }
+}

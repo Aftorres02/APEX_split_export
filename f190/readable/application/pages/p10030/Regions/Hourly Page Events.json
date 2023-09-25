@@ -1,0 +1,163 @@
+{
+    "id": "35738506187880956",
+    "Identification": {
+        "Title": "Hourly Page Events",
+        "Type": "Chart"
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Parent Region": "No Parent",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Standard (35465975937879680)",
+        "Template Options": [
+            "#DEFAULT#",
+            "t-Region--noPadding",
+            "i-h320",
+            "t-Region--scrollBody"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Security": {
+        "Escape special characters": true
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Not Customizable By End Users"
+    },
+    "Attributes": {
+        "id": "35738636433880956",
+        "Chart": {
+            "Type": "Bar"
+        },
+        "Appearance": {
+            "Orientation": "Vertical",
+            "Stack": false
+        },
+        "Data Cursor": {
+            "Cursor": "Automatic",
+            "Behavior": "Automatic",
+            "Dim On Hover": true
+        },
+        "Multi-Series Chart Data": {
+            "Fill Gaps in Chart Data": true,
+            "Sort Order": "Label - Ascending",
+            "Render Gap as Zero": true
+        },
+        "Settings": {
+            "Time Axis Type": "Enabled",
+            "Zoom and Scroll": "No"
+        },
+        "Animation": {
+            "On Display": "Automatic",
+            "On Data Change": "Automatic"
+        },
+        "Tooltip": {
+            "Show": true,
+            "Show Series Name": false,
+            "Show Group Name": true,
+            "Show Value": true
+        },
+        "Legend": {
+            "Show": false
+        },
+        "Series": [
+            {
+                "id": "35740717281880957",
+                "Identification": {
+                    "Name": "Series 1"
+                },
+                "Execution": {
+                    "Sequence": 10
+                },
+                "Source": {
+                    "Location": "Local Database",
+                    "Type": "SQL Query",
+                    "SQL Query": "with nw as (\n    -- APEX_ACTIVITY_LOG uses dates; convert system time to local time zone.\n    select from_tz( cast( sysdate as timestamp ), to_char( systimestamp, 'TZR' ) ) at local as tm from dual\n),\nwindow as (\n    select\n         trunc(nw.tm - ((level-1)/24),'HH') start_tm,\n         trunc(nw.tm - ((level-2)/24),'HH') end_tm,\n         trunc(sysdate-((level-1)/24),'HH') log_start_tm,\n         trunc(sysdate-((level-2)/24),'HH') log_end_tm\n    from nw\n    connect by level <= round( 24 * ( 1/24/60/60 * nvl(:P10030_TIMEFRAME,1) ) )\n)\nselect w.start_tm log_time,\n       ( select count(*)\n           from apex_activity_log l\n          where l.flow_id = :app_id\n            and l.time_stamp between w.log_start_tm and w.log_end_tm ) as value\nfrom window w\norder by 1",
+                    "Page Items to Submit": [
+                        "P10030_TIMEFRAME"
+                    ]
+                },
+                "Column Mapping": {
+                    "Label": "LOG_TIME",
+                    "Value": "VALUE"
+                },
+                "Appearance": {
+                    "Assigned To Y2 Axis": false
+                },
+                "Label": {
+                    "Show": false
+                },
+                "Performance": {
+                    "Maximum Rows to Process": 350
+                }
+            }
+        ],
+        "Axes": [
+            {
+                "id": "35741341888880958",
+                "Identification": {
+                    "Name": "y",
+                    "Show Axis": true
+                },
+                "Value": {
+                    "Format": "Decimal",
+                    "Decimal Places": 0,
+                    "Format Scaling": "Automatic",
+                    "Baseline Scaling": "Zero",
+                    "Scale": "Linear"
+                },
+                "Appearance": {
+                    "Position": "Automatic"
+                },
+                "Major Ticks": {
+                    "Show": "Automatic"
+                },
+                "Minor Ticks": {},
+                "Tick Label": {
+                    "Show": true
+                }
+            },
+            {
+                "id": "35741925246880958",
+                "Identification": {
+                    "Name": "x",
+                    "Show Axis": true
+                },
+                "Value": {
+                    "Format": "DateTime - Short",
+                    "Format Scaling": "Automatic",
+                    "Baseline Scaling": "Zero",
+                    "Scale": "Linear"
+                },
+                "Major Ticks": {
+                    "Show": "Yes"
+                },
+                "Minor Ticks": {
+                    "Show": true
+                },
+                "Tick Label": {
+                    "Show": true,
+                    "Rotation": true,
+                    "Position": "Outside"
+                }
+            }
+        ]
+    }
+}

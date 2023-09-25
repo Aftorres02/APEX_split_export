@@ -1,0 +1,33 @@
+{
+    "id": "35838328422881132",
+    "Identification": {
+        "Button Name": "SUBMIT",
+        "Label": "Add Users"
+    },
+    "Layout": {
+        "Sequence": 20,
+        "Region": "Buttons (35837751126881132)",
+        "Position": "NEXT",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Button Template": "Text (35539149230879730)",
+        "Hot": true,
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Behavior": {
+        "Action": "Submit Page",
+        "Execute Validations": true,
+        "Warn on Unsaved Changes": "Do Not Check"
+    },
+    "Server-side Condition": {
+        "Type": "Rows returned",
+        "SQL Query": "select 1\n  from apex_collections\n where collection_name = 'ACL_BULK_USER_VALID'"
+    }
+}

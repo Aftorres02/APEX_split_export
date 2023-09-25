@@ -1,0 +1,38 @@
+{
+    "id": "35833893397881122",
+    "Identification": {
+        "Name": "P10042_APPLICATION_ID",
+        "Type": "Hidden"
+    },
+    "Settings": {
+        "Value Protected": true
+    },
+    "Layout": {
+        "Sequence": 20,
+        "Region": "Form on Manage User Access (35829831333881120)",
+        "Position": "BODY"
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Form Region": "Form on Manage User Access (35829831333881120)",
+        "Column": "APPLICATION_ID",
+        "Data Type": "NUMBER",
+        "Query Only": false,
+        "Primary Key": false
+    },
+    "Default": {
+        "Type": "Static",
+        "Static Value": "&APP_ID."
+    },
+    "Session State": {
+        "Data Type": "VARCHAR2",
+        "Storage": "Per Request (Memory Only)"
+    },
+    "Security": {
+        "Session State Protection": "Checksum Required - Session Level",
+        "Store value encrypted in session state": true,
+        "Restricted Characters": "All characters can be saved."
+    }
+}

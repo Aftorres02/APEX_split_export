@@ -1,0 +1,52 @@
+{
+    "id": "35849333056881147",
+    "Identification": {
+        "Title": "No Valid Users Exist - Page Info",
+        "Type": "Static Content"
+    },
+    "Source": {
+        "HTML Code": "<p>No valid new users found</p>"
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Parent Region": "No Parent",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Blank with Attributes (35399394620879641)",
+        "Template Options": [
+            "#DEFAULT#",
+            "margin-bottom-sm"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Server-side Condition": {
+        "Type": "No Rows returned",
+        "SQL Query": "select 1\n  from apex_collections\n where collection_name = 'ACL_BULK_USER_VALID'"
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Not Customizable By End Users"
+    },
+    "Attributes": {
+        "Settings": {
+            "Output As": "HTML",
+            "Expand Shortcuts": false
+        }
+    }
+}

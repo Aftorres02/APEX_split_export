@@ -1,0 +1,114 @@
+{
+    "id": "35790989775881037",
+    "Identification": {
+        "Title": "Top Users Chart",
+        "Type": "Chart"
+    },
+    "Layout": {
+        "Sequence": 30,
+        "Parent Region": "No Parent",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Blank with Attributes (35399394620879641)",
+        "Template Options": [
+            "#DEFAULT#",
+            "t-Region--hideHeader",
+            "t-Region--hiddenOverflow"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Server-side Condition": {
+        "Type": "Item = Value",
+        "Item": "P10031_VIEW_AS",
+        "Value": "CHART"
+    },
+    "Security": {
+        "Escape special characters": true
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Not Customizable By End Users"
+    },
+    "Attributes": {
+        "id": "35791057925881037",
+        "Chart": {
+            "Type": "Donut"
+        },
+        "Layout": {
+            "Height": 600
+        },
+        "Data Cursor": {
+            "Cursor": "Automatic",
+            "Behavior": "Automatic",
+            "Dim On Hover": true
+        },
+        "Settings": {
+            "Pie Selection Effect": "Highlight"
+        },
+        "Value": {
+            "Pie Chart Other Threshold": 0.02,
+            "Format": "Decimal",
+            "Decimal Places": 0,
+            "Format Scaling": "Automatic"
+        },
+        "Animation": {
+            "On Display": "None",
+            "On Data Change": "Automatic"
+        },
+        "Tooltip": {
+            "Show": true,
+            "Show Series Name": true,
+            "Show Value": true
+        },
+        "Legend": {
+            "Show": false
+        },
+        "Advanced": {
+            "Initialization JavaScript Function": "function( options ){ \n\n    this.pieSliceLabel = function(dataContext) {\n        var series_name,\n            percent = Math.round(dataContext.value/dataContext.totalValue*100);\n        \n        if ( dataContext.seriesData ) {\n            series_name = dataContext.seriesData.name;\n        } else {\n            series_name = 'Other';\n        }\n        return series_name + \" \" + percent + \"% ( \" + dataContext.value + \" )\";\n    }\n    \n    // Set chart initialization options \n    options.dataLabel = pieSliceLabel; \n    return options; \n}"
+        },
+        "Series": [
+            {
+                "id": "35801661804881062",
+                "Identification": {
+                    "Name": "Series 1"
+                },
+                "Execution": {
+                    "Sequence": 10
+                },
+                "Source": {
+                    "Location": "Local Database",
+                    "Type": "SQL Query",
+                    "SQL Query": "select userid_lc as userid,\n       count(*) as page_views\n  from apex_activity_log\n where flow_id     = :app_id\n   and time_stamp >= sysdate - ( 1/24/60/60 * :P10031_TIMEFRAME )\n   and userid     is not null\n group by userid_lc\n order by 2",
+                    "Page Items to Submit": [
+                        "P10031_TIMEFRAME"
+                    ]
+                },
+                "Column Mapping": {
+                    "Label": "USERID",
+                    "Value": "PAGE_VIEWS"
+                },
+                "Label": {
+                    "Show": true,
+                    "Position": "Outside Slice",
+                    "Display As": "Label"
+                }
+            }
+        ]
+    }
+}

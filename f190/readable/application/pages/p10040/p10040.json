@@ -1,0 +1,81 @@
+{
+    "id": "10040",
+    "Identification": {
+        "Name": "Configure Access Control",
+        "Alias": "CONFIGURE-ACCESS-CONTROL",
+        "Title": "Configure Access Control",
+        "Page Group": "Administration (35653627005879909)"
+    },
+    "Appearance": {
+        "Page Mode": "Modal Dialog",
+        "Dialog Template": "Theme Default",
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Dialog": {
+        "Chained": true
+    },
+    "Navigation Menu": {
+        "Override User Interface Level": false
+    },
+    "Navigation": {
+        "Cursor Focus": "Do not focus cursor",
+        "Warn on Unsaved Changes": true
+    },
+    "Security": {
+        "Authorization Scheme": "Administration Rights (35652037807879900)",
+        "Authentication": "Page Requires Authentication",
+        "Deep Linking": "Application Default",
+        "Page Access Protection": "No Arguments Supported",
+        "Form Auto Complete": "Off",
+        "Browser Cache": "Application Default"
+    },
+    "Session Management": {
+        "Rejoin Sessions": "Application Default"
+    },
+    "Advanced": {
+        "Enable duplicate page submissions": "Yes - Enable page to be re-posted",
+        "Reload on Submit": "Only for Success"
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Help": {
+        "Help Text": "<p>Select the appropriate choice for any authenticated users.<br> \nSelecting <strong>No</strong> makes the application more secure as only specified users can access the application. \nHowever, if your application has a large user community then maintaining users may be onerous, and you may prefer to choose <strong>Yes</strong> and only enter application Administrators, and possibly Contributors.<br>\nIf you select <strong>Yes</strong> then you must also select how users not included in the users list are treated.</p>\n<p>Select between requiring email addresses and any alphanumeric value for Usernames.<br>\nGenerally, you should set this setting to <strong>E-mail Address</strong> if your application uses (or will be configured to use) a centralized authentication scheme such as Oracle Access Manager, or SSO.</p>\n<p><em><strong>Note:</strong> This application supports the following 3 access levels: Reader, Contributor, and Administrator.\n<ul>\n  <li><strong>Readers</strong> have read-only access to all information and can also view reports.</li>\n  <li><strong>Contributors</strong> can create, edit and delete information and view reports.</li>\n  <li><strong>Administrators</strong>, in addition to Contributors capability, can also perform configuration of the application by accessing the Administration section of the application.</li>\n</ul>\n</em></p>"
+    },
+    "Configuration": {
+        "Build Option": "Feature: Access Control (35649324938879894)"
+    },
+    "Dynamic Actions": [
+        {
+            "id": "35821009133881108",
+            "Identification": {
+                "Name": "Cancel Dialog"
+            },
+            "Execution": {
+                "Event Scope": "Static",
+                "Type": "Immediate"
+            },
+            "When": {
+                "Event": "EVENT.EVENT.BROWSER.CLICK",
+                "Selection Type": "Button",
+                "Button": "CANCEL (35820910644881108)"
+            },
+            "Actions": [
+                {
+                    "id": "35821772243881109",
+                    "Identification": {
+                        "Action": "Cancel Dialog"
+                    },
+                    "Execution": {
+                        "Sequence": 10,
+                        "Event": "Cancel Dialog (35821009133881108)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                }
+            ]
+        }
+    ]
+}

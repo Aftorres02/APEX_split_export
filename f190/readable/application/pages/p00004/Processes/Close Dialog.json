@@ -1,0 +1,20 @@
+{
+    "id": "35693440988880191",
+    "Identification": {
+        "Name": "Close Dialog",
+        "Type": "Close Dialog",
+        "Execution Chain": "None"
+    },
+    "Execution": {
+        "Sequence": 50,
+        "Point": "Processing",
+        "Run Process": "Once Per Page Visit (default)"
+    },
+    "Error": {
+        "Display Location": "Inline in Notification"
+    },
+    "Server-side Condition": {
+        "Type": "Request is contained in Value",
+        "Value": "CREATE,SAVE,DELETE"
+    }
+}

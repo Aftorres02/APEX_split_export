@@ -1,0 +1,34 @@
+{
+    "id": "35695721180880685",
+    "Identification": {
+        "Name": "P6_DEPTNO",
+        "Type": "Hidden"
+    },
+    "Settings": {
+        "Value Protected": true
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Region": "Department (35695393557880685)",
+        "Position": "BODY"
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Form Region": "Department (35695393557880685)",
+        "Column": "DEPTNO",
+        "Data Type": "NUMBER",
+        "Query Only": true,
+        "Primary Key": true
+    },
+    "Session State": {
+        "Data Type": "VARCHAR2",
+        "Storage": "Per Request (Memory Only)"
+    },
+    "Security": {
+        "Session State Protection": "Checksum Required - Session Level",
+        "Store value encrypted in session state": true,
+        "Restricted Characters": "All characters can be saved."
+    }
+}

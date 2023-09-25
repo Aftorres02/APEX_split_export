@@ -1,0 +1,56 @@
+{
+    "id": "35842170067881135",
+    "Identification": {
+        "Name": "P10043_USERNAME_FORMAT",
+        "Type": "Checkbox Group"
+    },
+    "Label": {
+        "Label": "Username Format",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Number of Columns": 1
+    },
+    "Layout": {
+        "Sequence": 40,
+        "Region": "Wizard Container (35837532976881132)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Required - Floating (35537942848879728)",
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Validation": {
+        "Value Required": false
+    },
+    "List of Values": {
+        "Type": "Shared Component",
+        "List of Values": "EMAIL_USERNAME_FORMAT (35842211153881135)",
+        "Display Extra Values": false
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Null",
+        "Used": "Only when current value in session state is null"
+    },
+    "Session State": {
+        "Storage": "Per Session (Persistent)"
+    },
+    "Security": {
+        "Session State Protection": "Unrestricted",
+        "Store value encrypted in session state": true,
+        "Escape special characters": true,
+        "Restricted Characters": "All characters can be saved."
+    }
+}

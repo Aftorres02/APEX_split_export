@@ -1,0 +1,159 @@
+{
+    "id": "35738798435880956",
+    "Identification": {
+        "Title": "Most Active Pages",
+        "Type": "Chart"
+    },
+    "Layout": {
+        "Sequence": 30,
+        "Parent Region": "No Parent",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": false,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Standard (35465975937879680)",
+        "Template Options": [
+            "#DEFAULT#",
+            "t-Region--noPadding",
+            "i-h320",
+            "t-Region--scrollBody"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Security": {
+        "Escape special characters": true
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Not Customizable By End Users"
+    },
+    "Attributes": {
+        "id": "35738885625880956",
+        "Chart": {
+            "Type": "Bar"
+        },
+        "Appearance": {
+            "Orientation": "Horizontal",
+            "Stack": false
+        },
+        "Data Cursor": {
+            "Cursor": "Automatic",
+            "Behavior": "Automatic",
+            "Dim On Hover": true
+        },
+        "Multi-Series Chart Data": {
+            "Fill Gaps in Chart Data": true,
+            "Sort Order": "Label - Ascending",
+            "Render Gap as Zero": true
+        },
+        "Settings": {
+            "Zoom and Scroll": "No"
+        },
+        "Animation": {
+            "On Display": "Automatic",
+            "On Data Change": "Automatic"
+        },
+        "Tooltip": {
+            "Show": true,
+            "Show Series Name": false,
+            "Show Group Name": true,
+            "Show Value": true
+        },
+        "Legend": {
+            "Show": false
+        },
+        "Series": [
+            {
+                "id": "35745769887880962",
+                "Identification": {
+                    "Name": "Series 1"
+                },
+                "Execution": {
+                    "Sequence": 10
+                },
+                "Source": {
+                    "Location": "Local Database",
+                    "Type": "SQL Query",
+                    "SQL Query": "select x.step_id||'. '||(select page_name from apex_application_pages p where p.application_id = :app_id and page_id = x.step_id) label, \n        value\nfrom ( select step_id,\n              count(*) as value\n         from apex_activity_log\n        where flow_id = :app_id\n          and time_stamp >= sysdate - ( 1/24/60/60 * :P10030_TIMEFRAME )\n          and step_id is not null\n        group by step_id\n        order by 2 desc\n     ) x",
+                    "Page Items to Submit": [
+                        "P10030_TIMEFRAME"
+                    ]
+                },
+                "Column Mapping": {
+                    "Label": "LABEL",
+                    "Value": "VALUE"
+                },
+                "Appearance": {
+                    "Assigned To Y2 Axis": false
+                },
+                "Label": {
+                    "Show": false
+                },
+                "Performance": {
+                    "Maximum Rows to Process": 10
+                }
+            }
+        ],
+        "Axes": [
+            {
+                "id": "35746373907880962",
+                "Identification": {
+                    "Name": "x",
+                    "Show Axis": true
+                },
+                "Value": {
+                    "Format Scaling": "Automatic",
+                    "Baseline Scaling": "Zero",
+                    "Scale": "Linear"
+                },
+                "Major Ticks": {
+                    "Show": "Automatic"
+                },
+                "Minor Ticks": {},
+                "Tick Label": {
+                    "Show": true,
+                    "Rotation": true,
+                    "Position": "Outside"
+                }
+            },
+            {
+                "id": "35746960437880963",
+                "Identification": {
+                    "Name": "y",
+                    "Show Axis": true
+                },
+                "Value": {
+                    "Format": "Decimal",
+                    "Decimal Places": 0,
+                    "Format Scaling": "Automatic",
+                    "Baseline Scaling": "Zero",
+                    "Scale": "Linear"
+                },
+                "Appearance": {
+                    "Position": "Automatic"
+                },
+                "Major Ticks": {
+                    "Show": "Automatic"
+                },
+                "Minor Ticks": {},
+                "Tick Label": {
+                    "Show": true
+                }
+            }
+        ]
+    }
+}

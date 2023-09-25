@@ -1,0 +1,48 @@
+{
+    "id": "35874147909881164",
+    "Identification": {
+        "Name": "P10054_USER_AGENT",
+        "Type": "Display Only"
+    },
+    "Label": {
+        "Label": "User Agent",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Format": "Plain Text",
+        "Based On": "Item Value",
+        "Show Line Breaks": true,
+        "Send On Page Submit": true
+    },
+    "Layout": {
+        "Sequence": 100,
+        "Region": "Form Items Region (35854937745881151)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Optional - Floating (35536695750879727)"
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Null",
+        "Used": "Only when current value in session state is null"
+    },
+    "Session State": {
+        "Data Type": "VARCHAR2",
+        "Storage": "Per Session (Persistent)"
+    },
+    "Security": {
+        "Session State Protection": "Unrestricted",
+        "Store value encrypted in session state": true,
+        "Restricted Characters": "All characters can be saved."
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "id": "35851704465881149",
+    "Identification": {
+        "Name": "P10044_ROLE",
+        "Type": "Hidden"
+    },
+    "Settings": {
+        "Value Protected": true
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Region": "Hidden Items (35838247665881132)",
+        "Position": "BODY"
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "SQL Query (return single value)",
+        "SQL Query": "select LISTAGG( role_name, ', ')\n         WITHIN GROUP (ORDER BY role_name) role_name\nfrom APEX_APPL_ACL_ROLES\nwhere application_id = :APP_ID\nand instr(:P10043_ROLE, role_id, 1) > 0",
+        "Used": "Only when current value in session state is null"
+    },
+    "Session State": {
+        "Data Type": "VARCHAR2",
+        "Storage": "Per Session (Persistent)"
+    },
+    "Security": {
+        "Session State Protection": "Restricted - May not be set from browser",
+        "Store value encrypted in session state": true,
+        "Restricted Characters": "All characters can be saved."
+    }
+}

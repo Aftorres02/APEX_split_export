@@ -1,0 +1,414 @@
+{
+    "id": "35783915375881029",
+    "Identification": {
+        "Title": "Application Error Log",
+        "Type": "Interactive Report"
+    },
+    "Source": {
+        "Location": "Local Database",
+        "Type": "SQL Query",
+        "SQL Query": "select step_id,\n       userid,\n       time_stamp err_time,\n       sqlerrm,\n       sqlerrm_component_type,\n       sqlerrm_component_name\n  from apex_activity_log\n where flow_id = :app_id\n   and sqlerrm is not null"
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Parent Region": "No Parent",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Interactive Report (35456102652879675)",
+        "Template Options": [
+            "#DEFAULT#",
+            "t-IRR-region--noBorders"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Not Customizable By End Users"
+    },
+    "Attributes": {
+        "id": "35784520426881030",
+        "Link": {
+            "Link Column": "Exclude Link Column"
+        },
+        "Pagination": {
+            "Type": "Row Ranges X to Y",
+            "Display Position": "Bottom - Right"
+        },
+        "Performance": {
+            "Lazy Loading": false
+        },
+        "Messages": {
+            "When No Data Found": "No data found.",
+            "When More Data Found": "The maximum row count for this report is #MAX_ROW_COUNT# rows.  Please apply a filter to reduce the number of records in your query."
+        },
+        "Search Bar": {
+            "Include Search Bar": true,
+            "Search Field": true,
+            "Finder Drop Down": true,
+            "Reports Select List": true,
+            "Rows Per Page Selector": false
+        },
+        "Actions Menu": {
+            "Include Actions Menu": true,
+            "Filter": true,
+            "Select Columns": true,
+            "Rows Per Page": true,
+            "Sort": true,
+            "Control Break": true,
+            "Highlight": true,
+            "Compute": true,
+            "Aggregate": true,
+            "Chart": true,
+            "Group By": true,
+            "Pivot": true,
+            "Flashback": true,
+            "Save Report": true,
+            "Save Public Report": false,
+            "Reset": true,
+            "Help": true,
+            "Download": true,
+            "Subscription": true
+        },
+        "Download": {
+            "Formats": [
+                "CSV",
+                "HTML",
+                "Excel",
+                "PDF"
+            ],
+            "Send as Email": true
+        },
+        "Heading": {
+            "Fixed To": "Page"
+        },
+        "Icon View": {
+            "Show": false
+        },
+        "Detail View": {
+            "Show": false
+        },
+        "Saved Reports": [
+            {
+                "id": "35789437617881036",
+                "Identification": {
+                    "Name": "Primary Report",
+                    "Alias": "357895"
+                }
+            }
+        ],
+        "Columns": [
+            {
+                "id": "35784934563881032",
+                "Identification": {
+                    "Column Name": "STEP_ID",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Page",
+                    "Alignment": "end"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 1,
+                    "Column Alignment": "end"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35785369125881032",
+                "Identification": {
+                    "Column Name": "USERID",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "User",
+                    "Alignment": "start"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 2,
+                    "Column Alignment": "start"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35785715058881032",
+                "Identification": {
+                    "Column Name": "ERR_TIME",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Err Time",
+                    "Alignment": "start"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 3,
+                    "Column Alignment": "start"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type",
+                    "Date Ranges": "All"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35786125431881033",
+                "Identification": {
+                    "Column Name": "SQLERRM",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Error",
+                    "Alignment": "start"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 4,
+                    "Column Alignment": "start"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35786541789881033",
+                "Identification": {
+                    "Column Name": "SQLERRM_COMPONENT_TYPE",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Context",
+                    "Alignment": "start"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 5,
+                    "Column Alignment": "start"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35786955082881034",
+                "Identification": {
+                    "Column Name": "SQLERRM_COMPONENT_NAME",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Component Name",
+                    "Alignment": "start"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 6,
+                    "Column Alignment": "start"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            }
+        ],
+        "Printing": {
+            "Output": {
+                "View File As": "Attachment"
+            },
+            "Page": {
+                "Size": "Letter",
+                "Orientation": "Landscape",
+                "Units": "Inches",
+                "Width": 11,
+                "Height": 8.5,
+                "Border Width": 0.5,
+                "Border Color": "#666666"
+            },
+            "Page Header": {
+                "Font": "Helvetica",
+                "Font Weight": "Normal",
+                "Font Size": 12,
+                "Font Color": "#000000",
+                "Alignment": "center",
+                "Page Header Text": "Application Error Log"
+            },
+            "Column Headings": {
+                "Font": "Helvetica",
+                "Font Weight": "Bold",
+                "Font Size": 10,
+                "Font Color": "#000000",
+                "Background Color": "#EEEEEE"
+            },
+            "Columns": {
+                "Font": "Helvetica",
+                "Font Weight": "Normal",
+                "Font Size": 10,
+                "Font Color": "#000000",
+                "Background Color": "#FFFFFF"
+            },
+            "Page Footer": {
+                "Font": "Helvetica",
+                "Font Weight": "Normal",
+                "Font Size": 12,
+                "Font Color": "#000000",
+                "Alignment": "center"
+            }
+        }
+    }
+}

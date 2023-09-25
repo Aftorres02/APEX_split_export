@@ -1,0 +1,64 @@
+{
+    "id": "35841773488881135",
+    "Identification": {
+        "Name": "P10043_PRELIM_USERS",
+        "Type": "Textarea"
+    },
+    "Label": {
+        "Label": "Usernames",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Resizable": true,
+        "Auto-Height": false,
+        "Character Counter": false,
+        "Trim Spaces": "Leading and Trailing"
+    },
+    "Layout": {
+        "Sequence": 30,
+        "Region": "Wizard Container (35837532976881132)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Required - Floating (35537942848879728)",
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "Width": 80,
+        "Height": 5,
+        "Value Placeholder": "Enter usernames here"
+    },
+    "Validation": {
+        "Value Required": true,
+        "Maximum Length": 4000
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Null",
+        "Used": "Only when current value in session state is null"
+    },
+    "Session State": {
+        "Data Type": "VARCHAR2",
+        "Storage": "Per Session (Persistent)"
+    },
+    "Quick Picks": {
+        "Show Quick Picks": false
+    },
+    "Security": {
+        "Session State Protection": "Restricted - May not be set from browser",
+        "Store value encrypted in session state": true,
+        "Restricted Characters": "All characters can be saved."
+    },
+    "Help": {
+        "Inline Help Text": "Enter usernames separated by commas, semicolons, or whitespace. Existing or duplicate usernames will automatically be ignored."
+    }
+}

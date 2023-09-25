@@ -1,0 +1,55 @@
+{
+    "id": "35906592354881198",
+    "Identification": {
+        "Title": "ACL Information",
+        "Type": "Dynamic Content"
+    },
+    "Source": {
+        "Language": "PL/SQL",
+        "PL/SQL Function Body returning a CLOB": "declare\n    l_acl_scope varchar2(45);\nbegin\n    l_acl_scope := apex_app_setting.get_value( p_name => 'ACCESS_CONTROL_SCOPE' );\n\n    if l_acl_scope = 'ALL_USERS' then\n        return apex_lang.message('APEX.FEATURE.ACL.INFO.ALL_USERS');\n    elsif l_acl_scope = 'ACL_ONLY' then\n        return apex_lang.message('APEX.FEATURE.ACL.INFO.ACL_ONLY');\n    else\n        return apex_lang.message('APEX.FEATURE.ACL.INFO.ACL_VALUE_INVALID', l_acl_scope);\n    end if;\nend;"
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Parent Region": "Access Control (35905762976881197)",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Alert (35394124535879635)",
+        "Template Options": [
+            "#DEFAULT#",
+            "t-Alert--colorBG",
+            "t-Alert--horizontal",
+            "t-Alert--noIcon",
+            "t-Alert--warning",
+            "t-Alert--accessibleHeading"
+        ],
+        "CSS Classes": [
+            "margin-sm"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Not Customizable By End Users"
+    },
+    "Attributes": {
+        "Performance": {
+            "Lazy Loading": false
+        }
+    }
+}

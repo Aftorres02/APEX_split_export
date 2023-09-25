@@ -1,0 +1,164 @@
+{
+    "id": "35739216092880956",
+    "Identification": {
+        "Title": "Latest Activity",
+        "Type": "Classic Report"
+    },
+    "Source": {
+        "Location": "Local Database",
+        "Type": "SQL Query",
+        "SQL Query": "select userid_lc       as username,\n       max(time_stamp) as last_activity\n  from apex_activity_log\n where flow_id     = :app_id\n   and time_stamp >= sysdate - ( 1/24/60/60 * :P10030_TIMEFRAME )\n   and userid_lc  is not null\n group by userid_lc\n order by 2 desc",
+        "Page Items to Submit": [
+            "P10030_TIMEFRAME"
+        ]
+    },
+    "Layout": {
+        "Sequence": 50,
+        "Parent Region": "No Parent",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": false,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Standard (35465975937879680)",
+        "Template Options": [
+            "#DEFAULT#",
+            "t-Region--noPadding",
+            "i-h240",
+            "t-Region--scrollBody"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Not Customizable By End Users"
+    },
+    "Attributes": {
+        "Layout": {
+            "Number of Rows Type": "Static Value",
+            "Number of Rows": 20
+        },
+        "Appearance": {
+            "Template Type": "Theme",
+            "Template": "Standard (35504143370879704)",
+            "Template Options": [
+                "#DEFAULT#",
+                "t-Report--stretch",
+                "t-Report--altRowsDefault",
+                "t-Report--rowHighlight",
+                "t-Report--inline"
+            ]
+        },
+        "Pagination": {
+            "Type": "No Pagination (Show All Rows)",
+            "Partial Page Refresh": true
+        },
+        "Performance": {
+            "Lazy Loading": false,
+            "Maximum Rows to Process": 500
+        },
+        "Messages": {
+            "When No Data Found": "No activities found"
+        },
+        "Break Formatting": {
+            "Break Columns": "No Break"
+        },
+        "Advanced": {
+            "Strip HTML": true,
+            "Sort Nulls": "Last"
+        },
+        "Heading": {
+            "Type": "Custom Headings"
+        },
+        "Download": {
+            "CSV Export Enabled": false
+        },
+        "Printing": {
+            "Enabled": false
+        }
+    },
+    "Columns": [
+        {
+            "id": "35751232552880980",
+            "Identification": {
+                "Column Name": "USERNAME",
+                "Type": "Plain Text"
+            },
+            "Heading": {
+                "Heading": "Username",
+                "Alignment": "center"
+            },
+            "Layout": {
+                "Sequence": 1,
+                "Column Alignment": "start"
+            },
+            "Accessibility": {
+                "Value Identifies Row": false
+            },
+            "Sorting": {
+                "Sortable": false
+            },
+            "Export / Printing": {
+                "Include In Export / Print": true
+            },
+            "Advanced": {
+                "Compute Sum": false
+            },
+            "UI Defaults Reference": {
+                "Table Owner": "Parsing Schema"
+            },
+            "Security": {
+                "Escape special characters": true
+            }
+        },
+        {
+            "id": "35751682740880981",
+            "Identification": {
+                "Column Name": "LAST_ACTIVITY",
+                "Type": "Plain Text"
+            },
+            "Heading": {
+                "Heading": "Last Activity",
+                "Alignment": "center"
+            },
+            "Layout": {
+                "Sequence": 2,
+                "Column Alignment": "start"
+            },
+            "Accessibility": {
+                "Value Identifies Row": false
+            },
+            "Appearance": {
+                "Format Mask": "SINCE"
+            },
+            "Sorting": {
+                "Sortable": false
+            },
+            "Export / Printing": {
+                "Include In Export / Print": true
+            },
+            "Advanced": {
+                "Compute Sum": false
+            },
+            "UI Defaults Reference": {
+                "Table Owner": "Parsing Schema"
+            },
+            "Security": {
+                "Escape special characters": true
+            }
+        }
+    ]
+}

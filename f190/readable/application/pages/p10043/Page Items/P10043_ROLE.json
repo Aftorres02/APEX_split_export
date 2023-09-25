@@ -1,0 +1,56 @@
+{
+    "id": "35841384968881135",
+    "Identification": {
+        "Name": "P10043_ROLE",
+        "Type": "Checkbox Group"
+    },
+    "Label": {
+        "Label": "Roles",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Number of Columns": 3
+    },
+    "Layout": {
+        "Sequence": 20,
+        "Region": "Wizard Container (35837532976881132)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Required - Floating (35537942848879728)",
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Validation": {
+        "Value Required": true
+    },
+    "List of Values": {
+        "Type": "Shared Component",
+        "List of Values": "ACCESS_ROLES (35834730253881123)",
+        "Display Extra Values": false
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Null",
+        "Used": "Only when current value in session state is null"
+    },
+    "Session State": {
+        "Storage": "Per Session (Persistent)"
+    },
+    "Security": {
+        "Session State Protection": "Unrestricted",
+        "Store value encrypted in session state": true,
+        "Escape special characters": true,
+        "Restricted Characters": "All characters can be saved."
+    }
+}

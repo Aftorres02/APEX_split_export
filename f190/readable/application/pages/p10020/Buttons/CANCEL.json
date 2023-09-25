@@ -1,0 +1,28 @@
+{
+    "id": "35733888371880940",
+    "Identification": {
+        "Button Name": "CANCEL",
+        "Label": "Cancel"
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Region": "Buttons (35732771864880939)",
+        "Position": "PREVIOUS",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Button Template": "Text (35539149230879730)",
+        "Hot": false,
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Behavior": {
+        "Action": "Defined by Dynamic Action",
+        "Execute Validations": false
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "id": "35815161100881098",
+    "Identification": {
+        "Name": "Get Log Detail",
+        "Type": "Execute Code",
+        "Execution Chain": "None"
+    },
+    "Source": {
+        "Location": "Local Database",
+        "Language": "PL/SQL",
+        "PL/SQL Code": "select automation_name,\n       start_timestamp,\n       status\n  into :P10036_AUTOMATION_NAME,\n       :P10036_START_TIMESTAMP,\n       :P10036_STATUS\n  from apex_automation_log\n where id = :P10036_LOG_ID;"
+    },
+    "Execution": {
+        "Sequence": 10,
+        "Point": "Before Header",
+        "Run Process": "Once Per Page Visit (default)"
+    }
+}

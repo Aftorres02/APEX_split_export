@@ -1,0 +1,18 @@
+{
+    "id": "35864682888881158",
+    "Identification": {
+        "Name": "Go To Page 10051"
+    },
+    "Execution": {
+        "Sequence": 10,
+        "Point": "After Processing"
+    },
+    "Behavior": {
+        "Type": "Page or URL (Redirect)",
+        "Target": {
+            "url": "f?p=&APP_ID.:10051:&APP_SESSION.::&DEBUG.:RP::",
+            "Page": "10051",
+            "Clear Cache": "RP"
+        }
+    }
+}

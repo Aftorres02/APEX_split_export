@@ -1,0 +1,529 @@
+{
+    "id": "35804156536881065",
+    "Identification": {
+        "Title": "Automations Log",
+        "Type": "Interactive Report"
+    },
+    "Source": {
+        "Location": "Local Database",
+        "Type": "SQL Query",
+        "SQL Query": "select l.id,\n       l.start_timestamp,\n       a.name automation_name,\n       l.status,\n       l.successful_row_count,\n       l.error_row_count,\n       (select count(1) from apex_automation_msg_log m where m.automation_log_id = l.id) msg_count,\n       l.is_job,\n       l.end_timestamp\n  from apex_appl_automations a, apex_automation_log l\n where a.automation_id = l.automation_id\n and l.application_id = :APP_ID"
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Parent Region": "No Parent",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Interactive Report (35456102652879675)",
+        "Template Options": [
+            "#DEFAULT#",
+            "t-IRR-region--noBorders"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Not Customizable By End Users"
+    },
+    "Attributes": {
+        "id": "35804725318881065",
+        "Link": {
+            "Link Column": "Exclude Link Column"
+        },
+        "Pagination": {
+            "Type": "Row Ranges X to Y",
+            "Display Position": "Bottom - Right"
+        },
+        "Performance": {
+            "Lazy Loading": false
+        },
+        "Messages": {
+            "When No Data Found": "No data found.",
+            "When More Data Found": "The maximum row count for this report is #MAX_ROW_COUNT# rows.  Please apply a filter to reduce the number of records in your query."
+        },
+        "Search Bar": {
+            "Include Search Bar": true,
+            "Search Field": true,
+            "Finder Drop Down": true,
+            "Reports Select List": true,
+            "Rows Per Page Selector": false
+        },
+        "Actions Menu": {
+            "Include Actions Menu": true,
+            "Filter": true,
+            "Select Columns": true,
+            "Rows Per Page": true,
+            "Sort": true,
+            "Control Break": true,
+            "Highlight": true,
+            "Compute": true,
+            "Aggregate": true,
+            "Chart": true,
+            "Group By": true,
+            "Pivot": true,
+            "Flashback": true,
+            "Save Report": true,
+            "Save Public Report": false,
+            "Reset": true,
+            "Help": true,
+            "Download": true,
+            "Subscription": true
+        },
+        "Download": {
+            "Formats": [
+                "CSV",
+                "HTML",
+                "Excel",
+                "PDF"
+            ],
+            "Send as Email": true
+        },
+        "Heading": {
+            "Fixed To": "Page"
+        },
+        "Icon View": {
+            "Show": false
+        },
+        "Detail View": {
+            "Show": false
+        },
+        "Saved Reports": [
+            {
+                "id": "35811680980881095",
+                "Identification": {
+                    "Name": "Primary Report",
+                    "Alias": "358117"
+                }
+            }
+        ],
+        "Columns": [
+            {
+                "id": "35805054541881089",
+                "Identification": {
+                    "Column Name": "ID",
+                    "Type": "Hidden Column"
+                },
+                "Heading": {
+                    "Heading": "ID"
+                },
+                "Layout": {
+                    "Sequence": 1
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35805463640881089",
+                "Identification": {
+                    "Column Name": "START_TIMESTAMP",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Started",
+                    "Alignment": "start"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 2,
+                    "Column Alignment": "start"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type",
+                    "Date Ranges": "All"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35805810296881090",
+                "Identification": {
+                    "Column Name": "AUTOMATION_NAME",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Automation",
+                    "Alignment": "start"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 3,
+                    "Column Alignment": "start"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35806262856881090",
+                "Identification": {
+                    "Column Name": "STATUS",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Status",
+                    "Alignment": "start"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 4,
+                    "Column Alignment": "start"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35806685393881090",
+                "Identification": {
+                    "Column Name": "SUCCESSFUL_ROW_COUNT",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Successful Rows",
+                    "Alignment": "end"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 5,
+                    "Column Alignment": "end"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35807075550881091",
+                "Identification": {
+                    "Column Name": "ERROR_ROW_COUNT",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Error Rows",
+                    "Alignment": "end"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 6,
+                    "Column Alignment": "end"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35807407691881091",
+                "Identification": {
+                    "Column Name": "MSG_COUNT",
+                    "Type": "Link"
+                },
+                "Heading": {
+                    "Heading": "Message",
+                    "Alignment": "end"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 7,
+                    "Column Alignment": "end"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Link": {
+                    "Target": {
+                        "url": "f?p=&APP_ID.:10036:&APP_SESSION.::&DEBUG.:RP,10036:P10036_LOG_ID:#ID#",
+                        "Page": "10036",
+                        "Clear Cache": "RP,10036",
+                        "Values": {
+                            "P10036_LOG_ID": "#ID#"
+                        }
+                    },
+                    "Link Text": "#MSG_COUNT#"
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35807894331881091",
+                "Identification": {
+                    "Column Name": "IS_JOB",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Scheduled",
+                    "Alignment": "start"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 8,
+                    "Column Alignment": "start"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35808200253881092",
+                "Identification": {
+                    "Column Name": "END_TIMESTAMP",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Ended",
+                    "Alignment": "start"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 9,
+                    "Column Alignment": "start"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type",
+                    "Date Ranges": "All"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            }
+        ],
+        "Printing": {
+            "Output": {
+                "View File As": "Attachment"
+            },
+            "Page": {
+                "Size": "Letter",
+                "Orientation": "Landscape",
+                "Units": "Inches",
+                "Width": 11,
+                "Height": 8.5,
+                "Border Width": 0.5,
+                "Border Color": "#666666"
+            },
+            "Page Header": {
+                "Font": "Helvetica",
+                "Font Weight": "Normal",
+                "Font Size": 12,
+                "Font Color": "#000000",
+                "Alignment": "center",
+                "Page Header Text": "Automations Log"
+            },
+            "Column Headings": {
+                "Font": "Helvetica",
+                "Font Weight": "Bold",
+                "Font Size": 10,
+                "Font Color": "#000000",
+                "Background Color": "#EEEEEE"
+            },
+            "Columns": {
+                "Font": "Helvetica",
+                "Font Weight": "Normal",
+                "Font Size": 10,
+                "Font Color": "#000000",
+                "Background Color": "#FFFFFF"
+            },
+            "Page Footer": {
+                "Font": "Helvetica",
+                "Font Weight": "Normal",
+                "Font Size": 12,
+                "Font Color": "#000000",
+                "Alignment": "center"
+            }
+        }
+    }
+}

@@ -1,0 +1,78 @@
+{
+    "id": "35657940550879937",
+    "Identification": {
+        "Name": "Login",
+        "Type": "Invoke API",
+        "Execution Chain": "None"
+    },
+    "Settings": {
+        "Type": "PL/SQL Package",
+        "Owner": "PARSING SCHEMA",
+        "Package": "APEX_AUTHENTICATION",
+        "Procedure or Function": "LOGIN"
+    },
+    "Execution": {
+        "Sequence": 20,
+        "Point": "Processing",
+        "Run Process": "Once Per Page Visit (default)"
+    },
+    "Error": {
+        "Display Location": "Inline in Notification"
+    },
+    "Parameters": [
+        {
+            "id": "35658446226879938",
+            "Identification": {
+                "Name": "p_username"
+            },
+            "Parameter": {
+                "Direction": "In",
+                "Data Type": "VARCHAR2",
+                "Has Default": false
+            },
+            "Value": {
+                "Type": "Item",
+                "Item": "P9999_USERNAME"
+            },
+            "Advanced": {
+                "Display Sequence": 1
+            }
+        },
+        {
+            "id": "35658979518879939",
+            "Identification": {
+                "Name": "p_password"
+            },
+            "Parameter": {
+                "Direction": "In",
+                "Data Type": "VARCHAR2",
+                "Has Default": false
+            },
+            "Value": {
+                "Type": "Item",
+                "Item": "P9999_PASSWORD"
+            },
+            "Advanced": {
+                "Display Sequence": 2
+            }
+        },
+        {
+            "id": "35659450002879939",
+            "Identification": {
+                "Name": "p_set_persistent_auth"
+            },
+            "Parameter": {
+                "Direction": "In",
+                "Data Type": "BOOLEAN",
+                "Has Default": true
+            },
+            "Value": {
+                "Type": "Item",
+                "Item": "P9999_PERSISTENT_AUTH"
+            },
+            "Advanced": {
+                "Display Sequence": 3
+            }
+        }
+    ]
+}

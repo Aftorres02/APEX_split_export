@@ -1,0 +1,38 @@
+{
+    "id": "9999",
+    "Identification": {
+        "Name": "Login Page",
+        "Alias": "LOGIN",
+        "Title": "Demonstration - EMP / DEPT - Log In"
+    },
+    "Appearance": {
+        "Page Mode": "Normal",
+        "Page Template": "Login (35374034202879622)",
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Navigation Menu": {
+        "Override User Interface Level": false
+    },
+    "Navigation": {
+        "Cursor Focus": "First item on page",
+        "Warn on Unsaved Changes": false
+    },
+    "Security": {
+        "Deep Linking": "Application Default",
+        "Page Access Protection": "Arguments Must Have Checksum",
+        "Form Auto Complete": "Off",
+        "Browser Cache": "Application Default"
+    },
+    "Advanced": {
+        "Enable duplicate page submissions": "Yes - Enable page to be re-posted",
+        "Reload on Submit": "Only for Success"
+    },
+    "Session Management": {
+        "Rejoin Sessions": "Application Default"
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    }
+}

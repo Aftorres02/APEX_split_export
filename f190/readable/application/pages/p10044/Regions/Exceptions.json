@@ -1,0 +1,161 @@
+{
+    "id": "35838064059881132",
+    "Identification": {
+        "Title": "Exceptions",
+        "Type": "Classic Report"
+    },
+    "Source": {
+        "Location": "Local Database",
+        "Type": "SQL Query",
+        "SQL Query": "select c001 username, c002 reason\n  from apex_collections\n where collection_name = 'ACL_BULK_USER_INVALID'\norder by 1"
+    },
+    "Layout": {
+        "Sequence": 60,
+        "Parent Region": "Wizard Container (35837844874881132)",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Collapsible (35418209785879652)",
+        "Template Options": [
+            "#DEFAULT#",
+            "t-Region--noPadding",
+            "is-collapsed",
+            "t-Region--noUI",
+            "t-Region--scrollBody"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Server-side Condition": {
+        "Type": "Rows returned",
+        "SQL Query": "select 1\n  from apex_collections\n where collection_name = 'ACL_BULK_USER_INVALID'"
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Not Customizable By End Users"
+    },
+    "Attributes": {
+        "Layout": {
+            "Number of Rows Type": "Static Value",
+            "Number of Rows": 10000
+        },
+        "Appearance": {
+            "Template Type": "Theme",
+            "Template": "Standard (35504143370879704)",
+            "Template Options": [
+                "t-Report--stretch",
+                "t-Report--staticRowColors",
+                "t-Report--rowHighlightOff"
+            ]
+        },
+        "Pagination": {
+            "Type": "No Pagination (Show All Rows)",
+            "Partial Page Refresh": true
+        },
+        "Performance": {
+            "Lazy Loading": false,
+            "Maximum Rows to Process": 500
+        },
+        "Messages": {
+            "When No Data Found": "no data found"
+        },
+        "Break Formatting": {
+            "Break Columns": "No Break"
+        },
+        "Advanced": {
+            "Strip HTML": true,
+            "Sort Nulls": "Last"
+        },
+        "Heading": {
+            "Type": "Custom Headings"
+        },
+        "Download": {
+            "CSV Export Enabled": false
+        },
+        "Printing": {
+            "Enabled": false
+        }
+    },
+    "Columns": [
+        {
+            "id": "35845196783881141",
+            "Identification": {
+                "Column Name": "USERNAME",
+                "Type": "Plain Text"
+            },
+            "Heading": {
+                "Heading": "Username",
+                "Alignment": "start"
+            },
+            "Layout": {
+                "Sequence": 1,
+                "Column Alignment": "start"
+            },
+            "Accessibility": {
+                "Value Identifies Row": false
+            },
+            "Sorting": {
+                "Sortable": false
+            },
+            "Export / Printing": {
+                "Include In Export / Print": true
+            },
+            "Advanced": {
+                "Compute Sum": false
+            },
+            "UI Defaults Reference": {
+                "Table Owner": "Parsing Schema"
+            },
+            "Security": {
+                "Escape special characters": true
+            }
+        },
+        {
+            "id": "35845562962881142",
+            "Identification": {
+                "Column Name": "REASON",
+                "Type": "Plain Text"
+            },
+            "Heading": {
+                "Heading": "Reason",
+                "Alignment": "start"
+            },
+            "Layout": {
+                "Sequence": 2,
+                "Column Alignment": "start"
+            },
+            "Accessibility": {
+                "Value Identifies Row": false
+            },
+            "Sorting": {
+                "Sortable": false
+            },
+            "Export / Printing": {
+                "Include In Export / Print": true
+            },
+            "Advanced": {
+                "Compute Sum": false
+            },
+            "UI Defaults Reference": {
+                "Table Owner": "Parsing Schema"
+            },
+            "Security": {
+                "Escape special characters": true
+            }
+        }
+    ]
+}

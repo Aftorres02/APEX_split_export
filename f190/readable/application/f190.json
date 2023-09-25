@@ -1,0 +1,174 @@
+{
+  "id":"190"
+ ,"Identification":{
+    "Name":"Demonstration - EMP \/ DEPT"
+   ,"Alias":"DEMONSTRATION-EMP-DEPT"
+   ,"Version":"Release 1.0"
+  }
+ ,"Row Search":{
+    "Tokenize":true
+  }
+ ,"Availability":{
+    "Status":"Available with Developer Toolbar"
+   ,"Build Status":"Run and Build Application"
+  }
+ ,"Error Handling":{
+    "Default Display Location":"Inline with Field and in Notification"
+  }
+ ,"Report Printing":{
+    "Type":"Native Printing"
+  }
+ ,"Advanced":{
+    "Friendly URLs":true
+   ,"Allow Feedback":true
+   ,"Logging":true
+   ,"Debugging":true
+   ,"Compatibility Mode":"21.2 \/ 22.1 \/ 22.2"
+  }
+ ,"Authentication":{
+    "Public User":"APEX_PUBLIC_USER"
+   ,"Authentication Scheme":"Oracle APEX Accounts (35362379547879597)"
+  }
+ ,"Authorization":{
+    "Authorization Scheme":"Reader Rights (35652102512879900)"
+   ,"Run on Public Pages":false
+   ,"Run on Background Job":true
+   ,"Source for Role or Group Schemes":"Access Control User Role Assignments"
+  }
+ ,"Session Management":{
+    "Rejoin Sessions":"Disabled"
+  }
+ ,"Session State Protection":{
+    "Enabled":true
+  }
+ ,"Security":{
+    "Deep Linking":"Disabled"
+   ,"Browser Cache":"Disabled"
+   ,"Embed in Frames":"Deny"
+   ,"Referrer Policy":"strict-origin"
+   ,"HTML Escaping Mode":"Extended"
+   ,"Runtime API Usage":[
+      "Modify This Application"
+    ]
+  }
+ ,"Advanced":{
+    "Pass ECID":"Y"
+  }
+ ,"Database Session":{
+    "Parsing Schema":"DB_01"
+  }
+ ,"Globalization":{
+    "Primary Language":"English (en)"
+   ,"Document Direction":"Left-To-Right"
+   ,"Language Derived From":"Application Primary Language"
+   ,"Automatic Time Zone":false
+   ,"Automatic CSV Encoding":true
+  }
+ ,"Application Format Masks":{
+    "Date":"DS"
+   ,"Timestamp":"DS"
+   ,"Timestamp Time Zone":"DS"
+  }
+ ,"Character Value Comparison":{
+    "Behavior":"Database session NLS setting (default)"
+  }
+ ,"Logo":{
+    "Type":"Text"
+   ,"Text":"Demonstration - EMP \/ DEPT"
+  }
+ ,"Progressive Web App":{
+    "Enable":true
+   ,"Installable":true
+   ,"Display":"Standalone"
+   ,"Screen Orientation":"Any"
+   ,"iOS Status Bar Style":"Default"
+   ,"Enable Push Notifications":false
+  }
+ ,"Navigation":{
+    "Home URL":{
+      "url":"f?p=\u0026APP_ID.:1:\u0026APP_SESSION.::\u0026DEBUG.:::"
+     ,"Page":"1"
+    }
+   ,"Login URL":{
+      "url":"f?p=\u0026APP_ID.:LOGIN:\u0026APP_SESSION.::\u0026DEBUG.:::"
+     ,"Page":"LOGIN"
+    }
+  }
+ ,"Navigation Menu":{
+    "List Template":"Side Navigation Menu (35526971258879720)"
+   ,"Template Options":[
+      "#DEFAULT#"
+     ,"t-TreeNav--styleA"
+     ,"js-navCollapsed--hidden"
+    ]
+   ,"List Position":"Side"
+   ,"List":"Navigation Menu (35363155368879602)"
+  }
+ ,"Navigation Bar":{
+    "Implementation":"List"
+   ,"List":"Navigation Bar (35646999451879865)"
+   ,"List Template":"Navigation Bar (35526548331879719)"
+   ,"Template Options":[
+      "#DEFAULT#"
+    ]
+  }
+ ,"JavaScript":{
+    "Include jQuery Migrate":false
+  }
+ ,"Attributes":{
+    "Theme":"Universal Theme (42)"
+   ,"Global Page":"0"
+   ,"Enable End Users to choose Theme Style":false
+   ,"Add \"Built with APEX\" to Footer":true
+  }
+ ,"Substitutions":[
+    {
+      "id":"1"
+     ,"Identification":{
+        "Name":"APP_NAME"
+      }
+     ,"Value":{
+        "Static Value":"Demonstration - EMP \/ DEPT"
+      }
+    }
+  ]
+ ,"Application Settings":[
+    {
+      "id":"35653068990879906"
+     ,"Identification":{
+        "Name":"FEEDBACK_ATTACHMENTS_YN"
+      }
+     ,"Value":{
+        "Value":"Y"
+       ,"Required":false
+      }
+     ,"Advanced":{
+        "Valid Values":"Y, N"
+       ,"On Upgrade Keep Value":true
+      }
+     ,"Configuration":{
+        "Build Option":"Feature: Feedback (35649554480879894)"
+      }
+    }
+   ,{
+      "id":"35653341828879907"
+     ,"Identification":{
+        "Name":"ACCESS_CONTROL_SCOPE"
+      }
+     ,"Value":{
+        "Value":"ACL_ONLY"
+       ,"Required":false
+      }
+     ,"Advanced":{
+        "Valid Values":"ACL_ONLY, ALL_USERS"
+       ,"On Upgrade Keep Value":true
+      }
+     ,"Configuration":{
+        "Build Option":"Feature: Access Control (35649324938879894)"
+      }
+     ,"Comments":{
+        "Comments":"The default access level given to authenticated users who are not in the access control list"
+      }
+    }
+  ]
+}

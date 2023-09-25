@@ -1,0 +1,81 @@
+{
+    "id": "10020",
+    "Identification": {
+        "Name": "Application Appearance",
+        "Alias": "APPLICATION-APPEARANCE",
+        "Title": "Application Appearance",
+        "Page Group": "Administration (35653627005879909)"
+    },
+    "Appearance": {
+        "Page Mode": "Modal Dialog",
+        "Dialog Template": "Theme Default",
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Dialog": {
+        "Chained": true
+    },
+    "Navigation Menu": {
+        "Override User Interface Level": false
+    },
+    "Navigation": {
+        "Cursor Focus": "Do not focus cursor",
+        "Warn on Unsaved Changes": true
+    },
+    "Security": {
+        "Authorization Scheme": "Administration Rights (35652037807879900)",
+        "Authentication": "Page Requires Authentication",
+        "Deep Linking": "Application Default",
+        "Page Access Protection": "Arguments Must Have Checksum",
+        "Form Auto Complete": "Off",
+        "Browser Cache": "Application Default"
+    },
+    "Session Management": {
+        "Rejoin Sessions": "Application Default"
+    },
+    "Advanced": {
+        "Enable duplicate page submissions": "Yes - Enable page to be re-posted",
+        "Reload on Submit": "Only for Success"
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Help": {
+        "Help Text": "<p>Select the default color scheme used to display the application.</p>\n<p>If <strong>Allow End Users to choose Theme Style</strong> is checked, then each end user can select from the available theme styles by clicking the <em>Customize</em> link in the bottom left corner of the Home page.</p>"
+    },
+    "Configuration": {
+        "Build Option": "Feature: Theme Style Selection (35650183910879894)"
+    },
+    "Dynamic Actions": [
+        {
+            "id": "35733955177880940",
+            "Identification": {
+                "Name": "Cancel Dialog"
+            },
+            "Execution": {
+                "Event Scope": "Static",
+                "Type": "Immediate"
+            },
+            "When": {
+                "Event": "EVENT.EVENT.BROWSER.CLICK",
+                "Selection Type": "Button",
+                "Button": "CANCEL (35733888371880940)"
+            },
+            "Actions": [
+                {
+                    "id": "35734687235880940",
+                    "Identification": {
+                        "Action": "Cancel Dialog"
+                    },
+                    "Execution": {
+                        "Sequence": 10,
+                        "Event": "Cancel Dialog (35733955177880940)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                }
+            ]
+        }
+    ]
+}

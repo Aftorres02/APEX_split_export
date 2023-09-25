@@ -1,0 +1,34 @@
+{
+    "id": "35691816229880190",
+    "Identification": {
+        "Button Name": "SAVE",
+        "Label": "Apply Changes"
+    },
+    "Layout": {
+        "Sequence": 30,
+        "Region": "Buttons (35689668150880187)",
+        "Position": "NEXT",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Button Template": "Text (35539149230879730)",
+        "Hot": true,
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Behavior": {
+        "Action": "Submit Page",
+        "Execute Validations": true,
+        "Warn on Unsaved Changes": "Do Not Check",
+        "Database Action": "SQL UPDATE action"
+    },
+    "Server-side Condition": {
+        "Type": "Item is NOT NULL",
+        "Item": "P4_EMPNO"
+    }
+}

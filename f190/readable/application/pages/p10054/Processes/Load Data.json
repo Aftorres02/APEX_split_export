@@ -1,0 +1,18 @@
+{
+    "id": "35874673146881164",
+    "Identification": {
+        "Name": "Load Data",
+        "Type": "Execute Code",
+        "Execution Chain": "None"
+    },
+    "Source": {
+        "Location": "Local Database",
+        "Language": "PL/SQL",
+        "PL/SQL Code": "for l_feedback in (\n   select page_id,\n          page_name,\n          case feedback_rating\n                when 1 then '<span class=\"fa fa-frown-o feedback-negative\" aria-hidden=\"true\" title=\"Negative\"></span>' \n                when 2 then '<span class=\"fa fa-emoji-neutral feedback-neutral\" aria-hidden=\"true\" title=\"Neutral\"></span>'  \n                when 3 then '<span class=\"fa fa-smile-o feedback-positive\" aria-hidden=\"true\" title=\"Positive\"></span>' \n                end rating_icon,\n          lower(created_by) || ' - ' || apex_util.get_since(created_on) filed,\n          feedback,\n          public_response,\n          feedback_status,\n          http_user_agent\n     from apex_team_feedback\n    where feedback_id = :P10054_ID )\nloop\n   :P10054_PAGE_ID         := l_feedback.page_id||'. '||l_feedback.page_name;\n   :P10054_FILED           := l_feedback.filed;\n   :P10054_RATING_ICON     := l_feedback.rating_icon;\n   :P10054_FEEDBACK        := l_feedback.feedback;\n   :P10054_RESPONSE        := l_feedback.public_response;\n   :P10054_FEEDBACK_STATUS := l_feedback.feedback_status;\n   :P10054_USER_AGENT      := l_feedback.http_user_agent;\nend loop;"
+    },
+    "Execution": {
+        "Sequence": 10,
+        "Point": "After Header",
+        "Run Process": "Once Per Page Visit (default)"
+    }
+}

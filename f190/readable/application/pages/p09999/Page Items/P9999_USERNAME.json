@@ -1,0 +1,64 @@
+{
+    "id": "35656079805879931",
+    "Identification": {
+        "Name": "P9999_USERNAME",
+        "Type": "Text Field"
+    },
+    "Label": {
+        "Label": "Username",
+        "Alignment": "Right"
+    },
+    "Settings": {
+        "Subtype": "Text",
+        "Trim Spaces": "None",
+        "Text Case": "NO CHANGE",
+        "Submit when Enter pressed": false,
+        "Disabled": false
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Region": "Demonstration - EMP / DEPT (35655598745879926)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Hidden (35536312518879725)",
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "Icon": "fa-user",
+        "Width": 40,
+        "Value Placeholder": "Username"
+    },
+    "Validation": {
+        "Value Required": false,
+        "Maximum Length": 100
+    },
+    "Advanced": {
+        "Custom Attributes": [
+            "autocomplete=\"username\""
+        ],
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Null",
+        "Used": "Only when current value in session state is null"
+    },
+    "Session State": {
+        "Storage": "Per Request (Memory Only)"
+    },
+    "Quick Picks": {
+        "Show Quick Picks": false
+    },
+    "Security": {
+        "Session State Protection": "Unrestricted",
+        "Store value encrypted in session state": true,
+        "Restricted Characters": "All characters can be saved."
+    }
+}

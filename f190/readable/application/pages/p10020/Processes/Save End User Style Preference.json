@@ -1,0 +1,24 @@
+{
+    "id": "35738252526880955",
+    "Identification": {
+        "Name": "Save End User Style Preference",
+        "Type": "Execute Code",
+        "Execution Chain": "None"
+    },
+    "Source": {
+        "Location": "Local Database",
+        "Language": "PL/SQL",
+        "PL/SQL Code": "declare\n    l_enabled boolean := case when :P10020_END_USER_STYLE = 'Yes' then true else false end;\nbegin\n    for l_theme in ( select theme_number\n                       from apex_applications\n                      where application_id  = :APP_ID )\n    loop\n        if l_enabled then\n            apex_theme.enable_user_style (\n                p_application_id => :APP_ID,\n                p_theme_number   => l_theme.theme_number );\n        else\n            apex_theme.disable_user_style (\n                p_application_id => :APP_ID,\n                p_theme_number   => l_theme.theme_number );\n            apex_theme.clear_all_users_style(:APP_ID);\n        end if;\n    end loop;\nend;"
+    },
+    "Execution": {
+        "Sequence": 20,
+        "Point": "Processing",
+        "Run Process": "Once Per Page Visit (default)"
+    },
+    "Success Message": {
+        "Success Message": "Application Appearance Settings Saved."
+    },
+    "Error": {
+        "Display Location": "Inline in Notification"
+    }
+}

@@ -1,0 +1,81 @@
+{
+    "id": "10042",
+    "Identification": {
+        "Name": "Manage User Access",
+        "Alias": "USER_ACCESS",
+        "Title": "Manage User Access",
+        "Page Group": "Administration (35653627005879909)"
+    },
+    "Appearance": {
+        "Page Mode": "Modal Dialog",
+        "Dialog Template": "Theme Default",
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Dialog": {
+        "Chained": false
+    },
+    "Navigation Menu": {
+        "Override User Interface Level": false
+    },
+    "Navigation": {
+        "Cursor Focus": "First item on page",
+        "Warn on Unsaved Changes": true
+    },
+    "Security": {
+        "Authorization Scheme": "Administration Rights (35652037807879900)",
+        "Authentication": "Page Requires Authentication",
+        "Deep Linking": "Application Default",
+        "Page Access Protection": "Arguments Must Have Checksum",
+        "Form Auto Complete": "Off",
+        "Browser Cache": "Application Default"
+    },
+    "Session Management": {
+        "Rejoin Sessions": "Application Default"
+    },
+    "Advanced": {
+        "Enable duplicate page submissions": "Yes - Enable page to be re-posted",
+        "Reload on Submit": "Only for Success"
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Help": {
+        "Help Text": "<p>Use this form to enter users, their email address and set their access level. \nThe settings defined under <em>Configure Access Control</em> will determine whether the username must be their email address or can be any alphanumeric entry.</p>\n<p>This application supports the following 3 access levels: Reader, Contributor, and Administrator.</p>\n<ul>\n  <li><strong>Readers</strong> have read-only access to all information and can also view reports.</li>\n  <li><strong>Contributors</strong> can create, edit and delete information and view reports.</li>\n  <li><strong>Administrators</strong>, in addition to Contributors capability, can also perform configuration of the application by accessing the Administration section of the application.</li>\n</ul>\n<p>When editing an existing user you can lock their account which will prevent them from accessing the application.</p>\n<p><em><strong>Note:</strong>   If using Oracle APEX accounts then users entered here must also be defined as end users by a Workspace Administrator, who can also set their password.</em></p>"
+    },
+    "Configuration": {
+        "Build Option": "Feature: Access Control (35649324938879894)"
+    },
+    "Dynamic Actions": [
+        {
+            "id": "35831010406881121",
+            "Identification": {
+                "Name": "Cancel Dialog"
+            },
+            "Execution": {
+                "Event Scope": "Static",
+                "Type": "Immediate"
+            },
+            "When": {
+                "Event": "EVENT.EVENT.BROWSER.CLICK",
+                "Selection Type": "Button",
+                "Button": "CANCEL (35830982552881121)"
+            },
+            "Actions": [
+                {
+                    "id": "35831796680881121",
+                    "Identification": {
+                        "Action": "Cancel Dialog"
+                    },
+                    "Execution": {
+                        "Sequence": 10,
+                        "Event": "Cancel Dialog (35831010406881121)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "id": "35878295515881166",
+    "Identification": {
+        "Name": "Close Dialog",
+        "Type": "Close Dialog",
+        "Execution Chain": "None"
+    },
+    "Execution": {
+        "Sequence": 50,
+        "Point": "Processing",
+        "Run Process": "Once Per Page Visit (default)"
+    },
+    "Error": {
+        "Display Location": "Inline in Notification"
+    }
+}

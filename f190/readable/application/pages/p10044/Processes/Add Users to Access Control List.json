@@ -1,0 +1,27 @@
+{
+    "id": "35852987728881150",
+    "Identification": {
+        "Name": "Add Users to Access Control List",
+        "Type": "Execute Code",
+        "Execution Chain": "None"
+    },
+    "Source": {
+        "Location": "Local Database",
+        "Language": "PL/SQL",
+        "PL/SQL Code": "declare\n    l_user_role_ids apex_application_global.vc_arr2;\nbegin\n    for c in (  select distinct c001 as username, c003 as user_roles\n                from   apex_collections\n                where  collection_name = 'ACL_BULK_USER_VALID' )\n    loop\n         l_user_role_ids := apex_util.string_to_table(c.user_roles);\n         for i in 1..l_user_role_ids.count loop\n             apex_acl.add_user_role(p_application_id => :APP_ID, p_user_name => c.username, p_role_id => l_user_role_ids(i));\n         end loop;\n    end loop;\n\n    apex_collection.delete_collection('ACL_BULK_USER_INVALID');\n    apex_collection.delete_collection('ACL_BULK_USER_VALID');\n    :P10043_PRELIM_USERS := null;\nend;"
+    },
+    "Execution": {
+        "Sequence": 10,
+        "Point": "Processing",
+        "Run Process": "Once Per Page Visit (default)"
+    },
+    "Success Message": {
+        "Success Message": "User(s) added."
+    },
+    "Error": {
+        "Display Location": "Inline in Notification"
+    },
+    "Server-side Condition": {
+        "When Button Pressed": "SUBMIT (35838328422881132)"
+    }
+}

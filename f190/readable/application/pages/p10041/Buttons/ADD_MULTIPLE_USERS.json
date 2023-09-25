@@ -1,0 +1,33 @@
+{
+    "id": "35828333728881119",
+    "Identification": {
+        "Button Name": "ADD_MULTIPLE_USERS",
+        "Label": "Add Multiple Users"
+    },
+    "Layout": {
+        "Sequence": 30,
+        "Region": "Manage User Access (35823453189881111)",
+        "Position": "RIGHT_OF_IR_SEARCH_BAR",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Button Template": "Text (35539149230879730)",
+        "Hot": false,
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Behavior": {
+        "Action": "Redirect to Page in this Application",
+        "Target": {
+            "url": "f?p=&APP_ID.:10043:&APP_SESSION.::&DEBUG.:10043::",
+            "Page": "10043",
+            "Clear Cache": "10043"
+        },
+        "Warn on Unsaved Changes": "Do Not Check"
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "id": "35850072044881148",
+    "Identification": {
+        "Button Name": "PREVIOUS",
+        "Label": "Previous"
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Region": "Buttons (35837751126881132)",
+        "Position": "PREVIOUS",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Button Template": "Icon (35538400866879729)",
+        "Hot": false,
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "Icon": "fa-chevron-left"
+    },
+    "Behavior": {
+        "Action": "Redirect to URL",
+        "Target": "javascript:history.back();",
+        "Execute Validations": true,
+        "Warn on Unsaved Changes": "Do Not Check"
+    }
+}

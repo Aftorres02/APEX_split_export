@@ -1,0 +1,59 @@
+{
+    "id": "35834656667881123",
+    "Identification": {
+        "Name": "P10042_ROLE_IDS",
+        "Type": "Checkbox Group"
+    },
+    "Label": {
+        "Label": "Roles",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Number of Columns": 1
+    },
+    "Layout": {
+        "Sequence": 40,
+        "Region": "Form on Manage User Access (35829831333881120)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Required - Floating (35537942848879728)"
+    },
+    "Validation": {
+        "Value Required": true
+    },
+    "List of Values": {
+        "Type": "Shared Component",
+        "List of Values": "ACCESS_ROLES (35834730253881123)",
+        "Display Extra Values": false
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Form Region": "Form on Manage User Access (35829831333881120)",
+        "Column": "ROLE_IDS",
+        "Data Type": "VARCHAR2",
+        "Query Only": false,
+        "Primary Key": false
+    },
+    "Session State": {
+        "Storage": "Per Request (Memory Only)"
+    },
+    "Security": {
+        "Session State Protection": "Unrestricted",
+        "Store value encrypted in session state": true,
+        "Escape special characters": true,
+        "Restricted Characters": "All characters can be saved."
+    },
+    "Help": {
+        "Help Text": "<p>When Access Control is enabled, Administrators have the ability to restrict access to certain application features for authenticated users. This application supports the following 3 roles: Reader, Contributor, and Administrator.<p>\n<ul>\n  <li><strong>Readers</strong> have read-only access to all information and can also view reports.</li>\n  <li><strong>Contributors</strong> can create,edit and delete information and view reports.</li>\n  <li><strong>Administrators</strong>,in addition to Contributors capability,can also perform configuration of the application.</li>\n</ul>"
+    }
+}

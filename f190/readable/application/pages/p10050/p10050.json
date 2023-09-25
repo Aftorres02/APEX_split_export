@@ -1,0 +1,81 @@
+{
+    "id": "10050",
+    "Identification": {
+        "Name": "Feedback",
+        "Alias": "FEEDBACK",
+        "Title": "Feedback",
+        "Page Group": "Administration (35653627005879909)"
+    },
+    "Appearance": {
+        "Page Mode": "Modal Dialog",
+        "Dialog Template": "Theme Default",
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Dialog": {
+        "Width": "480",
+        "Chained": false
+    },
+    "Navigation Menu": {
+        "Override User Interface Level": false
+    },
+    "Navigation": {
+        "Cursor Focus": "Do not focus cursor",
+        "Warn on Unsaved Changes": true
+    },
+    "CSS": {
+        "Inline": ".feedback-positive, .feedback-negative, .feedback-neutral { padding: 8px; border-radius: 100%; background-color: white; margin: 4px; }\n.feedback-positive { color: var(--ut-feedback-positive-text-color, var(--ut-palette-success)); }\n.feedback-neutral { color: var(--ut-feedback-neutral-text-color, var(--ut-palette-warning)); }\n.feedback-negative { color: var(--ut-feedback-negative-text-color, var(--ut-palette-danger)); }"
+    },
+    "Security": {
+        "Authentication": "Page Requires Authentication",
+        "Deep Linking": "Application Default",
+        "Page Access Protection": "Arguments Must Have Checksum",
+        "Form Auto Complete": "Off",
+        "Browser Cache": "Application Default"
+    },
+    "Session Management": {
+        "Rejoin Sessions": "Application Default"
+    },
+    "Advanced": {
+        "Enable duplicate page submissions": "Yes - Enable page to be re-posted",
+        "Reload on Submit": "Only for Success"
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Configuration": {
+        "Build Option": "Feature: Feedback (35649554480879894)"
+    },
+    "Dynamic Actions": [
+        {
+            "id": "35857035308881153",
+            "Identification": {
+                "Name": "Cancel Dialog"
+            },
+            "Execution": {
+                "Event Scope": "Static",
+                "Type": "Immediate"
+            },
+            "When": {
+                "Event": "EVENT.EVENT.BROWSER.CLICK",
+                "Selection Type": "Button",
+                "Button": "CANCEL (35856922205881153)"
+            },
+            "Actions": [
+                {
+                    "id": "35857729766881153",
+                    "Identification": {
+                        "Action": "Cancel Dialog"
+                    },
+                    "Execution": {
+                        "Sequence": 10,
+                        "Event": "Cancel Dialog (35857035308881153)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,788 @@
+{
+    "id": "35770178386881007",
+    "Identification": {
+        "Title": "Page Performance",
+        "Type": "Interactive Report"
+    },
+    "Source": {
+        "Location": "Local Database",
+        "Type": "SQL Query",
+        "SQL Query": "select step_id page,\n    (   select page_name\n        from apex_application_pages p\n        where p.page_id = l.step_id\n            and p.application_id = :app_id ) page_name,\n    median(elap)                   median_elapsed,\n    count(*) * median(elap)        weighted_performance,\n    sum(decode(sqlerrm,null,0,1))  errors,\n    count(distinct userid)         distinct_users,\n    count(distinct session_id)     application_sessions,\n    count(*)                       page_views,\n    max(elap)                      max_elapsed,\n    sum(nvl(num_rows,0))           total_rows,\n    sum(decode(page_mode,'P',1,0)) partial_page_views,\n    sum(decode(page_mode,'D',1,0)) full_page_views,\n    min(elap)                      min_elapsed,\n    avg(elap)                      avg_elapsed\nfrom apex_activity_log l\nwhere flow_id = :app_id\n    and time_stamp >= sysdate - ( 1/24/60/60 * :P10033_TIMEFRAME )\n    and userid is not null\ngroup by step_id",
+        "Page Items to Submit": [
+            "P10033_TIMEFRAME"
+        ]
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Parent Region": "No Parent",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Interactive Report (35456102652879675)",
+        "Template Options": [
+            "#DEFAULT#",
+            "t-IRR-region--noBorders"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Not Customizable By End Users"
+    },
+    "Attributes": {
+        "id": "35770734399881007",
+        "Link": {
+            "Link Column": "Exclude Link Column"
+        },
+        "Pagination": {
+            "Type": "Row Ranges X to Y",
+            "Display Position": "Bottom - Right"
+        },
+        "Performance": {
+            "Lazy Loading": false
+        },
+        "Messages": {
+            "When No Data Found": "No data found.",
+            "When More Data Found": "The maximum row count for this report is #MAX_ROW_COUNT# rows.  Please apply a filter to reduce the number of records in your query."
+        },
+        "Search Bar": {
+            "Include Search Bar": true,
+            "Search Field": true,
+            "Finder Drop Down": true,
+            "Reports Select List": true,
+            "Rows Per Page Selector": false
+        },
+        "Actions Menu": {
+            "Include Actions Menu": true,
+            "Filter": true,
+            "Select Columns": true,
+            "Rows Per Page": true,
+            "Sort": true,
+            "Control Break": true,
+            "Highlight": true,
+            "Compute": true,
+            "Aggregate": true,
+            "Chart": true,
+            "Group By": true,
+            "Pivot": true,
+            "Flashback": true,
+            "Save Report": true,
+            "Save Public Report": false,
+            "Reset": true,
+            "Help": true,
+            "Download": true,
+            "Subscription": true
+        },
+        "Download": {
+            "Formats": [
+                "CSV",
+                "HTML",
+                "Excel",
+                "PDF"
+            ],
+            "Send as Email": true
+        },
+        "Heading": {
+            "Fixed To": "Page"
+        },
+        "Icon View": {
+            "Show": false
+        },
+        "Detail View": {
+            "Show": false
+        },
+        "Saved Reports": [
+            {
+                "id": "35781297135881026",
+                "Identification": {
+                    "Name": "Primary Report",
+                    "Alias": "357813"
+                }
+            }
+        ],
+        "Columns": [
+            {
+                "id": "35771144941881016",
+                "Identification": {
+                    "Column Name": "PAGE",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Page",
+                    "Alignment": "end"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 1,
+                    "Column Alignment": "end"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35771509991881017",
+                "Identification": {
+                    "Column Name": "PAGE_NAME",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Page Name",
+                    "Alignment": "start"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 2,
+                    "Column Alignment": "start"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35771969287881017",
+                "Identification": {
+                    "Column Name": "MEDIAN_ELAPSED",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Median Elapsed",
+                    "Alignment": "end"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 3,
+                    "Column Alignment": "end"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Appearance": {
+                    "Format Mask": "999G999G999G999G999G990D9999"
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35772390187881017",
+                "Identification": {
+                    "Column Name": "WEIGHTED_PERFORMANCE",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Weighted Performance",
+                    "Alignment": "end"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 4,
+                    "Column Alignment": "end"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Appearance": {
+                    "Format Mask": "999G999G999G999G999G990D99"
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35772770309881018",
+                "Identification": {
+                    "Column Name": "ERRORS",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Errors",
+                    "Alignment": "end"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 5,
+                    "Column Alignment": "end"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Appearance": {
+                    "Format Mask": "999G999G999G999G999G990"
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35773129576881018",
+                "Identification": {
+                    "Column Name": "DISTINCT_USERS",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Distinct Users",
+                    "Alignment": "end"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 6,
+                    "Column Alignment": "end"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Appearance": {
+                    "Format Mask": "999G999G999G999G999G999G990"
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35773530413881018",
+                "Identification": {
+                    "Column Name": "APPLICATION_SESSIONS",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Application Sessions",
+                    "Alignment": "end"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 7,
+                    "Column Alignment": "end"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Appearance": {
+                    "Format Mask": "999G999G999G999G999G999G990"
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35773986061881019",
+                "Identification": {
+                    "Column Name": "PAGE_VIEWS",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Page Views",
+                    "Alignment": "end"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 8,
+                    "Column Alignment": "end"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Appearance": {
+                    "Format Mask": "999G999G999G999G999G990"
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35774337713881019",
+                "Identification": {
+                    "Column Name": "MAX_ELAPSED",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Max Elapsed",
+                    "Alignment": "end"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 9,
+                    "Column Alignment": "end"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Appearance": {
+                    "Format Mask": "999G999G999G999G999G990D9999"
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35774787641881019",
+                "Identification": {
+                    "Column Name": "TOTAL_ROWS",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Total Rows",
+                    "Alignment": "end"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 10,
+                    "Column Alignment": "end"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Appearance": {
+                    "Format Mask": "999G999G999G999G990"
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35775191037881020",
+                "Identification": {
+                    "Column Name": "PARTIAL_PAGE_VIEWS",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Partial Page Views",
+                    "Alignment": "end"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 11,
+                    "Column Alignment": "end"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Appearance": {
+                    "Format Mask": "999G999G999G999G999G990"
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35775554091881020",
+                "Identification": {
+                    "Column Name": "FULL_PAGE_VIEWS",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Full Page Views",
+                    "Alignment": "end"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 12,
+                    "Column Alignment": "end"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Appearance": {
+                    "Format Mask": "999G999G999G999G999G990"
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35775960702881021",
+                "Identification": {
+                    "Column Name": "MIN_ELAPSED",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Min Elapsed",
+                    "Alignment": "end"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 13,
+                    "Column Alignment": "end"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Appearance": {
+                    "Format Mask": "999G999G999G999G999G990D9999"
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35776313503881021",
+                "Identification": {
+                    "Column Name": "AVG_ELAPSED",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Avg Elapsed",
+                    "Alignment": "end"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 14,
+                    "Column Alignment": "end"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Appearance": {
+                    "Format Mask": "999G999G999G999G999G990D9999"
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            }
+        ],
+        "Printing": {
+            "Output": {
+                "View File As": "Attachment"
+            },
+            "Page": {
+                "Size": "Letter",
+                "Orientation": "Landscape",
+                "Units": "Inches",
+                "Width": 11,
+                "Height": 8.5,
+                "Border Width": 0.5,
+                "Border Color": "#666666"
+            },
+            "Page Header": {
+                "Font": "Helvetica",
+                "Font Weight": "Normal",
+                "Font Size": 12,
+                "Font Color": "#000000",
+                "Alignment": "center",
+                "Page Header Text": "Page Performance"
+            },
+            "Column Headings": {
+                "Font": "Helvetica",
+                "Font Weight": "Bold",
+                "Font Size": 10,
+                "Font Color": "#000000",
+                "Background Color": "#EEEEEE"
+            },
+            "Columns": {
+                "Font": "Helvetica",
+                "Font Weight": "Normal",
+                "Font Size": 10,
+                "Font Color": "#000000",
+                "Background Color": "#FFFFFF"
+            },
+            "Page Footer": {
+                "Font": "Helvetica",
+                "Font Weight": "Normal",
+                "Font Size": 12,
+                "Font Color": "#000000",
+                "Alignment": "center"
+            }
+        }
+    }
+}

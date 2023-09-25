@@ -1,0 +1,62 @@
+{
+    "id": "35696438451880848",
+    "Identification": {
+        "Name": "P6_LOC",
+        "Type": "Text Field"
+    },
+    "Label": {
+        "Label": "Location",
+        "Alignment": "Right"
+    },
+    "Settings": {
+        "Subtype": "Text",
+        "Trim Spaces": "None",
+        "Text Case": "NO CHANGE",
+        "Submit when Enter pressed": false,
+        "Disabled": false
+    },
+    "Layout": {
+        "Sequence": 30,
+        "Region": "Department (35695393557880685)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Optional - Floating (35536695750879727)",
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "Width": 32
+    },
+    "Validation": {
+        "Value Required": false,
+        "Maximum Length": 50
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Form Region": "Department (35695393557880685)",
+        "Column": "LOC",
+        "Data Type": "VARCHAR2",
+        "Query Only": false,
+        "Primary Key": false
+    },
+    "Session State": {
+        "Storage": "Per Request (Memory Only)"
+    },
+    "Quick Picks": {
+        "Show Quick Picks": false
+    },
+    "Security": {
+        "Session State Protection": "Unrestricted",
+        "Store value encrypted in session state": true,
+        "Restricted Characters": "All characters can be saved."
+    }
+}

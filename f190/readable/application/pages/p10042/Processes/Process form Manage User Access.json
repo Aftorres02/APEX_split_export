@@ -1,0 +1,23 @@
+{
+    "id": "35836642420881132",
+    "Identification": {
+        "Name": "Process form Manage User Access",
+        "Type": "Form - Automatic Row Processing (DML)",
+        "Execution Chain": "None",
+        "Form Region": "Form on Manage User Access (35829831333881120)"
+    },
+    "Settings": {
+        "Target Type": "Region Source",
+        "Prevent Lost Updates": true,
+        "Lock Row": "No",
+        "Return Primary Key(s) after Insert": false
+    },
+    "Execution": {
+        "Sequence": 20,
+        "Point": "Processing",
+        "Run Process": "Once Per Page Visit (default)"
+    },
+    "Error": {
+        "Display Location": "Inline in Notification"
+    }
+}

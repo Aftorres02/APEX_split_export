@@ -1,0 +1,102 @@
+{
+    "id": "35665769163879960",
+    "Identification": {
+        "Title": "Employees per Job",
+        "Type": "Chart"
+    },
+    "Layout": {
+        "Sequence": 20,
+        "Parent Region": "No Parent",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": false,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Standard (35465975937879680)",
+        "Template Options": [
+            "#DEFAULT#",
+            "t-Region--scrollBody"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Security": {
+        "Escape special characters": false
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Not Customizable By End Users"
+    },
+    "Attributes": {
+        "id": "35666115238879960",
+        "Chart": {
+            "Type": "Pie"
+        },
+        "Data Cursor": {
+            "Cursor": "Automatic",
+            "Behavior": "Automatic",
+            "Dim On Hover": true
+        },
+        "Settings": {
+            "Pie Selection Effect": "Highlight"
+        },
+        "Value": {
+            "Pie Chart Other Threshold": 0,
+            "Format": "Decimal",
+            "Decimal Places": 0,
+            "Format Scaling": "Automatic"
+        },
+        "Animation": {
+            "On Display": "Automatic",
+            "On Data Change": "Automatic"
+        },
+        "Tooltip": {
+            "Show": true,
+            "Show Series Name": true,
+            "Show Value": true
+        },
+        "Legend": {
+            "Show": false
+        },
+        "Series": [
+            {
+                "id": "35666607894879961",
+                "Identification": {
+                    "Name": "Series 1"
+                },
+                "Execution": {
+                    "Sequence": 10
+                },
+                "Source": {
+                    "Location": "Local Database",
+                    "Type": "SQL Query",
+                    "SQL Query": "select JOB, count(*) value\nfrom EMP_DEPT_V\ngroup by JOB\norder by 2 desc"
+                },
+                "Column Mapping": {
+                    "Label": "JOB",
+                    "Value": "VALUE"
+                },
+                "Label": {
+                    "Show": true,
+                    "Position": "Automatic",
+                    "Display As": "Label"
+                },
+                "Performance": {
+                    "Maximum Rows to Process": 20
+                }
+            }
+        ]
+    }
+}

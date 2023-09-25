@@ -1,0 +1,906 @@
+[
+  {
+    "id":"35363155368879602"
+   ,"Identification":{
+      "Name":"Navigation Menu"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"35662040479879943"
+       ,"Label":{
+          "Label":"Home"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-home"
+        }
+       ,"Layout":{
+          "Sequence":10
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:1:\u0026APP_SESSION.::\u0026DEBUG.:::"
+           ,"Page":"1"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+      }
+     ,{
+        "id":"35663512946879952"
+       ,"Label":{
+          "Label":"Dashboard"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-dashboard"
+        }
+       ,"Layout":{
+          "Sequence":20
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:2:\u0026APP_SESSION.::\u0026DEBUG.:::"
+           ,"Page":"2"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+      }
+     ,{
+        "id":"35673519811879970"
+       ,"Label":{
+          "Label":"Employees"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-table-search"
+        }
+       ,"Layout":{
+          "Sequence":30
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:3:\u0026APP_SESSION.::\u0026DEBUG.:::"
+           ,"Page":"3"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+      }
+     ,{
+        "id":"35694794193880193"
+       ,"Label":{
+          "Label":"Departments"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-table"
+        }
+       ,"Layout":{
+          "Sequence":40
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:5:\u0026APP_SESSION.::\u0026DEBUG.:::"
+           ,"Page":"5"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+      }
+     ,{
+        "id":"35896728795881190"
+       ,"Label":{
+          "Label":"Administration"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-user-wrench"
+        }
+       ,"Layout":{
+          "Sequence":10000
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:10000:\u0026APP_SESSION.::\u0026DEBUG.:::"
+           ,"Page":"10000"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Security":{
+          "Authorization Scheme":"Administration Rights (35652037807879900)"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"35646999451879865"
+   ,"Identification":{
+      "Name":"Navigation Bar"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"35893038388881187"
+       ,"Label":{
+          "Label":"Install App"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-cloud-download"
+        }
+       ,"Layout":{
+          "Sequence":10
+        }
+       ,"Is Current":{
+          "Type":"Never"
+        }
+       ,"Link":{
+          "Target":"#action$a-pwa-install"
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"2.":"a-pwaInstall"
+        }
+      }
+     ,{
+        "id":"35893351641881188"
+       ,"Label":{
+          "Label":"Feedback"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-comment-o"
+        }
+       ,"Layout":{
+          "Sequence":20
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:10050:\u0026APP_SESSION.::\u0026DEBUG.:RP,10050:P10050_PAGE_ID:\u0026APP_PAGE_ID."
+           ,"Page":"10050"
+           ,"Clear Cache":"RP,10050"
+           ,"Values":{
+              "P10050_PAGE_ID":"\u0026APP_PAGE_ID."
+            }
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"2.":"icon-only"
+        }
+       ,"Server-side Condition":{
+          "Type":"Expression"
+         ,"Language":"PL\/SQL"
+         ,"PL\/SQL Expression":"apex_util.feedback_enabled"
+        }
+       ,"Configuration":{
+          "Build Option":"Feature: Feedback (35649554480879894)"
+        }
+      }
+     ,{
+        "id":"35893677981881188"
+       ,"Label":{
+          "Label":"About"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-question-circle-o"
+        }
+       ,"Layout":{
+          "Sequence":30
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"2.":"icon-only"
+        }
+       ,"Configuration":{
+          "Build Option":"Feature: About Page (35650079223879894)"
+        }
+      }
+     ,{
+        "id":"35894188635881188"
+       ,"Label":{
+          "Label":"Page Help"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-question-circle-o"
+        }
+       ,"Layout":{
+          "Sequence":40
+         ,"Parent Entry":"About (35893677981881188)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:10061:\u0026APP_SESSION.::\u0026DEBUG.::P10061_PAGE_ID:\u0026APP_PAGE_ID."
+           ,"Page":"10061"
+           ,"Values":{
+              "P10061_PAGE_ID":"\u0026APP_PAGE_ID."
+            }
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"2.":"icon-only"
+        }
+       ,"Configuration":{
+          "Build Option":"Feature: About Page (35650079223879894)"
+        }
+      }
+     ,{
+        "id":"35894543201881189"
+       ,"Label":{
+          "Label":"---"
+        }
+       ,"Layout":{
+          "Sequence":50
+         ,"Parent Entry":"About (35893677981881188)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":"separator"
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+      }
+     ,{
+        "id":"35894989169881189"
+       ,"Label":{
+          "Label":"About Page"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-info-circle-o"
+        }
+       ,"Layout":{
+          "Sequence":60
+         ,"Parent Entry":"About (35893677981881188)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:10060:\u0026APP_SESSION.::\u0026DEBUG.:10060::"
+           ,"Page":"10060"
+           ,"Clear Cache":"10060"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Configuration":{
+          "Build Option":"Feature: About Page (35650079223879894)"
+        }
+      }
+     ,{
+        "id":"35895235922881189"
+       ,"Label":{
+          "Label":"\u0026APP_USER."
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-user"
+        }
+       ,"Layout":{
+          "Sequence":70
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":"#"
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"2.":"has-username"
+        }
+      }
+     ,{
+        "id":"35895751880881189"
+       ,"Label":{
+          "Label":"---"
+        }
+       ,"Layout":{
+          "Sequence":80
+         ,"Parent Entry":"\u0026APP_USER. (35895235922881189)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":"separator"
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Server-side Condition":{
+          "Type":"User is Authenticated (not public)"
+        }
+      }
+     ,{
+        "id":"35896131665881190"
+       ,"Label":{
+          "Label":"Sign Out"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-sign-out"
+        }
+       ,"Layout":{
+          "Sequence":90
+         ,"Parent Entry":"\u0026APP_USER. (35895235922881189)"
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":"\u0026LOGOUT_URL."
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+       ,"Server-side Condition":{
+          "Type":"User is Authenticated (not public)"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"35721764645880913"
+   ,"Identification":{
+      "Name":"Page Navigation"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+   ,"Entries":[
+      {
+        "id":"35722197167880914"
+       ,"Label":{
+          "Label":"Dashboard"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-dashboard"
+        }
+       ,"Layout":{
+          "Sequence":20
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:2:\u0026APP_SESSION.::\u0026DEBUG.:::"
+           ,"Page":"2"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+      }
+     ,{
+        "id":"35722545788880914"
+       ,"Label":{
+          "Label":"Employees"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-table-search"
+        }
+       ,"Layout":{
+          "Sequence":30
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:3:\u0026APP_SESSION.::\u0026DEBUG.:::"
+           ,"Page":"3"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+      }
+     ,{
+        "id":"35722940169880914"
+       ,"Label":{
+          "Label":"Departments"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-table"
+        }
+       ,"Layout":{
+          "Sequence":40
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:5:\u0026APP_SESSION.::\u0026DEBUG.:::"
+           ,"Page":"5"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"35897834647881191"
+   ,"Identification":{
+      "Name":"Application Configuration"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+   ,"Configuration":{
+      "Build Option":"Feature: Configuration Options (35649769132879894)"
+    }
+   ,"Entries":[
+      {
+        "id":"35898251367881192"
+       ,"Label":{
+          "Label":"Configuration Options"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-sliders"
+        }
+       ,"Layout":{
+          "Sequence":10
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:10010:\u0026APP_SESSION.::\u0026DEBUG.:10010::"
+           ,"Page":"10010"
+           ,"Clear Cache":"10010"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Enable or disable application features"
+        }
+       ,"Configuration":{
+          "Build Option":"Feature: Configuration Options (35649769132879894)"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"35898535253881192"
+   ,"Identification":{
+      "Name":"User Interface"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+   ,"Configuration":{
+      "Build Option":"Feature: Theme Style Selection (35650183910879894)"
+    }
+   ,"Entries":[
+      {
+        "id":"35898995302881192"
+       ,"Label":{
+          "Label":"Theme Style Selection"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-paint-brush"
+        }
+       ,"Layout":{
+          "Sequence":10
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:10020:\u0026APP_SESSION.::\u0026DEBUG.:10020::"
+           ,"Page":"10020"
+           ,"Clear Cache":"10020"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Set the default application look and feel"
+        }
+       ,"Configuration":{
+          "Build Option":"Feature: Theme Style Selection (35650183910879894)"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"35899259301881192"
+   ,"Identification":{
+      "Name":"Activity Reports"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+   ,"Configuration":{
+      "Build Option":"Feature: Activity Reporting (35649423748879894)"
+    }
+   ,"Entries":[
+      {
+        "id":"35899644321881193"
+       ,"Label":{
+          "Label":"Dashboard"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-area-chart"
+        }
+       ,"Layout":{
+          "Sequence":10
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:10030:\u0026APP_SESSION.::\u0026DEBUG.:10030::"
+           ,"Page":"10030"
+           ,"Clear Cache":"10030"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"View application activity metrics"
+        }
+      }
+     ,{
+        "id":"35900057796881193"
+       ,"Label":{
+          "Label":"Top Users"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-user-chart"
+        }
+       ,"Layout":{
+          "Sequence":20
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:10031:\u0026APP_SESSION.::\u0026DEBUG.:10031::"
+           ,"Page":"10031"
+           ,"Clear Cache":"10031"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Report of page views aggregated by user"
+        }
+      }
+     ,{
+        "id":"35900475968881193"
+       ,"Label":{
+          "Label":"Application Error Log"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-exclamation"
+        }
+       ,"Layout":{
+          "Sequence":30
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:10032:\u0026APP_SESSION.::\u0026DEBUG.:10032::"
+           ,"Page":"10032"
+           ,"Clear Cache":"10032"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Report of errors logged by this application"
+        }
+      }
+     ,{
+        "id":"35900849544881193"
+       ,"Label":{
+          "Label":"Page Performance"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-file-chart"
+        }
+       ,"Layout":{
+          "Sequence":40
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:10033:\u0026APP_SESSION.::\u0026DEBUG.:10033::"
+           ,"Page":"10033"
+           ,"Clear Cache":"10033"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Report of activity and performance by application page"
+        }
+      }
+     ,{
+        "id":"35901248999881193"
+       ,"Label":{
+          "Label":"Page Views"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-file-search"
+        }
+       ,"Layout":{
+          "Sequence":50
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:10034:\u0026APP_SESSION.::\u0026DEBUG.:RR,10034::"
+           ,"Page":"10034"
+           ,"Clear Cache":"RR,10034"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Report of each page view by user including date of access and elapsed time"
+        }
+      }
+     ,{
+        "id":"35901655892881194"
+       ,"Label":{
+          "Label":"Automations Log"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-gears"
+        }
+       ,"Layout":{
+          "Sequence":60
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:10035:\u0026APP_SESSION.::\u0026DEBUG.:RR,10035::"
+           ,"Page":"10035"
+           ,"Clear Cache":"RR,10035"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Report of automation executions and messages logged by this application"
+        }
+       ,"Server-side Condition":{
+          "Type":"Rows returned"
+         ,"SQL Query":"select 1\nfrom apex_appl_automations a, apex_automation_log l\nwhere a.automation_id = l.automation_id\nand l.application_id = :APP_ID"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"35901956796881194"
+   ,"Identification":{
+      "Name":"Access Control"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+   ,"Configuration":{
+      "Build Option":"Feature: Access Control (35649324938879894)"
+    }
+   ,"Entries":[
+      {
+        "id":"35902350911881194"
+       ,"Label":{
+          "Label":"Users"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-users"
+        }
+       ,"Layout":{
+          "Sequence":10
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:10041:\u0026APP_SESSION.::\u0026DEBUG.:RP::"
+           ,"Page":"10041"
+           ,"Clear Cache":"RP"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Set level of access for authenticated users of this application"
+        }
+      }
+     ,{
+        "id":"35902770474881195"
+       ,"Label":{
+          "Label":"Access Control"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-key"
+        }
+       ,"Layout":{
+          "Sequence":20
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:10040:\u0026APP_SESSION.::\u0026DEBUG.:::"
+           ,"Page":"10040"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Change access control settings and disable access control"
+        }
+      }
+    ]
+  }
+ ,{
+    "id":"35903082960881195"
+   ,"Identification":{
+      "Name":"Feedback"
+    }
+   ,"Source":{
+      "Type":"Static Values"
+    }
+   ,"Configuration":{
+      "Build Option":"Feature: Feedback (35649554480879894)"
+    }
+   ,"Entries":[
+      {
+        "id":"35903486777881195"
+       ,"Label":{
+          "Label":"User Feedback"
+        }
+       ,"Icon":{
+          "Image\/Icon CSS Classes":"fa-comment-o"
+        }
+       ,"Layout":{
+          "Sequence":10
+        }
+       ,"Is Current":{
+          "Type":"Target Page"
+        }
+       ,"Link":{
+          "Target":{
+            "url":"f?p=\u0026APP_ID.:10053:\u0026APP_SESSION.::\u0026DEBUG.:10053::"
+           ,"Page":"10053"
+           ,"Clear Cache":"10053"
+          }
+        }
+       ,"Click Counting":{
+          "Count Clicks":false
+        }
+       ,"User Defined Attributes":{
+          "Translatable":false
+         ,"1.":"Report of all feedback submitted by application users"
+        }
+      }
+    ]
+  }
+]

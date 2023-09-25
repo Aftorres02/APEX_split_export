@@ -1,0 +1,108 @@
+{
+    "id": "10031",
+    "Identification": {
+        "Name": "Top Users",
+        "Alias": "TOP-USERS",
+        "Title": "Top Users",
+        "Page Group": "Administration (35653627005879909)"
+    },
+    "Appearance": {
+        "Page Mode": "Modal Dialog",
+        "Dialog Template": "Modal Dialog (35384037603879629)",
+        "Template Options": [
+            "#DEFAULT#",
+            "ui-dialog--stretch",
+            "t-Dialog--noPadding"
+        ]
+    },
+    "Dialog": {
+        "Chained": true
+    },
+    "Navigation Menu": {
+        "Override User Interface Level": false
+    },
+    "Navigation": {
+        "Cursor Focus": "Do not focus cursor",
+        "Warn on Unsaved Changes": false
+    },
+    "CSS": {
+        "Inline": ".hour-graph { display: table; width: 100%; }\nspan.hour { display: table-cell; padding: 0; font-size: 11px; text-align: center; min-width: 32px; }\nspan.hour-label { opacity: 0.5; }\nspan.hour-value { display: block; }\nspan.hour { background-color: var(--ut-palette-success); color:  var(--ut-palette-success-contrast); }\nspan.hour.is-null { background-color: var(--ut-component-highlight-background-color); color: var(--ut-component-text-default-color); }\nspan.hour.is-over1k { background-color: var(--ut-palette-primary); color:  var(--ut-palette-primary-contrast); }"
+    },
+    "Security": {
+        "Authorization Scheme": "Administration Rights (35652037807879900)",
+        "Authentication": "Page Requires Authentication",
+        "Deep Linking": "Application Default",
+        "Page Access Protection": "Arguments Must Have Checksum",
+        "Form Auto Complete": "Off",
+        "Browser Cache": "Application Default"
+    },
+    "Session Management": {
+        "Rejoin Sessions": "Application Default"
+    },
+    "Advanced": {
+        "Enable duplicate page submissions": "Yes - Enable page to be re-posted",
+        "Reload on Submit": "Only for Success"
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Help": {
+        "Help Text": "<p>Use this report and chart to see the users with the most page views for the specified timeframe.</p>\n<p>Select the reporting timeframe (Default = 1 day) and choose between the report and chart icons at the top of the page.</p>\n<p>For the interactive report, use the search field, or select the <strong>User</strong> column heading, to select a specific user. You can perform numerous functions by clicking the <strong>Actions</strong> button, such as columns displayed / hidden, rows per page, filter, and so forth. Click the <strong>Reset</strong> button to reset the interactive report back to the default settings.</p>"
+    },
+    "Configuration": {
+        "Build Option": "Feature: Activity Reporting (35649423748879894)"
+    },
+    "Dynamic Actions": [
+        {
+            "id": "35790818527881037",
+            "Identification": {
+                "Name": "Refresh Report"
+            },
+            "Execution": {
+                "Event Scope": "Static",
+                "Type": "Immediate"
+            },
+            "When": {
+                "Event": "EVENT.EVENT.BROWSER.CHANGE",
+                "Selection Type": "Item(s)",
+                "Item(s)": [
+                    "P10031_TIMEFRAME"
+                ]
+            },
+            "Actions": [
+                {
+                    "id": "35800232059881059",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "Region",
+                        "Region": "Top Users (35790676135881037)"
+                    },
+                    "Execution": {
+                        "Sequence": 10,
+                        "Event": "Refresh Report (35790818527881037)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                },
+                {
+                    "id": "35803687148881065",
+                    "Identification": {
+                        "Action": "Refresh"
+                    },
+                    "Affected Elements": {
+                        "Selection Type": "Region",
+                        "Region": "Top Users (35790676135881037)"
+                    },
+                    "Execution": {
+                        "Sequence": 30,
+                        "Event": "Refresh Report (35790818527881037)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                }
+            ]
+        }
+    ]
+}

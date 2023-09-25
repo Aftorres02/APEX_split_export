@@ -1,0 +1,29 @@
+{
+    "id": "35735291672880941",
+    "Identification": {
+        "Button Name": "SAVE",
+        "Label": "Apply Changes"
+    },
+    "Layout": {
+        "Sequence": 20,
+        "Region": "Buttons (35732771864880939)",
+        "Position": "NEXT",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Button Template": "Text (35539149230879730)",
+        "Hot": true,
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Behavior": {
+        "Action": "Submit Page",
+        "Execute Validations": true,
+        "Warn on Unsaved Changes": "Do Not Check"
+    }
+}

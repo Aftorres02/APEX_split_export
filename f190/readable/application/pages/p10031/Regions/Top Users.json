@@ -1,0 +1,524 @@
+{
+    "id": "35790676135881037",
+    "Identification": {
+        "Title": "Top Users",
+        "Type": "Interactive Report"
+    },
+    "Source": {
+        "Location": "Local Database",
+        "Type": "SQL Query",
+        "SQL Query": "select the_user,\n    '<div class=\"hour-graph\">'||\n        '<span class=\"hour'|| case when h00 = 0 then ' is-null' when h00 > 999 then ' is-over1k' end ||'\"><span class=\"hour-label\"> 0</span> <span class=\"hour-value\">'|| \n        case when h00 > 999 then to_char((h00/1000),'99999999D0') ||'k' else to_char(h00) end ||'</span></span>'||\n        '<span class=\"hour'|| case when h01 = 0 then ' is-null' when h01 > 999 then ' is-over1k' end ||'\"><span class=\"hour-label\"> 1</span> <span class=\"hour-value\">'|| \n        case when h01 > 999 then to_char((h01/1000),'99999999D0') ||'k' else to_char(h01) end ||'</span></span>'||\n        '<span class=\"hour'|| case when h02 = 0 then ' is-null' when h02 > 999 then ' is-over1k' end ||'\"><span class=\"hour-label\"> 2</span> <span class=\"hour-value\">'|| \n        case when h02 > 999 then to_char((h02/1000),'99999999D0') ||'k' else to_char(h02) end ||'</span></span>'||\n        '<span class=\"hour'|| case when h03 = 0 then ' is-null' when h03 > 999 then ' is-over1k' end ||'\"><span class=\"hour-label\"> 3</span> <span class=\"hour-value\">'|| \n        case when h03 > 999 then to_char((h03/1000),'99999999D0') ||'k' else to_char(h03) end ||'</span></span>'||\n        '<span class=\"hour'|| case when h04 = 0 then ' is-null' when h04 > 999 then ' is-over1k' end ||'\"><span class=\"hour-label\"> 4</span> <span class=\"hour-value\">'|| \n        case when h04 > 999 then to_char((h04/1000),'99999999D0') ||'k' else to_char(h04) end ||'</span></span>'||\n        '<span class=\"hour'|| case when h05 = 0 then ' is-null' when h05 > 999 then ' is-over1k' end ||'\"><span class=\"hour-label\"> 5</span> <span class=\"hour-value\">'|| \n        case when h05 > 999 then to_char((h05/1000),'99999999D0') ||'k' else to_char(h05) end ||'</span></span>'||\n        '<span class=\"hour'|| case when h06 = 0 then ' is-null' when h06 > 999 then ' is-over1k' end ||'\"><span class=\"hour-label\"> 6</span> <span class=\"hour-value\">'|| \n        case when h06 > 999 then to_char((h06/1000),'99999999D0') ||'k' else to_char(h06) end ||'</span></span>'||\n        '<span class=\"hour'|| case when h07 = 0 then ' is-null' when h07 > 999 then ' is-over1k' end ||'\"><span class=\"hour-label\"> 7</span> <span class=\"hour-value\">'|| \n        case when h07 > 999 then to_char((h07/1000),'99999999D0') ||'k' else to_char(h07) end ||'</span></span>'||\n        '<span class=\"hour'|| case when h08 = 0 then ' is-null' when h08 > 999 then ' is-over1k' end ||'\"><span class=\"hour-label\"> 8</span> <span class=\"hour-value\">'|| \n        case when h08 > 999 then to_char((h08/1000),'99999999D0') ||'k' else to_char(h08) end ||'</span></span>'||\n        '<span class=\"hour'|| case when h09 = 0 then ' is-null' when h09 > 999 then ' is-over1k' end ||'\"><span class=\"hour-label\"> 9</span> <span class=\"hour-value\">'|| \n        case when h09 > 999 then to_char((h09/1000),'99999999D0') ||'k' else to_char(h09) end ||'</span></span>'||\n        '<span class=\"hour'|| case when h10 = 0 then ' is-null' when h10 > 999 then ' is-over1k' end ||'\"><span class=\"hour-label\">10</span> <span class=\"hour-value\">'|| \n        case when h10 > 999 then to_char((h10/1000),'99999999D0') ||'k' else to_char(h10) end ||'</span></span>'||\n        '<span class=\"hour'|| case when h11 = 0 then ' is-null' when h11 > 999 then ' is-over1k' end ||'\"><span class=\"hour-label\">11</span> <span class=\"hour-value\">'|| \n        case when h11 > 999 then to_char((h11/1000),'99999999D0') ||'k' else to_char(h11) end ||'</span></span>'||\n        '<span class=\"hour'|| case when h12 = 0 then ' is-null' when h12 > 999 then ' is-over1k' end ||'\"><span class=\"hour-label\">12</span> <span class=\"hour-value\">'|| \n        case when h12 > 999 then to_char((h12/1000),'99999999D0') ||'k' else to_char(h12) end ||'</span></span>'||\n        '<span class=\"hour'|| case when h13 = 0 then ' is-null' when h13 > 999 then ' is-over1k' end ||'\"><span class=\"hour-label\">13</span> <span class=\"hour-value\">'|| \n        case when h13 > 999 then to_char((h13/1000),'99999999D0') ||'k' else to_char(h13) end ||'</span></span>'||\n        '<span class=\"hour'|| case when h14 = 0 then ' is-null' when h14 > 999 then ' is-over1k' end ||'\"><span class=\"hour-label\">14</span> <span class=\"hour-value\">'|| \n        case when h14 > 999 then to_char((h14/1000),'99999999D0') ||'k' else to_char(h14) end ||'</span></span>'||\n        '<span class=\"hour'|| case when h15 = 0 then ' is-null' when h15 > 999 then ' is-over1k' end ||'\"><span class=\"hour-label\">15</span> <span class=\"hour-value\">'|| \n        case when h15 > 999 then to_char((h15/1000),'99999999D0') ||'k' else to_char(h15) end ||'</span></span>'||\n        '<span class=\"hour'|| case when h16 = 0 then ' is-null' when h16 > 999 then ' is-over1k' end ||'\"><span class=\"hour-label\">16</span> <span class=\"hour-value\">'|| \n        case when h16 > 999 then to_char((h16/1000),'99999999D0') ||'k' else to_char(h16) end ||'</span></span>'||\n        '<span class=\"hour'|| case when h17 = 0 then ' is-null' when h17 > 999 then ' is-over1k' end ||'\"><span class=\"hour-label\">17</span> <span class=\"hour-value\">'|| \n        case when h17 > 999 then to_char((h17/1000),'99999999D0') ||'k' else to_char(h17) end ||'</span></span>'||\n        '<span class=\"hour'|| case when h18 = 0 then ' is-null' when h18 > 999 then ' is-over1k' end ||'\"><span class=\"hour-label\">18</span> <span class=\"hour-value\">'|| \n        case when h18 > 999 then to_char((h18/1000),'99999999D0') ||'k' else to_char(h18) end ||'</span></span>'||\n        '<span class=\"hour'|| case when h19 = 0 then ' is-null' when h19 > 999 then ' is-over1k' end ||'\"><span class=\"hour-label\">19</span> <span class=\"hour-value\">'|| \n        case when h19 > 999 then to_char((h19/1000),'99999999D0') ||'k' else to_char(h19) end ||'</span></span>'||\n        '<span class=\"hour'|| case when h20 = 0 then ' is-null' when h20 > 999 then ' is-over1k' end ||'\"><span class=\"hour-label\">20</span> <span class=\"hour-value\">'|| \n        case when h20 > 999 then to_char((h20/1000),'99999999D0') ||'k' else to_char(h20) end ||'</span></span>'||\n        '<span class=\"hour'|| case when h21 = 0 then ' is-null' when h21 > 999 then ' is-over1k' end ||'\"><span class=\"hour-label\">21</span> <span class=\"hour-value\">'|| \n        case when h21 > 999 then to_char((h21/1000),'99999999D0') ||'k' else to_char(h21) end ||'</span></span>'||\n        '<span class=\"hour'|| case when h22 = 0 then ' is-null' when h22 > 999 then ' is-over1k' end ||'\"><span class=\"hour-label\">22</span> <span class=\"hour-value\">'|| \n        case when h22 > 999 then to_char((h22/1000),'99999999D0') ||'k' else to_char(h22) end ||'</span></span>'||\n        '<span class=\"hour'|| case when h23 = 0 then ' is-null' when h23 > 999 then ' is-over1k' end ||'\"><span class=\"hour-label\">23</span> <span class=\"hour-value\">'|| \n        case when h23 > 999 then to_char((h23/1000),'99999999D0') ||'k' else to_char(h23) end ||'</span></span>'||\n        '</div>' hours,\n        page_events,\n    median_elapsed,\n    rows_fetched,\n    ir_searches,\n    errors,\n    most_recent\n    from (  \n    select userid_lc                    as the_user,\n        count(*)                        as page_events,\n        median(elap)                    as median_elapsed,\n        sum(num_rows)                   as rows_fetched,\n        sum(decode(ir_search,null,0,1)) as ir_searches,\n        sum(decode(sqlerrm,null,0,1))   as errors,\n        max(time_stamp)                 as most_recent,\n        sum(decode(to_char(time_stamp,'HH24'),0,1,0)) h00,\n        sum(decode(to_char(time_stamp,'HH24'),1,1,0)) h01,\n        sum(decode(to_char(time_stamp,'HH24'),2,1,0)) h02,\n        sum(decode(to_char(time_stamp,'HH24'),3,1,0)) h03,\n        sum(decode(to_char(time_stamp,'HH24'),4,1,0)) h04,\n        sum(decode(to_char(time_stamp,'HH24'),5,1,0)) h05,\n        sum(decode(to_char(time_stamp,'HH24'),6,1,0)) h06,\n        sum(decode(to_char(time_stamp,'HH24'),7,1,0)) h07,\n        sum(decode(to_char(time_stamp,'HH24'),8,1,0)) h08,\n        sum(decode(to_char(time_stamp,'HH24'),9,1,0)) h09,\n        sum(decode(to_char(time_stamp,'HH24'),10,1,0)) h10,\n        sum(decode(to_char(time_stamp,'HH24'),11,1,0)) h11,\n        sum(decode(to_char(time_stamp,'HH24'),12,1,0)) h12,\n        sum(decode(to_char(time_stamp,'HH24'),13,1,0)) h13,\n        sum(decode(to_char(time_stamp,'HH24'),14,1,0)) h14,\n        sum(decode(to_char(time_stamp,'HH24'),15,1,0)) h15,\n        sum(decode(to_char(time_stamp,'HH24'),16,1,0)) h16,\n        sum(decode(to_char(time_stamp,'HH24'),17,1,0)) h17,\n        sum(decode(to_char(time_stamp,'HH24'),18,1,0)) h18,\n        sum(decode(to_char(time_stamp,'HH24'),19,1,0)) h19,\n        sum(decode(to_char(time_stamp,'HH24'),20,1,0)) h20,\n        sum(decode(to_char(time_stamp,'HH24'),21,1,0)) h21,\n        sum(decode(to_char(time_stamp,'HH24'),22,1,0)) h22,\n        sum(decode(to_char(time_stamp,'HH24'),23,1,0)) h23\n    from apex_activity_log l\n    where flow_id = :APP_ID\n        and time_stamp >= sysdate - ( 1/24/60/60 * :P10031_TIMEFRAME )\n        and userid is not null\n    group by userid_lc) x",
+        "Page Items to Submit": [
+            "P10031_TIMEFRAME"
+        ]
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Parent Region": "No Parent",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Interactive Report (35456102652879675)",
+        "Template Options": [
+            "#DEFAULT#",
+            "t-IRR-region--noBorders"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Server-side Condition": {
+        "Type": "Item = Value",
+        "Item": "P10031_VIEW_AS",
+        "Value": "REPORT"
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Not Customizable By End Users"
+    },
+    "Attributes": {
+        "id": "35791742426881038",
+        "Link": {
+            "Link Column": "Exclude Link Column"
+        },
+        "Pagination": {
+            "Type": "Row Ranges X to Y",
+            "Display Position": "Bottom - Right"
+        },
+        "Performance": {
+            "Lazy Loading": false
+        },
+        "Messages": {
+            "When No Data Found": "No data found.",
+            "When More Data Found": "The maximum row count for this report is #MAX_ROW_COUNT# rows.  Please apply a filter to reduce the number of records in your query."
+        },
+        "Search Bar": {
+            "Include Search Bar": true,
+            "Search Field": true,
+            "Finder Drop Down": true,
+            "Reports Select List": true,
+            "Rows Per Page Selector": false
+        },
+        "Actions Menu": {
+            "Include Actions Menu": true,
+            "Filter": true,
+            "Select Columns": true,
+            "Rows Per Page": true,
+            "Sort": true,
+            "Control Break": true,
+            "Highlight": true,
+            "Compute": true,
+            "Aggregate": true,
+            "Chart": true,
+            "Group By": true,
+            "Pivot": true,
+            "Flashback": true,
+            "Save Report": true,
+            "Save Public Report": false,
+            "Reset": true,
+            "Help": true,
+            "Download": true,
+            "Subscription": true
+        },
+        "Download": {
+            "Formats": [
+                "CSV",
+                "HTML",
+                "Excel",
+                "PDF"
+            ],
+            "Send as Email": true
+        },
+        "Heading": {
+            "Fixed To": "Page"
+        },
+        "Icon View": {
+            "Show": false
+        },
+        "Detail View": {
+            "Show": false
+        },
+        "Saved Reports": [
+            {
+                "id": "35798071362881056",
+                "Identification": {
+                    "Name": "Primary Report",
+                    "Alias": "357981"
+                }
+            }
+        ],
+        "Columns": [
+            {
+                "id": "35792147486881043",
+                "Identification": {
+                    "Column Name": "THE_USER",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "User",
+                    "Alignment": "start"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 1,
+                    "Column Alignment": "start"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35792564381881045",
+                "Identification": {
+                    "Column Name": "HOURS",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Activity by Hour",
+                    "Alignment": "start"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 2,
+                    "Column Alignment": "start"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": false
+                }
+            },
+            {
+                "id": "35792923837881045",
+                "Identification": {
+                    "Column Name": "PAGE_EVENTS",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Page Events",
+                    "Alignment": "end"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 3,
+                    "Column Alignment": "end"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Appearance": {
+                    "Format Mask": "999G999G999G999G999G990"
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35793365182881046",
+                "Identification": {
+                    "Column Name": "MEDIAN_ELAPSED",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Median Elapsed",
+                    "Alignment": "end"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 4,
+                    "Column Alignment": "end"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Appearance": {
+                    "Format Mask": "999G999G999G999G999G990D0000"
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35793723772881047",
+                "Identification": {
+                    "Column Name": "ROWS_FETCHED",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Rows Fetched",
+                    "Alignment": "end"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 5,
+                    "Column Alignment": "end"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Appearance": {
+                    "Format Mask": "999G999G999G999G999G990"
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35794188247881048",
+                "Identification": {
+                    "Column Name": "IR_SEARCHES",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "IR Search",
+                    "Alignment": "end"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 6,
+                    "Column Alignment": "end"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Appearance": {
+                    "Format Mask": "999G999G999G999G999G999G990"
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35794569159881048",
+                "Identification": {
+                    "Column Name": "ERRORS",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Errors",
+                    "Alignment": "end"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 7,
+                    "Column Alignment": "end"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Appearance": {
+                    "Format Mask": "999G999G999G999G999G999G990"
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            },
+            {
+                "id": "35794918644881049",
+                "Identification": {
+                    "Column Name": "MOST_RECENT",
+                    "Type": "Plain Text"
+                },
+                "Heading": {
+                    "Heading": "Most_Recent",
+                    "Alignment": "start"
+                },
+                "Single Row View": {
+                    "Use Column Heading": true
+                },
+                "Layout": {
+                    "Sequence": 8,
+                    "Column Alignment": "start"
+                },
+                "Accessibility": {
+                    "Value Identifies Row": false
+                },
+                "Appearance": {
+                    "Format Mask": "SINCE"
+                },
+                "Source": {
+                    "Primary Key": false
+                },
+                "Column Filter": {
+                    "Type": "Default Based on Column Type",
+                    "Date Ranges": "All"
+                },
+                "Enable Users To": {
+                    "Hide": true,
+                    "Sort": true,
+                    "Filter": true,
+                    "Highlight": true,
+                    "Control Break": true,
+                    "Aggregate": true,
+                    "Compute": true,
+                    "Chart": true,
+                    "Group By": true,
+                    "Pivot": true
+                },
+                "Security": {
+                    "Escape special characters": true
+                }
+            }
+        ],
+        "Printing": {
+            "Output": {
+                "View File As": "Attachment"
+            },
+            "Page": {
+                "Size": "Letter",
+                "Orientation": "Landscape",
+                "Units": "Inches",
+                "Width": 11,
+                "Height": 8.5,
+                "Border Width": 0.5,
+                "Border Color": "#666666"
+            },
+            "Page Header": {
+                "Font": "Helvetica",
+                "Font Weight": "Normal",
+                "Font Size": 12,
+                "Font Color": "#000000",
+                "Alignment": "center",
+                "Page Header Text": "Top Users"
+            },
+            "Column Headings": {
+                "Font": "Helvetica",
+                "Font Weight": "Bold",
+                "Font Size": 10,
+                "Font Color": "#000000",
+                "Background Color": "#EEEEEE"
+            },
+            "Columns": {
+                "Font": "Helvetica",
+                "Font Weight": "Normal",
+                "Font Size": 10,
+                "Font Color": "#000000",
+                "Background Color": "#FFFFFF"
+            },
+            "Page Footer": {
+                "Font": "Helvetica",
+                "Font Weight": "Normal",
+                "Font Size": 12,
+                "Font Color": "#000000",
+                "Alignment": "center"
+            }
+        }
+    }
+}

@@ -1,0 +1,69 @@
+{
+    "id": "35735943236880941",
+    "Identification": {
+        "Name": "P10020_DESKTOP_THEME_STYLE_ID",
+        "Type": "Select List"
+    },
+    "Label": {
+        "Label": "Desktop Theme Style",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Page Action on Selection": "None",
+        "Allow Multi Selection": false
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Region": "Configure Appearance (35732827322880939)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "3"
+    },
+    "Appearance": {
+        "Template": "Optional - Floating (35536695750879727)",
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "Height": 1
+    },
+    "Validation": {
+        "Value Required": true
+    },
+    "List of Values": {
+        "Type": "Shared Component",
+        "List of Values": "DESKTOP THEME STYLES (35736026106880941)",
+        "Display Extra Values": false,
+        "Display Null Value": false
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "SQL Query (return single value)",
+        "SQL Query": "select s.theme_style_id\nfrom apex_application_theme_styles s,\n    apex_application_themes t\nwhere s.application_id = t.application_id\n    and s.theme_number = t.theme_number\n    and s.application_id = :app_id\n    and s.is_current = 'Yes'",
+        "Used": "Always, replacing any existing value in session state"
+    },
+    "Session State": {
+        "Storage": "Per Session (Persistent)"
+    },
+    "Quick Picks": {
+        "Show Quick Picks": false
+    },
+    "Server-side Condition": {
+        "Type": "Rows returned",
+        "SQL Query": "select null\n  from apex_application_theme_styles s,\n       apex_application_themes t\n where s.application_id = t.application_id\n   and s.theme_number   = t.theme_number\n   and s.application_id = :app_id"
+    },
+    "Security": {
+        "Session State Protection": "Unrestricted",
+        "Store value encrypted in session state": true,
+        "Restricted Characters": "Blocklist HTML command characters (<>\")"
+    },
+    "Help": {
+        "Inline Help Text": "The default Theme Style applies to all users."
+    }
+}

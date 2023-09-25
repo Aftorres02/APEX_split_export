@@ -1,0 +1,61 @@
+{
+    "id": "35791184051881037",
+    "Identification": {
+        "Name": "P10031_VIEW_AS",
+        "Type": "Radio Group"
+    },
+    "Label": {
+        "Label": "View As",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Number of Columns": 2,
+        "Page Action on Selection": "Submit Page",
+        "Execute Validations": true
+    },
+    "Layout": {
+        "Sequence": 20,
+        "Region": "Buttons (35790744414881037)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Hidden (35536312518879725)",
+        "Template Options": [
+            "#DEFAULT#",
+            "t-Form-fieldContainer--radioButtonGroup"
+        ]
+    },
+    "Validation": {
+        "Value Required": false
+    },
+    "List of Values": {
+        "Type": "Shared Component",
+        "List of Values": "VIEW_AS_REPORT_CHART (35802119128881063)",
+        "Display Extra Values": false,
+        "Display Null Value": false
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Static Value",
+        "Static Value": "REPORT",
+        "Used": "Only when current value in session state is null"
+    },
+    "Session State": {
+        "Storage": "Per Session (Persistent)"
+    },
+    "Security": {
+        "Session State Protection": "Unrestricted",
+        "Store value encrypted in session state": true,
+        "Escape special characters": false,
+        "Restricted Characters": "All characters can be saved."
+    }
+}

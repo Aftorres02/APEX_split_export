@@ -1,0 +1,52 @@
+{
+    "id": "10035",
+    "Identification": {
+        "Name": "Automations Log",
+        "Alias": "AUTOMATIONS-LOG",
+        "Title": "Automations Log",
+        "Page Group": "Administration (35653627005879909)"
+    },
+    "Appearance": {
+        "Page Mode": "Modal Dialog",
+        "Dialog Template": "Modal Dialog (35384037603879629)",
+        "Template Options": [
+            "#DEFAULT#",
+            "ui-dialog--stretch",
+            "t-Dialog--noPadding"
+        ]
+    },
+    "Dialog": {
+        "Chained": true
+    },
+    "Navigation Menu": {
+        "Override User Interface Level": false
+    },
+    "Navigation": {
+        "Cursor Focus": "Do not focus cursor",
+        "Warn on Unsaved Changes": false
+    },
+    "Security": {
+        "Authorization Scheme": "Administration Rights (35652037807879900)",
+        "Authentication": "Page Requires Authentication",
+        "Deep Linking": "Application Default",
+        "Page Access Protection": "Arguments Must Have Checksum",
+        "Form Auto Complete": "Off",
+        "Browser Cache": "Application Default"
+    },
+    "Session Management": {
+        "Rejoin Sessions": "Application Default"
+    },
+    "Advanced": {
+        "Enable duplicate page submissions": "Yes - Enable page to be re-posted",
+        "Reload on Submit": "Only for Success"
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Help": {
+        "Help Text": "<p>This page provides an interactive report of the automations log.</p>\n<p>Review logged information about previous automation executions. The log contains start and end timestamps as well as details about processed rows (successful and with errors). Drill down into Messages to see individual messages for processed rows.</p>\n"
+    },
+    "Configuration": {
+        "Build Option": "Feature: Activity Reporting (35649423748879894)"
+    }
+}

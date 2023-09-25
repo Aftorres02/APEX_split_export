@@ -1,0 +1,60 @@
+{
+    "id": "35736646516880948",
+    "Identification": {
+        "Name": "P10020_END_USER_STYLE",
+        "Type": "Checkbox Group"
+    },
+    "Label": {
+        "Label": "End User Theme Preference",
+        "Alignment": "Left"
+    },
+    "Settings": {
+        "Number of Columns": 1
+    },
+    "Layout": {
+        "Sequence": 30,
+        "Region": "Configure Appearance (35732827322880939)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "0"
+    },
+    "Appearance": {
+        "Template": "Hidden (35536312518879725)",
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Validation": {
+        "Value Required": false
+    },
+    "List of Values": {
+        "Type": "Shared Component",
+        "List of Values": "USER_THEME_PREFERENCE (35736746229880948)",
+        "Display Extra Values": false
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "SQL Query (return single value)",
+        "SQL Query": "select a.theme_style_by_user_pref\n  from apex_applications a\n where a.application_id  = :app_id",
+        "Used": "Always, replacing any existing value in session state"
+    },
+    "Session State": {
+        "Storage": "Per Session (Persistent)"
+    },
+    "Security": {
+        "Session State Protection": "Unrestricted",
+        "Store value encrypted in session state": true,
+        "Escape special characters": true,
+        "Restricted Characters": "All characters can be saved."
+    },
+    "Help": {
+        "Inline Help Text": "If checked, end users may choose their own Theme Style using the Customize link."
+    }
+}

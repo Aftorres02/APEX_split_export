@@ -1,0 +1,18 @@
+{
+    "id": "35735676925880941",
+    "Identification": {
+        "Name": "Branch to Admin Page"
+    },
+    "Execution": {
+        "Sequence": 10,
+        "Point": "After Processing"
+    },
+    "Behavior": {
+        "Type": "Page or URL (Redirect)",
+        "Target": {
+            "url": "f?p=&APP_ID.:10000:&APP_SESSION.::&DEBUG.:RP::&success_msg=#SUCCESS_MSG#",
+            "Page": "10000",
+            "Clear Cache": "RP"
+        }
+    }
+}

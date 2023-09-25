@@ -1,0 +1,23 @@
+{
+    "id": "35693029415880191",
+    "Identification": {
+        "Name": "Process form Employee",
+        "Type": "Form - Automatic Row Processing (DML)",
+        "Execution Chain": "None",
+        "Form Region": "Employee (35683821851880007)"
+    },
+    "Settings": {
+        "Target Type": "Region Source",
+        "Prevent Lost Updates": true,
+        "Lock Row": "Yes",
+        "Return Primary Key(s) after Insert": true
+    },
+    "Execution": {
+        "Sequence": 10,
+        "Point": "Processing",
+        "Run Process": "Once Per Page Visit (default)"
+    },
+    "Error": {
+        "Display Location": "Inline in Notification"
+    }
+}

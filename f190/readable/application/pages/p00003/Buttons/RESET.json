@@ -1,0 +1,36 @@
+{
+    "id": "35677744211879990",
+    "Identification": {
+        "Button Name": "RESET",
+        "Label": "Reset"
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Region": "Button Bar (35677288743879989)",
+        "Position": "NEXT",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Button Template": "Text with Icon (35539275789879730)",
+        "Hot": false,
+        "Template Options": [
+            "#DEFAULT#",
+            "t-Button--noUI",
+            "t-Button--iconLeft"
+        ],
+        "Icon": "fa-undo"
+    },
+    "Behavior": {
+        "Action": "Redirect to Page in this Application",
+        "Target": {
+            "url": "f?p=&APP_ID.:3:&APP_SESSION.::&DEBUG.:RR,3::",
+            "Page": "3",
+            "Clear Cache": "RR,3"
+        },
+        "Warn on Unsaved Changes": "Do Not Check"
+    }
+}

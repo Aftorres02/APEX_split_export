@@ -1,0 +1,55 @@
+{
+    "id": "35657299833879935",
+    "Identification": {
+        "Name": "P9999_PERSISTENT_AUTH",
+        "Type": "Checkbox"
+    },
+    "Label": {
+        "Label": "Remember me",
+        "Alignment": "Right"
+    },
+    "Settings": {
+        "Use Defaults": true
+    },
+    "Layout": {
+        "Sequence": 30,
+        "Region": "Demonstration - EMP / DEPT (35655598745879926)",
+        "Position": "BODY",
+        "Alignment": "Left",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic",
+        "Label Column Span": "Page Template Default"
+    },
+    "Appearance": {
+        "Template": "Hidden (35536312518879725)",
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Validation": {
+        "Value Required": false
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Type": "Null",
+        "Used": "Only when current value in session state is null"
+    },
+    "Session State": {
+        "Storage": "Per Session (Persistent)"
+    },
+    "Server-side Condition": {
+        "Type": "Expression",
+        "Language": "PL/SQL",
+        "PL/SQL Expression": "apex_authentication.persistent_auth_enabled"
+    },
+    "Security": {
+        "Session State Protection": "Unrestricted",
+        "Store value encrypted in session state": true,
+        "Restricted Characters": "All characters can be saved."
+    }
+}

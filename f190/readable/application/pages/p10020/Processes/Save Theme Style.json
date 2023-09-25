@@ -1,0 +1,24 @@
+{
+    "id": "35737855986880955",
+    "Identification": {
+        "Name": "Save Theme Style",
+        "Type": "Execute Code",
+        "Execution Chain": "None"
+    },
+    "Source": {
+        "Location": "Local Database",
+        "Language": "PL/SQL",
+        "PL/SQL Code": "if :P10020_DESKTOP_THEME_STYLE_ID is not null then\n    for l_theme in (select theme_number\n                      from apex_application_themes\n                     where application_id = :app_id\n                       and is_current     = 'Yes')\n    loop\n        apex_util.set_current_theme_style (\n            p_theme_number   => l_theme.theme_number,\n            p_theme_style_id => :P10020_DESKTOP_THEME_STYLE_ID\n            );\n    end loop;\nend if;"
+    },
+    "Execution": {
+        "Sequence": 10,
+        "Point": "Processing",
+        "Run Process": "Once Per Page Visit (default)"
+    },
+    "Success Message": {
+        "Success Message": "Application Appearance Settings Saved."
+    },
+    "Error": {
+        "Display Location": "Inline in Notification"
+    }
+}

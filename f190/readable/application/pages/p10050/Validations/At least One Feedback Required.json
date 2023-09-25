@@ -1,0 +1,19 @@
+{
+    "id": "35864214683881157",
+    "Identification": {
+        "Name": "At least One Feedback Required"
+    },
+    "Execution": {
+        "Sequence": 10
+    },
+    "Validation": {
+        "Type": "Function Body (returning Boolean)",
+        "Language": "PL/SQL",
+        "PL/SQL Function Body": "if :P10050_FEEDBACK is null and :P10050_RATING is null then\n    return false;\nelse\n    return true;\nend if;",
+        "Always Execute": false
+    },
+    "Error": {
+        "Error Message": "Please provide feedback or your experience.",
+        "Display Location": "Inline in Notification"
+    }
+}

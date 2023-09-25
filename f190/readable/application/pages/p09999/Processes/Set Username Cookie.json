@@ -1,0 +1,61 @@
+{
+    "id": "35659831751879940",
+    "Identification": {
+        "Name": "Set Username Cookie",
+        "Type": "Invoke API",
+        "Execution Chain": "None"
+    },
+    "Settings": {
+        "Type": "PL/SQL Package",
+        "Owner": "PARSING SCHEMA",
+        "Package": "APEX_AUTHENTICATION",
+        "Procedure or Function": "SEND_LOGIN_USERNAME_COOKIE"
+    },
+    "Execution": {
+        "Sequence": 10,
+        "Point": "Processing",
+        "Run Process": "Once Per Page Visit (default)"
+    },
+    "Error": {
+        "Display Location": "Inline in Notification"
+    },
+    "Parameters": [
+        {
+            "id": "35660328375879940",
+            "Identification": {
+                "Name": "p_username"
+            },
+            "Parameter": {
+                "Direction": "In",
+                "Data Type": "VARCHAR2",
+                "Has Default": false
+            },
+            "Value": {
+                "Type": "Expression",
+                "Language": "PL/SQL",
+                "PL/SQL Expression": "lower( :P9999_USERNAME )"
+            },
+            "Advanced": {
+                "Display Sequence": 1
+            }
+        },
+        {
+            "id": "35660871352879940",
+            "Identification": {
+                "Name": "p_consent"
+            },
+            "Parameter": {
+                "Direction": "In",
+                "Data Type": "BOOLEAN",
+                "Has Default": false
+            },
+            "Value": {
+                "Type": "Item",
+                "Item": "P9999_REMEMBER"
+            },
+            "Advanced": {
+                "Display Sequence": 2
+            }
+        }
+    ]
+}

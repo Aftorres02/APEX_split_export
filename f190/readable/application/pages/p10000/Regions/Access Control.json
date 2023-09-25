@@ -1,0 +1,49 @@
+{
+    "id": "35905762976881197",
+    "Identification": {
+        "Title": "Access Control",
+        "Type": "Static Content"
+    },
+    "Layout": {
+        "Sequence": 70,
+        "Parent Region": "Column 2 (35905309350881196)",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Standard (35465975937879680)",
+        "Template Options": [
+            "#DEFAULT#",
+            "t-Region--noPadding",
+            "t-Region--scrollBody"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Not Customizable By End Users"
+    },
+    "Configuration": {
+        "Build Option": "Feature: Access Control (35649324938879894)"
+    },
+    "Attributes": {
+        "Settings": {
+            "Output As": "HTML",
+            "Expand Shortcuts": false
+        }
+    }
+}

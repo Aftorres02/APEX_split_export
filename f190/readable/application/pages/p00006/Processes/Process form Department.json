@@ -1,0 +1,23 @@
+{
+    "id": "35701119027880851",
+    "Identification": {
+        "Name": "Process form Department",
+        "Type": "Form - Automatic Row Processing (DML)",
+        "Execution Chain": "None",
+        "Form Region": "Department (35695393557880685)"
+    },
+    "Settings": {
+        "Target Type": "Region Source",
+        "Prevent Lost Updates": true,
+        "Lock Row": "Yes",
+        "Return Primary Key(s) after Insert": true
+    },
+    "Execution": {
+        "Sequence": 10,
+        "Point": "Processing",
+        "Run Process": "Once Per Page Visit (default)"
+    },
+    "Error": {
+        "Display Location": "Inline in Notification"
+    }
+}

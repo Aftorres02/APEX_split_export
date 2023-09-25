@@ -1,0 +1,48 @@
+{
+    "id": "35876886886881166",
+    "Identification": {
+        "Name": "Delete Feedback",
+        "Type": "Invoke API",
+        "Execution Chain": "None"
+    },
+    "Settings": {
+        "Type": "PL/SQL Package",
+        "Owner": "PARSING SCHEMA",
+        "Package": "APEX_UTIL",
+        "Procedure or Function": "DELETE_FEEDBACK"
+    },
+    "Execution": {
+        "Sequence": 20,
+        "Point": "Processing",
+        "Run Process": "Once Per Page Visit (default)"
+    },
+    "Success Message": {
+        "Success Message": "Feedback Deleted"
+    },
+    "Error": {
+        "Display Location": "Inline in Notification"
+    },
+    "Server-side Condition": {
+        "When Button Pressed": "DELETE (35855399660881151)"
+    },
+    "Parameters": [
+        {
+            "id": "35877313819881166",
+            "Identification": {
+                "Name": "p_feedback_id"
+            },
+            "Parameter": {
+                "Direction": "In",
+                "Data Type": "NUMBER",
+                "Has Default": false
+            },
+            "Value": {
+                "Type": "Item",
+                "Item": "P10054_ID"
+            },
+            "Advanced": {
+                "Display Sequence": 1
+            }
+        }
+    ]
+}

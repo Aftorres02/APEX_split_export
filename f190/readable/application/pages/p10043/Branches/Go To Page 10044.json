@@ -1,0 +1,21 @@
+{
+    "id": "35840986068881134",
+    "Identification": {
+        "Name": "Go To Page 10044"
+    },
+    "Execution": {
+        "Sequence": 10,
+        "Point": "After Processing"
+    },
+    "Behavior": {
+        "Type": "Page or URL (Redirect)",
+        "Target": {
+            "url": "f?p=&APP_ID.:10044:&APP_SESSION.::&DEBUG.:RP,10044::&success_msg=#SUCCESS_MSG#",
+            "Page": "10044",
+            "Clear Cache": "RP,10044"
+        }
+    },
+    "Server-side Condition": {
+        "When Button Pressed": "NEXT (35837674882881132)"
+    }
+}

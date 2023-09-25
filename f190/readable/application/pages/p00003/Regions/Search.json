@@ -1,0 +1,452 @@
+{
+    "id": "35674342275879976",
+    "Identification": {
+        "Title": "Search",
+        "Type": "Faceted Search"
+    },
+    "Source": {
+        "Filtered Region": "Employees (35674225168879976)"
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Parent Region": "No Parent",
+        "Position": "REGION_POSITION_02",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "4"
+    },
+    "Appearance": {
+        "Template": "Standard (35465975937879680)",
+        "Template Options": [
+            "#DEFAULT#",
+            "t-Region--noPadding",
+            "t-Region--hideHeader",
+            "t-Region--scrollBody"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default",
+        "Landmark Label": "Filters"
+    },
+    "Advanced": {
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Not Customizable By End Users"
+    },
+    "Attributes": {
+        "Settings": {
+            "Batch Facet Changes": false,
+            "Compact Numbers Threshold": 10000,
+            "Show Current Facets": "Selector",
+            "Current Facets Selector": "#active_facets",
+            "Show Total Row Count": "Yes",
+            "Show Charts": "Dialog",
+            "Display Chart for Top N Values": 10
+        }
+    },
+    "Facets": [
+        {
+            "id": "35674802642879977",
+            "Identification": {
+                "Name": "P3_SEARCH",
+                "Type": "Search"
+            },
+            "Label": {
+                "Label": "Search"
+            },
+            "Settings": {
+                "Search Type": "Row Search",
+                "Input Field": "Top of Faceted Search Region"
+            },
+            "Layout": {
+                "Sequence": 10
+            },
+            "Source": {
+                "Database Column(s)": "ENAME,JOB,MGR,DEPTNO"
+            },
+            "Security": {
+                "Store value encrypted in session state": true
+            }
+        },
+        {
+            "id": "35675595186879986",
+            "Identification": {
+                "Name": "P3_DEPTNO",
+                "Type": "Checkbox Group"
+            },
+            "Label": {
+                "Label": "Department",
+                "Show Label for Current Facet": true
+            },
+            "Layout": {
+                "Sequence": 20
+            },
+            "List of Values": {
+                "Type": "Shared Component",
+                "List of Values": "DEPT.DNAME (35675121171879981)",
+                "Include Null Option": false
+            },
+            "List Entries": {
+                "Compute Counts": true,
+                "Show Counts": true,
+                "Zero Count Entries": "Hide",
+                "Sort By Top Counts": true,
+                "Show Selected First": false,
+                "Maximum Displayed Entries": 7,
+                "Display Filter Initially": false
+            },
+            "Actions Menu": {
+                "Filter": true,
+                "Chart": true
+            },
+            "Advanced": {
+                "Show Chart Initially": false,
+                "Display Toggling": false,
+                "Collapsible": false
+            },
+            "Source": {
+                "Database Column": "DEPTNO",
+                "Data Type": "NUMBER"
+            },
+            "Multiple Values": {
+                "Type": "No"
+            },
+            "Security": {
+                "Store value encrypted in session state": true,
+                "Escape special characters": true
+            }
+        },
+        {
+            "id": "35676190140879986",
+            "Identification": {
+                "Name": "P3_MGR",
+                "Type": "Checkbox Group"
+            },
+            "Label": {
+                "Label": "Manager",
+                "Show Label for Current Facet": true
+            },
+            "Layout": {
+                "Sequence": 30
+            },
+            "List of Values": {
+                "Type": "Shared Component",
+                "List of Values": "EMP.ENAME (35675809656879986)",
+                "Include Null Option": false
+            },
+            "List Entries": {
+                "Compute Counts": true,
+                "Show Counts": true,
+                "Zero Count Entries": "Hide",
+                "Sort By Top Counts": true,
+                "Show Selected First": false,
+                "Maximum Displayed Entries": 7,
+                "Display Filter Initially": false
+            },
+            "Actions Menu": {
+                "Filter": true,
+                "Chart": true
+            },
+            "Advanced": {
+                "Show Chart Initially": false,
+                "Display Toggling": false,
+                "Collapsible": false
+            },
+            "Source": {
+                "Database Column": "MGR",
+                "Data Type": "NUMBER"
+            },
+            "Multiple Values": {
+                "Type": "No"
+            },
+            "Security": {
+                "Store value encrypted in session state": true,
+                "Escape special characters": true
+            }
+        },
+        {
+            "id": "35676569572879987",
+            "Identification": {
+                "Name": "P3_JOB",
+                "Type": "Checkbox Group"
+            },
+            "Label": {
+                "Label": "Job",
+                "Show Label for Current Facet": true
+            },
+            "Layout": {
+                "Sequence": 40
+            },
+            "List of Values": {
+                "Type": "Distinct Values",
+                "Include Null Option": false
+            },
+            "List Entries": {
+                "Compute Counts": true,
+                "Show Counts": true,
+                "Zero Count Entries": "Hide",
+                "Sort By Top Counts": true,
+                "Show Selected First": false,
+                "Maximum Displayed Entries": 7,
+                "Display Filter Initially": false
+            },
+            "Actions Menu": {
+                "Filter": true,
+                "Chart": true
+            },
+            "Advanced": {
+                "Show Chart Initially": false,
+                "Display Toggling": false,
+                "Collapsible": false
+            },
+            "Source": {
+                "Database Column": "JOB",
+                "Data Type": "VARCHAR2"
+            },
+            "Multiple Values": {
+                "Type": "No"
+            },
+            "Security": {
+                "Store value encrypted in session state": true,
+                "Escape special characters": true
+            }
+        },
+        {
+            "id": "35676925054879988",
+            "Identification": {
+                "Name": "P3_SAL",
+                "Type": "Range"
+            },
+            "Label": {
+                "Label": "Salary",
+                "Show Label for Current Facet": true
+            },
+            "Settings": {
+                "Select Multiple": true,
+                "Manual Entry": false
+            },
+            "Layout": {
+                "Sequence": 50
+            },
+            "List of Values": {
+                "Type": "Static Values",
+                "Static Values": "STATIC2:<900;|900,900 - 1#G#300;900|1300,1#G#300 - 2#G#000;1300|2000,2#G#000 - 2#G#500;2000|2500,>=2#G#500;2500|"
+            },
+            "List Entries": {
+                "Compute Counts": true,
+                "Show Counts": true,
+                "Zero Count Entries": "Hide",
+                "Show Selected First": false,
+                "Maximum Displayed Entries": 7,
+                "Display Filter Initially": false
+            },
+            "Actions Menu": {
+                "Filter": true,
+                "Chart": true
+            },
+            "Advanced": {
+                "Show Chart Initially": false,
+                "Display Toggling": false,
+                "Collapsible": false
+            },
+            "Source": {
+                "Database Column": "SAL",
+                "Data Type": "NUMBER"
+            },
+            "Security": {
+                "Store value encrypted in session state": true
+            }
+        }
+    ],
+    "Filters": [
+        {
+            "id": "35674802642879977",
+            "Identification": {
+                "Name": "P3_SEARCH",
+                "Type": "Search"
+            },
+            "Label": {
+                "Label": "Search"
+            },
+            "Settings": {
+                "Search Type": "Row Search",
+                "Collapsed Search Field": false
+            },
+            "Layout": {
+                "Sequence": 10
+            },
+            "Source": {
+                "Database Column(s)": "ENAME,JOB,MGR,DEPTNO"
+            },
+            "Security": {
+                "Store value encrypted in session state": true
+            }
+        },
+        {
+            "id": "35675595186879986",
+            "Identification": {
+                "Name": "P3_DEPTNO",
+                "Type": "Checkbox Group"
+            },
+            "Label": {
+                "Label": "Department"
+            },
+            "Layout": {
+                "Sequence": 20
+            },
+            "List of Values": {
+                "Type": "Shared Component",
+                "List of Values": "DEPT.DNAME (35675121171879981)",
+                "Include Null Option": false
+            },
+            "List Entries": {
+                "Compute Counts": true,
+                "Show Counts": true,
+                "Zero Count Entries": "Hide",
+                "Sort By Top Counts": true,
+                "Show Selected First": false,
+                "Client-Side Filtering": false
+            },
+            "Suggestions": {
+                "Type": "None"
+            },
+            "Source": {
+                "Database Column": "DEPTNO",
+                "Data Type": "NUMBER"
+            },
+            "Multiple Values": {
+                "Type": "No"
+            },
+            "Security": {
+                "Store value encrypted in session state": true,
+                "Escape special characters": true
+            }
+        },
+        {
+            "id": "35676190140879986",
+            "Identification": {
+                "Name": "P3_MGR",
+                "Type": "Checkbox Group"
+            },
+            "Label": {
+                "Label": "Manager"
+            },
+            "Layout": {
+                "Sequence": 30
+            },
+            "List of Values": {
+                "Type": "Shared Component",
+                "List of Values": "EMP.ENAME (35675809656879986)",
+                "Include Null Option": false
+            },
+            "List Entries": {
+                "Compute Counts": true,
+                "Show Counts": true,
+                "Zero Count Entries": "Hide",
+                "Sort By Top Counts": true,
+                "Show Selected First": false,
+                "Client-Side Filtering": false
+            },
+            "Suggestions": {
+                "Type": "None"
+            },
+            "Source": {
+                "Database Column": "MGR",
+                "Data Type": "NUMBER"
+            },
+            "Multiple Values": {
+                "Type": "No"
+            },
+            "Security": {
+                "Store value encrypted in session state": true,
+                "Escape special characters": true
+            }
+        },
+        {
+            "id": "35676569572879987",
+            "Identification": {
+                "Name": "P3_JOB",
+                "Type": "Checkbox Group"
+            },
+            "Label": {
+                "Label": "Job"
+            },
+            "Layout": {
+                "Sequence": 40
+            },
+            "List of Values": {
+                "Type": "Distinct Values",
+                "Include Null Option": false
+            },
+            "List Entries": {
+                "Compute Counts": true,
+                "Show Counts": true,
+                "Zero Count Entries": "Hide",
+                "Sort By Top Counts": true,
+                "Show Selected First": false,
+                "Client-Side Filtering": false
+            },
+            "Suggestions": {
+                "Type": "None"
+            },
+            "Source": {
+                "Database Column": "JOB",
+                "Data Type": "VARCHAR2"
+            },
+            "Multiple Values": {
+                "Type": "No"
+            },
+            "Security": {
+                "Store value encrypted in session state": true,
+                "Escape special characters": true
+            }
+        },
+        {
+            "id": "35676925054879988",
+            "Identification": {
+                "Name": "P3_SAL",
+                "Type": "Range"
+            },
+            "Label": {
+                "Label": "Salary"
+            },
+            "Settings": {
+                "Select Multiple": true,
+                "Manual Entry": false
+            },
+            "Layout": {
+                "Sequence": 50
+            },
+            "List of Values": {
+                "Type": "Static Values",
+                "Static Values": "STATIC2:<900;|900,900 - 1#G#300;900|1300,1#G#300 - 2#G#000;1300|2000,2#G#000 - 2#G#500;2000|2500,>=2#G#500;2500|"
+            },
+            "List Entries": {
+                "Compute Counts": true,
+                "Show Counts": true,
+                "Zero Count Entries": "Hide",
+                "Show Selected First": false,
+                "Client-Side Filtering": false
+            },
+            "Suggestions": {
+                "Type": "None"
+            },
+            "Source": {
+                "Database Column": "SAL",
+                "Data Type": "NUMBER"
+            },
+            "Security": {
+                "Store value encrypted in session state": true
+            }
+        }
+    ]
+}

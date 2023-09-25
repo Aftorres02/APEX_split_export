@@ -1,0 +1,60 @@
+{
+    "id": "35838164401881132",
+    "Identification": {
+        "Title": "&P10044_VALID_COUNT. Users to Add",
+        "Type": "List View"
+    },
+    "Source": {
+        "Location": "Local Database",
+        "Type": "SQL Query",
+        "SQL Query": "select distinct c001 username\n  from apex_collections\n where collection_name = 'ACL_BULK_USER_VALID'\norder by 1"
+    },
+    "Layout": {
+        "Sequence": 50,
+        "Parent Region": "Wizard Container (35837844874881132)",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Blank with Attributes (35399394620879641)",
+        "Template Options": [
+            "#DEFAULT#"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Server-side Condition": {
+        "Type": "Rows returned",
+        "SQL Query": "select 1\n  from apex_collections\n where collection_name = 'ACL_BULK_USER_VALID'"
+    },
+    "Security": {
+        "Escape special characters": true
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Not Customizable By End Users"
+    },
+    "Attributes": {
+        "Settings": {
+            "Features": "Advanced Formatting",
+            "Text Formatting": "<span class=\"fa fa-check-circle u-success-text\" aria-hidden=\"true\"></span> <span style=\"line-height:36px;text-transform:lowercase;\">&USERNAME!HTML.</span>"
+        },
+        "Layout": {
+            "Number of Rows Type": "Static Value",
+            "Number of Rows": 10000
+        }
+    }
+}

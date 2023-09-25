@@ -1,0 +1,154 @@
+{
+    "id": "35667240831879961",
+    "Identification": {
+        "Title": "Total Salary per Department",
+        "Type": "Chart"
+    },
+    "Layout": {
+        "Sequence": 30,
+        "Parent Region": "No Parent",
+        "Position": "BODY",
+        "Start New Layout": false,
+        "Start New Row": true,
+        "Column": "Automatic",
+        "New Column": true,
+        "Column Span": "Automatic"
+    },
+    "Appearance": {
+        "Template": "Standard (35465975937879680)",
+        "Template Options": [
+            "#DEFAULT#",
+            "t-Region--scrollBody"
+        ],
+        "Render Components": "Above Content"
+    },
+    "Accessibility": {
+        "Use Landmark": true,
+        "Landmark Type": "Template Default"
+    },
+    "Advanced": {
+        "Region Display Selector": false,
+        "Exclude Title from Translation": false
+    },
+    "Security": {
+        "Escape special characters": false
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Customization": {
+        "Customizable": "Not Customizable By End Users"
+    },
+    "Attributes": {
+        "id": "35667666215879961",
+        "Chart": {
+            "Type": "Bar"
+        },
+        "Appearance": {
+            "Orientation": "Vertical",
+            "Stack": false
+        },
+        "Data Cursor": {
+            "Cursor": "Automatic",
+            "Behavior": "Automatic",
+            "Dim On Hover": true
+        },
+        "Multi-Series Chart Data": {
+            "Fill Gaps in Chart Data": true,
+            "Sort Order": "Label - Ascending",
+            "Render Gap as Zero": true
+        },
+        "Settings": {
+            "Zoom and Scroll": "No"
+        },
+        "Animation": {
+            "On Display": "Automatic",
+            "On Data Change": "Automatic"
+        },
+        "Tooltip": {
+            "Show": true,
+            "Show Series Name": true,
+            "Show Group Name": true,
+            "Show Value": true
+        },
+        "Legend": {
+            "Show": false
+        },
+        "Series": [
+            {
+                "id": "35669332518879963",
+                "Identification": {
+                    "Name": "Series 1"
+                },
+                "Execution": {
+                    "Sequence": 10
+                },
+                "Source": {
+                    "Location": "Local Database",
+                    "Type": "SQL Query",
+                    "SQL Query": "select DNAME, sum(SAL) value\nfrom EMP_DEPT_V\nwhere SAL is not null\ngroup by DNAME\norder by 2 desc"
+                },
+                "Column Mapping": {
+                    "Label": "DNAME",
+                    "Value": "VALUE"
+                },
+                "Appearance": {
+                    "Assigned To Y2 Axis": false
+                },
+                "Label": {
+                    "Show": false
+                },
+                "Performance": {
+                    "Maximum Rows to Process": 20
+                }
+            }
+        ],
+        "Axes": [
+            {
+                "id": "35668102080879962",
+                "Identification": {
+                    "Name": "x",
+                    "Show Axis": true
+                },
+                "Value": {
+                    "Format Scaling": "Automatic",
+                    "Baseline Scaling": "Zero",
+                    "Scale": "Linear"
+                },
+                "Major Ticks": {
+                    "Show": "Automatic"
+                },
+                "Minor Ticks": {},
+                "Tick Label": {
+                    "Show": true,
+                    "Rotation": true,
+                    "Position": "Outside"
+                }
+            },
+            {
+                "id": "35668727801879963",
+                "Identification": {
+                    "Name": "y",
+                    "Show Axis": true
+                },
+                "Value": {
+                    "Format": "Decimal",
+                    "Decimal Places": 0,
+                    "Format Scaling": "Automatic",
+                    "Baseline Scaling": "Zero",
+                    "Scale": "Linear"
+                },
+                "Appearance": {
+                    "Position": "Automatic"
+                },
+                "Major Ticks": {
+                    "Show": "Automatic"
+                },
+                "Minor Ticks": {},
+                "Tick Label": {
+                    "Show": true
+                }
+            }
+        ]
+    }
+}

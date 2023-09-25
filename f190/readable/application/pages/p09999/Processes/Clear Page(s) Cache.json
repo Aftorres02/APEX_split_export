@@ -1,0 +1,19 @@
+{
+    "id": "35661780778879941",
+    "Identification": {
+        "Name": "Clear Page(s) Cache",
+        "Type": "Clear Session State",
+        "Execution Chain": "None"
+    },
+    "Settings": {
+        "Type": "Clear all Items on the Current Page"
+    },
+    "Execution": {
+        "Sequence": 30,
+        "Point": "Processing",
+        "Run Process": "Once Per Page Visit (default)"
+    },
+    "Error": {
+        "Display Location": "Inline in Notification"
+    }
+}

@@ -1,0 +1,78 @@
+{
+    "id": "10043",
+    "Identification": {
+        "Name": "Add Multiple Users - Step 1",
+        "Alias": "ADD-MULTIPLE-USERS-STEP-1",
+        "Title": "Add Multiple Users",
+        "Page Group": "Administration (35653627005879909)"
+    },
+    "Appearance": {
+        "Page Mode": "Modal Dialog",
+        "Dialog Template": "Theme Default",
+        "Template Options": [
+            "#DEFAULT#"
+        ]
+    },
+    "Dialog": {
+        "Chained": false
+    },
+    "Navigation Menu": {
+        "Override User Interface Level": false
+    },
+    "Navigation": {
+        "Cursor Focus": "First item on page",
+        "Warn on Unsaved Changes": true
+    },
+    "Security": {
+        "Authorization Scheme": "Administration Rights (35652037807879900)",
+        "Authentication": "Page Requires Authentication",
+        "Deep Linking": "Disabled",
+        "Page Access Protection": "Arguments Must Have Checksum",
+        "Form Auto Complete": "Off",
+        "Browser Cache": "Application Default"
+    },
+    "Session Management": {
+        "Rejoin Sessions": "Application Default"
+    },
+    "Advanced": {
+        "Enable duplicate page submissions": "Yes - Enable page to be re-posted",
+        "Reload on Submit": "Only for Success"
+    },
+    "Server Cache": {
+        "Caching": "Disabled"
+    },
+    "Configuration": {
+        "Build Option": "Feature: Access Control (35649324938879894)"
+    },
+    "Dynamic Actions": [
+        {
+            "id": "35839775891881134",
+            "Identification": {
+                "Name": "Cancel Dialog"
+            },
+            "Execution": {
+                "Event Scope": "Static",
+                "Type": "Immediate"
+            },
+            "When": {
+                "Event": "EVENT.EVENT.BROWSER.CLICK",
+                "Selection Type": "Button",
+                "Button": "CANCEL (35839652088881134)"
+            },
+            "Actions": [
+                {
+                    "id": "35840435740881134",
+                    "Identification": {
+                        "Action": "Cancel Dialog"
+                    },
+                    "Execution": {
+                        "Sequence": 10,
+                        "Event": "Cancel Dialog (35839775891881134)",
+                        "Fire When Event Result Is": "True",
+                        "Fire on Initialization": false
+                    }
+                }
+            ]
+        }
+    ]
+}

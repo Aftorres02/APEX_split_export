@@ -1,0 +1,34 @@
+{
+    "id": "35684227836880007",
+    "Identification": {
+        "Name": "P4_EMPNO",
+        "Type": "Hidden"
+    },
+    "Settings": {
+        "Value Protected": true
+    },
+    "Layout": {
+        "Sequence": 10,
+        "Region": "Employee (35683821851880007)",
+        "Position": "BODY"
+    },
+    "Advanced": {
+        "Warn on Unsaved Changes": "Page Default"
+    },
+    "Source": {
+        "Form Region": "Employee (35683821851880007)",
+        "Column": "EMPNO",
+        "Data Type": "NUMBER",
+        "Query Only": true,
+        "Primary Key": true
+    },
+    "Session State": {
+        "Data Type": "VARCHAR2",
+        "Storage": "Per Request (Memory Only)"
+    },
+    "Security": {
+        "Session State Protection": "Checksum Required - Session Level",
+        "Store value encrypted in session state": true,
+        "Restricted Characters": "All characters can be saved."
+    }
+}

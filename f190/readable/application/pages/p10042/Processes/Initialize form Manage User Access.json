@@ -1,0 +1,14 @@
+{
+    "id": "35836257360881131",
+    "Identification": {
+        "Name": "Initialize form Manage User Access",
+        "Type": "Form - Initialization",
+        "Execution Chain": "None",
+        "Form Region": "Form on Manage User Access (35829831333881120)"
+    },
+    "Execution": {
+        "Sequence": 10,
+        "Point": "After Header",
+        "Run Process": "Once Per Page Visit (default)"
+    }
+}
