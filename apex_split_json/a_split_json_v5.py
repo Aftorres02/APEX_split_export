@@ -33,7 +33,7 @@ def create_folders_and_files(input_path):
       os.makedirs(base_folder)
 
   # Subdividir los datos según los nodos 'Regions', 'Page Items' y 'Buttons'
-  for node in ['Regions', 'Page Items', 'Buttons', 'Validations', 'Processes','Branches']:
+  for node in ['Regions', 'Page Items', 'Buttons', 'Validations', 'Processes','Branches','Dynamic Actions']:
     
     # Verificar si el nodo está presente y tiene datos
     if node in all_json_data and all_json_data[node]:
@@ -73,7 +73,7 @@ def create_folders_and_files(input_path):
   
   # Guardar los nodos que no están en la lista en un archivo separado
 
-  other_nodes = {key: value for key, value in all_json_data.items() if key not in ['Regions', 'Page Items', 'Buttons', 'Validations', 'Processes', 'Branches']}
+  other_nodes = {key: value for key, value in all_json_data.items() if key not in ['Regions', 'Page Items', 'Buttons', 'Validations', 'Processes', 'Branches','Dynamic Actions']}
   page_json_name = root_folder + '.json'
   other_file_path = os.path.join(base_folder, page_json_name)
   with open(other_file_path, 'w') as other_file:
