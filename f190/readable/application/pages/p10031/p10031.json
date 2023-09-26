@@ -51,58 +51,5 @@
     },
     "Configuration": {
         "Build Option": "Feature: Activity Reporting (35649423748879894)"
-    },
-    "Dynamic Actions": [
-        {
-            "id": "35790818527881037",
-            "Identification": {
-                "Name": "Refresh Report"
-            },
-            "Execution": {
-                "Event Scope": "Static",
-                "Type": "Immediate"
-            },
-            "When": {
-                "Event": "EVENT.EVENT.BROWSER.CHANGE",
-                "Selection Type": "Item(s)",
-                "Item(s)": [
-                    "P10031_TIMEFRAME"
-                ]
-            },
-            "Actions": [
-                {
-                    "id": "35800232059881059",
-                    "Identification": {
-                        "Action": "Refresh"
-                    },
-                    "Affected Elements": {
-                        "Selection Type": "Region",
-                        "Region": "Top Users (35790676135881037)"
-                    },
-                    "Execution": {
-                        "Sequence": 10,
-                        "Event": "Refresh Report (35790818527881037)",
-                        "Fire When Event Result Is": "True",
-                        "Fire on Initialization": false
-                    }
-                },
-                {
-                    "id": "35803687148881065",
-                    "Identification": {
-                        "Action": "Refresh"
-                    },
-                    "Affected Elements": {
-                        "Selection Type": "Region",
-                        "Region": "Top Users (35790676135881037)"
-                    },
-                    "Execution": {
-                        "Sequence": 30,
-                        "Event": "Refresh Report (35790818527881037)",
-                        "Fire When Event Result Is": "True",
-                        "Fire on Initialization": false
-                    }
-                }
-            ]
-        }
-    ]
+    }
 }

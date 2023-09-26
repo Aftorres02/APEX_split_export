@@ -1,0 +1,33 @@
+{
+    "id": "35681990520880001",
+    "Identification": {
+        "Name": "Edit Report - Dialog Closed"
+    },
+    "Execution": {
+        "Event Scope": "Static",
+        "Type": "Immediate"
+    },
+    "When": {
+        "Event": "EVENT.EVENT.FAMEWORK.APEXAFTERCLOSEDIALOG",
+        "Selection Type": "Region",
+        "Region": "Employees Region Renamed (35674225168879976)"
+    },
+    "Actions": [
+        {
+            "id": "35682441021880003",
+            "Identification": {
+                "Action": "Refresh"
+            },
+            "Affected Elements": {
+                "Selection Type": "Region",
+                "Region": "Employees Region Renamed (35674225168879976)"
+            },
+            "Execution": {
+                "Sequence": 10,
+                "Event": "Edit Report - Dialog Closed (35681990520880001)",
+                "Fire When Event Result Is": "True",
+                "Fire on Initialization": false
+            }
+        }
+    ]
+}

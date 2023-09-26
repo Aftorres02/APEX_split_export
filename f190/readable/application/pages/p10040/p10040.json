@@ -46,36 +46,5 @@
     },
     "Configuration": {
         "Build Option": "Feature: Access Control (35649324938879894)"
-    },
-    "Dynamic Actions": [
-        {
-            "id": "35821009133881108",
-            "Identification": {
-                "Name": "Cancel Dialog"
-            },
-            "Execution": {
-                "Event Scope": "Static",
-                "Type": "Immediate"
-            },
-            "When": {
-                "Event": "EVENT.EVENT.BROWSER.CLICK",
-                "Selection Type": "Button",
-                "Button": "CANCEL (35820910644881108)"
-            },
-            "Actions": [
-                {
-                    "id": "35821772243881109",
-                    "Identification": {
-                        "Action": "Cancel Dialog"
-                    },
-                    "Execution": {
-                        "Sequence": 10,
-                        "Event": "Cancel Dialog (35821009133881108)",
-                        "Fire When Event Result Is": "True",
-                        "Fire on Initialization": false
-                    }
-                }
-            ]
-        }
-    ]
+    }
 }

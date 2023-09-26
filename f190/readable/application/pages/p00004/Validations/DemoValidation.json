@@ -1,0 +1,19 @@
+{
+    "id": "28642946442107515",
+    "Identification": {
+        "Name": "DemoValidation"
+    },
+    "Execution": {
+        "Sequence": 10
+    },
+    "Validation": {
+        "Type": "Expression",
+        "Language": "PL/SQL",
+        "PL/SQL Expression": "1 = 1",
+        "Always Execute": false
+    },
+    "Error": {
+        "Error Message": "Demo error",
+        "Display Location": "Inline with Field and in Notification"
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "id": "35839775891881134",
+    "Identification": {
+        "Name": "Cancel Dialog"
+    },
+    "Execution": {
+        "Event Scope": "Static",
+        "Type": "Immediate"
+    },
+    "When": {
+        "Event": "EVENT.EVENT.BROWSER.CLICK",
+        "Selection Type": "Button",
+        "Button": "CANCEL (35839652088881134)"
+    },
+    "Actions": [
+        {
+            "id": "35840435740881134",
+            "Identification": {
+                "Action": "Cancel Dialog"
+            },
+            "Execution": {
+                "Sequence": 10,
+                "Event": "Cancel Dialog (35839775891881134)",
+                "Fire When Event Result Is": "True",
+                "Fire on Initialization": false
+            }
+        }
+    ]
+}

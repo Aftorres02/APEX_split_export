@@ -14,7 +14,8 @@
     ]
   }
  ,"Dialog":{
-    "Chained":false
+    "Height":"800"
+   ,"Chained":false
   }
  ,"Navigation Menu":{
     "Override User Interface Level":false
@@ -25,8 +26,13 @@
   }
  ,"Security":{
     "Authorization Scheme":"Contribution Rights (35652257643879900)"
-   ,"Authentication":"Page Requires Authentication"
-   ,"Deep Linking":"Application Default"
+   ,"Authentication":"Page Is Public"
+  }
+ ,"Advanced":{
+    "Enable Meta Tags":false
+  }
+ ,"Security":{
+    "Deep Linking":"Application Default"
    ,"Page Access Protection":"Arguments Must Have Checksum"
    ,"Form Auto Complete":"Off"
    ,"Browser Cache":"Application Default"
@@ -732,11 +738,13 @@
        ,"Column Span":"Automatic"
       }
      ,"Appearance":{
-        "Button Template":"Text (35539149230879730)"
+        "Button Template":"Text with Icon (35539275789879730)"
        ,"Hot":true
        ,"Template Options":[
           "#DEFAULT#"
+         ,"t-Button--iconLeft"
         ]
+       ,"Icon":"fa-save"
       }
      ,"Behavior":{
         "Action":"Submit Page"
@@ -752,6 +760,58 @@
   ]
  ,"Dynamic Actions":[
     {
+      "id":"28642706449107513"
+     ,"Identification":{
+        "Name":"onChangeMGR"
+      }
+     ,"Execution":{
+        "Sequence":20
+      }
+     ,"When":{
+        "Event":"EVENT.EVENT.BROWSER.CHANGE"
+       ,"Selection Type":"Item(s)"
+       ,"Item(s)":[
+          "P4_MGR"
+        ]
+      }
+     ,"Client-side Condition":{
+        "Type":"Item = Value"
+       ,"Item":"P4_MGR"
+       ,"Value":"7782"
+      }
+     ,"Execution":{
+        "Event Scope":"Static"
+       ,"Type":"Immediate"
+      }
+     ,"Actions":[
+        {
+          "id":"28642891991107514"
+         ,"Identification":{
+            "Action":"Set Value"
+          }
+         ,"Settings":{
+            "Set Type":"Static Assignment"
+           ,"Value":"9999"
+           ,"Suppress Change Event":false
+          }
+         ,"Affected Elements":{
+            "Selection Type":"Item(s)"
+           ,"Item(s)":[
+              "P4_SAL"
+            ]
+          }
+         ,"Execution":{
+            "Sequence":10
+           ,"Event":"onChangeMGR (28642706449107513)"
+           ,"Fire When Event Result Is":"True"
+           ,"Fire on Initialization":false
+           ,"Stop Execution On Error":true
+           ,"Wait For Result":true
+          }
+        }
+      ]
+    }
+   ,{
       "id":"35690109511880187"
      ,"Identification":{
         "Name":"Cancel Dialog"
@@ -782,6 +842,27 @@
           }
         }
       ]
+    }
+  ]
+ ,"Validations":[
+    {
+      "id":"28642946442107515"
+     ,"Identification":{
+        "Name":"DemoValidation"
+      }
+     ,"Execution":{
+        "Sequence":10
+      }
+     ,"Validation":{
+        "Type":"Expression"
+       ,"Language":"PL\/SQL"
+       ,"PL\/SQL Expression":"1 = 1"
+       ,"Always Execute":false
+      }
+     ,"Error":{
+        "Error Message":"Demo error"
+       ,"Display Location":"Inline with Field and in Notification"
+      }
     }
   ]
  ,"Processes":[

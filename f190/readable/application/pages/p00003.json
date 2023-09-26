@@ -40,7 +40,7 @@
     {
       "id":"35674225168879976"
      ,"Identification":{
-        "Title":"Employees"
+        "Title":"Employees Region Renamed"
        ,"Type":"Classic Report"
       }
      ,"Source":{
@@ -331,7 +331,7 @@
             "Value Identifies Row":false
           }
          ,"Appearance":{
-            "Format Mask":"999G999G999G999G999G999G999G999G999G990"
+            "Format Mask":"FML999G999G999G999G990D00"
           }
          ,"Sorting":{
             "Sortable":true
@@ -367,7 +367,7 @@
             "Value Identifies Row":false
           }
          ,"Appearance":{
-            "Format Mask":"9990"
+            "Format Mask":"FML999G999G999G999G990D00"
           }
          ,"Sorting":{
             "Sortable":true
@@ -431,7 +431,7 @@
        ,"Type":"Faceted Search"
       }
      ,"Source":{
-        "Filtered Region":"Employees (35674225168879976)"
+        "Filtered Region":"Employees Region Renamed (35674225168879976)"
       }
      ,"Layout":{
         "Sequence":10
@@ -995,7 +995,7 @@
       }
      ,"Appearance":{
         "Button Template":"Text with Icon (35539275789879730)"
-       ,"Hot":false
+       ,"Hot":true
        ,"Template Options":[
           "#DEFAULT#"
          ,"t-Button--noUI"
@@ -1021,7 +1021,7 @@
       }
      ,"Layout":{
         "Sequence":10
-       ,"Region":"Employees (35674225168879976)"
+       ,"Region":"Employees Region Renamed (35674225168879976)"
        ,"Position":"EDIT"
        ,"Start New Layout":false
        ,"Start New Row":true
@@ -1030,11 +1030,13 @@
        ,"Column Span":"Automatic"
       }
      ,"Appearance":{
-        "Button Template":"Text (35539149230879730)"
-       ,"Hot":true
+        "Button Template":"Text with Icon (35539275789879730)"
+       ,"Hot":false
        ,"Template Options":[
           "#DEFAULT#"
+         ,"t-Button--iconLeft"
         ]
+       ,"Icon":"fa-plus-square-o"
       }
      ,"Behavior":{
         "Action":"Redirect to Page in this Application"
@@ -1059,7 +1061,7 @@
      ,"When":{
         "Event":"EVENT.EVENT.FAMEWORK.APEXAFTERCLOSEDIALOG"
        ,"Selection Type":"Region"
-       ,"Region":"Employees (35674225168879976)"
+       ,"Region":"Employees Region Renamed (35674225168879976)"
       }
      ,"Execution":{
         "Event Scope":"Static"
@@ -1073,7 +1075,7 @@
           }
          ,"Affected Elements":{
             "Selection Type":"Region"
-           ,"Region":"Employees (35674225168879976)"
+           ,"Region":"Employees Region Renamed (35674225168879976)"
           }
          ,"Execution":{
             "Sequence":10

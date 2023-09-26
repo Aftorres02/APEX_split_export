@@ -1,0 +1,49 @@
+{
+    "id": "28642706449107513",
+    "Identification": {
+        "Name": "onChangeMGR"
+    },
+    "Execution": {
+        "Event Scope": "Static",
+        "Type": "Immediate"
+    },
+    "When": {
+        "Event": "EVENT.EVENT.BROWSER.CHANGE",
+        "Selection Type": "Item(s)",
+        "Item(s)": [
+            "P4_MGR"
+        ]
+    },
+    "Client-side Condition": {
+        "Type": "Item = Value",
+        "Item": "P4_MGR",
+        "Value": "7782"
+    },
+    "Actions": [
+        {
+            "id": "28642891991107514",
+            "Identification": {
+                "Action": "Set Value"
+            },
+            "Settings": {
+                "Set Type": "Static Assignment",
+                "Value": "9999",
+                "Suppress Change Event": false
+            },
+            "Affected Elements": {
+                "Selection Type": "Item(s)",
+                "Item(s)": [
+                    "P4_SAL"
+                ]
+            },
+            "Execution": {
+                "Sequence": 10,
+                "Event": "onChangeMGR (28642706449107513)",
+                "Fire When Event Result Is": "True",
+                "Fire on Initialization": false,
+                "Stop Execution On Error": true,
+                "Wait For Result": true
+            }
+        }
+    ]
+}

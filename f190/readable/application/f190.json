@@ -27,7 +27,7 @@
   }
  ,"Authentication":{
     "Public User":"APEX_PUBLIC_USER"
-   ,"Authentication Scheme":"Oracle APEX Accounts (35362379547879597)"
+   ,"Authentication Scheme":"db (35916768046938448)"
   }
  ,"Authorization":{
     "Authorization Scheme":"Reader Rights (35652102512879900)"

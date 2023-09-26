@@ -14,6 +14,7 @@
         ]
     },
     "Dialog": {
+        "Height": "800",
         "Chained": false
     },
     "Navigation Menu": {
@@ -24,52 +25,19 @@
         "Warn on Unsaved Changes": true
     },
     "Security": {
-        "Authorization Scheme": "Contribution Rights (35652257643879900)",
-        "Authentication": "Page Requires Authentication",
         "Deep Linking": "Application Default",
         "Page Access Protection": "Arguments Must Have Checksum",
         "Form Auto Complete": "Off",
         "Browser Cache": "Application Default"
     },
-    "Session Management": {
-        "Rejoin Sessions": "Application Default"
-    },
     "Advanced": {
         "Enable duplicate page submissions": "Yes - Enable page to be re-posted",
         "Reload on Submit": "Only for Success"
     },
+    "Session Management": {
+        "Rejoin Sessions": "Application Default"
+    },
     "Server Cache": {
         "Caching": "Disabled"
-    },
-    "Dynamic Actions": [
-        {
-            "id": "35690109511880187",
-            "Identification": {
-                "Name": "Cancel Dialog"
-            },
-            "Execution": {
-                "Event Scope": "Static",
-                "Type": "Immediate"
-            },
-            "When": {
-                "Event": "EVENT.EVENT.BROWSER.CLICK",
-                "Selection Type": "Button",
-                "Button": "CANCEL (35690068770880187)"
-            },
-            "Actions": [
-                {
-                    "id": "35690962538880189",
-                    "Identification": {
-                        "Action": "Cancel Dialog"
-                    },
-                    "Execution": {
-                        "Sequence": 10,
-                        "Event": "Cancel Dialog (35690109511880187)",
-                        "Fire When Event Result Is": "True",
-                        "Fire on Initialization": false
-                    }
-                }
-            ]
-        }
-    ]
+    }
 }

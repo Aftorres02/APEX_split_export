@@ -46,36 +46,5 @@
     },
     "Configuration": {
         "Build Option": "Feature: Feedback (35649554480879894)"
-    },
-    "Dynamic Actions": [
-        {
-            "id": "35857035308881153",
-            "Identification": {
-                "Name": "Cancel Dialog"
-            },
-            "Execution": {
-                "Event Scope": "Static",
-                "Type": "Immediate"
-            },
-            "When": {
-                "Event": "EVENT.EVENT.BROWSER.CLICK",
-                "Selection Type": "Button",
-                "Button": "CANCEL (35856922205881153)"
-            },
-            "Actions": [
-                {
-                    "id": "35857729766881153",
-                    "Identification": {
-                        "Action": "Cancel Dialog"
-                    },
-                    "Execution": {
-                        "Sequence": 10,
-                        "Event": "Cancel Dialog (35857035308881153)",
-                        "Fire When Event Result Is": "True",
-                        "Fire on Initialization": false
-                    }
-                }
-            ]
-        }
-    ]
+    }
 }

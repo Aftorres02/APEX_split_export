@@ -6,7 +6,7 @@
     },
     "Layout": {
         "Sequence": 10,
-        "Region": "Employees (35674225168879976)",
+        "Region": "Employees Region Renamed (35674225168879976)",
         "Position": "EDIT",
         "Start New Layout": false,
         "Start New Row": true,
@@ -15,11 +15,13 @@
         "Column Span": "Automatic"
     },
     "Appearance": {
-        "Button Template": "Text (35539149230879730)",
-        "Hot": true,
+        "Button Template": "Text with Icon (35539275789879730)",
+        "Hot": false,
         "Template Options": [
-            "#DEFAULT#"
-        ]
+            "#DEFAULT#",
+            "t-Button--iconLeft"
+        ],
+        "Icon": "fa-plus-square-o"
     },
     "Behavior": {
         "Action": "Redirect to Page in this Application",

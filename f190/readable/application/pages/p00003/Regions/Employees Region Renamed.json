@@ -1,7 +1,7 @@
 {
     "id": "35674225168879976",
     "Identification": {
-        "Title": "Employees",
+        "Title": "Employees Region Renamed",
         "Type": "Classic Report"
     },
     "Source": {
@@ -292,7 +292,7 @@
                 "Value Identifies Row": false
             },
             "Appearance": {
-                "Format Mask": "999G999G999G999G999G999G999G999G999G990"
+                "Format Mask": "FML999G999G999G999G990D00"
             },
             "Sorting": {
                 "Sortable": true
@@ -328,7 +328,7 @@
                 "Value Identifies Row": false
             },
             "Appearance": {
-                "Format Mask": "9990"
+                "Format Mask": "FML999G999G999G999G990D00"
             },
             "Sorting": {
                 "Sortable": true

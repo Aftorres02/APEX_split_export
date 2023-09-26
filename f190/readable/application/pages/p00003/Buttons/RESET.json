@@ -16,7 +16,7 @@
     },
     "Appearance": {
         "Button Template": "Text with Icon (35539275789879730)",
-        "Hot": false,
+        "Hot": true,
         "Template Options": [
             "#DEFAULT#",
             "t-Button--noUI",

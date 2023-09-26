@@ -15,11 +15,13 @@
         "Column Span": "Automatic"
     },
     "Appearance": {
-        "Button Template": "Text (35539149230879730)",
+        "Button Template": "Text with Icon (35539275789879730)",
         "Hot": true,
         "Template Options": [
-            "#DEFAULT#"
-        ]
+            "#DEFAULT#",
+            "t-Button--iconLeft"
+        ],
+        "Icon": "fa-save"
     },
     "Behavior": {
         "Action": "Submit Page",

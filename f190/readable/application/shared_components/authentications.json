@@ -17,4 +17,22 @@
       "RAS Mode":"Disabled"
     }
   }
+ ,{
+    "id":"35916768046938448"
+   ,"Identification":{
+      "Name":"db"
+    }
+   ,"Settings":{
+      "Type":"Database Accounts"
+    }
+   ,"Session Not Valid":{
+      "Redirect to":"Login Page"
+    }
+   ,"Login Processing":{
+      "Switch in Session":false
+    }
+   ,"Real Application Security":{
+      "RAS Mode":"Disabled"
+    }
+  }
 ]
